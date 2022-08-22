@@ -1,6 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{19B0CD82-E871-4AC1-95E6-261D6261E874}" SchemaVersion="110">
 	<Events>
-		<WorkUnit Name="Default Work Unit" ID="{19B0CD82-E871-4AC1-95E6-261D6261E874}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{19B0CD82-E871-4AC1-95E6-261D6261E874}" PersistMode="Standalone">
+			<ChildrenList>
+				<Event Name="Play_DungeonAmbience" ID="{27B08BE1-9FDE-4CC0-BFF0-79A0932E0D2F}">
+					<ChildrenList>
+						<Action Name="" ID="{063CBF71-2C5F-43F2-8659-D66C40C77F91}" ShortID="292747612">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="DungeonAmbiance" ID="{0F9305B2-DE2A-41FB-A309-961492527340}" WorkUnitID="{DD6B140F-0321-4AF7-81C6-B8E0A5C8F93D}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{D0664E93-35E6-4BF8-BABF-10F279F15B72}" ShortID="767411260">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Waterdrops" ID="{CA3F2274-1F13-4580-B610-DFDE0C2BAB49}" WorkUnitID="{DD6B140F-0321-4AF7-81C6-B8E0A5C8F93D}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+			</ChildrenList>
+		</WorkUnit>
 	</Events>
 </WwiseDocument>
