@@ -66,7 +66,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: 8e4f66b589979341a9758fc582d8ef42
     GuidInternal: 
-    m_lastTime: -8585404257220010186
+    m_lastTime: -8585404120498725763
     List:
     - name: Main
       guid: 39d7839d2e21374980c4dbcf6c26361d
@@ -94,8 +94,25 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: 82cdb01971e8c14a95e6261d6261e874
     GuidInternal: 
-    m_lastTime: -8585404262135905125
+    m_lastTime: -8585404120723098248
     List:
+    - name: MusicTest
+      guid: bb901e22f07835439e4f36c5be388bf9
+      id: 4195921398
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 82cdb01971e8c14a95e6261d6261e874
+      - ElementName: MusicTest
+        ObjectType: 3
+        guid: bb901e22f07835439e4f36c5be388bf9
+      Path: Events\Default Work Unit\MusicTest
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
     - name: Play_DungeonAmbience
       guid: e18bb027de9fc04cbff079a0932e0d2f
       id: 4258174524

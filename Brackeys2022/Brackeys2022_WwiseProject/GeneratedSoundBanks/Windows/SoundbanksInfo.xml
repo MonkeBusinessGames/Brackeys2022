@@ -22,7 +22,7 @@
 				<Bus Id="3803692087" Name="Master Audio Bus"/>
 			</Busses>
 		</SoundBank>
-		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{62A745AD-A67B-1428-AF91-2AC5602EADD0}">
+		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{8C597385-5FD2-794C-481C-CDAE61F0ED23}">
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
 			<Media>
@@ -37,6 +37,10 @@
 				<File Id="349328889" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>DungeonAmbience2.wav</ShortName>
 					<CachePath>SFX/DungeonAmbience2_D79FB2B7.wem</CachePath>
+				</File>
+				<File Id="389286914" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>MusicTest.wav</ShortName>
+					<CachePath>SFX/MusicTest_D79FB2B7.wem</CachePath>
 				</File>
 				<File Id="793106254" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>WaterDrop2.wav</ShortName>
@@ -53,6 +57,11 @@
 				</Sharesets>
 			</Plugins>
 			<Events>
+				<Event Id="4195921398" Name="MusicTest" DurationType="Infinite">
+					<MediaRefs>
+						<MediaRef Id="389286914"/>
+					</MediaRefs>
+				</Event>
 				<Event Id="4258174524" Name="Play_DungeonAmbience" DurationType="Infinite">
 					<MediaRefs>
 						<MediaRef Id="200315710"/>
@@ -70,5 +79,5 @@
 			</Events>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{F19C7871-3B5B-C559-587F-E3119A7FF2F2}</FileHash>
+	<FileHash>{529E28A1-BE20-42DD-2B32-0D3B72083A6F}</FileHash>
 </SoundBanksInfo>

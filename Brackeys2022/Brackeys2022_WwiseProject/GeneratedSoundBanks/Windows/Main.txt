@@ -1,4 +1,5 @@
 Event	ID	Name			Wwise Object Path	Notes
+	4195921398	MusicTest			\Default Work Unit\MusicTest	
 	4258174524	Play_DungeonAmbience			\Default Work Unit\Play_DungeonAmbience	
 
 Effect plug-ins	ID	Name	Type				Notes
@@ -8,6 +9,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	200315710	Amb_Dungeon	P:\Unity\Brackeys2022\Brackeys2022\Brackeys2022_WwiseProject\.cache\Windows\SFX\DungeonAmbience_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\DungeonAmbiance\Amb_Dungeon		5956596
 	213181015	WaterDrop3	P:\Unity\Brackeys2022\Brackeys2022\Brackeys2022_WwiseProject\.cache\Windows\SFX\WaterDrop3_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\DungeonAmbiance\Waterdrops\WaterDrop3		57368
 	349328889	DungeonAmbience2	P:\Unity\Brackeys2022\Brackeys2022\Brackeys2022_WwiseProject\.cache\Windows\SFX\DungeonAmbience2_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\DungeonAmbiance\DungeonAmbience2		2148964
+	389286914	MusicTest	P:\Unity\Brackeys2022\Brackeys2022\Brackeys2022_WwiseProject\.cache\Windows\SFX\MusicTest_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\MusicTest		1536096
 	793106254	WaterDrop2	P:\Unity\Brackeys2022\Brackeys2022\Brackeys2022_WwiseProject\.cache\Windows\SFX\WaterDrop2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\DungeonAmbiance\Waterdrops\WaterDrop2		61072
 	1013361031	WaterDrop1	P:\Unity\Brackeys2022\Brackeys2022\Brackeys2022_WwiseProject\.cache\Windows\SFX\WaterDrop1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\DungeonAmbiance\Waterdrops\WaterDrop1		89176
 
