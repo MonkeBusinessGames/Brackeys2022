@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SoundBanksInfo Platform="Mac" BasePlatform="Mac" SchemaVersion="16" SoundBankVersion="144">
+	<RootPaths>
+		<ProjectRoot>../..</ProjectRoot>
+		<SourceFilesRoot>../../.cache/Mac</SourceFilesRoot>
+		<SoundBanksRoot>.</SoundBanksRoot>
+		<ExternalSourcesInputFile></ExternalSourcesInputFile>
+		<ExternalSourcesOutputRoot>.</ExternalSourcesOutputRoot>
+	</RootPaths>
+	<DialogueEvents/>
+	<SoundBanks>
+		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{2765AAEB-0C89-D874-A023-7B53F1DDB384}">
+			<ShortName>Init</ShortName>
+			<Path>Init.bnk</Path>
+			<Plugins>
+				<AudioDevices>
+					<Plugin Id="2317455096" Name="No_Output" LibName="No Output" LibId="11862023"/>
+					<Plugin Id="3859886410" Name="System" LibName="System" LibId="11403271"/>
+				</AudioDevices>
+			</Plugins>
+			<Busses>
+				<Bus Id="3803692087" Name="Master Audio Bus"/>
+			</Busses>
+		</SoundBank>
+		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{62A745AD-A67B-1428-AF91-2AC5602EADD0}">
+			<ShortName>Main</ShortName>
+			<Path>Main.bnk</Path>
+			<Media>
+				<File Id="200315710" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>DungeonAmbience.wav</ShortName>
+					<CachePath>SFX/DungeonAmbience_D79FB2B7.wem</CachePath>
+				</File>
+				<File Id="213181015" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>WaterDrop3.wav</ShortName>
+					<CachePath>SFX/WaterDrop3_10C4C929.wem</CachePath>
+				</File>
+				<File Id="349328889" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>DungeonAmbience2.wav</ShortName>
+					<CachePath>SFX/DungeonAmbience2_D79FB2B7.wem</CachePath>
+				</File>
+				<File Id="793106254" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>WaterDrop2.wav</ShortName>
+					<CachePath>SFX/WaterDrop2_10C4C929.wem</CachePath>
+				</File>
+				<File Id="1013361031" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>WaterDrop1.wav</ShortName>
+					<CachePath>SFX/WaterDrop1_10C4C929.wem</CachePath>
+				</File>
+			</Media>
+			<Plugins>
+				<Sharesets>
+					<Plugin Id="3701691487" Name="Hall_Large_Bright" LibName="Wwise RoomVerb" LibId="7733251"/>
+				</Sharesets>
+			</Plugins>
+			<Events>
+				<Event Id="4258174524" Name="Play_DungeonAmbience" DurationType="Infinite">
+					<MediaRefs>
+						<MediaRef Id="200315710"/>
+						<MediaRef Id="213181015"/>
+						<MediaRef Id="349328889"/>
+						<MediaRef Id="793106254"/>
+						<MediaRef Id="1013361031"/>
+					</MediaRefs>
+					<PluginRefs>
+						<Sharesets>
+							<PluginRef Id="3701691487"/>
+						</Sharesets>
+					</PluginRefs>
+				</Event>
+			</Events>
+		</SoundBank>
+	</SoundBanks>
+	<FileHash>{621460A6-3953-E589-99EB-5CC2A2468B46}</FileHash>
+</SoundBanksInfo>

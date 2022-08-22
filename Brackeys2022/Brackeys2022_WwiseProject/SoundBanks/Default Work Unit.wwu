@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{B5664F8E-9789-4193-A975-8FC582D8EF42}" SchemaVersion="110">
+	<SoundBanks>
+		<WorkUnit Name="Default Work Unit" ID="{B5664F8E-9789-4193-A975-8FC582D8EF42}" PersistMode="Standalone">
+			<ChildrenList>
+				<SoundBank Name="Main" ID="{9D83D739-212E-4937-80C4-DBCF6C26361D}">
+					<ObjectInclusionList>
+						<ObjectRef Name="Play_DungeonAmbience" ID="{27B08BE1-9FDE-4CC0-BFF0-79A0932E0D2F}" WorkUnitID="{19B0CD82-E871-4AC1-95E6-261D6261E874}" Origin="Manual" Filter="7"/>
+					</ObjectInclusionList>
+					<ObjectExclusionList/>
+					<GameSyncExclusionList/>
+				</SoundBank>
+			</ChildrenList>
+		</WorkUnit>
+	</SoundBanks>
+</WwiseDocument>
