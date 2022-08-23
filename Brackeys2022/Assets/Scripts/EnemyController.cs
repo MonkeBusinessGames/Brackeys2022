@@ -7,17 +7,21 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private SpriteRenderer sRend;
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Animator anim;
+    [SerializeField] private BoxCollider2D attackRange;
     [SerializeField] private float speed = 3;
     [SerializeField] private float idleTime = 1;
     [SerializeField] private float walkTime = 4;
     [SerializeField] private float knockBackForce = 5;
     [SerializeField] private float health = 10;
     [SerializeField] private float recoveryTime = .5f;
+    [SerializeField] private float attackPower = 3;
+    private static PlayerController player;
     private float timer;
     private EnemyState state;
 
     void Start()
     {
+        player = FindObjectOfType<PlayerController>();
         state = EnemyState.Idle;
         timer = 0;
     }
@@ -33,6 +37,7 @@ public class EnemyController : MonoBehaviour
                     state = EnemyState.Walking;
                     speed *= -1;
                     sRend.flipX = !sRend.flipX;
+                    attackRange.offset *= Vector2.left;
                     SetAnimation();
                     timer = 0;
                     rb.velocity = new Vector2(speed, rb.velocity.y);
@@ -56,7 +61,6 @@ public class EnemyController : MonoBehaviour
                     SetAnimation();
                     timer = 0;
                 }
-                return;
                 break;
         }
     }
@@ -64,6 +68,24 @@ public class EnemyController : MonoBehaviour
     void FixedUpdate()
     {
 
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.tag == "Player")
+        {
+            if (state == (EnemyState.Idle | EnemyState.Walking))
+            {
+                state = EnemyState.Attack;
+                SetAnimation();
+                rb.velocity = new Vector2(0, rb.velocity.y);
+            }
+        }
+    }
+
+    public void HitCheck()
+    {
+        player.DamageCheck(attackRange, attackPower);
     }
 
     public void TakeDamage(float damageDealt, Vector2 playerPosition)
@@ -78,7 +100,11 @@ public class EnemyController : MonoBehaviour
         SetAnimation();
     }
 
-
+    public void attackEnd()
+    {
+        state = EnemyState.Idle;
+        SetAnimation();
+    }
     private void SetAnimation()
     {
         switch (state)

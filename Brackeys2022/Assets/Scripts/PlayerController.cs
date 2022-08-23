@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
 
     //Components
@@ -21,13 +21,13 @@ public class PlayerMovement : MonoBehaviour
     private PlayerState state;
 
     //Combat Fields
-    [SerializeField] private BoxCollider2D hitCheck;
+    [SerializeField] private BoxCollider2D attackRange;
+    [SerializeField] private BoxCollider2D hitBox;
     [SerializeField] private ContactFilter2D enemies;
     [SerializeField] private float health = 100;
     [SerializeField] private float attackPower = 10;
     [SerializeField] private float knockBackForce = 100;
     [SerializeField] private float recoveryTime = .5f;
-    [SerializeField] private float attackTime = .5f;
     private float timer;
 
     [SerializeField] private TMP_Text healthText;
@@ -53,16 +53,7 @@ public class PlayerMovement : MonoBehaviour
             return;
         }
         else if (state == PlayerState.Attack)
-        {
-            timer += Time.deltaTime;
-            if (timer >= attackTime)
-            {
-                state = PlayerState.Idle;
-                SetAnimation();
-                timer = 0;
-            }
             return;
-        }
 
         //Get Walk Input
         movementX = Input.GetAxis("Horizontal");
@@ -173,13 +164,14 @@ public class PlayerMovement : MonoBehaviour
             if (state != PlayerState.Hit)
             {
                 state = PlayerState.Hit;
-                SetAnimation();
                 rb.velocity = Vector2.zero;
                 rb.AddForce((transform.position - collision.transform.position).normalized * knockBackForce, ForceMode2D.Impulse);
                 health -= 1;
                 healthText.text = "Health: " + health.ToString();
                 if (health <= 0)
                     state = PlayerState.Die;
+
+                SetAnimation();
             }
         }
     }
@@ -188,11 +180,31 @@ public class PlayerMovement : MonoBehaviour
     {
 
         List<Collider2D> hitEnemies = new List<Collider2D>();
-        print(hitCheck.OverlapCollider(enemies, hitEnemies));
+        attackRange.OverlapCollider(enemies, hitEnemies);
         for(int i = 0; i < hitEnemies.Count; i++)
         {
             hitEnemies[i].GetComponent<EnemyController>().TakeDamage(attackPower, transform.position);
         }
+    }
+    public void DamageCheck(BoxCollider2D enemyRange, float damage)
+    {
+        if (hitBox.IsTouching(enemyRange))
+        {
+            state = PlayerState.Hit;
+            rb.velocity = Vector2.zero;
+            rb.AddForce((transform.position - enemyRange.transform.position).normalized * knockBackForce, ForceMode2D.Impulse);
+            health -= damage;
+            healthText.text = "Health: " + health.ToString();
+            if (health <= 0)
+                state = PlayerState.Die;
+            SetAnimation();
+        }
+    }
+
+    public void attackEnd()
+    {
+            state = PlayerState.Idle;
+            SetAnimation();
     }
 
     private void SetAnimation()
