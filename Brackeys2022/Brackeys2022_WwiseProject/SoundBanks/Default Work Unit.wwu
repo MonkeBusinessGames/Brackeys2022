@@ -6,6 +6,7 @@
 				<SoundBank Name="Main" ID="{9D83D739-212E-4937-80C4-DBCF6C26361D}">
 					<ObjectInclusionList>
 						<ObjectRef Name="MusicTest" ID="{221E90BB-78F0-4335-9E4F-36C5BE388BF9}" WorkUnitID="{19B0CD82-E871-4AC1-95E6-261D6261E874}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_Footstep" ID="{3BD47F5E-71CA-48A9-963C-665FF75E62FE}" WorkUnitID="{19B0CD82-E871-4AC1-95E6-261D6261E874}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_DungeonAmbience" ID="{27B08BE1-9FDE-4CC0-BFF0-79A0932E0D2F}" WorkUnitID="{19B0CD82-E871-4AC1-95E6-261D6261E874}" Origin="Manual" Filter="7"/>
 					</ObjectInclusionList>
 					<ObjectExclusionList/>

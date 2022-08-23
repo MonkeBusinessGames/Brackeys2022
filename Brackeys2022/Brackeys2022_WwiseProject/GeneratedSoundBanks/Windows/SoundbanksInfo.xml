@@ -22,7 +22,7 @@
 				<Bus Id="3803692087" Name="Master Audio Bus"/>
 			</Busses>
 		</SoundBank>
-		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{8512D066-8154-8CA0-6E49-5A020431154E}">
+		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{47D9A74F-2524-CC5E-A7B0-06294F12D54F}">
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
 			<Media>
@@ -33,6 +33,10 @@
 				<File Id="213181015" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>WaterDrop3.wav</ShortName>
 					<CachePath>SFX/WaterDrop3_10C4C929.wem</CachePath>
+				</File>
+				<File Id="229760830" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>FS3.wav</ShortName>
+					<CachePath>SFX/FS3_10C4C929.wem</CachePath>
 				</File>
 				<File Id="349328889" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>DungeonAmbience2.wav</ShortName>
@@ -49,6 +53,14 @@
 				<File Id="1013361031" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>WaterDrop1.wav</ShortName>
 					<CachePath>SFX/WaterDrop1_10C4C929.wem</CachePath>
+				</File>
+				<File Id="1027695882" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>FS1.wav</ShortName>
+					<CachePath>SFX/FS1_10C4C929.wem</CachePath>
+				</File>
+				<File Id="1073268692" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>FS2.wav</ShortName>
+					<CachePath>SFX/FS2_10C4C929.wem</CachePath>
 				</File>
 			</Media>
 			<Plugins>
@@ -70,6 +82,13 @@
 						<MediaRef Id="793106254"/>
 						<MediaRef Id="1013361031"/>
 					</MediaRefs>
+				</Event>
+				<Event Id="1602358412" Name="Play_Footstep" DurationType="OneShot" DurationMin="0.068933025" DurationMax="0.16698247">
+					<MediaRefs>
+						<MediaRef Id="229760830"/>
+						<MediaRef Id="1027695882"/>
+						<MediaRef Id="1073268692"/>
+					</MediaRefs>
 					<PluginRefs>
 						<Sharesets>
 							<PluginRef Id="3701691487"/>
@@ -79,5 +98,5 @@
 			</Events>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{61153562-A85B-24CF-EF60-FA96C9E61428}</FileHash>
+	<FileHash>{1006A71A-7D69-CDEF-7E0A-5606CE5591AA}</FileHash>
 </SoundBanksInfo>

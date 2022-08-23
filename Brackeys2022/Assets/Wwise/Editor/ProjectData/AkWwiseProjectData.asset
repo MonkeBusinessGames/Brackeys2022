@@ -24,7 +24,7 @@ MonoBehaviour:
     ParentPath: Virtual Acoustics\Default Work Unit
     guid: d04be096c1fc6f4d8499df73adca2350
     GuidInternal: 
-    m_lastTime: -8585403912097389106
+    m_lastTime: -8585403437340229776
     List: []
   AuxBusWwu:
   - PhysicalPath: Master-Mixer Hierarchy\Default Work Unit.wwu
@@ -38,7 +38,7 @@ MonoBehaviour:
     ParentPath: Master-Mixer Hierarchy\Default Work Unit
     guid: 7de379ab294c8b4bb89e8859415a296b
     GuidInternal: 
-    m_lastTime: -8585403912099309431
+    m_lastTime: -8585403437342204955
     List:
     - name: Master Audio Bus
       guid: d8a41415a61d2a41a17e75ca0c2149f3
@@ -66,7 +66,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: 8e4f66b589979341a9758fc582d8ef42
     GuidInternal: 
-    m_lastTime: -8585403912097438981
+    m_lastTime: -8585403222789574144
     List:
     - name: Main
       guid: 39d7839d2e21374980c4dbcf6c26361d
@@ -94,7 +94,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: 82cdb01971e8c14a95e6261d6261e874
     GuidInternal: 
-    m_lastTime: -8585403912101049939
+    m_lastTime: -8585403222922809016
     List:
     - name: MusicTest
       guid: bb901e22f07835439e4f36c5be388bf9
@@ -130,6 +130,23 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
+    - name: Play_Footstep
+      guid: 5e7fd43bca71a948963c665ff75e62fe
+      id: 1602358412
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 82cdb01971e8c14a95e6261d6261e874
+      - ElementName: Play_Footstep
+        ObjectType: 3
+        guid: 5e7fd43bca71a948963c665ff75e62fe
+      Path: Events\Default Work Unit\Play_Footstep
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
   RtpcWwu:
   - PhysicalPath: Game Parameters\Default Work Unit.wwu
     PathAndIcons:
@@ -142,7 +159,7 @@ MonoBehaviour:
     ParentPath: Game Parameters\Default Work Unit
     guid: 205402400bc290468fc2df91a19f2658
     GuidInternal: 
-    m_lastTime: -8585403912101039966
+    m_lastTime: -8585403437344087411
     List: []
   StateWwu:
   - PhysicalPath: States\Default Work Unit.wwu
@@ -156,7 +173,7 @@ MonoBehaviour:
     ParentPath: States\Default Work Unit
     guid: 7ff882f59c21b04cb0b552e2c6215aac
     GuidInternal: 
-    m_lastTime: -8585403912097419029
+    m_lastTime: -8585403437340329923
     List: []
   SwitchWwu:
   - PhysicalPath: Switches\Default Work Unit.wwu
@@ -170,7 +187,7 @@ MonoBehaviour:
     ParentPath: Switches\Default Work Unit
     guid: 96a9b9778e552a4889c708902bae0359
     GuidInternal: 
-    m_lastTime: -8585403912097399085
+    m_lastTime: -8585403437340289856
     List: []
   TriggerWwu:
   - PhysicalPath: Triggers\Default Work Unit.wwu
@@ -184,10 +201,10 @@ MonoBehaviour:
     ParentPath: Triggers\Default Work Unit
     guid: dfa3e3eb1c0a8b42868d2f685f8e381b
     GuidInternal: 
-    m_lastTime: -8585403912097399085
+    m_lastTime: -8585403437340259800
     List: []
   ExpandedFileSystemItemIds: 
-  ExpandedWaapiItemIds: 
+  ExpandedWaapiItemIds: 0600000007000000
   AutoSyncSelection: 0
   autoPopulateEnabled: 1
   currentDataSource: 0

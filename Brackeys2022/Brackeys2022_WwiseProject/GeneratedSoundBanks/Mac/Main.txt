@@ -1,4 +1,5 @@
 Event	ID	Name			Wwise Object Path	Notes
+	1602358412	Play_Footstep			\Default Work Unit\Play_Footstep	
 	4195921398	MusicTest			\Default Work Unit\MusicTest	
 	4258174524	Play_DungeonAmbience			\Default Work Unit\Play_DungeonAmbience	
 
@@ -8,8 +9,11 @@ Effect plug-ins	ID	Name	Type				Notes
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	200315710	Amb_Dungeon	P:\Unity\Brackeys2022\Brackeys2022\Brackeys2022_WwiseProject\.cache\Mac\SFX\DungeonAmbience_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\DungeonAmbiance\Amb_Dungeon		5956596
 	213181015	WaterDrop3	P:\Unity\Brackeys2022\Brackeys2022\Brackeys2022_WwiseProject\.cache\Mac\SFX\WaterDrop3_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\DungeonAmbiance\Waterdrops\WaterDrop3		57368
+	229760830	FS3	P:\Unity\Brackeys2022\Brackeys2022\Brackeys2022_WwiseProject\.cache\Mac\SFX\FS3_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Footsteps\FS3		23682
 	349328889	DungeonAmbience2	P:\Unity\Brackeys2022\Brackeys2022\Brackeys2022_WwiseProject\.cache\Mac\SFX\DungeonAmbience2_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\DungeonAmbiance\DungeonAmbience2		2148964
 	389286914	MusicTest	P:\Unity\Brackeys2022\Brackeys2022\Brackeys2022_WwiseProject\.cache\Mac\SFX\MusicTest_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\MusicTest		1536096
 	793106254	WaterDrop2	P:\Unity\Brackeys2022\Brackeys2022\Brackeys2022_WwiseProject\.cache\Mac\SFX\WaterDrop2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\DungeonAmbiance\Waterdrops\WaterDrop2		61072
 	1013361031	WaterDrop1	P:\Unity\Brackeys2022\Brackeys2022\Brackeys2022_WwiseProject\.cache\Mac\SFX\WaterDrop1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\DungeonAmbiance\Waterdrops\WaterDrop1		89176
+	1027695882	FS1	P:\Unity\Brackeys2022\Brackeys2022\Brackeys2022_WwiseProject\.cache\Mac\SFX\FS1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Footsteps\FS1		23300
+	1073268692	FS2	P:\Unity\Brackeys2022\Brackeys2022\Brackeys2022_WwiseProject\.cache\Mac\SFX\FS2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Footsteps\FS2		36924
 

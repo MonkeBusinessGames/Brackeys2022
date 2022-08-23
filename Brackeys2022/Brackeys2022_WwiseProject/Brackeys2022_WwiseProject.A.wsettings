@@ -3,7 +3,7 @@
 	<UserProjectSettingsInfo>
 		<UserProjectSettings Name="" ID="{3F33D97A-8039-4A85-A018-F36D3D6EBEE7}">
 			<PropertyList>
-				<Property Name="AudioFilesImporter\Path" Type="string" Value="P:\Unity Brackeys SFX\"/>
+				<Property Name="AudioFilesImporter\Path" Type="string" Value="P:\Unity Brackeys SFX\Footsteps\"/>
 				<Property Name="Event Action List\{11F1324A-2684-4AE5-AC11-66739247EF5E}\x64_Expand States" Type="string" Value=""/>
 				<Property Name="Event Action List\{221E90BB-78F0-4335-9E4F-36C5BE388BF9}\x64_Expand States" Type="string" Value=""/>
 				<Property Name="Event Action List\{27B08BE1-9FDE-4CC0-BFF0-79A0932E0D2F}\x64_Expand States" Type="string" Value=""/>
