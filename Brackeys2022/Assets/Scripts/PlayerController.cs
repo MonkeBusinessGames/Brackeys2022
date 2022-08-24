@@ -36,9 +36,15 @@ public class PlayerController : MonoBehaviour
 
     [Header("Long/Double Jump Fields")]
     [Range(0, 1)]
-    [SerializeField] private float jumpHoldTime;    // By how many percent will the jump force increase, if the player holds for whole defined duration. 0s - 0%; 0.5s - 50%; 1s - 200%
-    [SerializeField] private bool holdToJump;   
-    [SerializeField] private bool doubleJump;
+    [Tooltip("By how many percent will the jump force increase, if the player holds for whole defined duration. 0s - 0%; 0.5s - 50%; 1s - 200%")]
+    [SerializeField] private float jumpHoldTime;
+
+    [Tooltip("Enables: Hold To Jump")]
+    [SerializeField] private bool holdToJump;
+
+    [Tooltip("Enables: Double Jump")]
+    [SerializeField] private bool doubleJump; 
+    
     private int totalJumpCount = 1;             // 1- single jump, 2 - double, 3 - triple, etc.
     private int jumpCount = 0;                  // For tracking jumps, don't change
     private float jumpTimeCounter = 0;          // Final hold jump value, which will be added to jumpForce
