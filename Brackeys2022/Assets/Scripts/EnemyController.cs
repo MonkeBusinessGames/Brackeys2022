@@ -4,22 +4,51 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
+
+    [Header("General Components")]
     [SerializeField] private SpriteRenderer sRend;
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Animator anim;
+
+
+    [Header("Movement Fields")]
+    [SerializeField] private Vector2[] points;
+    private int pointIndex = 0;
+    private Vector2 targetWaypoint;
     [SerializeField] private float speed = 3;
     [SerializeField] private float idleTime = 1;
-    [SerializeField] private float walkTime = 4;
+    private bool facingLeft;
+
+
+    [Header("Combat Fields")]
+    [SerializeField] private Transform attackRange;
+    [SerializeField] private BoxCollider2D detectRange;
     [SerializeField] private float knockBackForce = 5;
     [SerializeField] private float health = 10;
     [SerializeField] private float recoveryTime = .5f;
+    [SerializeField] private float attackPower = 3;
+    private static PlayerController player;
+
     private float timer;
     private EnemyState state;
 
     void Start()
     {
+        player = FindObjectOfType<PlayerController>();
         state = EnemyState.Idle;
         timer = 0;
+        targetWaypoint = points[pointIndex];
+        facingLeft = false;
+    }
+
+    private void OnEnable()
+    {
+        PlayerController.OnHideEnd += DetectPlayer;
+    }
+
+    private void OnDisable()
+    {
+        PlayerController.OnHideEnd -= DetectPlayer;
     }
 
     void Update()
@@ -27,43 +56,64 @@ public class EnemyController : MonoBehaviour
         switch (state)
         {
             case EnemyState.Idle:
-                timer += Time.deltaTime;
-                if(timer >= idleTime)
-                {
-                    state = EnemyState.Walking;
-                    speed *= -1;
-                    sRend.flipX = !sRend.flipX;
-                    SetAnimation();
-                    timer = 0;
-                    rb.velocity = new Vector2(speed, rb.velocity.y);
-                }
+                Idling();
                 break;
             case EnemyState.Walking:
-                timer += Time.deltaTime;
-                if (timer >= walkTime)
-                {
-                    state = EnemyState.Idle;
-                    SetAnimation();
-                    rb.velocity = new Vector2(0, rb.velocity.y);
-                    timer = 0;
-                }
+                Walking();
+                break;
+            case EnemyState.Chasing:
+                Chasing();
                 break;
             case EnemyState.Hit:
-                timer += Time.deltaTime;
-                if (timer >= recoveryTime)
-                {
-                    state = EnemyState.Idle;
-                    SetAnimation();
-                    timer = 0;
-                }
-                return;
                 break;
         }
     }
 
-    void FixedUpdate()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (collision.CompareTag("Player"))
+        {
+            if (state == EnemyState.Die)
+                return;
+            state = EnemyState.Chasing;
+            SetAnimation();
+        }
+    }
 
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            if (state == EnemyState.Die)
+                return;
+            state = EnemyState.Idle;
+            SetAnimation();
+            targetWaypoint = points[pointIndex];
+            FlipCheck();
+        }
+    }
+
+    private void DetectPlayer()
+    {
+        if (state == EnemyState.Die)
+            return;
+        if (detectRange.IsTouchingLayers(128))
+        {
+            state = EnemyState.Chasing;
+            SetAnimation();
+        }
+    }
+    private void StartAttack()
+    {
+        state = EnemyState.Attack;
+        SetAnimation();
+        rb.velocity = new Vector2(0, rb.velocity.y);
+    } 
+
+    public void HitCheck()
+    {
+        if(Physics2D.OverlapBox(attackRange.position, attackRange.localScale, 0, 128) != null)
+            player.DamageCheck(attackRange, attackPower);
     }
 
     public void TakeDamage(float damageDealt, Vector2 playerPosition)
@@ -77,7 +127,14 @@ public class EnemyController : MonoBehaviour
             state = EnemyState.Die;
         SetAnimation();
     }
-
+    
+    public void AnimationEnd()
+    {
+        state = EnemyState.Idle;
+        if (detectRange.IsTouchingLayers(128))
+            state = EnemyState.Chasing;
+        SetAnimation();
+    }
 
     private void SetAnimation()
     {
@@ -87,6 +144,9 @@ public class EnemyController : MonoBehaviour
                 anim.SetInteger("State", 0);
                 break;
             case EnemyState.Walking:
+                anim.SetInteger("State", 1);
+                break;
+            case EnemyState.Chasing:
                 anim.SetInteger("State", 1);
                 break;
             case EnemyState.Hit:
@@ -109,12 +169,104 @@ public class EnemyController : MonoBehaviour
         Destroy(gameObject);
     }
 
+
+    /// <summary>Move towards the player</summary>
+    private void Chasing()
+    {
+        if (player.hidden)
+        {
+            state = EnemyState.Idle;
+            SetAnimation();
+            targetWaypoint = points[pointIndex];
+            FlipCheck();
+            return;
+        }
+        targetWaypoint = player.transform.position;
+        FlipCheck();
+        if (Physics2D.OverlapBox(attackRange.position, attackRange.localScale, 0, 128) != null)
+            StartAttack();
+        SetAnimation();
+
+    }
+
+    /// <summary>Checks whether the walk is over</summary>
+    private void Walking()
+    {
+        //print(transform.position.x - targetWaypoint.x);
+        if (facingLeft)
+        {
+            if (transform.position.x <= targetWaypoint.x)
+            {
+                pointIndex++;
+                pointIndex = pointIndex % points.Length;
+                targetWaypoint = points[pointIndex];
+                state = EnemyState.Idle;
+                rb.velocity = Vector2.zero;
+                SetAnimation();
+            }
+        }
+        else if (transform.position.x >= targetWaypoint.x)
+        {
+            pointIndex++;
+            pointIndex = pointIndex % points.Length;
+            targetWaypoint = points[pointIndex];
+            state = EnemyState.Idle;
+            rb.velocity = Vector2.zero;
+            SetAnimation();
+        }
+    }
+    /// <summary>Checks whether idling is over</summary>
+    private void Idling()
+    {
+        timer += Time.deltaTime;
+        if (timer >= idleTime)
+        {
+            state = EnemyState.Walking;
+            FlipCheck();
+            timer = 0;
+        }
+    }
+
+    /// <summary>Checks if it's facing right direction</summary>
+    private void FlipCheck()
+    {
+        if (facingLeft)
+        {
+            if (targetWaypoint.x > transform.position.x)
+            {
+                facingLeft = sRend.flipX = false;
+                attackRange.localPosition = Vector2.right;
+            }
+        }
+        else
+            if (targetWaypoint.x < transform.position.x)
+        {
+            facingLeft = sRend.flipX = true;
+            attackRange.localPosition = Vector2.left;
+        }
+
+        if(facingLeft)
+            rb.velocity = new Vector2(-1*speed, 0);
+        else
+            rb.velocity = new Vector2(speed, 0);
+    }
+
+    /// <summary> Allows the editor to show the transform points </summary>
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.green;
+        Gizmos.DrawSphere(new Vector2(points[0].x, transform.position.y), .2f);
+        Gizmos.DrawSphere(new Vector2(points[1].x, transform.position.y), .2f);
+        Gizmos.DrawLine(new Vector2(points[0].x, transform.position.y), new Vector2(points[1].x, transform.position.y));
+        Gizmos.DrawWireCube(attackRange.position, attackRange.localScale);
+    }
 }
 
 public enum EnemyState
 {
     Idle,
     Walking,
+    Chasing,
     Hit,
     Die,
     Attack
