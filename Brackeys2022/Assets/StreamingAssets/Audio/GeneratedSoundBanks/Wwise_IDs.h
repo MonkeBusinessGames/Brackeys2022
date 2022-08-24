@@ -15,6 +15,9 @@ namespace AK
     {
         static const AkUniqueID MUSICTEST = 4195921398U;
         static const AkUniqueID PLAY_DUNGEONAMBIENCE = 4258174524U;
+        static const AkUniqueID PLAY_FOOTSTEP = 1602358412U;
+        static const AkUniqueID SKELETONATTACK = 4153337164U;
+        static const AkUniqueID SKELETONSTEPS = 2032018185U;
     } // namespace EVENTS
 
     namespace BANKS
