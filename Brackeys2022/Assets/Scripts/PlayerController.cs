@@ -6,12 +6,13 @@ using TMPro;
 public class PlayerController : MonoBehaviour
 {
 
-    //Components
+
+    [Header("General Components")]
     [SerializeField] private SpriteRenderer sRend;
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Animator anim;
 
-    //Movement Fields
+    [Header("Movement Fields")]
     [SerializeField] private float speed;
     [SerializeField] private float jumpForce;
     [SerializeField] private BoxCollider2D groundCheck;
@@ -20,7 +21,7 @@ public class PlayerController : MonoBehaviour
     private bool flip;
     private PlayerState state;
 
-    //Combat Fields
+    [Header("Combat Fields")]
     [SerializeField] private BoxCollider2D attackRange;
     [SerializeField] private BoxCollider2D hitBox;
     [SerializeField] private ContactFilter2D enemies;
@@ -41,18 +42,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if (state == PlayerState.Hit)
-        {
-            timer += Time.deltaTime;
-            if(timer >= recoveryTime)
-            {
-                state = PlayerState.Idle;
-                SetAnimation();
-                timer = 0;
-            }
-            return;
-        }
-        else if (state == PlayerState.Attack)
+        if (state == (PlayerState.Hit | PlayerState.Attack))
             return;
 
         //Get Walk Input
@@ -186,25 +176,22 @@ public class PlayerController : MonoBehaviour
             hitEnemies[i].GetComponent<EnemyController>().TakeDamage(attackPower, transform.position);
         }
     }
-    public void DamageCheck(BoxCollider2D enemyRange, float damage)
+    public void DamageCheck(Transform enemyRange, float damage)
     {
-        if (hitBox.IsTouching(enemyRange))
-        {
             state = PlayerState.Hit;
             rb.velocity = Vector2.zero;
-            rb.AddForce((transform.position - enemyRange.transform.position).normalized * knockBackForce, ForceMode2D.Impulse);
+            rb.AddForce((transform.position - enemyRange.position).normalized * knockBackForce, ForceMode2D.Impulse);
             health -= damage;
             healthText.text = "Health: " + health.ToString();
             if (health <= 0)
                 state = PlayerState.Die;
             SetAnimation();
-        }
     }
 
-    public void attackEnd()
+    public void animationEnd()
     {
-            state = PlayerState.Idle;
-            SetAnimation();
+        state = PlayerState.Idle;
+        SetAnimation();
     }
 
     private void SetAnimation()
