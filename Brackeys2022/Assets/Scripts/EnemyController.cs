@@ -41,6 +41,16 @@ public class EnemyController : MonoBehaviour
         facingLeft = false;
     }
 
+    private void OnEnable()
+    {
+        PlayerController.OnHideEnd += DetectPlayer;
+    }
+
+    private void OnDisable()
+    {
+        PlayerController.OnHideEnd -= DetectPlayer;
+    }
+
     void Update()
     {
         switch (state)
@@ -59,23 +69,23 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-    void FixedUpdate()
-    {
-
-    }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.tag == "Player")
         {
-                state = EnemyState.Chasing;
-                SetAnimation();
+            if (state == EnemyState.Die)
+                return;
+            state = EnemyState.Chasing;
+            SetAnimation();
         }
     }
+
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
+            if (state == EnemyState.Die)
+                return;
             state = EnemyState.Idle;
             SetAnimation();
             targetWaypoint = points[pointIndex];
@@ -83,6 +93,16 @@ public class EnemyController : MonoBehaviour
         }
     }
 
+    private void DetectPlayer()
+    {
+        if (state == EnemyState.Die)
+            return;
+        if (detectRange.IsTouchingLayers(128))
+        {
+            state = EnemyState.Chasing;
+            SetAnimation();
+        }
+    }
     private void StartAttack()
     {
         state = EnemyState.Attack;
@@ -107,7 +127,7 @@ public class EnemyController : MonoBehaviour
             state = EnemyState.Die;
         SetAnimation();
     }
-
+    
     public void animationEnd()
     {
         state = EnemyState.Idle;
@@ -153,6 +173,14 @@ public class EnemyController : MonoBehaviour
     /// <summary>Move towards the player</summary>
     private void Chasing()
     {
+        if (player.hidden)
+        {
+            state = EnemyState.Idle;
+            SetAnimation();
+            targetWaypoint = points[pointIndex];
+            FlipCheck();
+            return;
+        }
         targetWaypoint = player.transform.position;
         FlipCheck();
         if (Physics2D.OverlapBox(attackRange.position, attackRange.localScale, 0, 128) != null)

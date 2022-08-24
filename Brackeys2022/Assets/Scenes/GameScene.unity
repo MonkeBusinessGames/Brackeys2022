@@ -185,7 +185,9 @@ MonoBehaviour:
 
     Jump - Space
 
-    Attack - C'
+    Attack - C
+
+    Hide - X'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -287396,7 +287398,7 @@ GameObject:
   m_Component:
   - component: {fileID: 897863451}
   - component: {fileID: 897863452}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GroundCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -287431,7 +287433,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.8}
+  m_Offset: {x: 0, y: -0.7}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -287442,7 +287444,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.9, y: 0.1}
+  m_Size: {x: 0.8, y: 0.2}
   m_EdgeRadius: 0
 --- !u!1 &965858317
 GameObject:
@@ -424388,7 +424390,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.2}
+  m_Size: {x: 0.9, y: 1.1}
   m_EdgeRadius: 0
 --- !u!50 &1208507363
 Rigidbody2D:
@@ -424432,6 +424434,7 @@ MonoBehaviour:
   ground:
     serializedVersion: 2
     m_Bits: 64
+  hidden: 0
   attackRange: {fileID: 439249882}
   hitBox: {fileID: 1208507362}
   enemies:

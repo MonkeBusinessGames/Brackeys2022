@@ -5,7 +5,8 @@ using TMPro;
 
 public class PlayerController : MonoBehaviour
 {
-
+    public delegate void PlayerAction();
+    public static event PlayerAction OnHideEnd;
 
     [Header("General Components")]
     [SerializeField] private SpriteRenderer sRend;
@@ -20,6 +21,7 @@ public class PlayerController : MonoBehaviour
     private float movementX;
     private bool flip;
     private PlayerState state;
+    public bool hidden;
 
     [Header("Combat Fields")]
     [SerializeField] private BoxCollider2D attackRange;
@@ -64,6 +66,10 @@ public class PlayerController : MonoBehaviour
         switch (state)
         {
             case PlayerState.Idle:
+                //Handle Hide Input
+                if (HideCheck())
+                    break;
+
                 //Start Jumping
                 if (Input.GetButtonDown("Jump"))
                     state = PlayerState.JumpStart;
@@ -75,6 +81,10 @@ public class PlayerController : MonoBehaviour
                 }
                 break;
             case PlayerState.Walking:
+                //Handle Hide Input
+                if (HideCheck())
+                    break;
+
                 //Start Jumping
                 if (Input.GetButtonDown("Jump"))
                     state = PlayerState.JumpStart;
@@ -96,13 +106,17 @@ public class PlayerController : MonoBehaviour
                 break;
             case PlayerState.Falling:
                 break;
+            case PlayerState.Hit:
+                //Handle Hide Input
+                HideCheck();
+                break;
         }
             
     }
 
     void FixedUpdate()
     {
-        if (state == PlayerState.Hit)
+        if (state == (PlayerState.Hit | PlayerState.Attack))
             return;
 
         //Set Velocity
@@ -149,7 +163,11 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.collider.tag == "Enemy")
+
+        if (hidden)
+            return;
+
+        if (collision.collider.tag == "Enemy")
         {
             if (state != PlayerState.Hit)
             {
@@ -168,7 +186,6 @@ public class PlayerController : MonoBehaviour
 
     public void HitCheck() 
     {
-
         List<Collider2D> hitEnemies = new List<Collider2D>();
         attackRange.OverlapCollider(enemies, hitEnemies);
         for(int i = 0; i < hitEnemies.Count; i++)
@@ -192,6 +209,38 @@ public class PlayerController : MonoBehaviour
     {
         state = PlayerState.Idle;
         SetAnimation();
+    }
+
+    private bool HideCheck()
+    {
+        if (hidden)
+        {
+            if (state == PlayerState.Hit)
+            {
+                sRend.color = Color.white;
+                hidden = false;
+                speed *= 4;
+                Physics2D.IgnoreLayerCollision(3, 7, false);
+                OnHideEnd();
+            }
+            else if (Input.GetButtonUp("Hide"))
+            {
+                sRend.color = Color.white;
+                hidden = false;
+                speed *= 4;
+                Physics2D.IgnoreLayerCollision(3, 7, false);
+                OnHideEnd();
+            }
+            return true;
+        }
+        else if (Input.GetButtonDown("Hide"))
+        {
+            sRend.color = Color.grey;
+            hidden = true;
+            speed /= 4;
+            Physics2D.IgnoreLayerCollision(3, 7, true);
+        }
+        return false;
     }
 
     private void SetAnimation()
