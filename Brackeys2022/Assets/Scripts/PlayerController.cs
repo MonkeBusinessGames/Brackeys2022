@@ -42,7 +42,9 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if (state == (PlayerState.Hit | PlayerState.Attack))
+        if (state == (PlayerState.Hit))
+            return; 
+        if (state == ( PlayerState.Attack))
             return;
 
         //Get Walk Input
@@ -114,7 +116,7 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (state == (PlayerState.Hit | PlayerState.Attack))
+        if (state == (PlayerState.Hit))
             return;
 
         //Set Velocity
