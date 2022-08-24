@@ -225,7 +225,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 106607911}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -20.55, y: -3.19, z: 0}
+  m_LocalPosition: {x: 15.5, y: 34, z: 0}
   m_LocalScale: {x: -2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -255,7 +255,9 @@ MonoBehaviour:
   ground:
     serializedVersion: 2
     m_Bits: 64
-  hitCheck: {fileID: 1968805605}
+  hidden: 0
+  attackRange: {fileID: 0}
+  hitBox: {fileID: 0}
   enemies:
     useTriggers: 1
     useLayerMask: 1
@@ -274,8 +276,9 @@ MonoBehaviour:
   attackPower: 5
   knockBackForce: 5
   recoveryTime: 0.5
-  attackTime: 0.7
   healthText: {fileID: 1937011791}
+  jumpTime: 0.5
+  holdJump: 1
 --- !u!61 &106607916
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -737,7 +740,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: -0.00000033628592, z: -5.9525764e-29, w: 1}
-  m_LocalPosition: {x: -20.549992, y: -2.19, z: -10}
+  m_LocalPosition: {x: 15.500007, y: 35, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -424542,7 +424545,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1145743740}
   m_LocalRotation: {x: 0, y: -0.00000033628592, z: -5.9525764e-29, w: 1}
-  m_LocalPosition: {x: -20.549992, y: -2.19, z: -10}
+  m_LocalPosition: {x: 15.500007, y: 35, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -424730,6 +424733,8 @@ MonoBehaviour:
   knockBackForce: 5
   recoveryTime: 0.5
   healthText: {fileID: 1937011791}
+  jumpTime: 0
+  holdJump: 0
 --- !u!95 &1208507365
 Animator:
   serializedVersion: 4
