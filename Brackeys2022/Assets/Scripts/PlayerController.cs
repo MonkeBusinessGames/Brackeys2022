@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.Rendering.Universal;
 
 public class PlayerController : MonoBehaviour
 {
@@ -33,6 +34,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float recoveryTime = .5f;
 
     [SerializeField] private TMP_Text healthText;
+    [SerializeField] private GameObject hideMat;
+    private float currentHideValue;
+
+    private float transition;
 
     void Start()
     {
@@ -111,6 +116,7 @@ public class PlayerController : MonoBehaviour
                 HideCheck();
                 break;
         }
+            hideMat.GetComponent<SpriteRenderer>().material.SetFloat("_ShadowIntensity", currentHideValue);
             
     }
 
@@ -228,6 +234,7 @@ public class PlayerController : MonoBehaviour
                 sRend.color = Color.white;
                 hidden = false;
                 speed *= 4;
+                currentHideValue = 0f;
                 Physics2D.IgnoreLayerCollision(3, 7, false);
                 OnHideEnd();
             }
@@ -238,6 +245,7 @@ public class PlayerController : MonoBehaviour
             sRend.color = Color.grey;
             hidden = true;
             speed /= 4;
+            currentHideValue = 1f;
             Physics2D.IgnoreLayerCollision(3, 7, true);
         }
         return false;
@@ -281,3 +289,5 @@ public enum PlayerState
     Die,
     Attack,
 }
+
+

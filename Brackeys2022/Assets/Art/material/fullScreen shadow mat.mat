@@ -38,14 +38,17 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _FullScreenIntensity: 0.298
-    - _cellDensity: 10.37
-    - _cellSize: 1.93
-    - _cellsSpeed: 0.76
-    - _twirlAmount: 0.21
-    - _twirlSize: 16.65
-    - _twirlSpeed: 0.4
+    - _FullScreenIntensity: 0.497
+    - _ShadowIntensity: 1
+    - _cellDensity: 13.82
+    - _cellDistance: 2.24
+    - _cellSize: 2.23
+    - _cellsSpeed: 1.36
+    - _twirlAmount: 0.31
+    - _twirlDistance: 6.68
+    - _twirlSize: 17.1
+    - _twirlSpeed: 1.43
     - _twirlStrength: 8.87
     m_Colors:
-    - _Color: {r: 0.7174622, g: 0.47830814, b: 2.6306946, a: 0}
+    - _Color: {r: 0.3137255, g: 0.17254902, b: 0.9411765, a: 0}
   m_BuildTextureStacks: []
