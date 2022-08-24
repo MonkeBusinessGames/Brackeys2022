@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.Tilemaps;
 
 public class PlayerController : MonoBehaviour
 {
@@ -34,8 +35,17 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private TMP_Text healthText;
 
+    [Header("Jumping Fields")]
+    private int totalJumpCount = 2;
+    private int jumpCount = 0;
+
+    private float jumpTimeCounter;
+    [SerializeField] private float jumpTime;
+    private bool isJumping;
+
     void Start()
     {
+        jumpCount = totalJumpCount;
         state = PlayerState.Idle;
         flip = false;
     }
@@ -67,13 +77,32 @@ public class PlayerController : MonoBehaviour
         {
             case PlayerState.Idle:
                 //Handle Hide Input
+                jumpCount = totalJumpCount;
                 if (HideCheck())
                     break;
 
                 //Start Jumping
-                if (Input.GetButtonDown("Jump"))
+                if (Input.GetButtonDown("Jump") && !isJumping)
+                {
+                    isJumping = true;
+                    jumpTimeCounter = jumpTime;
                     state = PlayerState.JumpStart;
-                else if (Input.GetButtonDown("Attack"))
+                }
+
+                if (Input.GetKey(KeyCode.Space) && isJumping)
+                {
+                    if(jumpTimeCounter > 0)
+                    {
+                        state = PlayerState.JumpStart;
+                        jumpTimeCounter -= Time.deltaTime;
+                    }
+                    else
+                    {
+                        isJumping = false;
+                    }
+                }
+                
+                if (Input.GetButtonDown("Attack"))
                 {
                     state = PlayerState.Attack;
                     SetAnimation();
@@ -100,11 +129,18 @@ public class PlayerController : MonoBehaviour
             case PlayerState.Jumping:
                 //Short Jump
                 if (Input.GetButtonUp("Jump"))
+                {
                     state = PlayerState.JumpStop;
+                }
                 break;
             case PlayerState.JumpStop:
                 break;
             case PlayerState.Falling:
+                if (Input.GetButtonDown("Jump") && jumpCount > 1)
+                {
+                    state = PlayerState.JumpStart;
+                    jumpCount--;
+                }
                 break;
             case PlayerState.Hit:
                 //Handle Hide Input
@@ -163,7 +199,6 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-
         if (hidden)
             return;
 
@@ -182,6 +217,11 @@ public class PlayerController : MonoBehaviour
                 SetAnimation();
             }
         }
+    }
+
+    public void AddExtraJumps(int extraJumpCount)
+    {
+        totalJumpCount += extraJumpCount;
     }
 
     public void HitCheck() 
