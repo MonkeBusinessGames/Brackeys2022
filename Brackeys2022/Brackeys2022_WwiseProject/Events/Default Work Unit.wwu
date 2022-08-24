@@ -43,6 +43,39 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Folder Name="Enemies" ID="{816C41CA-0398-4488-94D1-86C1D539683A}" ShortID="787782388">
+					<ChildrenList>
+						<Event Name="SkeletonAttack" ID="{71C9E154-3433-4C87-87AA-8EEEE18688E2}">
+							<ChildrenList>
+								<Action Name="" ID="{A2E57DD2-D491-4A7C-81FE-1E7178E04B27}" ShortID="537941091">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Skeleton_Sword_Woosh" ID="{02F66F00-E9B9-440E-8A31-C90688A825FC}" WorkUnitID="{DD6B140F-0321-4AF7-81C6-B8E0A5C8F93D}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{9EE83A89-CBB9-4E4D-A158-A05EF89CB048}" ShortID="752201247">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Skeleton_Bone_Rattle" ID="{12538195-1BA9-4CAE-8E44-015A2A3805D6}" WorkUnitID="{DD6B140F-0321-4AF7-81C6-B8E0A5C8F93D}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="SkeletonSteps" ID="{0281C1F8-3E84-417B-BCAC-832CCD9B1906}">
+							<ChildrenList>
+								<Action Name="" ID="{6906581A-6A42-40D4-864D-1B072E564FDE}" ShortID="37461630">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Skelly_FS" ID="{71E034B5-7509-499D-BBDF-305EB989E824}" WorkUnitID="{DD6B140F-0321-4AF7-81C6-B8E0A5C8F93D}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+					</ChildrenList>
+				</Folder>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>
