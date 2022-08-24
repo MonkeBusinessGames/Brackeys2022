@@ -71,7 +71,7 @@ public class EnemyController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag == "Player")
+        if (collision.CompareTag("Player"))
         {
             if (state == EnemyState.Die)
                 return;
@@ -128,7 +128,7 @@ public class EnemyController : MonoBehaviour
         SetAnimation();
     }
     
-    public void animationEnd()
+    public void AnimationEnd()
     {
         state = EnemyState.Idle;
         if (detectRange.IsTouchingLayers(128))

@@ -31,7 +31,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float attackPower = 10;
     [SerializeField] private float knockBackForce = 100;
     [SerializeField] private float recoveryTime = .5f;
-    private float timer;
 
     [SerializeField] private TMP_Text healthText;
 
@@ -39,7 +38,6 @@ public class PlayerController : MonoBehaviour
     {
         state = PlayerState.Idle;
         flip = false;
-        timer = 0;
     }
 
     void Update()
@@ -167,7 +165,7 @@ public class PlayerController : MonoBehaviour
         if (hidden)
             return;
 
-        if (collision.collider.tag == "Enemy")
+        if (collision.collider.CompareTag("Enemy"))
         {
             if (state != PlayerState.Hit)
             {
@@ -205,7 +203,7 @@ public class PlayerController : MonoBehaviour
             SetAnimation();
     }
 
-    public void animationEnd()
+    public void AnimationEnd()
     {
         state = PlayerState.Idle;
         SetAnimation();
