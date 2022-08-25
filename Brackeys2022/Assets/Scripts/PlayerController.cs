@@ -12,6 +12,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private SpriteRenderer sRend;
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Animator anim;
+    [SerializeField] private SpriteRenderer wingBack;
+    [SerializeField] private SpriteRenderer wingFront;
+
 
     [Header("Movement Fields")]
     [SerializeField] private float speed;
@@ -22,6 +25,7 @@ public class PlayerController : MonoBehaviour
     private bool flip;
     private PlayerState state;
     public bool hidden;
+    private bool doubleJumped;
 
     [Header("Combat Fields")]
     [SerializeField] private BoxCollider2D attackRange;
@@ -38,6 +42,8 @@ public class PlayerController : MonoBehaviour
     {
         state = PlayerState.Idle;
         flip = false;
+        doubleJumped = false;
+        hidden = false;
     }
 
     void Update()
@@ -54,12 +60,12 @@ public class PlayerController : MonoBehaviour
         if (flip)
         {
             if (movementX > 0)
-                flip = sRend.flipX = false;
+                flip = sRend.flipX = wingBack.flipX = wingFront.flipX = false;
         }
         else
         {
             if (movementX < 0)
-                flip = sRend.flipX = true;
+                flip = sRend.flipX = wingBack.flipX = wingFront.flipX = true;
         }
 
         //Get Input Based on State
@@ -116,8 +122,29 @@ public class PlayerController : MonoBehaviour
                 break;
             case PlayerState.JumpStop:
                 anim.SetFloat("Jump Velocity", rb.velocity.y);
+
+                if (doubleJumped)
+                    break;
+                if (Input.GetButtonDown("Jump"))
+                {
+                    doubleJumped = true;
+                    state = PlayerState.DoubleJump;
+                    SetAnimation();
+                }
                 break;
             case PlayerState.Falling:
+                anim.SetFloat("Jump Velocity", rb.velocity.y);
+
+                if (doubleJumped)
+                    break;
+                if (Input.GetButtonDown("Jump"))
+                {
+                    doubleJumped = true;
+                    state = PlayerState.DoubleJump;
+                    SetAnimation();
+                }
+                break;
+            case PlayerState.DoubleJump:
                 anim.SetFloat("Jump Velocity", rb.velocity.y);
                 break;
             case PlayerState.Hit:
@@ -164,9 +191,14 @@ public class PlayerController : MonoBehaviour
                     state = PlayerState.Falling;
                 break;
             case PlayerState.JumpStop:
-                //Cuts Jump Short
+                //Keep Floating
                 if(rb.velocity.y <= 0)
                     rb.velocity = new Vector2(movementX * speed, 0);
+                break;
+            case PlayerState.DoubleJump:
+                //Keep Floating
+                if (rb.velocity.y <= 0)
+                    rb.velocity = new Vector2(movementX * speed/2, 0);
                 break;
         }
     }
@@ -206,6 +238,7 @@ public class PlayerController : MonoBehaviour
     public void DamageCheck(Transform enemyRange, float damage)
     {
             state = PlayerState.Hit;
+            sRend.color = Color.grey;
             rb.velocity = Vector2.zero;
             rb.AddForce((transform.position - enemyRange.position).normalized * knockBackForce, ForceMode2D.Impulse);
             health -= damage;
@@ -217,7 +250,16 @@ public class PlayerController : MonoBehaviour
 
     public void AnimationEnd()
     {
+        sRend.color = Color.white;
         state = PlayerState.Idle;
+        SetAnimation();
+    }
+
+    public void StartDoubleJump()
+    {
+
+        rb.AddForce(new Vector2(0, jumpForce));
+        state = PlayerState.Jumping;
         SetAnimation();
     }
 
@@ -227,6 +269,7 @@ public class PlayerController : MonoBehaviour
     }
     public void EndFall()
     {
+        doubleJumped = false;
         state = PlayerState.Idle;
         SetAnimation();
     }
@@ -237,6 +280,7 @@ public class PlayerController : MonoBehaviour
         {
             if (state == PlayerState.Hit)
             {
+                anim.speed = 1;
                 sRend.color = Color.white;
                 hidden = false;
                 speed *= 4;
@@ -245,6 +289,7 @@ public class PlayerController : MonoBehaviour
             }
             else if (Input.GetButtonUp("Hide"))
             {
+                anim.speed = 1;
                 sRend.color = Color.white;
                 hidden = false;
                 speed *= 4;
@@ -255,7 +300,8 @@ public class PlayerController : MonoBehaviour
         }
         else if (Input.GetButtonDown("Hide"))
         {
-            sRend.color = Color.grey;
+            anim.speed = .5f;
+            sRend.color = Color.black;
             hidden = true;
             speed /= 4;
             Physics2D.IgnoreLayerCollision(3, 7, true);
@@ -288,6 +334,9 @@ public class PlayerController : MonoBehaviour
             case PlayerState.Jumping:
                 anim.SetInteger("State", 6);
                 break;
+            case PlayerState.DoubleJump:
+                anim.SetInteger("State", 7);
+                break;
         }
     }
 }
@@ -303,4 +352,5 @@ public enum PlayerState
     Hit,
     Die,
     Attack,
+    DoubleJump,
 }
