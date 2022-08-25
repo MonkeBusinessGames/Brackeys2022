@@ -144,7 +144,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!95 &106607912
 Animator:
   serializedVersion: 4
@@ -255,7 +255,9 @@ MonoBehaviour:
   ground:
     serializedVersion: 2
     m_Bits: 64
-  hitCheck: {fileID: 1968805605}
+  hidden: 0
+  attackRange: {fileID: 0}
+  hitBox: {fileID: 0}
   enemies:
     useTriggers: 1
     useLayerMask: 1
@@ -274,7 +276,6 @@ MonoBehaviour:
   attackPower: 5
   knockBackForce: 5
   recoveryTime: 0.5
-  attackTime: 0.7
   healthText: {fileID: 1937011791}
 --- !u!61 &106607916
 BoxCollider2D:
@@ -424570,7 +424571,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &1208507360
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -424612,7 +424613,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: -408616755, guid: 18ab3e49d9bdca84483af6ec70b04d02, type: 3}
+  m_Sprite: {fileID: 843317487, guid: 9a16fac9f5e05dc4bafcdadd65c1e9ed, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -424632,7 +424633,7 @@ Transform:
   m_GameObject: {fileID: 1208507358}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -22.5, y: -3, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: -1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 897863451}
@@ -424656,8 +424657,8 @@ BoxCollider2D:
   m_Offset: {x: 0, y: -0.2}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4.6875, y: 4.6875}
+    pivot: {x: 0.5, y: 0.4}
+    oldSize: {x: 2, y: 2.5}
     newSize: {x: 1.5, y: 1.5}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

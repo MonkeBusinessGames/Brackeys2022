@@ -72,7 +72,10 @@ public class PlayerController : MonoBehaviour
 
                 //Start Jumping
                 if (Input.GetButtonDown("Jump"))
+                {
                     state = PlayerState.JumpStart;
+                    SetAnimation();
+                }
                 else if (Input.GetButtonDown("Attack"))
                 {
                     state = PlayerState.Attack;
@@ -87,7 +90,10 @@ public class PlayerController : MonoBehaviour
 
                 //Start Jumping
                 if (Input.GetButtonDown("Jump"))
+                {
                     state = PlayerState.JumpStart;
+                    SetAnimation();
+                }
                 else if (Input.GetButtonDown("Attack"))
                 {
                     state = PlayerState.Attack;
@@ -99,12 +105,20 @@ public class PlayerController : MonoBehaviour
                 break;
             case PlayerState.Jumping:
                 //Short Jump
+                anim.SetFloat("Jump Velocity", rb.velocity.y);
                 if (Input.GetButtonUp("Jump"))
+                {
+                    rb.velocity *= new Vector2(1, .5f);
+                    state = PlayerState.JumpStop;
+                }
+                else if (rb.velocity.y < 5f)
                     state = PlayerState.JumpStop;
                 break;
             case PlayerState.JumpStop:
+                anim.SetFloat("Jump Velocity", rb.velocity.y);
                 break;
             case PlayerState.Falling:
+                anim.SetFloat("Jump Velocity", rb.velocity.y);
                 break;
             case PlayerState.Hit:
                 //Handle Hide Input
@@ -151,12 +165,8 @@ public class PlayerController : MonoBehaviour
                 break;
             case PlayerState.JumpStop:
                 //Cuts Jump Short
-                rb.velocity = new Vector2(movementX * speed, rb.velocity.y / 2);
-                state = PlayerState.Falling;
-                break;
-            case PlayerState.Falling:
-                if(groundCheck.IsTouchingLayers(ground))
-                    state = PlayerState.Idle;
+                if(rb.velocity.y <= 0)
+                    rb.velocity = new Vector2(movementX * speed, 0);
                 break;
         }
     }
@@ -206,6 +216,16 @@ public class PlayerController : MonoBehaviour
     }
 
     public void AnimationEnd()
+    {
+        state = PlayerState.Idle;
+        SetAnimation();
+    }
+
+    public void StartFall()
+    {
+        state = PlayerState.Falling;
+    }
+    public void EndFall()
     {
         state = PlayerState.Idle;
         SetAnimation();
@@ -264,6 +284,9 @@ public class PlayerController : MonoBehaviour
                 break;
             case PlayerState.Attack:
                 anim.SetInteger("State", 5);
+                break;
+            case PlayerState.Jumping:
+                anim.SetInteger("State", 6);
                 break;
         }
     }
