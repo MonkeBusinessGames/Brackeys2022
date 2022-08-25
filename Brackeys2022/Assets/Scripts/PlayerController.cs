@@ -134,7 +134,8 @@ public class PlayerController : MonoBehaviour
                     rb.velocity *= new Vector2(1, .5f);
                     state = PlayerState.JumpStop;
                 }
-                else if (rb.velocity.y < 5f)
+                else if (rb.velocity.y < 5f) 
+                { 
                     state = PlayerState.JumpStop;
                 }
                 break;
