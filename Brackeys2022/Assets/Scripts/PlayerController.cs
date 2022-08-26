@@ -180,7 +180,6 @@ public class PlayerController : MonoBehaviour
                 //If the player touches the ground, reset them to idle.
                 if (groundCheck.IsTouchingLayers(ground))
                 {
-                    anim.SetFloat("Jump Velocity", -1);
                     longJumpCharged = false;
                     doubleJumped = false;
                     state = PlayerState.Idle;
@@ -202,7 +201,6 @@ public class PlayerController : MonoBehaviour
                     timer = 0;
                     state = PlayerState.Idle;
                     SetAnimation();
-                    break;
                 }
                 if (longJumpCharged)
                 {
@@ -217,7 +215,7 @@ public class PlayerController : MonoBehaviour
                 else
                 {
                     timer += Time.deltaTime;
-                    sRend.color = Color.magenta;
+                    sRend.color = Color.grey;
                     if (timer >= jumpHoldTime)
                     {
                         longJumpCharged = true;
