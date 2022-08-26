@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Animator anim;
     [SerializeField] private SpriteRenderer wingBack;
     [SerializeField] private SpriteRenderer wingFront;
+    [SerializeField] private UIManager uiManager;
 
 
     [Header("Movement Fields")]
@@ -295,7 +296,12 @@ public class PlayerController : MonoBehaviour
                 health -= 1;
                 healthText.text = "Health: " + health.ToString();
                 if (health <= 0)
+                {
                     state = PlayerState.Die;
+                    anim.updateMode = AnimatorUpdateMode.UnscaledTime;
+                    Time.timeScale = 0;
+                    Time.timeScale = 0;
+                }
 
                 SetAnimation();
             }
@@ -353,6 +359,14 @@ public class PlayerController : MonoBehaviour
         state = PlayerState.Idle;
         SetAnimation();
     }
+
+    /// <summary>Activates the game over experience</summary>
+    public void DeathEnd()
+    {
+        anim.updateMode = AnimatorUpdateMode.UnscaledTime;
+        uiManager.GameOver();
+    }
+
 
     /// <summary>Checks whether to double jump</summary>
     public void DoubleJumpCheck()

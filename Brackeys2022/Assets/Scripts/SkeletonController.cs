@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SkeletonController : EnemyController
+public class SkeletonController : MonoBehaviour
 {
 
     [Header("General Components")]
@@ -151,9 +151,6 @@ public class SkeletonController : EnemyController
             case EnemyState.Hit:
                 anim.SetInteger("State", 2);
                 break;
-/*            case EnemyState.JumpStart:
-                anim.SetInteger("State", 3);
-                break*/;
             case EnemyState.Die:
                 anim.SetInteger("State", 4);
                 break;
@@ -243,20 +240,12 @@ public class SkeletonController : EnemyController
             facingLeft = sRend.flipX = true;
             attackRange.localPosition = Vector2.left;
         }
-
-        if(facingLeft)
-            rb.velocity = new Vector2(-1*speed, 0);
-        else
-            rb.velocity = new Vector2(speed, 0);
     }
 
     /// <summary> Allows the editor to show the transform points </summary>
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.green;
-        Gizmos.DrawSphere(new Vector2(points[0].x, transform.position.y), .2f);
-        Gizmos.DrawSphere(new Vector2(points[1].x, transform.position.y), .2f);
-        Gizmos.DrawLine(new Vector2(points[0].x, transform.position.y), new Vector2(points[1].x, transform.position.y));
         Gizmos.DrawWireCube(attackRange.position, attackRange.localScale);
     }
 }
