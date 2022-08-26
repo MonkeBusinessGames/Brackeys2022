@@ -279,8 +279,9 @@ MonoBehaviour:
   knockBackForce: 5
   recoveryTime: 0.5
   healthText: {fileID: 1937011791}
-  jumpTime: 0.5
-  holdJump: 1
+  jumpHoldTime: 0
+  longJumpEnabled: 0
+  doubleJumpEnabled: 0
 --- !u!61 &106607916
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -424907,8 +424908,9 @@ MonoBehaviour:
   knockBackForce: 5
   recoveryTime: 0.5
   healthText: {fileID: 1937011791}
-  jumpTime: 0
-  holdJump: 0
+  jumpHoldTime: 0.207
+  longJumpEnabled: 0
+  doubleJumpEnabled: 0
 --- !u!95 &1208507365
 Animator:
   serializedVersion: 4
