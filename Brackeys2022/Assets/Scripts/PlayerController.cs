@@ -50,6 +50,14 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private bool doubleJumpEnabled; 
 
 
+    [Header("Player SFX")]
+    [SerializeField] private AK.Wwise.Event footstepsEvent;
+    [SerializeField] private AK.Wwise.Event PlayerGetHit;
+    [SerializeField] private AK.Wwise.Event PlayerLanding;
+    [SerializeField] private AK.Wwise.Event jumpSound;
+
+
+
     void Start()
     {
         state = PlayerState.Idle;
@@ -338,7 +346,8 @@ public class PlayerController : MonoBehaviour
             rb.velocity = Vector2.zero;
             rb.AddForce((transform.position - enemyRange.position).normalized * knockBackForce, ForceMode2D.Impulse);
             health -= damage;
-            healthText.text = "Health: " + health.ToString();
+        AkSoundEngine.PostEvent(PlayerGetHit.Id, this.gameObject);
+        healthText.text = "Health: " + health.ToString();
             if (health <= 0)
                 state = PlayerState.Die;
             SetAnimation();
@@ -360,6 +369,7 @@ public class PlayerController : MonoBehaviour
             {
                 doubleJumped = true;
                 state = PlayerState.DoubleJump;
+                AkSoundEngine.PostEvent(jumpSound.Id, this.gameObject);
                 SetAnimation();
             }
     }
@@ -455,6 +465,17 @@ public class PlayerController : MonoBehaviour
                 anim.SetInteger("State", 8);
                 break;
         }
+    }
+
+
+    //SFX
+    public void PlayFootstepSound()
+    {
+        AkSoundEngine.PostEvent(footstepsEvent.Id, this.gameObject);
+    }
+    public void PlayLandingSound()
+    {
+        AkSoundEngine.PostEvent(PlayerLanding.Id, this.gameObject);
     }
 }
 

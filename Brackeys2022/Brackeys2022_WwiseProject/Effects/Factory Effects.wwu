@@ -249,9 +249,8 @@
 											<PropertyList>
 												<Property Name="FilterTypeBand1" Type="int32" Value="1"/>
 												<Property Name="FilterTypeBand2" Type="int32" Value="4"/>
-												<Property Name="FilterTypeBand3" Type="int32" Value="0"/>
-												<Property Name="FrequencyBand2" Type="Real32" Value="13000"/>
-												<Property Name="FrequencyBand3" Type="Real32" Value="17000"/>
+												<Property Name="FrequencyBand2" Type="Real32" Value="20000"/>
+												<Property Name="FrequencyBand3" Type="Real32" Value="5826"/>
 												<Property Name="GainBand2" Type="Real32" Value="-3"/>
 												<Property Name="GainBand3" Type="Real32" Value="-3"/>
 												<Property Name="OnOffBand1" Type="bool" Value="False"/>
@@ -621,7 +620,7 @@
 									<PropertyList>
 										<Property Name="FilterTypeBand1" Type="int32" Value="1"/>
 										<Property Name="FilterTypeBand3" Type="int32" Value="0"/>
-										<Property Name="FrequencyBand3" Type="Real32" Value="20000"/>
+										<Property Name="FrequencyBand3" Type="Real32" Value="720"/>
 										<Property Name="OnOffBand1" Type="bool" Value="False"/>
 										<Property Name="OnOffBand2" Type="bool" Value="False"/>
 									</PropertyList>
@@ -826,9 +825,9 @@
 								</Effect>
 								<Effect Name="Hall_Large_Dark" ID="{0F6A7D6D-131C-4650-9561-FC05F5C7A37B}" PluginName="Wwise RoomVerb" CompanyID="0" PluginID="118" PluginType="3">
 									<PropertyList>
-										<Property Name="DecayTime" Type="Real32" Value="4"/>
-										<Property Name="Density" Type="Real32" Value="70"/>
-										<Property Name="DryLevel" Type="Real32" Value="-16.3"/>
+										<Property Name="DecayTime" Type="Real32" Value="2.2"/>
+										<Property Name="Density" Type="Real32" Value="18"/>
+										<Property Name="DryLevel" Type="Real32" Value="-7.3"/>
 										<Property Name="ERLevel" Type="Real32" Value="-25"/>
 										<Property Name="ERPattern" Type="int32" Value="11"/>
 										<Property Name="Filter1Freq" Type="Real32" Value="490"/>
@@ -836,13 +835,14 @@
 										<Property Name="Filter1InsertPos" Type="int32" Value="2"/>
 										<Property Name="Filter3Freq" Type="Real32" Value="11000"/>
 										<Property Name="Filter3Gain" Type="Real32" Value="-11.5"/>
-										<Property Name="HFDamping" Type="Real32" Value="5.05"/>
+										<Property Name="HFDamping" Type="Real32" Value="3.75"/>
 										<Property Name="InputLFELevel" Type="Real32" Value="-51.3"/>
-										<Property Name="PreDelay" Type="Real32" Value="75"/>
+										<Property Name="PreDelay" Type="Real32" Value="28"/>
 										<Property Name="Quality" Type="int32" Value="16"/>
-										<Property Name="ReverbLevel" Type="Real32" Value="-25"/>
+										<Property Name="ReverbLevel" Type="Real32" Value="-23"/>
 										<Property Name="RoomShape" Type="Real32" Value="55"/>
-										<Property Name="RoomSize" Type="Real32" Value="55"/>
+										<Property Name="RoomSize" Type="Real32" Value="53"/>
+										<Property Name="StereoWidth" Type="Real32" Value="77"/>
 									</PropertyList>
 								</Effect>
 								<Effect Name="Hall_Medium_Dark" ID="{626B6E38-739B-4689-819F-F81AD3788BDE}" PluginName="Wwise RoomVerb" CompanyID="0" PluginID="118" PluginType="3">
