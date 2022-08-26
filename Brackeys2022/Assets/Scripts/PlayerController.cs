@@ -101,7 +101,7 @@ public class PlayerController : MonoBehaviour
                     break;
 
                 //Start Jumping
-                if (Input.GetButtonDown("Jump") && !holdToJump)
+                if (Input.GetButtonDown("Jump"))
                 {
                     EndFall();
                     state = PlayerState.JumpStart;
@@ -131,12 +131,11 @@ public class PlayerController : MonoBehaviour
                 break;
             case PlayerState.Walking:
                 //Handle Hide Input
-                jumpCount = totalJumpCount; // Double jump reset
                 if (HideCheck())
                     break;
 
                 //Start Jumping
-                if (Input.GetButtonDown("Jump") && !holdToJump)
+                if (Input.GetButtonDown("Jump"))
                 {
                     state = PlayerState.JumpStart;
                     SetAnimation();
