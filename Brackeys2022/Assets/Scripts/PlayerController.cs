@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using UnityEngine.Rendering.Universal;
+using UnityEngine.Tilemaps;
 
 public class PlayerController : MonoBehaviour
 {
@@ -13,16 +13,20 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private SpriteRenderer sRend;
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Animator anim;
+    [SerializeField] private SpriteRenderer wingBack;
+    [SerializeField] private SpriteRenderer wingFront;
+
 
     [Header("Movement Fields")]
-    [SerializeField] private float speed;
-    [SerializeField] private float jumpForce;
+    [SerializeField] private float speed = 8;
+    [SerializeField] private float jumpForce = 900;
     [SerializeField] private BoxCollider2D groundCheck;
     [SerializeField] private LayerMask ground;
     private float movementX;
-    private bool flip;
+    private bool flip = false;
     private PlayerState state;
-    public bool hidden;
+    public bool hidden = false;
+    private bool doubleJumped = false;
 
     [Header("Combat Fields")]
     [SerializeField] private BoxCollider2D attackRange;
@@ -31,25 +35,36 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float health = 100;
     [SerializeField] private float attackPower = 10;
     [SerializeField] private float knockBackForce = 100;
-    [SerializeField] private float recoveryTime = .5f;
-
     [SerializeField] private TMP_Text healthText;
-    [SerializeField] private GameObject hideMat;
-    private float currentHideValue;
 
-    private float transition;
+    [Header("Long/Double Jump Fields")]
+    [SerializeField] private float jumpHoldTime = 2;
+
+    [Tooltip("Enables: Long Jump")]
+    [SerializeField] private bool longJumpEnabled = false;
+    [SerializeField] private float longJumpForce = 500;
+    private float timer = 0;
+    private bool longJumpCharged = false;
+
+    [Tooltip("Enables: Double Jump")]
+    [SerializeField] private bool doubleJumpEnabled; 
+
 
     void Start()
     {
         state = PlayerState.Idle;
         flip = false;
+        doubleJumped = false;
+        hidden = false;
+        timer = 0;
+        longJumpCharged = false;
     }
 
     void Update()
     {
         if (state == (PlayerState.Hit))
-            return; 
-        if (state == ( PlayerState.Attack))
+            return;
+        if (state == (PlayerState.Attack))
             return;
 
         //Get Walk Input
@@ -59,12 +74,12 @@ public class PlayerController : MonoBehaviour
         if (flip)
         {
             if (movementX > 0)
-                flip = sRend.flipX = false;
+                flip = sRend.flipX = wingBack.flipX = wingFront.flipX = false;
         }
         else
         {
             if (movementX < 0)
-                flip = sRend.flipX = true;
+                flip = sRend.flipX = wingBack.flipX = wingFront.flipX = true;
         }
 
         //Get Input Based on State
@@ -77,12 +92,31 @@ public class PlayerController : MonoBehaviour
 
                 //Start Jumping
                 if (Input.GetButtonDown("Jump"))
+                {
+                    EndFall();
                     state = PlayerState.JumpStart;
+                    SetAnimation();
+                }
+                else if (!groundCheck.IsTouchingLayers(ground))
+                {
+                    EndFall();
+                    state = PlayerState.Falling;
+                    SetAnimation();
+                }
                 else if (Input.GetButtonDown("Attack"))
                 {
+                    EndFall();
                     state = PlayerState.Attack;
                     SetAnimation();
                     movementX = 0;
+                }
+                else if(longJumpEnabled)
+                {
+                    if(Input.GetAxis("Vertical") < 0)
+                    {
+                        state = PlayerState.JumpCharge;
+                        SetAnimation();
+                    }
                 }
                 break;
             case PlayerState.Walking:
@@ -92,7 +126,15 @@ public class PlayerController : MonoBehaviour
 
                 //Start Jumping
                 if (Input.GetButtonDown("Jump"))
+                {
                     state = PlayerState.JumpStart;
+                    SetAnimation();
+                }
+                else if (!groundCheck.IsTouchingLayers(ground))
+                {
+                    state = PlayerState.Falling;
+                    SetAnimation();
+                }
                 else if (Input.GetButtonDown("Attack"))
                 {
                     state = PlayerState.Attack;
@@ -104,29 +146,90 @@ public class PlayerController : MonoBehaviour
                 break;
             case PlayerState.Jumping:
                 //Short Jump
+                anim.SetFloat("Jump Velocity", rb.velocity.y);
                 if (Input.GetButtonUp("Jump"))
+                {
+                    rb.velocity *= new Vector2(1, .5f);
                     state = PlayerState.JumpStop;
+                }
+                else if (rb.velocity.y < 5f) 
+                { 
+                    state = PlayerState.JumpStop;
+                }
                 break;
             case PlayerState.JumpStop:
+                anim.SetFloat("Jump Velocity", rb.velocity.y);
+
+                DoubleJumpCheck();
                 break;
             case PlayerState.Falling:
+                anim.SetFloat("Jump Velocity", rb.velocity.y);
+
+                DoubleJumpCheck();
+
+                //If the player touches the ground, reset them to idle.
+                if (groundCheck.IsTouchingLayers(ground))
+                {
+                    anim.SetFloat("Jump Velocity", -1);
+                    longJumpCharged = false;
+                    doubleJumped = false;
+                    state = PlayerState.Idle;
+                    SetAnimation();
+                }
+                break;
+            case PlayerState.DoubleJump:
+                anim.SetFloat("Jump Velocity", rb.velocity.y);
                 break;
             case PlayerState.Hit:
                 //Handle Hide Input
                 HideCheck();
                 break;
+            case PlayerState.JumpCharge:
+                if (Input.GetAxis("Vertical") >= 0)
+                {
+                    longJumpCharged = false;
+                    sRend.color = Color.white;
+                    timer = 0;
+                    state = PlayerState.Idle;
+                    SetAnimation();
+                    break;
+                }
+                if (longJumpCharged)
+                {
+                    if (Input.GetButtonDown("Jump"))
+                    {
+                        sRend.color = Color.white;
+                        state = PlayerState.JumpStart;
+                        SetAnimation();
+                        timer = 0;
+                    }
+                }
+                else
+                {
+                    timer += Time.deltaTime;
+                    sRend.color = Color.magenta;
+                    if (timer >= jumpHoldTime)
+                    {
+                        longJumpCharged = true;
+                        doubleJumped = true;
+                        sRend.color = Color.cyan;
+                        timer = 0;
+                    }
+                }
+                break;
         }
-            hideMat.GetComponent<SpriteRenderer>().material.SetFloat("_ShadowIntensity", currentHideValue);
-            
     }
 
     void FixedUpdate()
     {
         if (state == (PlayerState.Hit))
+            return; 
+        if (state == (PlayerState.JumpCharge))
             return;
 
         //Set Velocity
-        rb.velocity = new Vector2(movementX * speed, rb.velocity.y);
+        if (!longJumpCharged)
+            rb.velocity = new Vector2(movementX * speed, rb.velocity.y);
 
         //State Machine
         switch (state)
@@ -134,6 +237,7 @@ public class PlayerController : MonoBehaviour
             case PlayerState.Idle:
                 if (rb.velocity.x != 0)
                 {
+                    EndFall();
                     state = PlayerState.Walking;
                     SetAnimation();
                 }
@@ -147,7 +251,15 @@ public class PlayerController : MonoBehaviour
                 break;
             case PlayerState.JumpStart:
                 //Initiates Jump
-                rb.AddForce(new Vector2(0, jumpForce));
+                if (longJumpCharged)
+                {
+                    if (flip)
+                        rb.AddForce(new Vector2(-longJumpForce, jumpForce));
+                    else
+                        rb.AddForce(new Vector2(longJumpForce, jumpForce));
+                }
+                else
+                    rb.AddForce(new Vector2(0, jumpForce)); 
                 state = PlayerState.Jumping;
                 SetAnimation();
                 break;
@@ -156,20 +268,20 @@ public class PlayerController : MonoBehaviour
                     state = PlayerState.Falling;
                 break;
             case PlayerState.JumpStop:
-                //Cuts Jump Short
-                rb.velocity = new Vector2(movementX * speed, rb.velocity.y / 2);
-                state = PlayerState.Falling;
+                //Keep Floating
+                if(rb.velocity.y <= 0)
+                    rb.velocity = new Vector2(movementX * speed, 0);
                 break;
-            case PlayerState.Falling:
-                if(groundCheck.IsTouchingLayers(ground))
-                    state = PlayerState.Idle;
+            case PlayerState.DoubleJump:
+                //Keep Floating
+                if (rb.velocity.y <= 0)
+                    rb.velocity = new Vector2(movementX * speed/2, 0);
                 break;
         }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-
         if (hidden)
             return;
 
@@ -190,18 +302,41 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    /// <summary>Use this method to enable doublejump, when animal selection event is fired</summary>
+    public void EnableDoubleJump()
+    {
+        doubleJumpEnabled = true;
+    }
+
+    /// <summary>Use this method to enable long jump, when animal selection event is fired</summary>
+    public void EnableLongJump()
+    {
+        longJumpEnabled = true;
+    }
+
+    /// <summary>Checks if the any enemies were hit</summary>
     public void HitCheck() 
     {
         List<Collider2D> hitEnemies = new List<Collider2D>();
         attackRange.OverlapCollider(enemies, hitEnemies);
         for(int i = 0; i < hitEnemies.Count; i++)
         {
-            hitEnemies[i].GetComponent<EnemyController>().TakeDamage(attackPower, transform.position);
+            try
+            {
+                hitEnemies[i].GetComponent<EnemyController>().TakeDamage(attackPower, transform.position);
+            }
+            catch (System.NullReferenceException)
+            {
+                hitEnemies[i].GetComponent<WispController>().TakeDamage(attackPower, transform.position);
+            }
         }
     }
+
+    /// <summary>Checks how much damage to take</summary>
     public void DamageCheck(Transform enemyRange, float damage)
     {
             state = PlayerState.Hit;
+            sRend.color = Color.grey;
             rb.velocity = Vector2.zero;
             rb.AddForce((transform.position - enemyRange.position).normalized * knockBackForce, ForceMode2D.Impulse);
             health -= damage;
@@ -211,18 +346,56 @@ public class PlayerController : MonoBehaviour
             SetAnimation();
     }
 
+    /// <summary>Ends the animation and resets to Idle</summary>
     public void AnimationEnd()
     {
+        sRend.color = Color.white;
         state = PlayerState.Idle;
         SetAnimation();
     }
 
+    /// <summary>Checks whether to double jump</summary>
+    public void DoubleJumpCheck()
+    {
+        if (doubleJumpEnabled & !doubleJumped)
+            if (Input.GetButtonDown("Jump"))
+            {
+                doubleJumped = true;
+                state = PlayerState.DoubleJump;
+                SetAnimation();
+            }
+    }
+
+
+
+    /// <summary>Initiates the double jump force</summary>
+    public void StartDoubleJump()
+    {
+        rb.AddForce(new Vector2(0, jumpForce));
+        state = PlayerState.Jumping;
+        SetAnimation();
+    }
+
+    /// <summary>Starts player falling after peaking a jump</summary>
+    public void StartFall()
+    {
+        state = PlayerState.Falling;
+    }
+
+    /// <summary>Lands a player on the ground</summary>
+    public void EndFall()
+    {
+        anim.SetFloat("Jump Velocity", 0);
+    }
+
+    /// <summary>Checks whether to hide</summary>
     private bool HideCheck()
     {
         if (hidden)
         {
             if (state == PlayerState.Hit)
             {
+                anim.speed = 1;
                 sRend.color = Color.white;
                 hidden = false;
                 speed *= 4;
@@ -231,10 +404,10 @@ public class PlayerController : MonoBehaviour
             }
             else if (Input.GetButtonUp("Hide"))
             {
+                anim.speed = 1;
                 sRend.color = Color.white;
                 hidden = false;
                 speed *= 4;
-                currentHideValue = 0f;
                 Physics2D.IgnoreLayerCollision(3, 7, false);
                 OnHideEnd();
             }
@@ -242,15 +415,16 @@ public class PlayerController : MonoBehaviour
         }
         else if (Input.GetButtonDown("Hide"))
         {
-            sRend.color = Color.grey;
+            anim.speed = .5f;
+            sRend.color = Color.black;
             hidden = true;
             speed /= 4;
-            currentHideValue = 1f;
             Physics2D.IgnoreLayerCollision(3, 7, true);
         }
         return false;
     }
 
+    /// <summary>Sets the animation based on the player state</summary>
     private void SetAnimation()
     {
         switch (state)
@@ -273,10 +447,20 @@ public class PlayerController : MonoBehaviour
             case PlayerState.Attack:
                 anim.SetInteger("State", 5);
                 break;
+            case PlayerState.Jumping:
+                anim.SetInteger("State", 6);
+                break;
+            case PlayerState.DoubleJump:
+                anim.SetInteger("State", 7);
+                break;
+            case PlayerState.Falling:
+                anim.SetInteger("State", 8);
+                break;
         }
     }
 }
 
+/// <summary>The state the player is in</summary>
 public enum PlayerState
 {
     Idle,
@@ -288,6 +472,6 @@ public enum PlayerState
     Hit,
     Die,
     Attack,
+    DoubleJump,
+    JumpCharge
 }
-
-

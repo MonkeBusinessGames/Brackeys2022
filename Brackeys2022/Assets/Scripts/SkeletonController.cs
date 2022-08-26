@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyController : MonoBehaviour
+public class SkeletonController : EnemyController
 {
 
     [Header("General Components")]
@@ -259,14 +259,4 @@ public class EnemyController : MonoBehaviour
         Gizmos.DrawLine(new Vector2(points[0].x, transform.position.y), new Vector2(points[1].x, transform.position.y));
         Gizmos.DrawWireCube(attackRange.position, attackRange.localScale);
     }
-}
-
-public enum EnemyState
-{
-    Idle,
-    Walking,
-    Chasing,
-    Hit,
-    Die,
-    Attack
 }
