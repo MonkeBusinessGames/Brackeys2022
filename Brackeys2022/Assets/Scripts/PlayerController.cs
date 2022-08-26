@@ -18,15 +18,15 @@ public class PlayerController : MonoBehaviour
 
 
     [Header("Movement Fields")]
-    [SerializeField] private float speed;
-    [SerializeField] private float jumpForce;
+    [SerializeField] private float speed = 8;
+    [SerializeField] private float jumpForce = 900;
     [SerializeField] private BoxCollider2D groundCheck;
     [SerializeField] private LayerMask ground;
     private float movementX;
-    private bool flip;
+    private bool flip = false;
     private PlayerState state;
-    public bool hidden;
-    private bool doubleJumped;
+    public bool hidden = false;
+    private bool doubleJumped = false;
 
     [Header("Combat Fields")]
     [SerializeField] private BoxCollider2D attackRange;
@@ -35,16 +35,16 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float health = 100;
     [SerializeField] private float attackPower = 10;
     [SerializeField] private float knockBackForce = 100;
-    [SerializeField] private float recoveryTime = .5f;
     [SerializeField] private TMP_Text healthText;
 
     [Header("Long/Double Jump Fields")]
-    [Range(0, 1)]
-    [Tooltip("By how many percent will the jump force increase, if the player holds for whole defined duration. 0s - 0%; 0.5s - 50%; 1s - 200%")]
-    [SerializeField] private float jumpHoldTime;
+    [SerializeField] private float jumpHoldTime = 2;
 
     [Tooltip("Enables: Long Jump")]
-    [SerializeField] private bool longJumpEnabled;
+    [SerializeField] private bool longJumpEnabled = false;
+    [SerializeField] private float longJumpForce = 500;
+    private float timer = 0;
+    private bool longJumpCharged = false;
 
     [Tooltip("Enables: Double Jump")]
     [SerializeField] private bool doubleJumpEnabled; 
@@ -56,6 +56,8 @@ public class PlayerController : MonoBehaviour
         flip = false;
         doubleJumped = false;
         hidden = false;
+        timer = 0;
+        longJumpCharged = false;
     }
 
     void Update()
@@ -107,6 +109,14 @@ public class PlayerController : MonoBehaviour
                     state = PlayerState.Attack;
                     SetAnimation();
                     movementX = 0;
+                }
+                else if(longJumpEnabled)
+                {
+                    if(Input.GetAxis("Vertical") < 0)
+                    {
+                        state = PlayerState.JumpCharge;
+                        SetAnimation();
+                    }
                 }
                 break;
             case PlayerState.Walking:
@@ -160,6 +170,7 @@ public class PlayerController : MonoBehaviour
                 //If the player touches the ground, reset them to idle.
                 if (groundCheck.IsTouchingLayers(ground))
                 {
+                    longJumpCharged = false;
                     doubleJumped = false;
                     state = PlayerState.Idle;
                     SetAnimation();
@@ -172,16 +183,51 @@ public class PlayerController : MonoBehaviour
                 //Handle Hide Input
                 HideCheck();
                 break;
+            case PlayerState.JumpCharge:
+                if (Input.GetAxis("Vertical") >= 0)
+                {
+                    longJumpCharged = false;
+                    sRend.color = Color.white;
+                    timer = 0;
+                    state = PlayerState.Idle;
+                    SetAnimation();
+                }
+                if (longJumpCharged)
+                {
+                    if (Input.GetButtonDown("Jump"))
+                    {
+                        sRend.color = Color.white;
+                        state = PlayerState.JumpStart;
+                        SetAnimation();
+                        timer = 0;
+                    }
+                }
+                else
+                {
+                    timer += Time.deltaTime;
+                    sRend.color = Color.grey;
+                    if (timer >= jumpHoldTime)
+                    {
+                        longJumpCharged = true;
+                        doubleJumped = true;
+                        sRend.color = Color.cyan;
+                        timer = 0;
+                    }
+                }
+                break;
         }
     }
 
     void FixedUpdate()
     {
         if (state == (PlayerState.Hit))
+            return; 
+        if (state == (PlayerState.JumpCharge))
             return;
 
         //Set Velocity
-        rb.velocity = new Vector2(movementX * speed, rb.velocity.y);
+        if (!longJumpCharged)
+            rb.velocity = new Vector2(movementX * speed, rb.velocity.y);
 
         //State Machine
         switch (state)
@@ -203,7 +249,15 @@ public class PlayerController : MonoBehaviour
                 break;
             case PlayerState.JumpStart:
                 //Initiates Jump
-                rb.AddForce(new Vector2(0, jumpForce));  // + 1, because if player releases jump button after 0.5s then it would decrease jumpForce by 50% 
+                if (longJumpCharged)
+                {
+                    if (flip)
+                        rb.AddForce(new Vector2(-longJumpForce, jumpForce));
+                    else
+                        rb.AddForce(new Vector2(longJumpForce, jumpForce));
+                }
+                else
+                    rb.AddForce(new Vector2(0, jumpForce)); 
                 state = PlayerState.Jumping;
                 SetAnimation();
                 break;
@@ -247,7 +301,7 @@ public class PlayerController : MonoBehaviour
     }
 
     /// <summary>Use this method to enable doublejump, when animal selection event is fired</summary>
-    public void AddDoubleJump()
+    public void EnableDoubleJump()
     {
         doubleJumpEnabled = true;
     }
@@ -309,6 +363,8 @@ public class PlayerController : MonoBehaviour
                 SetAnimation();
             }
     }
+
+
 
     /// <summary>Initiates the double jump force</summary>
     public void StartDoubleJump()
@@ -415,4 +471,5 @@ public enum PlayerState
     Die,
     Attack,
     DoubleJump,
+    JumpCharge
 }
