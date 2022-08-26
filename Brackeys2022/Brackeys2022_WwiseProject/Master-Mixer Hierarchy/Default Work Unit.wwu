@@ -9,6 +9,57 @@
 							<ObjectRef Name="System" ID="{060EB256-8814-4630-8884-A3677C2FE475}" WorkUnitID="{AB9F1A51-A44F-43FF-B0BA-D67E0C3F238A}"/>
 						</Reference>
 					</ReferenceList>
+					<ChildrenList>
+						<Bus Name="Player" ID="{34417AA0-B4A4-405A-91BF-F8BAD8A9049C}">
+							<ReferenceList>
+								<Reference Name="Effect0" PluginName="Wwise RoomVerb" CompanyID="0" PluginID="118" PluginType="3">
+									<ObjectRef Name="Hall_Large_Dark" ID="{0F6A7D6D-131C-4650-9561-FC05F5C7A37B}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
+								</Reference>
+							</ReferenceList>
+						</Bus>
+						<Bus Name="Environment" ID="{20EF0A14-D65E-42F8-85BA-D3F932EFDABC}"/>
+						<Bus Name="Music" ID="{EBB7EBE0-E9D5-41C4-B912-A8B95A91C026}">
+							<PropertyList>
+								<Property Name="RecoveryTime" Type="Real64" Value="0.5"/>
+							</PropertyList>
+							<DuckingList>
+								<DuckItem>
+									<BusRef Name="Environment" ID="{20EF0A14-D65E-42F8-85BA-D3F932EFDABC}"/>
+									<DuckingParam>
+										<Volume>-6</Volume>
+										<FadeInTime>1</FadeInTime>
+										<FadeOutTime>1</FadeOutTime>
+										<FadeCurve>FadeLinear</FadeCurve>
+									</DuckingParam>
+								</DuckItem>
+							</DuckingList>
+						</Bus>
+						<Bus Name="Enemies" ID="{F5DCD25B-533A-40EC-A08A-60ACED304F73}">
+							<PropertyList>
+								<Property Name="RecoveryTime" Type="Real64" Value="0.5"/>
+							</PropertyList>
+							<DuckingList>
+								<DuckItem>
+									<BusRef Name="Music" ID="{EBB7EBE0-E9D5-41C4-B912-A8B95A91C026}"/>
+									<DuckingParam>
+										<Volume>-6</Volume>
+										<FadeInTime>1</FadeInTime>
+										<FadeOutTime>1</FadeOutTime>
+										<FadeCurve>FadeLinear</FadeCurve>
+									</DuckingParam>
+								</DuckItem>
+								<DuckItem>
+									<BusRef Name="Environment" ID="{20EF0A14-D65E-42F8-85BA-D3F932EFDABC}"/>
+									<DuckingParam>
+										<Volume>-6</Volume>
+										<FadeInTime>1</FadeInTime>
+										<FadeOutTime>1</FadeOutTime>
+										<FadeCurve>FadeLinear</FadeCurve>
+									</DuckingParam>
+								</DuckItem>
+							</DuckingList>
+						</Bus>
+					</ChildrenList>
 				</Bus>
 			</ChildrenList>
 		</WorkUnit>

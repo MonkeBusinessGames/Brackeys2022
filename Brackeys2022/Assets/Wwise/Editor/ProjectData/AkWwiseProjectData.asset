@@ -24,7 +24,7 @@ MonoBehaviour:
     ParentPath: Virtual Acoustics\Default Work Unit
     guid: d04be096c1fc6f4d8499df73adca2350
     GuidInternal: 
-    m_lastTime: -8585404152619943508
+    m_lastTime: -8585402751856656671
     List: []
   AuxBusWwu:
   - PhysicalPath: Master-Mixer Hierarchy\Default Work Unit.wwu
@@ -38,8 +38,42 @@ MonoBehaviour:
     ParentPath: Master-Mixer Hierarchy\Default Work Unit
     guid: 7de379ab294c8b4bb89e8859415a296b
     GuidInternal: 
-    m_lastTime: -8585404152621973515
+    m_lastTime: -8585400757909044191
     List:
+    - name: Enemies
+      guid: 5bd2dcf53a53ec40a08a60aced304f73
+      id: 2242381963
+      PathAndIcons:
+      - ElementName: Master-Mixer Hierarchy
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 7de379ab294c8b4bb89e8859415a296b
+      - ElementName: Master Audio Bus
+        ObjectType: 2
+        guid: d8a41415a61d2a41a17e75ca0c2149f3
+      - ElementName: Enemies
+        ObjectType: 2
+        guid: 5bd2dcf53a53ec40a08a60aced304f73
+      Path: Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\Enemies
+    - name: Environment
+      guid: 140aef205ed6f84285bad3f932efdabc
+      id: 1229948536
+      PathAndIcons:
+      - ElementName: Master-Mixer Hierarchy
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 7de379ab294c8b4bb89e8859415a296b
+      - ElementName: Master Audio Bus
+        ObjectType: 2
+        guid: d8a41415a61d2a41a17e75ca0c2149f3
+      - ElementName: Environment
+        ObjectType: 2
+        guid: 140aef205ed6f84285bad3f932efdabc
+      Path: Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\Environment
     - name: Master Audio Bus
       guid: d8a41415a61d2a41a17e75ca0c2149f3
       id: 3803692087
@@ -54,6 +88,40 @@ MonoBehaviour:
         ObjectType: 2
         guid: d8a41415a61d2a41a17e75ca0c2149f3
       Path: Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus
+    - name: Music
+      guid: e0ebb7ebd5e9c441b912a8b95a91c026
+      id: 3991942870
+      PathAndIcons:
+      - ElementName: Master-Mixer Hierarchy
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 7de379ab294c8b4bb89e8859415a296b
+      - ElementName: Master Audio Bus
+        ObjectType: 2
+        guid: d8a41415a61d2a41a17e75ca0c2149f3
+      - ElementName: Music
+        ObjectType: 2
+        guid: e0ebb7ebd5e9c441b912a8b95a91c026
+      Path: Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\Music
+    - name: Player
+      guid: a07a4134a4b45a4091bff8bad8a9049c
+      id: 1069431850
+      PathAndIcons:
+      - ElementName: Master-Mixer Hierarchy
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 7de379ab294c8b4bb89e8859415a296b
+      - ElementName: Master Audio Bus
+        ObjectType: 2
+        guid: d8a41415a61d2a41a17e75ca0c2149f3
+      - ElementName: Player
+        ObjectType: 2
+        guid: a07a4134a4b45a4091bff8bad8a9049c
+      Path: Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\Player
   BankWwu:
   - PhysicalPath: SoundBanks\Default Work Unit.wwu
     PathAndIcons:
@@ -66,7 +134,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: 8e4f66b589979341a9758fc582d8ef42
     GuidInternal: 
-    m_lastTime: -8585402489699544003
+    m_lastTime: -8585400769284799593
     List:
     - name: Main
       guid: 39d7839d2e21374980c4dbcf6c26361d
@@ -94,7 +162,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: 82cdb01971e8c14a95e6261d6261e874
     GuidInternal: 
-    m_lastTime: -8585402489705094836
+    m_lastTime: -8585400756808815047
     List:
     - name: Enemies
       guid: ca416c819803884494d186c1d539683a
@@ -157,10 +225,107 @@ MonoBehaviour:
       - ElementName: Default Work Unit
         ObjectType: 12
         guid: 82cdb01971e8c14a95e6261d6261e874
+      - ElementName: Player
+        ObjectType: 4
+        guid: dbbe213d96b4944487849970b94c79e6
       - ElementName: Play_Footstep
         ObjectType: 3
         guid: 5e7fd43bca71a948963c665ff75e62fe
-      Path: Events\Default Work Unit\Play_Footstep
+      Path: Events\Default Work Unit\Player\Play_Footstep
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Play_JumpSound
+      guid: ce58b01f1753894bb94762500f3f362b
+      id: 2371580015
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 82cdb01971e8c14a95e6261d6261e874
+      - ElementName: Player
+        ObjectType: 4
+        guid: dbbe213d96b4944487849970b94c79e6
+      - ElementName: Play_JumpSound
+        ObjectType: 3
+        guid: ce58b01f1753894bb94762500f3f362b
+      Path: Events\Default Work Unit\Player\Play_JumpSound
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Play_Land
+      guid: ce00dd306c7efc4598d5ed0ea1411d59
+      id: 4285282925
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 82cdb01971e8c14a95e6261d6261e874
+      - ElementName: Player
+        ObjectType: 4
+        guid: dbbe213d96b4944487849970b94c79e6
+      - ElementName: Play_Land
+        ObjectType: 3
+        guid: ce00dd306c7efc4598d5ed0ea1411d59
+      Path: Events\Default Work Unit\Player\Play_Land
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Player
+      guid: dbbe213d96b4944487849970b94c79e6
+      id: 1069431850
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 82cdb01971e8c14a95e6261d6261e874
+      - ElementName: Player
+        ObjectType: 4
+        guid: dbbe213d96b4944487849970b94c79e6
+      Path: Events\Default Work Unit\Player
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Player_GetHit
+      guid: 40afbf08ef7dec42a25d09172b69de87
+      id: 3945457670
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 82cdb01971e8c14a95e6261d6261e874
+      - ElementName: Player
+        ObjectType: 4
+        guid: dbbe213d96b4944487849970b94c79e6
+      - ElementName: Player_GetHit
+        ObjectType: 3
+        guid: 40afbf08ef7dec42a25d09172b69de87
+      Path: Events\Default Work Unit\Player\Player_GetHit
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: PlayTestBattleMusic
+      guid: e7af0c4c145ee54d82c0bb0dee6b6f8f
+      id: 1786435558
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 82cdb01971e8c14a95e6261d6261e874
+      - ElementName: PlayTestBattleMusic
+        ObjectType: 3
+        guid: e7af0c4c145ee54d82c0bb0dee6b6f8f
+      Path: Events\Default Work Unit\PlayTestBattleMusic
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -184,6 +349,26 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
+    - name: SkeletonDeath
+      guid: d3041716a8b6514eb1e96e1e528cd2bc
+      id: 139523582
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 82cdb01971e8c14a95e6261d6261e874
+      - ElementName: Enemies
+        ObjectType: 4
+        guid: ca416c819803884494d186c1d539683a
+      - ElementName: SkeletonDeath
+        ObjectType: 3
+        guid: d3041716a8b6514eb1e96e1e528cd2bc
+      Path: Events\Default Work Unit\Enemies\SkeletonDeath
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
     - name: SkeletonSteps
       guid: f8c18102843e7b41bcac832ccd9b1906
       id: 2032018185
@@ -204,6 +389,23 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
+    - name: StopTestBattleMusic
+      guid: 76ba304e9d7ac64b9f97e02d5453adcf
+      id: 1076666776
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 82cdb01971e8c14a95e6261d6261e874
+      - ElementName: StopTestBattleMusic
+        ObjectType: 3
+        guid: 76ba304e9d7ac64b9f97e02d5453adcf
+      Path: Events\Default Work Unit\StopTestBattleMusic
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
   RtpcWwu:
   - PhysicalPath: Game Parameters\Default Work Unit.wwu
     PathAndIcons:
@@ -216,7 +418,7 @@ MonoBehaviour:
     ParentPath: Game Parameters\Default Work Unit
     guid: 205402400bc290468fc2df91a19f2658
     GuidInternal: 
-    m_lastTime: -8585404152624409474
+    m_lastTime: -8585402751884995111
     List: []
   StateWwu:
   - PhysicalPath: States\Default Work Unit.wwu
@@ -230,7 +432,7 @@ MonoBehaviour:
     ParentPath: States\Default Work Unit
     guid: 7ff882f59c21b04cb0b552e2c6215aac
     GuidInternal: 
-    m_lastTime: -8585404152619973510
+    m_lastTime: -8585402751856734081
     List: []
   SwitchWwu:
   - PhysicalPath: Switches\Default Work Unit.wwu
@@ -244,7 +446,7 @@ MonoBehaviour:
     ParentPath: Switches\Default Work Unit
     guid: 96a9b9778e552a4889c708902bae0359
     GuidInternal: 
-    m_lastTime: -8585404152619963498
+    m_lastTime: -8585402751856734081
     List: []
   TriggerWwu:
   - PhysicalPath: Triggers\Default Work Unit.wwu
@@ -258,10 +460,10 @@ MonoBehaviour:
     ParentPath: Triggers\Default Work Unit
     guid: dfa3e3eb1c0a8b42868d2f685f8e381b
     GuidInternal: 
-    m_lastTime: -8585404152619953501
+    m_lastTime: -8585402751856656671
     List: []
   ExpandedFileSystemItemIds: 
-  ExpandedWaapiItemIds: 
+  ExpandedWaapiItemIds: 0100000005000000060000000700000008000000090000000b0000000c000000
   AutoSyncSelection: 0
   autoPopulateEnabled: 1
   currentDataSource: 0

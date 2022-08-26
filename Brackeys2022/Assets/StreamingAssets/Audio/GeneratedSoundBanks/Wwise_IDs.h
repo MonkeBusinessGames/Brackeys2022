@@ -16,8 +16,13 @@ namespace AK
         static const AkUniqueID MUSICTEST = 4195921398U;
         static const AkUniqueID PLAY_DUNGEONAMBIENCE = 4258174524U;
         static const AkUniqueID PLAY_FOOTSTEP = 1602358412U;
+        static const AkUniqueID PLAY_LAND = 4285282925U;
+        static const AkUniqueID PLAYER_GETHIT = 3945457670U;
+        static const AkUniqueID PLAYTESTBATTLEMUSIC = 1786435558U;
         static const AkUniqueID SKELETONATTACK = 4153337164U;
+        static const AkUniqueID SKELETONDEATH = 139523582U;
         static const AkUniqueID SKELETONSTEPS = 2032018185U;
+        static const AkUniqueID STOPTESTBATTLEMUSIC = 1076666776U;
     } // namespace EVENTS
 
     namespace BANKS
@@ -28,7 +33,11 @@ namespace AK
 
     namespace BUSSES
     {
+        static const AkUniqueID ENEMIES = 2242381963U;
+        static const AkUniqueID ENVIRONMENT = 1229948536U;
         static const AkUniqueID MASTER_AUDIO_BUS = 3803692087U;
+        static const AkUniqueID MUSIC = 3991942870U;
+        static const AkUniqueID PLAYER = 1069431850U;
     } // namespace BUSSES
 
     namespace AUDIO_DEVICES

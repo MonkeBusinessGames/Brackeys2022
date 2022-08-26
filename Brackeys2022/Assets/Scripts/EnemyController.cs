@@ -25,7 +25,6 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private BoxCollider2D detectRange;
     [SerializeField] private float knockBackForce = 5;
     [SerializeField] private float health = 10;
-    [SerializeField] private float recoveryTime = .5f;
     [SerializeField] private float attackPower = 3;
     private static PlayerController player;
 
