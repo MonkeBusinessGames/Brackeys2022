@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.Tilemaps;
 
 public class PlayerController : MonoBehaviour
 {
@@ -35,8 +36,23 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float attackPower = 10;
     [SerializeField] private float knockBackForce = 100;
     [SerializeField] private float recoveryTime = .5f;
-
     [SerializeField] private TMP_Text healthText;
+
+    [Header("Long/Double Jump Fields")]
+    [Range(0, 1)]
+    [Tooltip("By how many percent will the jump force increase, if the player holds for whole defined duration. 0s - 0%; 0.5s - 50%; 1s - 200%")]
+    [SerializeField] private float jumpHoldTime;
+
+    [Tooltip("Enables: Hold To Jump")]
+    [SerializeField] private bool holdToJump;
+
+    [Tooltip("Enables: Double Jump")]
+    [SerializeField] private bool doubleJump; 
+    
+    private int totalJumpCount = 1;             // 1- single jump, 2 - double, 3 - triple, etc.
+    private int jumpCount = 0;                  // For tracking jumps, don't change
+    private float jumpTimeCounter = 0;          // Final hold jump value, which will be added to jumpForce
+
 
     void Start()
     {
@@ -49,8 +65,8 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         if (state == (PlayerState.Hit))
-            return; 
-        if (state == ( PlayerState.Attack))
+            return;
+        if (state == (PlayerState.Attack))
             return;
 
         //Get Walk Input
@@ -73,6 +89,7 @@ public class PlayerController : MonoBehaviour
         {
             case PlayerState.Idle:
                 //Handle Hide Input
+                jumpCount = totalJumpCount; // Double jump reset
                 if (HideCheck())
                     break;
 
@@ -117,8 +134,10 @@ public class PlayerController : MonoBehaviour
                     rb.velocity *= new Vector2(1, .5f);
                     state = PlayerState.JumpStop;
                 }
-                else if (rb.velocity.y < 5f)
+                else if (rb.velocity.y < 5f) 
+                { 
                     state = PlayerState.JumpStop;
+                }
                 break;
             case PlayerState.JumpStop:
                 anim.SetFloat("Jump Velocity", rb.velocity.y);
@@ -152,7 +171,7 @@ public class PlayerController : MonoBehaviour
                 HideCheck();
                 break;
         }
-            
+
     }
 
     void FixedUpdate()
@@ -182,7 +201,7 @@ public class PlayerController : MonoBehaviour
                 break;
             case PlayerState.JumpStart:
                 //Initiates Jump
-                rb.AddForce(new Vector2(0, jumpForce));
+                rb.AddForce(new Vector2(0, jumpForce * (jumpTimeCounter + 1)));  // + 1, because if player releases jump button after 0.5s then it would decrease jumpForce by 50% 
                 state = PlayerState.Jumping;
                 SetAnimation();
                 break;
@@ -205,7 +224,6 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-
         if (hidden)
             return;
 
@@ -225,6 +243,21 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
+    /// <summary>
+    /// Use this method to enable double jump, when animal selection event is fired
+    /// </summary>
+    public void AddDoubleJump()
+    {
+        totalJumpCount++;
+        doubleJump = true;
+    }
+    /// <summary>
+    /// Use this method to enable hold jump, when animal selection event is fired
+    /// </summary>
+    public void EnableHoldJump()
+    {
+        holdToJump = true;
+    }
 
     public void HitCheck() 
     {
@@ -242,6 +275,7 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
+
     public void DamageCheck(Transform enemyRange, float damage)
     {
             state = PlayerState.Hit;

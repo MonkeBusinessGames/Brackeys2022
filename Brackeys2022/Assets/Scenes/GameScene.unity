@@ -225,7 +225,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 106607911}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -20.55, y: -3.19, z: 0}
+  m_LocalPosition: {x: 15.5, y: 34, z: 0}
   m_LocalScale: {x: -2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -279,6 +279,8 @@ MonoBehaviour:
   knockBackForce: 5
   recoveryTime: 0.5
   healthText: {fileID: 1937011791}
+  jumpTime: 0.5
+  holdJump: 1
 --- !u!61 &106607916
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -424905,6 +424907,8 @@ MonoBehaviour:
   knockBackForce: 5
   recoveryTime: 0.5
   healthText: {fileID: 1937011791}
+  jumpTime: 0
+  holdJump: 0
 --- !u!95 &1208507365
 Animator:
   serializedVersion: 4
