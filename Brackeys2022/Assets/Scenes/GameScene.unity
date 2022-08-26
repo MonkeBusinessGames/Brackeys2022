@@ -438847,7 +438847,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!114 &1208507364
 MonoBehaviour:
@@ -439682,11 +439682,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4823702686123520111, guid: b712399f758a78847af98fa1e655f237, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 16
+      value: -12.73
       objectReference: {fileID: 0}
     - target: {fileID: 4823702686123520111, guid: b712399f758a78847af98fa1e655f237, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.84
+      value: -3.65
       objectReference: {fileID: 0}
     - target: {fileID: 4823702686123520111, guid: b712399f758a78847af98fa1e655f237, type: 3}
       propertyPath: m_LocalPosition.z
@@ -439734,11 +439734,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4823702686123520118, guid: b712399f758a78847af98fa1e655f237, type: 3}
       propertyPath: points.Array.data[0].x
-      value: 24
+      value: -8
       objectReference: {fileID: 0}
     - target: {fileID: 4823702686123520118, guid: b712399f758a78847af98fa1e655f237, type: 3}
       propertyPath: points.Array.data[1].x
-      value: 11
+      value: -14
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b712399f758a78847af98fa1e655f237, type: 3}
