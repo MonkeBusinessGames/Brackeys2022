@@ -232,7 +232,14 @@ public class PlayerController : MonoBehaviour
         attackRange.OverlapCollider(enemies, hitEnemies);
         for(int i = 0; i < hitEnemies.Count; i++)
         {
-            hitEnemies[i].GetComponent<EnemyController>().TakeDamage(attackPower, transform.position);
+            try
+            {
+                hitEnemies[i].GetComponent<EnemyController>().TakeDamage(attackPower, transform.position);
+            }
+            catch (System.NullReferenceException)
+            {
+                hitEnemies[i].GetComponent<WispController>().TakeDamage(attackPower, transform.position);
+            }
         }
     }
     public void DamageCheck(Transform enemyRange, float damage)

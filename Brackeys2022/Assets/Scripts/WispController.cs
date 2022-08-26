@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyController : MonoBehaviour
+public class WispController : MonoBehaviour
 {
 
     [Header("General Components")]
@@ -25,16 +25,16 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private BoxCollider2D detectRange;
     [SerializeField] private float knockBackForce = 5;
     [SerializeField] private float health = 10;
-    [SerializeField] private float attackPower = 3;
+    [SerializeField] private float attackSpeed = 5;
     private static PlayerController player;
 
     private float timer;
-    private EnemyState state;
+    private WispState state;
 
     void Start()
     {
         player = FindObjectOfType<PlayerController>();
-        state = EnemyState.Idle;
+        state = WispState.Idle;
         timer = 0;
         targetWaypoint = points[pointIndex];
         facingLeft = false;
@@ -54,16 +54,19 @@ public class EnemyController : MonoBehaviour
     {
         switch (state)
         {
-            case EnemyState.Idle:
+            case WispState.Idle:
                 Idling();
                 break;
-            case EnemyState.Walking:
+            case WispState.Walking:
                 Walking();
                 break;
-            case EnemyState.Chasing:
+            case WispState.Chasing:
                 Chasing();
                 break;
-            case EnemyState.Hit:
+            case WispState.Hit:
+                break;
+            case WispState.AttackReady:
+                Attacking();
                 break;
         }
     }
@@ -72,10 +75,10 @@ public class EnemyController : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            if (state == EnemyState.Die)
+            if (state == WispState.Die)
                 return;
-            state = EnemyState.Chasing;
-            SetAnimation();
+            state = WispState.Chasing;
+            GetAngry();
         }
     }
 
@@ -83,10 +86,10 @@ public class EnemyController : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            if (state == EnemyState.Die)
+            if (state == WispState.Die)
                 return;
-            state = EnemyState.Idle;
-            SetAnimation();
+            state = WispState.Idle;
+            CalmDown();
             targetWaypoint = points[pointIndex];
             FlipCheck();
         }
@@ -94,73 +97,33 @@ public class EnemyController : MonoBehaviour
 
     private void DetectPlayer()
     {
-        if (state == EnemyState.Die)
+        if (state == WispState.Die)
             return;
         if (detectRange.IsTouchingLayers(128))
         {
-            state = EnemyState.Chasing;
-            SetAnimation();
+            state = WispState.Chasing;
+            GetAngry();
         }
-    }
-    private void StartAttack()
-    {
-        state = EnemyState.Attack;
-        SetAnimation();
-        rb.velocity = new Vector2(0, rb.velocity.y);
-    } 
-
-    public void HitCheck()
-    {
-        if(Physics2D.OverlapBox(attackRange.position, attackRange.localScale, 0, 128) != null)
-            player.DamageCheck(attackRange, attackPower);
     }
 
     public void TakeDamage(float damageDealt, Vector2 playerPosition)
     {
-        state = EnemyState.Hit;
+        state = WispState.Hit;
+        anim.SetTrigger("Hit");
         rb.velocity = Vector2.zero;
         rb.AddForce(((Vector2)transform.position - playerPosition).normalized * knockBackForce, ForceMode2D.Impulse);
         health -= damageDealt;
         timer = 0;
-        if(health <= 0)
-            state = EnemyState.Die;
-        SetAnimation();
-    }
-    
-    public void AnimationEnd()
-    {
-        state = EnemyState.Idle;
-        if (detectRange.IsTouchingLayers(128))
-            state = EnemyState.Chasing;
-        SetAnimation();
-    }
-
-    private void SetAnimation()
-    {
-        switch (state)
+        if (health <= 0)
         {
-            case EnemyState.Idle:
-                anim.SetInteger("State", 0);
-                break;
-            case EnemyState.Walking:
-                anim.SetInteger("State", 1);
-                break;
-            case EnemyState.Chasing:
-                anim.SetInteger("State", 1);
-                break;
-            case EnemyState.Hit:
-                anim.SetInteger("State", 2);
-                break;
-/*            case EnemyState.JumpStart:
-                anim.SetInteger("State", 3);
-                break*/;
-            case EnemyState.Die:
-                anim.SetInteger("State", 4);
-                break;
-            case EnemyState.Attack:
-                anim.SetInteger("State", 5);
-                break;
+            state = WispState.Die;
+            anim.SetTrigger("Die");
         }
+    }
+    public void HitEnd()
+    {
+        GetAngry();
+        state = WispState.Chasing;
     }
 
     public void Die()
@@ -174,8 +137,7 @@ public class EnemyController : MonoBehaviour
     {
         if (player.hidden)
         {
-            state = EnemyState.Idle;
-            SetAnimation();
+            CalmDown();
             targetWaypoint = points[pointIndex];
             FlipCheck();
             return;
@@ -183,15 +145,30 @@ public class EnemyController : MonoBehaviour
         targetWaypoint = player.transform.position;
         FlipCheck();
         if (Physics2D.OverlapBox(attackRange.position, attackRange.localScale, 0, 128) != null)
-            StartAttack();
-        SetAnimation();
+            AttackModeStart();
 
+    }
+
+    private void Attacking()
+    {
+        if (player.hidden)
+        {
+            CalmDown();
+            targetWaypoint = points[pointIndex];
+            FlipCheck();
+            return;
+        }
+        targetWaypoint = player.transform.position;
+        FlipCheck();
+        if (Physics2D.OverlapBox(attackRange.position, attackRange.localScale, 0, 128) == null)
+            AttackModeEnd();
+        else
+            StartCoroutine(Attack(player.transform.position));
     }
 
     /// <summary>Checks whether the walk is over</summary>
     private void Walking()
     {
-        //print(transform.position.x - targetWaypoint.x);
         if (facingLeft)
         {
             if (transform.position.x <= targetWaypoint.x)
@@ -199,9 +176,8 @@ public class EnemyController : MonoBehaviour
                 pointIndex++;
                 pointIndex = pointIndex % points.Length;
                 targetWaypoint = points[pointIndex];
-                state = EnemyState.Idle;
+                state = WispState.Idle;
                 rb.velocity = Vector2.zero;
-                SetAnimation();
             }
         }
         else if (transform.position.x >= targetWaypoint.x)
@@ -209,21 +185,58 @@ public class EnemyController : MonoBehaviour
             pointIndex++;
             pointIndex = pointIndex % points.Length;
             targetWaypoint = points[pointIndex];
-            state = EnemyState.Idle;
+            state = WispState.Idle;
             rb.velocity = Vector2.zero;
-            SetAnimation();
         }
     }
+
     /// <summary>Checks whether idling is over</summary>
     private void Idling()
     {
         timer += Time.deltaTime;
         if (timer >= idleTime)
         {
-            state = EnemyState.Walking;
+            state = WispState.Walking;
             FlipCheck();
             timer = 0;
         }
+    }
+
+    private void CalmDown()
+    {
+        anim.SetBool("Angry", false);
+        anim.SetBool("Attack", false);
+    }
+
+    private void GetAngry()
+    {
+        anim.SetBool("Angry", true);
+        anim.SetBool("Attack", false);
+    }
+
+    private void AttackModeStart()
+    {
+        anim.SetBool("Attack", true);
+    }
+
+    public void AttackReady()
+    {
+        state = WispState.AttackReady;
+    }
+
+    private IEnumerator Attack(Vector3 target)
+    {
+        state = WispState.Attack;
+        rb.AddForce((transform.position - target).normalized * attackSpeed, ForceMode2D.Impulse);
+
+        while ((transform.position - player.transform.position).magnitude > 1)
+            yield return null;
+
+        state = WispState.AttackReady;
+    }
+    private void AttackModeEnd()
+    {
+        anim.SetBool("Attack", false);
     }
 
     /// <summary>Checks if it's facing right direction</summary>
@@ -234,18 +247,16 @@ public class EnemyController : MonoBehaviour
             if (targetWaypoint.x > transform.position.x)
             {
                 facingLeft = sRend.flipX = false;
-                attackRange.localPosition = Vector2.right;
             }
         }
         else
             if (targetWaypoint.x < transform.position.x)
         {
             facingLeft = sRend.flipX = true;
-            attackRange.localPosition = Vector2.left;
         }
 
-        if(facingLeft)
-            rb.velocity = new Vector2(-1*speed, 0);
+        if (facingLeft)
+            rb.velocity = new Vector2(-1 * speed, 0);
         else
             rb.velocity = new Vector2(speed, 0);
     }
@@ -261,12 +272,13 @@ public class EnemyController : MonoBehaviour
     }
 }
 
-public enum EnemyState
+public enum WispState
 {
     Idle,
     Walking,
     Chasing,
+    AttackReady,
+    Attack,
     Hit,
-    Die,
-    Attack
+    Die
 }
