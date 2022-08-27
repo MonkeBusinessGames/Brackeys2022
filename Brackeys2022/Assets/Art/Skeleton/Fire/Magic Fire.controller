@@ -63,7 +63,7 @@ AnimatorController:
   m_Name: Magic Fire
   serializedVersion: 5
   m_AnimatorParameters:
-  - m_Name: FireOn
+  - m_Name: fireOn
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
@@ -167,7 +167,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 2
-    m_ConditionEvent: FireOn
+    m_ConditionEvent: fireOn
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 2274878761968004164}
@@ -192,7 +192,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: FireOn
+    m_ConditionEvent: fireOn
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -4059897529032448217}

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 68f7cbb54cde93845bf97a2899d8a18d
+guid: f86f62bb60f811b4c8d80feca9111d22
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -128,7 +128,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Skeleton_Att_Transition1_128x128-Sheet_0
+      name: Skeleton_Idle_B&W_0
       rect:
         serializedVersion: 2
         x: 0
@@ -142,14 +142,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b8d106b70b55bb040830f6d1e119ddd7
-      internalID: -916624119
+      spriteID: 3aeea1dfb83f1f0478422c1c67e582fa
+      internalID: -580827799
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Skeleton_Att_Transition1_128x128-Sheet_1
+      name: Skeleton_Idle_B&W_1
       rect:
         serializedVersion: 2
         x: 128
@@ -163,14 +163,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2c4bd3d4b6e74444fabba700b4a15982
-      internalID: 163210977
+      spriteID: 9d8b1ba3e8b1c654ca2956aa95ddddf4
+      internalID: -2105134178
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Skeleton_Att_Transition1_128x128-Sheet_2
+      name: Skeleton_Idle_B&W_2
       rect:
         serializedVersion: 2
         x: 256
@@ -184,14 +184,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2808085ae3b9d1440b4d20e5bf566a80
-      internalID: 947243119
+      spriteID: bd0d7f5d260c6fa48b4be8e678ddbddb
+      internalID: 1368835690
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Skeleton_Att_Transition1_128x128-Sheet_3
+      name: Skeleton_Idle_B&W_3
       rect:
         serializedVersion: 2
         x: 384
@@ -205,14 +205,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f272a5e6ecadc554e9f0d2ff64827e78
-      internalID: -1619824723
+      spriteID: a07c7f398ed16324ea6bed1209308a02
+      internalID: -1879260468
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Skeleton_Att_Transition1_128x128-Sheet_4
+      name: Skeleton_Idle_B&W_4
       rect:
         serializedVersion: 2
         x: 512
@@ -226,8 +226,113 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7fb5140f21740e741a56e2955a1eee1a
-      internalID: -1169952591
+      spriteID: a364f5c1578535843b3c9175150639b6
+      internalID: 215048857
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeleton_Idle_B&W_5
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 0
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.65, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85192c54c7e2eb840aac80d5749a8beb
+      internalID: -265760317
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeleton_Idle_B&W_6
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 0
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.65, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3ea99858dc58c447b67dc9e6a669b07
+      internalID: -1071342665
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeleton_Idle_B&W_7
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 0
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.65, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: afb2853dbe6a5f14084530a8a1c56709
+      internalID: 1605516379
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeleton_Idle_B&W_8
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 0
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.65, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2bea7ea20244f2d458a2780c40ae7f77
+      internalID: -1364626945
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeleton_Idle_B&W_9
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 0
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.65, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac10d106bf7d06f43b384b0b4f96fcf5
+      internalID: -1539803990
       vertices: []
       indices: 
       edges: []
@@ -243,11 +348,16 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Skeleton_Att_Transition1_128x128-Sheet_2: 947243119
-      Skeleton_Att_Transition1_128x128-Sheet_4: -1169952591
-      Skeleton_Att_Transition1_128x128-Sheet_3: -1619824723
-      Skeleton_Att_Transition1_128x128-Sheet_1: 163210977
-      Skeleton_Att_Transition1_128x128-Sheet_0: -916624119
+      Skeleton_Idle_B&W_6: -1071342665
+      Skeleton_Idle_B&W_5: -265760317
+      Skeleton_Idle_B&W_1: -2105134178
+      Skeleton_Idle_B&W_9: -1539803990
+      Skeleton_Idle_B&W_0: -580827799
+      Skeleton_Idle_B&W_3: -1879260468
+      Skeleton_Idle_B&W_7: 1605516379
+      Skeleton_Idle_B&W_2: 1368835690
+      Skeleton_Idle_B&W_4: 215048857
+      Skeleton_Idle_B&W_8: -1364626945
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

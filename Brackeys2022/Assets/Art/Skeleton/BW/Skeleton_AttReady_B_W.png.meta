@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a3b5565638e33c547a7d5382c7e6bac0
+guid: ae1248d588aa81e46bab8b4bddc4d6a9
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -69,7 +69,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -128,7 +128,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Skeleton_Att_Transition1_B_W_128x128-Sheet-export_0
+      name: Skeleton_AttReady_B_W_0
       rect:
         serializedVersion: 2
         x: 0
@@ -142,14 +142,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 36f863f7e7fdf6249afa11776e2b830b
-      internalID: -852716038
+      spriteID: 5b5d9d67edc85a84ba008333b6457fce
+      internalID: 1171124099
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Skeleton_Att_Transition1_B_W_128x128-Sheet-export_1
+      name: Skeleton_AttReady_B_W_1
       rect:
         serializedVersion: 2
         x: 128
@@ -163,14 +163,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f877304f53deed449a49f0c1c249f567
-      internalID: -819201209
+      spriteID: 938b4b9d4c29dfc4497344b4a3173d04
+      internalID: -1629651617
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Skeleton_Att_Transition1_B_W_128x128-Sheet-export_2
+      name: Skeleton_AttReady_B_W_2
       rect:
         serializedVersion: 2
         x: 256
@@ -184,14 +184,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a27a37b349eaff249a6b379ff2f45444
-      internalID: 358365956
+      spriteID: 6072a0e8931f1c34e83f0109418d8b6b
+      internalID: -242236971
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Skeleton_Att_Transition1_B_W_128x128-Sheet-export_3
+      name: Skeleton_AttReady_B_W_3
       rect:
         serializedVersion: 2
         x: 384
@@ -205,14 +205,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d727ddbe67987184ebe6296be6602f1f
-      internalID: -1241483305
+      spriteID: 3ce6bdfcb98fe454dab54f8709b8fd8e
+      internalID: 1874444541
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Skeleton_Att_Transition1_B_W_128x128-Sheet-export_4
+      name: Skeleton_AttReady_B_W_4
       rect:
         serializedVersion: 2
         x: 512
@@ -226,8 +226,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 22596b4eef8168d469d821a547eadd45
-      internalID: 1620504334
+      spriteID: 58f338e242a38914aae8b97a89f39cef
+      internalID: -209871465
       vertices: []
       indices: 
       edges: []
@@ -243,11 +243,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Skeleton_Att_Transition1_B_W_128x128-Sheet-export_4: 1620504334
-      Skeleton_Att_Transition1_B_W_128x128-Sheet-export_2: 358365956
-      Skeleton_Att_Transition1_B_W_128x128-Sheet-export_1: -819201209
-      Skeleton_Att_Transition1_B_W_128x128-Sheet-export_3: -1241483305
-      Skeleton_Att_Transition1_B_W_128x128-Sheet-export_0: -852716038
+      Skeleton_AttReady_B_W_3: 1874444541
+      Skeleton_AttReady_B_W_0: 1171124099
+      Skeleton_AttReady_B_W_1: -1629651617
+      Skeleton_AttReady_B_W_4: -209871465
+      Skeleton_AttReady_B_W_2: -242236971
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
