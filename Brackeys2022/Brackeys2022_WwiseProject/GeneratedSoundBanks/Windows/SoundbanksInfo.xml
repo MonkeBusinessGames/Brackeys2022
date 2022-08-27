@@ -44,7 +44,7 @@
 				</StateGroup>
 			</StateGroups>
 		</SoundBank>
-		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{B4BAEC4A-2D36-EF67-4C5E-C87522343C5A}">
+		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{BDA31458-6E9E-08CD-4FA4-5D5F7FDAF731}">
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
 			<Media>
@@ -88,6 +88,10 @@
 					<ShortName>DungeonAmbience2.wav</ShortName>
 					<CachePath>SFX/DungeonAmbience2_D79FB2B7.wem</CachePath>
 				</File>
+				<File Id="359717535" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Player_Attack1.wav</ShortName>
+					<CachePath>SFX/Player_Attack1_10C4C929.wem</CachePath>
+				</File>
 				<File Id="362917710" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Skelly_Sword_hit2.wav</ShortName>
 					<CachePath>SFX/Skelly_Sword_hit2_10C4C929.wem</CachePath>
@@ -123,6 +127,10 @@
 				<File Id="642100944" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Player_Unhiding.wav</ShortName>
 					<CachePath>SFX/Player_Unhiding_10C4C929.wem</CachePath>
+				</File>
+				<File Id="660298236" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Player_Attack2.wav</ShortName>
+					<CachePath>SFX/Player_Attack2_10C4C929.wem</CachePath>
 				</File>
 				<File Id="677411498" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Skeleton_Death.wav</ShortName>
@@ -247,6 +255,12 @@
 						<MediaRef Id="642100944"/>
 					</MediaRefs>
 				</Event>
+				<Event Id="2824512041" Name="Player_Attack" DurationType="OneShot" DurationMin="0.88941735" DurationMax="1.0026667">
+					<MediaRefs>
+						<MediaRef Id="359717535"/>
+						<MediaRef Id="660298236"/>
+					</MediaRefs>
+				</Event>
 				<Event Id="3945457670" Name="Player_GetHit" DurationType="OneShot" DurationMin="0.282233" DurationMax="0.2993611">
 					<MediaRefs>
 						<MediaRef Id="940916448"/>
@@ -301,5 +315,5 @@
 			</Events>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{DEECE22C-AA63-51D8-CD05-EE987E4D0E45}</FileHash>
+	<FileHash>{CA4F3DB1-40CE-4AC3-3469-DD1A3C9A2EDD}</FileHash>
 </SoundBanksInfo>

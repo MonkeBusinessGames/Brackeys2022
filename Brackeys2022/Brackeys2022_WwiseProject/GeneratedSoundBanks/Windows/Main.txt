@@ -10,6 +10,7 @@ Event	ID	Name			Wwise Object Path	Notes
 	2586843602	Play_Hide			\Default Work Unit\Player\Play_Hide	
 	2671044069	Play_LevelMusic			\Default Work Unit\Music\Play_LevelMusic	
 	2774129122	UI_Select			\Default Work Unit\UI\UI_Select	
+	2824512041	Player_Attack			\Default Work Unit\Player\Player_Attack	
 	3945457670	Player_GetHit			\Default Work Unit\Player\Player_GetHit	
 	4095150858	Play_StopHide			\Default Work Unit\Player\Play_StopHide	
 	4153337164	SkeletonAttack			\Default Work Unit\Enemies\SkeletonAttack	
@@ -32,6 +33,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	313573349	UI_Select	P:\Unity\Brackeys2022\Brackeys2022\Brackeys2022_WwiseProject\.cache\Windows\SFX\UI_Select_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\UI_Select		33096
 	348981408	Jump2	P:\Unity\Brackeys2022\Brackeys2022\Brackeys2022_WwiseProject\.cache\Windows\SFX\317498-EMOTE_Liam-Child-Anger_Fight_Grunt_Small_07_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\JumpSigh\Jump2		34400
 	349328889	DungeonAmbience2	P:\Unity\Brackeys2022\Brackeys2022\Brackeys2022_WwiseProject\.cache\Windows\SFX\DungeonAmbience2_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\Music\DungeonAmbiance\DungeonAmbience2		2148964
+	359717535	Player_Attack1	P:\Unity\Brackeys2022\Brackeys2022\Brackeys2022_WwiseProject\.cache\Windows\SFX\Player_Attack1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\PlayerAttack\Player_Attack1		189848
 	362917710	Skelly_Sword_hit2	P:\Unity\Brackeys2022\Brackeys2022\Brackeys2022_WwiseProject\.cache\Windows\SFX\Skelly_Sword_hit2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\Skeleton\Skelly_Attack\Skeleton_Sword_Woosh\Skelly_Sword_hit2		66032
 	369493372	GetHit2	P:\Unity\Brackeys2022\Brackeys2022\Brackeys2022_WwiseProject\.cache\Windows\SFX\GetHit2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\Skeleton\Skeleton_GetHit\GetHit2		192096
 	471127437	GetHit3	P:\Unity\Brackeys2022\Brackeys2022\Brackeys2022_WwiseProject\.cache\Windows\SFX\GetHit3_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\Skeleton\Skeleton_GetHit\GetHit3		192096
@@ -41,6 +43,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	621761934	Cloth3	P:\Unity\Brackeys2022\Brackeys2022\Brackeys2022_WwiseProject\.cache\Windows\SFX\Cloth3_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\Cloth\Cloth3		100140
 	621944606	Skelly_Sword_hit	P:\Unity\Brackeys2022\Brackeys2022\Brackeys2022_WwiseProject\.cache\Windows\SFX\Skelly_Sword_hit_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\Skeleton\Skelly_Attack\Skeleton_Sword_Woosh\Skelly_Sword_hit		60076
 	642100944	NotHiding	P:\Unity\Brackeys2022\Brackeys2022\Brackeys2022_WwiseProject\.cache\Windows\SFX\Player_Unhiding_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\NotHiding		74348
+	660298236	Player_Attack2	P:\Unity\Brackeys2022\Brackeys2022\Brackeys2022_WwiseProject\.cache\Windows\SFX\Player_Attack2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\PlayerAttack\Player_Attack2		173348
 	677411498	Skelly_Death	P:\Unity\Brackeys2022\Brackeys2022\Brackeys2022_WwiseProject\.cache\Windows\SFX\Skeleton_Death_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\Skeleton\Skelly_Death		297096
 	683425856	FS2	P:\Unity\Brackeys2022\Brackeys2022\Brackeys2022_WwiseProject\.cache\Windows\SFX\FS2Stereo_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\Footsteps\FS2		73752
 	705979647	FS1	P:\Unity\Brackeys2022\Brackeys2022\Brackeys2022_WwiseProject\.cache\Windows\SFX\FS1Stereo_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\Footsteps\FS1		46504

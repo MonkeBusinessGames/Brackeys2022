@@ -602,7 +602,7 @@ public class PlayerController : MonoBehaviour
     {
         AkSoundEngine.PostEvent(PlayerAttack2.Id, this.gameObject);
     }
-
+    
     public void PlayAttackSound3()
     {
         AkSoundEngine.PostEvent(PlayerAttack3.Id, this.gameObject);

@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16c61f04ce2b480459c6f71c82aa212a, type: 3}
+  m_Name: 4EF2651D-A9F2-4163-BBB7-12336F217BEC
+  m_EditorClassIdentifier: 
+  objectName: Player_Attack
+  id: 2824512041
+  guid: 4EF2651D-A9F2-4163-BBB7-12336F217BEC

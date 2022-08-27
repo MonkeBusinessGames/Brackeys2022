@@ -134,7 +134,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: 8e4f66b589979341a9758fc582d8ef42
     GuidInternal: 
-    m_lastTime: -8585399837877499145
+    m_lastTime: -8585399727487354231
     List:
     - name: Main
       guid: 39d7839d2e21374980c4dbcf6c26361d
@@ -162,7 +162,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: 82cdb01971e8c14a95e6261d6261e874
     GuidInternal: 
-    m_lastTime: -8585399837881669661
+    m_lastTime: -8585399727529067605
     List:
     - name: Enemies
       guid: ca416c819803884494d186c1d539683a
@@ -215,26 +215,6 @@ MonoBehaviour:
         ObjectType: 3
         guid: bb901e22f07835439e4f36c5be388bf9
       Path: Events\Default Work Unit\Music\MusicTest
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: Play
-      guid: 0a7fbcf8d73f964786b2967cb27d8d75
-      id: 1256202815
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: 82cdb01971e8c14a95e6261d6261e874
-      - ElementName: Player
-        ObjectType: 4
-        guid: dbbe213d96b4944487849970b94c79e6
-      - ElementName: Play
-        ObjectType: 3
-        guid: 0a7fbcf8d73f964786b2967cb27d8d75
-      Path: Events\Default Work Unit\Player\Play
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -392,6 +372,26 @@ MonoBehaviour:
         ObjectType: 4
         guid: dbbe213d96b4944487849970b94c79e6
       Path: Events\Default Work Unit\Player
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Player_Attack
+      guid: 1d65f24ef2a96341bbb712336f217bec
+      id: 2824512041
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 82cdb01971e8c14a95e6261d6261e874
+      - ElementName: Player
+        ObjectType: 4
+        guid: dbbe213d96b4944487849970b94c79e6
+      - ElementName: Player_Attack
+        ObjectType: 3
+        guid: 1d65f24ef2a96341bbb712336f217bec
+      Path: Events\Default Work Unit\Player\Player_Attack
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -715,7 +715,7 @@ MonoBehaviour:
     m_lastTime: -8585402751856656671
     List: []
   ExpandedFileSystemItemIds: 
-  ExpandedWaapiItemIds: 
+  ExpandedWaapiItemIds: 01000000050000000600000007000000090000000a000000
   AutoSyncSelection: 0
   autoPopulateEnabled: 1
   currentDataSource: 0
