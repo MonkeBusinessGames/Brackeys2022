@@ -77,6 +77,12 @@ public class EnemyController : MonoBehaviour
             state = EnemyState.Chasing;
             SetAnimation();
         }
+        if (collision.CompareTag("Dive"))
+        {
+            if (state == ( EnemyState.Die | EnemyState.Hit))
+                return;
+            TakeDamage(3, collision.transform.position);
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
