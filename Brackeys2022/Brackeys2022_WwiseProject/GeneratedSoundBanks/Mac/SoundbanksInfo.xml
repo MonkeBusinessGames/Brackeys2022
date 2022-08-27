@@ -9,7 +9,7 @@
 	</RootPaths>
 	<DialogueEvents/>
 	<SoundBanks>
-		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{111D173B-EB46-EFBF-5695-5340BC84BA00}">
+		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{AF4900DB-32AE-CF67-FB91-DB0A869178FA}">
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 			<Plugins>
@@ -34,14 +34,31 @@
 				<Bus Id="3803692087" Name="Master Audio Bus"/>
 				<Bus Id="3991942870" Name="Music"/>
 			</Busses>
+			<StateGroups>
+				<StateGroup Id="3703386026" Name="PlayerHide">
+					<States>
+						<State Id="234385385" Name="NotHiding"/>
+						<State Id="748895195" Name="None"/>
+						<State Id="3538823496" Name="Hiding"/>
+					</States>
+				</StateGroup>
+			</StateGroups>
 		</SoundBank>
-		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{85B79B8F-47D9-13B0-61C7-C841B920BC7D}">
+		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{56A6D6D1-FDD0-6A82-2432-7C4B06D8B498}">
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
 			<Media>
 				<File Id="32749564" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>66139-Grunt_breathe_male_seven_year_old_boy-BLASTWAVEFX-03843.wav</ShortName>
 					<CachePath>SFX/66139-Grunt_breathe_male_seven_year_old_boy-BLASTWAVEFX-03843_10C4C929.wem</CachePath>
+				</File>
+				<File Id="151693611" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>GetHit5.wav</ShortName>
+					<CachePath>SFX/GetHit5_10C4C929.wem</CachePath>
+				</File>
+				<File Id="169778164" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>GetHit6.wav</ShortName>
+					<CachePath>SFX/GetHit6_10C4C929.wem</CachePath>
 				</File>
 				<File Id="200315710" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>DungeonAmbience.wav</ShortName>
@@ -59,6 +76,14 @@
 					<ShortName>FS3Stereo.wav</ShortName>
 					<CachePath>SFX/FS3Stereo_10C4C929.wem</CachePath>
 				</File>
+				<File Id="313573349" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>UI_Select.wav</ShortName>
+					<CachePath>SFX/UI_Select_10C4C929.wem</CachePath>
+				</File>
+				<File Id="348981408" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>317498-EMOTE_Liam-Child-Anger_Fight_Grunt_Small_07.wav</ShortName>
+					<CachePath>SFX/317498-EMOTE_Liam-Child-Anger_Fight_Grunt_Small_07_10C4C929.wem</CachePath>
+				</File>
 				<File Id="349328889" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>DungeonAmbience2.wav</ShortName>
 					<CachePath>SFX/DungeonAmbience2_D79FB2B7.wem</CachePath>
@@ -66,6 +91,14 @@
 				<File Id="362917710" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Skelly_Sword_hit2.wav</ShortName>
 					<CachePath>SFX/Skelly_Sword_hit2_10C4C929.wem</CachePath>
+				</File>
+				<File Id="369493372" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>GetHit2.wav</ShortName>
+					<CachePath>SFX/GetHit2_10C4C929.wem</CachePath>
+				</File>
+				<File Id="471127437" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>GetHit3.wav</ShortName>
+					<CachePath>SFX/GetHit3_10C4C929.wem</CachePath>
 				</File>
 				<File Id="472719549" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>TestBattleMusic.wav</ShortName>
@@ -87,6 +120,10 @@
 					<ShortName>Skelly_Sword_hit.wav</ShortName>
 					<CachePath>SFX/Skelly_Sword_hit_10C4C929.wem</CachePath>
 				</File>
+				<File Id="642100944" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Player_Unhiding.wav</ShortName>
+					<CachePath>SFX/Player_Unhiding_10C4C929.wem</CachePath>
+				</File>
 				<File Id="677411498" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Skeleton_Death.wav</ShortName>
 					<CachePath>SFX/Skeleton_Death_10C4C929.wem</CachePath>
@@ -99,6 +136,14 @@
 					<ShortName>FS1Stereo.wav</ShortName>
 					<CachePath>SFX/FS1Stereo_10C4C929.wem</CachePath>
 				</File>
+				<File Id="724180997" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Player_Hiding.wav</ShortName>
+					<CachePath>SFX/Player_Hiding_10C4C929.wem</CachePath>
+				</File>
+				<File Id="742716024" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>GetHit1.wav</ShortName>
+					<CachePath>SFX/GetHit1_10C4C929.wem</CachePath>
+				</File>
 				<File Id="793106254" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>WaterDrop2.wav</ShortName>
 					<CachePath>SFX/WaterDrop2_10C4C929.wem</CachePath>
@@ -106,6 +151,14 @@
 				<File Id="856300465" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Cloth2.wav</ShortName>
 					<CachePath>SFX/Cloth2_10C4C929.wem</CachePath>
+				</File>
+				<File Id="929970491" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>LevelMusic2.wav</ShortName>
+					<CachePath>SFX/LevelMusic2_10C4C929.wem</CachePath>
+				</File>
+				<File Id="939873588" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>GetHit4.wav</ShortName>
+					<CachePath>SFX/GetHit4_10C4C929.wem</CachePath>
 				</File>
 				<File Id="940916448" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>338147-Male_vocalization_-restrained_pain_-grunting_1.wav</ShortName>
@@ -118,6 +171,10 @@
 				<File Id="1013361031" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>WaterDrop1.wav</ShortName>
 					<CachePath>SFX/WaterDrop1_10C4C929.wem</CachePath>
+				</File>
+				<File Id="1059693162" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>LevelMusic1.wav</ShortName>
+					<CachePath>SFX/LevelMusic1_10C4C929.wem</CachePath>
 				</File>
 			</Media>
 			<Plugins>
@@ -156,6 +213,17 @@
 						<MediaRef Id="856300465"/>
 					</MediaRefs>
 				</Event>
+				<Event Id="2586843602" Name="Play_Hide" DurationType="OneShot" DurationMin="1.8624792" DurationMax="1.8624792">
+					<MediaRefs>
+						<MediaRef Id="724180997"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="2371580015" Name="Play_JumpSound" DurationType="OneShot" DurationMin="0.35733333" DurationMax="0.6853416">
+					<MediaRefs>
+						<MediaRef Id="32749564"/>
+						<MediaRef Id="348981408"/>
+					</MediaRefs>
+				</Event>
 				<Event Id="4285282925" Name="Play_Land" DurationType="OneShot" DurationMin="0.13893303" DurationMax="0.23698246">
 					<MediaRefs>
 						<MediaRef Id="302313211"/>
@@ -167,6 +235,17 @@
 							<PluginRef Id="1866712632"/>
 						</Sharesets>
 					</PluginRefs>
+				</Event>
+				<Event Id="2671044069" Name="Play_LevelMusic" DurationType="Infinite">
+					<MediaRefs>
+						<MediaRef Id="929970491"/>
+						<MediaRef Id="1059693162"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="4095150858" Name="Play_StopHide" DurationType="OneShot" DurationMin="0.38672918" DurationMax="0.38672918">
+					<MediaRefs>
+						<MediaRef Id="642100944"/>
+					</MediaRefs>
 				</Event>
 				<Event Id="3945457670" Name="Player_GetHit" DurationType="OneShot" DurationMin="0.282233" DurationMax="0.2993611">
 					<MediaRefs>
@@ -191,15 +270,36 @@
 						<MediaRef Id="677411498"/>
 					</MediaRefs>
 				</Event>
+				<Event Id="650055683" Name="SkeletonGetHit" DurationType="OneShot" DurationMin="0.8066458" DurationMax="1">
+					<MediaRefs>
+						<MediaRef Id="151693611"/>
+						<MediaRef Id="169778164"/>
+						<MediaRef Id="369493372"/>
+						<MediaRef Id="471127437"/>
+						<MediaRef Id="742716024"/>
+						<MediaRef Id="939873588"/>
+					</MediaRefs>
+				</Event>
 				<Event Id="2032018185" Name="SkeletonSteps" MaxAttenuation="100" DurationType="OneShot" DurationMin="0.22928715" DurationMax="0.3283948">
 					<MediaRefs>
 						<MediaRef Id="588511061"/>
 						<MediaRef Id="617516731"/>
 					</MediaRefs>
 				</Event>
+				<Event Id="2518039975" Name="Stop_LevelMusic" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0">
+					<MediaRefs>
+						<MediaRef Id="929970491"/>
+						<MediaRef Id="1059693162"/>
+					</MediaRefs>
+				</Event>
 				<Event Id="1076666776" Name="StopTestBattleMusic" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
+				<Event Id="2774129122" Name="UI_Select" DurationType="OneShot" DurationMin="0.17039225" DurationMax="0.17337066">
+					<MediaRefs>
+						<MediaRef Id="313573349"/>
+					</MediaRefs>
+				</Event>
 			</Events>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{28E07AE4-D78C-3E1A-BC73-B25AAC3BC717}</FileHash>
+	<FileHash>{EAF5AD2E-2003-12A1-0E5E-CFE75A5C9A8D}</FileHash>
 </SoundBanksInfo>

@@ -296,3 +296,7 @@ MonoBehaviour:
     idInternal: 0
     valueGuidInternal: 
     WwiseObjectReference: {fileID: 11400000, guid: 27a8cdb3a1387b547880fe62495e5b6b, type: 2}
+  getHitSound:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 18b56bef098e0c648935f85491e3d2a2, type: 2}
