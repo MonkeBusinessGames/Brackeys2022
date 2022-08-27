@@ -44,7 +44,7 @@
 				</StateGroup>
 			</StateGroups>
 		</SoundBank>
-		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{BDA31458-6E9E-08CD-4FA4-5D5F7FDAF731}">
+		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{41789AFB-C74A-F746-8BE3-7FCD1D2C5C8A}">
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
 			<Media>
@@ -180,6 +180,10 @@
 					<ShortName>WaterDrop1.wav</ShortName>
 					<CachePath>SFX/WaterDrop1_10C4C929.wem</CachePath>
 				</File>
+				<File Id="1025909737" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Player_Death.wav</ShortName>
+					<CachePath>SFX/Player_Death_10C4C929.wem</CachePath>
+				</File>
 				<File Id="1059693162" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>LevelMusic1.wav</ShortName>
 					<CachePath>SFX/LevelMusic1_10C4C929.wem</CachePath>
@@ -250,6 +254,11 @@
 						<MediaRef Id="1059693162"/>
 					</MediaRefs>
 				</Event>
+				<Event Id="910581297" Name="Play_PlayerDeath" DurationType="OneShot" DurationMin="2.234375" DurationMax="2.234375">
+					<MediaRefs>
+						<MediaRef Id="1025909737"/>
+					</MediaRefs>
+				</Event>
 				<Event Id="4095150858" Name="Play_StopHide" DurationType="OneShot" DurationMin="0.38672918" DurationMax="0.38672918">
 					<MediaRefs>
 						<MediaRef Id="642100944"/>
@@ -315,5 +324,5 @@
 			</Events>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{CA4F3DB1-40CE-4AC3-3469-DD1A3C9A2EDD}</FileHash>
+	<FileHash>{3C71251E-52A4-5003-60C8-097947CA9A41}</FileHash>
 </SoundBanksInfo>

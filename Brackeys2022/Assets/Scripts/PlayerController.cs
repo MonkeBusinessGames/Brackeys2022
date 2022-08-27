@@ -67,6 +67,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private AK.Wwise.Event PlayerAttack1;
     [SerializeField] private AK.Wwise.Event PlayerAttack2;
     [SerializeField] private AK.Wwise.Event PlayerAttack3;
+    [SerializeField] private AK.Wwise.Event PlayerDeath;
     
 
 
@@ -421,7 +422,7 @@ public class PlayerController : MonoBehaviour
             rb.velocity = Vector2.zero;
             rb.AddForce((transform.position - enemyRange.position).normalized * knockBackForce, ForceMode2D.Impulse);
             health -= damage;
-        AkSoundEngine.PostEvent(PlayerGetHit.Id, this.gameObject);
+        //AkSoundEngine.PostEvent(PlayerGetHit.Id, this.gameObject);
         healthText.text = "Health: " + health.ToString();
             if (health <= 0)
                 state = PlayerState.Die;
@@ -608,6 +609,14 @@ public class PlayerController : MonoBehaviour
         AkSoundEngine.PostEvent(PlayerAttack3.Id, this.gameObject);
     }
 
+    public void PlayDeathSound()
+    {
+        AkSoundEngine.PostEvent(PlayerDeath.Id, this.gameObject);
+    }
+    public void PlayerGethitSound()
+    {
+        AkSoundEngine.PostEvent(PlayerGetHit.Id, this.gameObject);
+    }
 
 }
 

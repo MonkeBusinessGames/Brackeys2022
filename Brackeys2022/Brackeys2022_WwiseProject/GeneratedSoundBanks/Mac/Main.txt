@@ -1,6 +1,7 @@
 Event	ID	Name			Wwise Object Path	Notes
 	139523582	SkeletonDeath			\Default Work Unit\Enemies\SkeletonDeath	
 	650055683	SkeletonGetHit			\Default Work Unit\Enemies\SkeletonGetHit	
+	910581297	Play_PlayerDeath			\Default Work Unit\Player\Play_PlayerDeath	
 	1076666776	StopTestBattleMusic			\Default Work Unit\Music\StopTestBattleMusic	
 	1602358412	Play_Footstep			\Default Work Unit\Player\Play_Footstep	
 	1786435558	PlayTestBattleMusic			\Default Work Unit\Music\PlayTestBattleMusic	
@@ -56,5 +57,6 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	940916448	338147-Male_vocalization_-restrained_pain_-grunting_1	P:\Unity\Brackeys2022\Brackeys2022\Brackeys2022_WwiseProject\.cache\Mac\SFX\338147-Male_vocalization_-restrained_pain_-grunting_1_61B09802.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\GetHit\338147-Male_vocalization_-restrained_pain_-grunting_1		35936
 	986866790	MusicTest	P:\Unity\Brackeys2022\Brackeys2022\Brackeys2022_WwiseProject\.cache\Mac\SFX\HubTrigger_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Music\MusicTest		5924668
 	1013361031	WaterDrop1	P:\Unity\Brackeys2022\Brackeys2022\Brackeys2022_WwiseProject\.cache\Mac\SFX\WaterDrop1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Music\DungeonAmbiance\Waterdrops\WaterDrop1		89176
+	1025909737	Player_Death	P:\Unity\Brackeys2022\Brackeys2022\Brackeys2022_WwiseProject\.cache\Mac\SFX\Player_Death_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\Player_Death		429096
 	1059693162	LevelMusic1	P:\Unity\Brackeys2022\Brackeys2022\Brackeys2022_WwiseProject\.cache\Mac\SFX\LevelMusic1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Music\LevelMusicRandomContainer\LevelMusic1		2633240
 
