@@ -64,9 +64,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private AK.Wwise.Event jumpSound;
 
 
-
     void Start()
     {
+        catAcquired = false;
+        birbAcquired = false;
+        moleAcquired = false;
+
         state = PlayerState.Idle;
         flip = false;
         doubleJumped = false;
