@@ -22,7 +22,7 @@ public class UIManager : MonoBehaviour
     void Update()
     {
         //Pause Button Input
-        if (Input.GetButtonDown("Pause"))
+        if (Input.GetButtonDown("Cancel"))
         {
             Pause();
         }
