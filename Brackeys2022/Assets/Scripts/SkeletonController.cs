@@ -12,12 +12,8 @@ public class SkeletonController : MonoBehaviour
 
 
     [Header("Movement Fields")]
-    [SerializeField] private Vector2[] points;
-    private int pointIndex = 0;
-    private Vector2 targetWaypoint;
-    [SerializeField] private float speed = 3;
-    [SerializeField] private float idleTime = 1;
     private bool facingLeft;
+    private Vector3 targetWaypoint;
 
 
     [Header("Combat Fields")]
@@ -36,7 +32,6 @@ public class SkeletonController : MonoBehaviour
         player = FindObjectOfType<PlayerController>();
         state = EnemyState.Idle;
         timer = 0;
-        targetWaypoint = points[pointIndex];
         facingLeft = false;
     }
 
@@ -55,13 +50,8 @@ public class SkeletonController : MonoBehaviour
         switch (state)
         {
             case EnemyState.Idle:
-                Idling();
                 break;
-            case EnemyState.Walking:
-                Walking();
-                break;
-            case EnemyState.Chasing:
-                Chasing();
+            case EnemyState.Attack:
                 break;
             case EnemyState.Hit:
                 break;
@@ -77,6 +67,13 @@ public class SkeletonController : MonoBehaviour
             state = EnemyState.Chasing;
             SetAnimation();
         }
+
+        if (collision.CompareTag("Dive"))
+        {
+            if (state == (EnemyState.Die | EnemyState.Hit))
+                return;
+            TakeDamage(3, collision.transform.position);
+}
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -87,7 +84,6 @@ public class SkeletonController : MonoBehaviour
                 return;
             state = EnemyState.Idle;
             SetAnimation();
-            targetWaypoint = points[pointIndex];
             FlipCheck();
         }
     }
@@ -166,62 +162,6 @@ public class SkeletonController : MonoBehaviour
     }
 
 
-    /// <summary>Move towards the player</summary>
-    private void Chasing()
-    {
-        if (player.hidden)
-        {
-            state = EnemyState.Idle;
-            SetAnimation();
-            targetWaypoint = points[pointIndex];
-            FlipCheck();
-            return;
-        }
-        targetWaypoint = player.transform.position;
-        FlipCheck();
-        if (Physics2D.OverlapBox(attackRange.position, attackRange.localScale, 0, 128) != null)
-            StartAttack();
-        SetAnimation();
-
-    }
-
-    /// <summary>Checks whether the walk is over</summary>
-    private void Walking()
-    {
-        //print(transform.position.x - targetWaypoint.x);
-        if (facingLeft)
-        {
-            if (transform.position.x <= targetWaypoint.x)
-            {
-                pointIndex++;
-                pointIndex = pointIndex % points.Length;
-                targetWaypoint = points[pointIndex];
-                state = EnemyState.Idle;
-                rb.velocity = Vector2.zero;
-                SetAnimation();
-            }
-        }
-        else if (transform.position.x >= targetWaypoint.x)
-        {
-            pointIndex++;
-            pointIndex = pointIndex % points.Length;
-            targetWaypoint = points[pointIndex];
-            state = EnemyState.Idle;
-            rb.velocity = Vector2.zero;
-            SetAnimation();
-        }
-    }
-    /// <summary>Checks whether idling is over</summary>
-    private void Idling()
-    {
-        timer += Time.deltaTime;
-        if (timer >= idleTime)
-        {
-            state = EnemyState.Walking;
-            FlipCheck();
-            timer = 0;
-        }
-    }
 
     /// <summary>Checks if it's facing right direction</summary>
     private void FlipCheck()
