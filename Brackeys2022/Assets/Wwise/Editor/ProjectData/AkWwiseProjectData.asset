@@ -134,7 +134,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: 8e4f66b589979341a9758fc582d8ef42
     GuidInternal: 
-    m_lastTime: -8585399838872322773
+    m_lastTime: -8585399837877499145
     List:
     - name: Main
       guid: 39d7839d2e21374980c4dbcf6c26361d
@@ -162,7 +162,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: 82cdb01971e8c14a95e6261d6261e874
     GuidInternal: 
-    m_lastTime: -8585399838872432878
+    m_lastTime: -8585399837881669661
     List:
     - name: Enemies
       guid: ca416c819803884494d186c1d539683a
@@ -618,7 +618,7 @@ MonoBehaviour:
     ParentPath: States\Default Work Unit
     guid: 7ff882f59c21b04cb0b552e2c6215aac
     GuidInternal: 
-    m_lastTime: -8585399869712899415
+    m_lastTime: -8585399837877489135
     List:
     - name: PlayerHide
       guid: 46c4ad2aabe233428fa8c62d695e0d41
@@ -715,7 +715,7 @@ MonoBehaviour:
     m_lastTime: -8585402751856656671
     List: []
   ExpandedFileSystemItemIds: 
-  ExpandedWaapiItemIds: 050000000600000007000000080000000b000000190100001a0100001c010000
+  ExpandedWaapiItemIds: 
   AutoSyncSelection: 0
   autoPopulateEnabled: 1
   currentDataSource: 0

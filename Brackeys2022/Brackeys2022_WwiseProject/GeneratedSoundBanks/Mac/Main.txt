@@ -35,7 +35,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	362917710	Skelly_Sword_hit2	P:\Unity\Brackeys2022\Brackeys2022\Brackeys2022_WwiseProject\.cache\Mac\SFX\Skelly_Sword_hit2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\Skeleton\Skelly_Attack\Skeleton_Sword_Woosh\Skelly_Sword_hit2		66032
 	369493372	GetHit2	P:\Unity\Brackeys2022\Brackeys2022\Brackeys2022_WwiseProject\.cache\Mac\SFX\GetHit2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\Skeleton\Skeleton_GetHit\GetHit2		192096
 	471127437	GetHit3	P:\Unity\Brackeys2022\Brackeys2022\Brackeys2022_WwiseProject\.cache\Mac\SFX\GetHit3_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\Skeleton\Skeleton_GetHit\GetHit3		192096
-	472719549	TestBattleMusic	P:\Unity\Brackeys2022\Brackeys2022\Brackeys2022_WwiseProject\.cache\Mac\SFX\TestBattleMusic_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\Music\TestBattleMusic		1316668
+	472719549	TestBattleMusic	P:\Unity\Brackeys2022\Brackeys2022\Brackeys2022_WwiseProject\.cache\Mac\SFX\TestBattleMusic_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\Music\TestBattleMusic		3686496
 	588511061	Skelly_Step2	P:\Unity\Brackeys2022\Brackeys2022\Brackeys2022_WwiseProject\.cache\Mac\SFX\Skelly_Step2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\Skeleton\Skelly_FS\Skelly_Step2		57848
 	617516731	Skelly_Step1	P:\Unity\Brackeys2022\Brackeys2022\Brackeys2022_WwiseProject\.cache\Mac\SFX\Skelly_Step1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\Skeleton\Skelly_FS\Skelly_Step1		49596
 	621761934	Cloth3	P:\Unity\Brackeys2022\Brackeys2022\Brackeys2022_WwiseProject\.cache\Mac\SFX\Cloth3_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\Cloth\Cloth3		100140
