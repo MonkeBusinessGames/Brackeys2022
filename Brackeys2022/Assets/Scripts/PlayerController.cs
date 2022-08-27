@@ -67,6 +67,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private AK.Wwise.Event PlayerAttack1;
     [SerializeField] private AK.Wwise.Event PlayerAttack2;
     [SerializeField] private AK.Wwise.Event PlayerAttack3;
+    private float oldIntensity;
+    [SerializeField] private Light playerLight;
     
 
 
@@ -82,6 +84,7 @@ public class PlayerController : MonoBehaviour
         hidden = false;
         timer = 0;
         longJumpCharged = false;
+        oldIntensity = playerLight.intensity;
     }
 
     void Update()
@@ -530,6 +533,7 @@ public class PlayerController : MonoBehaviour
                 sRend.color = Color.white;
                 hidden = false;
                 speed *= 4;
+                playerLight.intensity = oldIntensity;
                 Physics2D.IgnoreLayerCollision(3, 7, false);
                 AkSoundEngine.PostEvent(unhideSound.Id, this.gameObject);
                 OnHideEnd();
@@ -543,6 +547,7 @@ public class PlayerController : MonoBehaviour
             AkSoundEngine.PostEvent(hideSound.Id, this.gameObject);
             anim.speed = .5f;
             sRend.color = Color.black;
+            playerLight.intensity = 0f;
             hidden = true;
             speed /= 4;
             Physics2D.IgnoreLayerCollision(3, 7, true);
