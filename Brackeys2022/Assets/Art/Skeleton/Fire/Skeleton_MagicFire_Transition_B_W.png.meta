@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 31721b1667449074880936d25f253092
+guid: 460ee6a7b4317ca42b883e4ffb1c0ef1
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 16
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -128,253 +128,232 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Wisp_B_W_32x32(Attack)-Sheet_0
+      name: Skeleton_MagicFire_Transition_B_W_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 32
-        height: 32
+        width: 128
+        height: 128
       alignment: 9
-      pivot: {x: 0.4, y: 0.6}
+      pivot: {x: 0.65, y: 0.35}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4e9fbabece4af954fb7f9116f7b8335b
-      internalID: 1647616644
+      spriteID: c8d8c500dc36ce94396ec07c0ef78c94
+      internalID: 2043885782
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Wisp_B_W_32x32(Attack)-Sheet_1
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 0
-        width: 32
-        height: 32
-      alignment: 9
-      pivot: {x: 0.4, y: 0.6}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d6b00b4b8b8b6614db512ce1b511cfd2
-      internalID: 294524315
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Wisp_B_W_32x32(Attack)-Sheet_2
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 0
-        width: 32
-        height: 32
-      alignment: 9
-      pivot: {x: 0.4, y: 0.6}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 196daf836e9818d41a0aefff0732cb82
-      internalID: -67861194
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Wisp_B_W_32x32(Attack)-Sheet_3
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 0
-        width: 32
-        height: 32
-      alignment: 9
-      pivot: {x: 0.4, y: 0.6}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7503306c0deef9d48b8219bf73baf82c
-      internalID: 1389009068
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Wisp_B_W_32x32(Attack)-Sheet_4
+      name: Skeleton_MagicFire_Transition_B_W_1
       rect:
         serializedVersion: 2
         x: 128
         y: 0
-        width: 32
-        height: 32
+        width: 128
+        height: 128
       alignment: 9
-      pivot: {x: 0.4, y: 0.6}
+      pivot: {x: 0.65, y: 0.35}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d8084ff1d03db5249b20b2d0dcd807b0
-      internalID: -487186108
+      spriteID: f30e52a3f29c1ed4581f0b176feff122
+      internalID: -1197681629
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Wisp_B_W_32x32(Attack)-Sheet_5
-      rect:
-        serializedVersion: 2
-        x: 160
-        y: 0
-        width: 32
-        height: 32
-      alignment: 9
-      pivot: {x: 0.4, y: 0.6}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7b3c878192d1eac4c8038f2914ea11c5
-      internalID: 121726015
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Wisp_B_W_32x32(Attack)-Sheet_6
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 0
-        width: 32
-        height: 32
-      alignment: 9
-      pivot: {x: 0.4, y: 0.6}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c5ae59a8cff333044937133ef0b71d2b
-      internalID: 48534459
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Wisp_B_W_32x32(Attack)-Sheet_7
-      rect:
-        serializedVersion: 2
-        x: 224
-        y: 0
-        width: 32
-        height: 32
-      alignment: 9
-      pivot: {x: 0.4, y: 0.6}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5f3bc30e1d7cd6e43985b63d42dcf1f3
-      internalID: -702632909
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Wisp_B_W_32x32(Attack)-Sheet_8
+      name: Skeleton_MagicFire_Transition_B_W_2
       rect:
         serializedVersion: 2
         x: 256
         y: 0
-        width: 32
-        height: 32
+        width: 128
+        height: 128
       alignment: 9
-      pivot: {x: 0.4, y: 0.6}
+      pivot: {x: 0.65, y: 0.35}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f480b4c07eebc2e40b069d40ce41c1ba
-      internalID: 1186491832
+      spriteID: 3f0c286da6a13e544a179fca21e1e4f7
+      internalID: -462494453
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Wisp_B_W_32x32(Attack)-Sheet_9
+      name: Skeleton_MagicFire_Transition_B_W_3
       rect:
         serializedVersion: 2
-        x: 288
+        x: 384
         y: 0
-        width: 32
-        height: 32
+        width: 128
+        height: 128
       alignment: 9
-      pivot: {x: 0.4, y: 0.6}
+      pivot: {x: 0.65, y: 0.35}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0304dda59f831f749841fed5729dbb62
-      internalID: -1212214805
+      spriteID: 04305daf7a89c7f4685602bda57754e8
+      internalID: -633364157
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Wisp_B_W_32x32(Attack)-Sheet_10
+      name: Skeleton_MagicFire_Transition_B_W_4
       rect:
         serializedVersion: 2
-        x: 320
+        x: 512
         y: 0
-        width: 32
-        height: 32
+        width: 128
+        height: 128
       alignment: 9
-      pivot: {x: 0.4, y: 0.6}
+      pivot: {x: 0.65, y: 0.35}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 51c3a1154f5869f4b8ce292ddff8eca7
-      internalID: -1921255969
+      spriteID: 22d4b8cf482697d40aa8c138ab2b0951
+      internalID: 1158964852
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Wisp_B_W_32x32(Attack)-Sheet_11
+      name: Skeleton_MagicFire_Transition_B_W_5
       rect:
         serializedVersion: 2
-        x: 352
+        x: 640
         y: 0
-        width: 32
-        height: 32
+        width: 128
+        height: 128
       alignment: 9
-      pivot: {x: 0.4, y: 0.6}
+      pivot: {x: 0.65, y: 0.35}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2b5f8784cc38ef347b245109840ae058
-      internalID: -1380670035
+      spriteID: cb56920c949fdab47b03d3523e722a1c
+      internalID: -484105635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeleton_MagicFire_Transition_B_W_6
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 0
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.65, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f9b017bc83a32e4396eadf8ee6216d4
+      internalID: -2058873449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeleton_MagicFire_Transition_B_W_7
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 0
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.65, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8c4a41332c291a4bb22dfb3c79ea018
+      internalID: -878193497
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeleton_MagicFire_Transition_B_W_8
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 0
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.65, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ee102b31ab2e12438f5c5c0af774bd2
+      internalID: 1729953885
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeleton_MagicFire_Transition_B_W_9
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 0
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.65, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6c2e1751898ebb499f4bb2b9bca1102
+      internalID: -2048074882
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeleton_MagicFire_Transition_B_W_10
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 0
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.65, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6325893cfb727d545bb9980453de1885
+      internalID: -1517857811
       vertices: []
       indices: 
       edges: []
@@ -390,18 +369,17 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Wisp_B_W_32x32(Attack)-Sheet_9: -1212214805
-      Wisp_B_W_32x32(Attack)-Sheet_7: -702632909
-      Wisp_B_W_32x32(Attack)-Sheet_11: -1380670035
-      Wisp_B_W_32x32(Attack)-Sheet_8: 1186491832
-      Wisp_B_W_32x32(Attack)-Sheet_3: 1389009068
-      Wisp_B_W_32x32(Attack)-Sheet_0: 1647616644
-      Wisp_B_W_32x32(Attack)-Sheet_10: -1921255969
-      Wisp_B_W_32x32(Attack)-Sheet_2: -67861194
-      Wisp_B_W_32x32(Attack)-Sheet_6: 48534459
-      Wisp_B_W_32x32(Attack)-Sheet_1: 294524315
-      Wisp_B_W_32x32(Attack)-Sheet_4: -487186108
-      Wisp_B_W_32x32(Attack)-Sheet_5: 121726015
+      Skeleton_MagicFire_Transition_B_W_2: -462494453
+      Skeleton_MagicFire_Transition_B_W_9: -2048074882
+      Skeleton_MagicFire_Transition_B_W_6: -2058873449
+      Skeleton_MagicFire_Transition_B_W_1: -1197681629
+      Skeleton_MagicFire_Transition_B_W_0: 2043885782
+      Skeleton_MagicFire_Transition_B_W_8: 1729953885
+      Skeleton_MagicFire_Transition_B_W_4: 1158964852
+      Skeleton_MagicFire_Transition_B_W_10: -1517857811
+      Skeleton_MagicFire_Transition_B_W_7: -878193497
+      Skeleton_MagicFire_Transition_B_W_5: -484105635
+      Skeleton_MagicFire_Transition_B_W_3: -633364157
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
