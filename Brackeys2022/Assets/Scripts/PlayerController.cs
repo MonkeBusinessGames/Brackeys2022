@@ -535,6 +535,11 @@ public class PlayerController : MonoBehaviour
         return false;
     }
 
+    private void Dash()
+    {
+
+    }
+
     /// <summary>Sets the animation based on the player state</summary>
     private void SetAnimation()
     {
