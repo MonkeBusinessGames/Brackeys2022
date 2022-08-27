@@ -151,11 +151,14 @@ public class PlayerController : MonoBehaviour
                 }
                 else if (Input.GetButtonDown("Attack"))
                 {
-                    EndFall();
-                    state = PlayerState.Attack;
-                    anim.SetInteger("AttackCounter", 0);
-                    SetAnimation();
-                    movementX = 0;
+                    if (catAcquired)
+                    {
+                        EndFall();
+                        state = PlayerState.Attack;
+                        anim.SetInteger("AttackCounter", 0);
+                        SetAnimation();
+                        movementX = 0;
+                    }
                 }
                 break;
             case PlayerState.JumpStart:
@@ -279,7 +282,9 @@ public class PlayerController : MonoBehaviour
     {
         if (state == (PlayerState.Hit))
             return; 
-        if (state == (PlayerState.JumpCharge))
+        else if (state == (PlayerState.JumpCharge))
+            return;
+        else if (state == (PlayerState.Die))
             return;
 
         //Set Velocity

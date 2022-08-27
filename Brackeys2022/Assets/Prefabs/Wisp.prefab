@@ -262,7 +262,9 @@ MonoBehaviour:
   sRend: {fileID: 4823702686123520110}
   rb: {fileID: 4823702686123520112}
   anim: {fileID: 4823702686123520108}
-  points: []
+  points:
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
   speed: 3
   idleTime: 1
   attackRange: {fileID: 339591075480834006}

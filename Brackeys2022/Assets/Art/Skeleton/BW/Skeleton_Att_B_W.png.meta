@@ -128,7 +128,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Skeleton_Attack_B_W_128x128-Sheet-export_0
+      name: Skeleton_Att_B_W_0
       rect:
         serializedVersion: 2
         x: 0
@@ -142,14 +142,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a757b03de6279a94c94508d4bf4b289c
-      internalID: 968578187
+      spriteID: 691dfb90f9a5c9944bb3e35164e5eb82
+      internalID: -1211161309
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Skeleton_Attack_B_W_128x128-Sheet-export_1
+      name: Skeleton_Att_B_W_1
       rect:
         serializedVersion: 2
         x: 128
@@ -163,14 +163,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fefaf391e20b8d041bfc8978d6b33a32
-      internalID: 2131259989
+      spriteID: 66449560fe565774d86f8f66d682cff3
+      internalID: -1262009939
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Skeleton_Attack_B_W_128x128-Sheet-export_2
+      name: Skeleton_Att_B_W_2
       rect:
         serializedVersion: 2
         x: 256
@@ -184,14 +184,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 16153c55565ea0d49bbebd288f4d830c
-      internalID: 84608485
+      spriteID: 810cf7b8043bfbc4cb14abb9fa083e86
+      internalID: -327842821
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Skeleton_Attack_B_W_128x128-Sheet-export_3
+      name: Skeleton_Att_B_W_3
       rect:
         serializedVersion: 2
         x: 384
@@ -205,14 +205,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a3eb641bc23865648b63681fc654fc09
-      internalID: -1758218614
+      spriteID: 65be8cf1e528e6e458718d5a6f44e88e
+      internalID: -472619081
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Skeleton_Attack_B_W_128x128-Sheet-export_4
+      name: Skeleton_Att_B_W_4
       rect:
         serializedVersion: 2
         x: 512
@@ -226,14 +226,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8b222f45b91dfe64b86bb8062f66bdd8
-      internalID: 814532878
+      spriteID: 892ee12893703ac40ac6b2ae95f12e45
+      internalID: -573178608
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Skeleton_Attack_B_W_128x128-Sheet-export_5
+      name: Skeleton_Att_B_W_5
       rect:
         serializedVersion: 2
         x: 640
@@ -247,14 +247,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7b3cec6a601be514b8f5bbc56950a63c
-      internalID: -136338580
+      spriteID: d37abb390b37f4c4b8da973a282708ed
+      internalID: -1728841724
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Skeleton_Attack_B_W_128x128-Sheet-export_6
+      name: Skeleton_Att_B_W_6
       rect:
         serializedVersion: 2
         x: 768
@@ -268,14 +268,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4cdeed394f5d3d44f9d9744c3958923f
-      internalID: 1160183552
+      spriteID: de2bcdd7d131a3d4bbfd82784f3cce9f
+      internalID: 1696913991
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Skeleton_Attack_B_W_128x128-Sheet-export_7
+      name: Skeleton_Att_B_W_7
       rect:
         serializedVersion: 2
         x: 896
@@ -289,14 +289,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: edbfa02709003f84cbde008dca2e14e6
-      internalID: 1297290326
+      spriteID: 8f4a6d427966620449544dfa39a3bd62
+      internalID: -1607705608
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Skeleton_Attack_B_W_128x128-Sheet-export_8
+      name: Skeleton_Att_B_W_8
       rect:
         serializedVersion: 2
         x: 1024
@@ -310,14 +310,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a5d727e04a9a26e4382ebbde02de7f94
-      internalID: 470567353
+      spriteID: 794411d57ff7dd248ae7de211cb5dcc6
+      internalID: -1094990987
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Skeleton_Attack_B_W_128x128-Sheet-export_9
+      name: Skeleton_Att_B_W_9
       rect:
         serializedVersion: 2
         x: 1152
@@ -331,14 +331,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7a5f3c1c46e1f0b43b9bf4e9cfbf7466
-      internalID: 1832764508
+      spriteID: 3e202bf9566de0b4fa1d4f6b8ea3b1a8
+      internalID: 1361454905
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Skeleton_Attack_B_W_128x128-Sheet-export_10
+      name: Skeleton_Att_B_W_10
       rect:
         serializedVersion: 2
         x: 1280
@@ -352,14 +352,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 473cc5ab491028f4f814427199f6d533
-      internalID: 235939114
+      spriteID: e947ba6e4bd3a9843a8a47d73fc0cfb8
+      internalID: -1868297498
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Skeleton_Attack_B_W_128x128-Sheet-export_11
+      name: Skeleton_Att_B_W_11
       rect:
         serializedVersion: 2
         x: 1408
@@ -373,14 +373,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e8aeaf35fbb8bbf4c9d4d6549b2f9708
-      internalID: -2074811412
+      spriteID: f97e0a0687dc4c948adb0ed62fcdf0e7
+      internalID: -593647255
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Skeleton_Attack_B_W_128x128-Sheet-export_12
+      name: Skeleton_Att_B_W_12
       rect:
         serializedVersion: 2
         x: 1536
@@ -394,14 +394,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2672f03b23e4526489db57257446669d
-      internalID: 53675959
+      spriteID: 08ab7ba65ba1d0a439bfda7d7986d8f1
+      internalID: -1563529555
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Skeleton_Attack_B_W_128x128-Sheet-export_13
+      name: Skeleton_Att_B_W_13
       rect:
         serializedVersion: 2
         x: 1664
@@ -415,50 +415,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 98ef823c2546a4d4d8b1d3b115d7d8bc
-      internalID: 914013999
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Skeleton_Attack_B_W_128x128-Sheet-export_14
-      rect:
-        serializedVersion: 2
-        x: 1792
-        y: 0
-        width: 128
-        height: 128
-      alignment: 9
-      pivot: {x: 0.65, y: 0.35}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ae57aa39704f9134bb802b8c39897918
-      internalID: -456295359
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Skeleton_Attack_B_W_128x128-Sheet-export_15
-      rect:
-        serializedVersion: 2
-        x: 1920
-        y: 0
-        width: 128
-        height: 128
-      alignment: 9
-      pivot: {x: 0.65, y: 0.35}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6593488d478d24242ba4abf5c87dded1
-      internalID: 201341916
+      spriteID: d2feceb09ac2a3a49a0eabbd31a068da
+      internalID: -1584286938
       vertices: []
       indices: 
       edges: []
@@ -474,22 +432,20 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Skeleton_Attack_B_W_128x128-Sheet-export_8: 470567353
-      Skeleton_Attack_B_W_128x128-Sheet-export_6: 1160183552
-      Skeleton_Attack_B_W_128x128-Sheet-export_9: 1832764508
-      Skeleton_Attack_B_W_128x128-Sheet-export_3: -1758218614
-      Skeleton_Attack_B_W_128x128-Sheet-export_2: 84608485
-      Skeleton_Attack_B_W_128x128-Sheet-export_11: -2074811412
-      Skeleton_Attack_B_W_128x128-Sheet-export_5: -136338580
-      Skeleton_Attack_B_W_128x128-Sheet-export_1: 2131259989
-      Skeleton_Attack_B_W_128x128-Sheet-export_7: 1297290326
-      Skeleton_Attack_B_W_128x128-Sheet-export_10: 235939114
-      Skeleton_Attack_B_W_128x128-Sheet-export_12: 53675959
-      Skeleton_Attack_B_W_128x128-Sheet-export_0: 968578187
-      Skeleton_Attack_B_W_128x128-Sheet-export_15: 201341916
-      Skeleton_Attack_B_W_128x128-Sheet-export_4: 814532878
-      Skeleton_Attack_B_W_128x128-Sheet-export_13: 914013999
-      Skeleton_Attack_B_W_128x128-Sheet-export_14: -456295359
+      Skeleton_Att_B_W_10: -1868297498
+      Skeleton_Att_B_W_13: -1584286938
+      Skeleton_Att_B_W_8: -1094990987
+      Skeleton_Att_B_W_11: -593647255
+      Skeleton_Att_B_W_12: -1563529555
+      Skeleton_Att_B_W_7: -1607705608
+      Skeleton_Att_B_W_4: -573178608
+      Skeleton_Att_B_W_0: -1211161309
+      Skeleton_Att_B_W_5: -1728841724
+      Skeleton_Att_B_W_1: -1262009939
+      Skeleton_Att_B_W_9: 1361454905
+      Skeleton_Att_B_W_6: 1696913991
+      Skeleton_Att_B_W_2: -327842821
+      Skeleton_Att_B_W_3: -472619081
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
