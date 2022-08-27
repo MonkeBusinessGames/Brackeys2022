@@ -92,6 +92,13 @@ public class WispController : MonoBehaviour
             CalmDown();
             targetWaypoint = points[pointIndex];
             FlipCheck();
+        }        
+
+        if (collision.CompareTag("Dive"))
+        {
+            if (state == ( WispState.Die | WispState.Hit))
+                return;
+            TakeDamage(3, collision.transform.position);
         }
     }
 

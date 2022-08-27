@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Animator anim;
     [SerializeField] private SpriteRenderer wingBack;
     [SerializeField] private SpriteRenderer wingFront;
+    [SerializeField] private UIManager uiManager;
 
 
     [Header("Movement Fields")]
@@ -29,25 +30,39 @@ public class PlayerController : MonoBehaviour
     private bool doubleJumped = false;
 
     [Header("Combat Fields")]
-    [SerializeField] private BoxCollider2D attackRange;
+    [SerializeField] private BoxCollider2D clawRange;
+    [SerializeField] private PolygonCollider2D diveRange;
+    [SerializeField] private PolygonCollider2D spikeRange;
     [SerializeField] private BoxCollider2D hitBox;
     [SerializeField] private ContactFilter2D enemies;
     [SerializeField] private float health = 100;
     [SerializeField] private float attackPower = 10;
     [SerializeField] private float knockBackForce = 100;
     [SerializeField] private TMP_Text healthText;
+    [SerializeField] private bool keepAttacking = false;
 
     [Header("Long/Double Jump Fields")]
     [SerializeField] private float jumpHoldTime = 2;
 
-    [Tooltip("Enables: Long Jump")]
-    [SerializeField] private bool longJumpEnabled = false;
+    [Tooltip("Enables: Long Jump and Claw Abilities")]
+    [SerializeField] private bool catAcquired = false;
     [SerializeField] private float longJumpForce = 500;
     private float timer = 0;
     private bool longJumpCharged = false;
 
-    [Tooltip("Enables: Double Jump")]
-    [SerializeField] private bool doubleJumpEnabled; 
+    [Tooltip("Enables: Double Jump and Dive Abilities")]
+    [SerializeField] private bool birbAcquired;
+    [SerializeField] private Vector2 diveSpeed;
+
+    [Tooltip("Enables: Dig and Spike Abilities")]
+    [SerializeField] private bool moleAcquired;
+
+    [Header("Player SFX")]
+    [SerializeField] private AK.Wwise.Event footstepsEvent;
+    [SerializeField] private AK.Wwise.Event PlayerGetHit;
+    [SerializeField] private AK.Wwise.Event PlayerLanding;
+    [SerializeField] private AK.Wwise.Event jumpSound;
+
 
 
     void Start()
@@ -64,23 +79,9 @@ public class PlayerController : MonoBehaviour
     {
         if (state == (PlayerState.Hit))
             return;
-        if (state == (PlayerState.Attack))
-            return;
 
         //Get Walk Input
         movementX = Input.GetAxis("Horizontal");
-
-        //Flip sprite based on movement direction
-        if (flip)
-        {
-            if (movementX > 0)
-                flip = sRend.flipX = wingBack.flipX = wingFront.flipX = false;
-        }
-        else
-        {
-            if (movementX < 0)
-                flip = sRend.flipX = wingBack.flipX = wingFront.flipX = true;
-        }
 
         //Get Input Based on State
         switch (state)
@@ -105,12 +106,16 @@ public class PlayerController : MonoBehaviour
                 }
                 else if (Input.GetButtonDown("Attack"))
                 {
-                    EndFall();
-                    state = PlayerState.Attack;
-                    SetAnimation();
-                    movementX = 0;
+                    if(catAcquired)
+                    {
+                        EndFall();
+                        state = PlayerState.Attack;
+                        anim.SetInteger("AttackCounter", 0);
+                        SetAnimation();
+                        movementX = 0;
+                    }
                 }
-                else if(longJumpEnabled)
+                else if(catAcquired)
                 {
                     if(Input.GetAxis("Vertical") < 0)
                     {
@@ -137,7 +142,9 @@ public class PlayerController : MonoBehaviour
                 }
                 else if (Input.GetButtonDown("Attack"))
                 {
+                    EndFall();
                     state = PlayerState.Attack;
+                    anim.SetInteger("AttackCounter", 0);
                     SetAnimation();
                     movementX = 0;
                 }
@@ -145,7 +152,7 @@ public class PlayerController : MonoBehaviour
             case PlayerState.JumpStart:
                 break;
             case PlayerState.Jumping:
-                //Short Jump
+                // Short Jump
                 anim.SetFloat("Jump Velocity", rb.velocity.y);
                 if (Input.GetButtonUp("Jump"))
                 {
@@ -156,25 +163,42 @@ public class PlayerController : MonoBehaviour
                 { 
                     state = PlayerState.JumpStop;
                 }
+                DiveCheck();
                 break;
             case PlayerState.JumpStop:
                 anim.SetFloat("Jump Velocity", rb.velocity.y);
 
                 DoubleJumpCheck();
+                DiveCheck();
                 break;
             case PlayerState.Falling:
                 anim.SetFloat("Jump Velocity", rb.velocity.y);
 
                 DoubleJumpCheck();
+                DiveCheck();
 
                 //If the player touches the ground, reset them to idle.
                 if (groundCheck.IsTouchingLayers(ground))
                 {
-                    anim.SetFloat("Jump Velocity", -1);
                     longJumpCharged = false;
                     doubleJumped = false;
                     state = PlayerState.Idle;
                     SetAnimation();
+                    anim.SetFloat("Jump Velocity", -1);
+                }
+                break;
+            case PlayerState.Dive:
+                anim.SetFloat("Jump Velocity", rb.velocity.y);
+                movementX = 0;
+                //If the player touches the ground, reset them to idle.
+                if (groundCheck.IsTouchingLayers(ground))
+                {
+                    longJumpCharged = false;
+                    doubleJumped = false;
+                    state = PlayerState.Idle;
+                    SetAnimation();
+                    diveRange.enabled = false;
+                    anim.SetFloat("Jump Velocity", -1);
                 }
                 break;
             case PlayerState.DoubleJump:
@@ -192,7 +216,6 @@ public class PlayerController : MonoBehaviour
                     timer = 0;
                     state = PlayerState.Idle;
                     SetAnimation();
-                    break;
                 }
                 if (longJumpCharged)
                 {
@@ -207,7 +230,7 @@ public class PlayerController : MonoBehaviour
                 else
                 {
                     timer += Time.deltaTime;
-                    sRend.color = Color.magenta;
+                    sRend.color = Color.grey;
                     if (timer >= jumpHoldTime)
                     {
                         longJumpCharged = true;
@@ -217,7 +240,30 @@ public class PlayerController : MonoBehaviour
                     }
                 }
                 break;
+            case PlayerState.Attack:
+                if (Input.GetButtonDown("Attack"))
+                    keepAttacking = true;
+                break;
         }
+
+        //Flip sprite based on movement direction
+        if (flip)
+        {
+            if (movementX > 0)
+            {
+                transform.localScale = new Vector3(-1, 1, 1);
+                flip = false;
+            }
+        }
+        else
+        {
+            if (movementX < 0)
+            {
+                transform.localScale = new Vector3(1, 1, 1);
+                flip = true;
+            }
+        }
+
     }
 
     void FixedUpdate()
@@ -269,13 +315,20 @@ public class PlayerController : MonoBehaviour
                 break;
             case PlayerState.JumpStop:
                 //Keep Floating
-                if(rb.velocity.y <= 0)
+                if (rb.velocity.y <= 0)
                     rb.velocity = new Vector2(movementX * speed, 0);
                 break;
             case PlayerState.DoubleJump:
                 //Keep Floating
                 if (rb.velocity.y <= 0)
                     rb.velocity = new Vector2(movementX * speed/2, 0);
+                break;
+            case PlayerState.Dive:
+                //Keep Diving
+                if (flip)
+                    rb.velocity = new Vector2(-1*diveSpeed.x, diveSpeed.y);
+                else
+                    rb.velocity = diveSpeed;
                 break;
         }
     }
@@ -295,31 +348,42 @@ public class PlayerController : MonoBehaviour
                 health -= 1;
                 healthText.text = "Health: " + health.ToString();
                 if (health <= 0)
+                {
                     state = PlayerState.Die;
+                    anim.updateMode = AnimatorUpdateMode.UnscaledTime;
+                    Time.timeScale = 0;
+                    Time.timeScale = 0;
+                }
 
                 SetAnimation();
             }
         }
     }
 
-    /// <summary>Use this method to enable doublejump, when animal selection event is fired</summary>
-    public void EnableDoubleJump()
+    /// <summary>Use this method to enable doublejump and dive, when animal selection event is fired</summary>
+    public void AcquireBirbAbilities()
     {
-        doubleJumpEnabled = true;
+        birbAcquired = true;
     }
 
-    /// <summary>Use this method to enable long jump, when animal selection event is fired</summary>
-    public void EnableLongJump()
+    /// <summary>Use this method to enable long jump and claws, when animal selection event is fired</summary>
+    public void AcquireCatAbilities()
     {
-        longJumpEnabled = true;
+        catAcquired = true;
     }
 
-    /// <summary>Checks if the any enemies were hit</summary>
+    /// <summary>Use this method to enable dig and spikes, when animal selection event is fired</summary>
+    public void AcquireMoleAbilities()
+    {
+        moleAcquired = true;
+    }
+
+    /// <summary>Checks if the any enemies were hit by the claw</summary>
     public void HitCheck() 
     {
         List<Collider2D> hitEnemies = new List<Collider2D>();
-        attackRange.OverlapCollider(enemies, hitEnemies);
-        for(int i = 0; i < hitEnemies.Count; i++)
+        clawRange.OverlapCollider(enemies, hitEnemies);
+        for (int i = 0; i < hitEnemies.Count; i++)
         {
             try
             {
@@ -327,7 +391,14 @@ public class PlayerController : MonoBehaviour
             }
             catch (System.NullReferenceException)
             {
-                hitEnemies[i].GetComponent<WispController>().TakeDamage(attackPower, transform.position);
+                try
+                {
+                    hitEnemies[i].GetComponent<WispController>().TakeDamage(attackPower, transform.position);
+                }
+                catch (System.NullReferenceException)
+                {
+                    hitEnemies[i].GetComponent<SkeletonController>().TakeDamage(attackPower, transform.position);
+                }
             }
         }
     }
@@ -336,11 +407,13 @@ public class PlayerController : MonoBehaviour
     public void DamageCheck(Transform enemyRange, float damage)
     {
             state = PlayerState.Hit;
+            diveRange.enabled = false;
             sRend.color = Color.grey;
             rb.velocity = Vector2.zero;
             rb.AddForce((transform.position - enemyRange.position).normalized * knockBackForce, ForceMode2D.Impulse);
             health -= damage;
-            healthText.text = "Health: " + health.ToString();
+        AkSoundEngine.PostEvent(PlayerGetHit.Id, this.gameObject);
+        healthText.text = "Health: " + health.ToString();
             if (health <= 0)
                 state = PlayerState.Die;
             SetAnimation();
@@ -350,23 +423,57 @@ public class PlayerController : MonoBehaviour
     public void AnimationEnd()
     {
         sRend.color = Color.white;
+        if (keepAttacking)
+        {
+            keepAttacking = false;
+            if (anim.GetInteger("AttackCounter") == 0)
+            {
+                state = PlayerState.Attack;
+                anim.SetInteger("AttackCounter", 1);
+                return;
+            }
+            if (anim.GetInteger("AttackCounter") == 1)
+            {
+                state = PlayerState.Attack;
+                anim.SetInteger("AttackCounter", 2);
+                return;
+            }
+            
+        }
         state = PlayerState.Idle;
-        SetAnimation();
+    }
+
+    /// <summary>Activates the game over experience</summary>
+    public void DeathEnd()
+    {
+        anim.updateMode = AnimatorUpdateMode.UnscaledTime;
+        uiManager.GameOver();
     }
 
     /// <summary>Checks whether to double jump</summary>
     public void DoubleJumpCheck()
     {
-        if (doubleJumpEnabled & !doubleJumped)
+        if (birbAcquired & !doubleJumped)
             if (Input.GetButtonDown("Jump"))
             {
                 doubleJumped = true;
                 state = PlayerState.DoubleJump;
+                AkSoundEngine.PostEvent(jumpSound.Id, this.gameObject);
                 SetAnimation();
             }
     }
-
-
+    /// <summary>Checks whether to dive</summary>
+    public void DiveCheck()
+    {
+        if (birbAcquired)
+            if (Input.GetButtonDown("Attack"))
+            {
+                doubleJumped = true;
+                state = PlayerState.Dive;
+                SetAnimation();
+                diveRange.enabled = true;
+            }
+    }
 
     /// <summary>Initiates the double jump force</summary>
     public void StartDoubleJump()
@@ -380,6 +487,7 @@ public class PlayerController : MonoBehaviour
     public void StartFall()
     {
         state = PlayerState.Falling;
+        anim.SetFloat("Jump Velocity", -1);
     }
 
     /// <summary>Lands a player on the ground</summary>
@@ -456,7 +564,20 @@ public class PlayerController : MonoBehaviour
             case PlayerState.Falling:
                 anim.SetInteger("State", 8);
                 break;
+            case PlayerState.Dive:
+                anim.SetInteger("State", 9);
+                break;
         }
+    }
+
+    //SFX
+    public void PlayFootstepSound()
+    {
+        AkSoundEngine.PostEvent(footstepsEvent.Id, this.gameObject);
+    }
+    public void PlayLandingSound()
+    {
+        AkSoundEngine.PostEvent(PlayerLanding.Id, this.gameObject);
     }
 }
 
@@ -473,5 +594,6 @@ public enum PlayerState
     Die,
     Attack,
     DoubleJump,
-    JumpCharge
+    JumpCharge,
+    Dive
 }
