@@ -32,17 +32,6 @@
 						</Action>
 					</ChildrenList>
 				</Event>
-				<Event Name="Play_Footstep" ID="{3BD47F5E-71CA-48A9-963C-665FF75E62FE}">
-					<ChildrenList>
-						<Action Name="" ID="{F7DBE501-F50B-44B9-8760-C08E2DE3C325}" ShortID="335546977">
-							<ReferenceList>
-								<Reference Name="Target">
-									<ObjectRef Name="Footsteps" ID="{36616A54-2B6F-4F96-9ECE-603B63984C5E}" WorkUnitID="{DD6B140F-0321-4AF7-81C6-B8E0A5C8F93D}"/>
-								</Reference>
-							</ReferenceList>
-						</Action>
-					</ChildrenList>
-				</Event>
 				<Folder Name="Enemies" ID="{816C41CA-0398-4488-94D1-86C1D539683A}" ShortID="787782388">
 					<ChildrenList>
 						<Event Name="SkeletonAttack" ID="{71C9E154-3433-4C87-87AA-8EEEE18688E2}">
@@ -74,8 +63,119 @@
 								</Action>
 							</ChildrenList>
 						</Event>
+						<Event Name="SkeletonDeath" ID="{161704D3-B6A8-4E51-B1E9-6E1E528CD2BC}">
+							<ChildrenList>
+								<Action Name="" ID="{C7740544-D8B9-4687-A821-FEB23CFE4BEC}" ShortID="434479483">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Skelly_Death" ID="{F17C5282-62C1-40E4-B256-00C05458D785}" WorkUnitID="{DD6B140F-0321-4AF7-81C6-B8E0A5C8F93D}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
 				</Folder>
+				<Folder Name="Player" ID="{3D21BEDB-B496-4494-8784-9970B94C79E6}" ShortID="829047073">
+					<ChildrenList>
+						<Event Name="Play_Footstep" ID="{3BD47F5E-71CA-48A9-963C-665FF75E62FE}">
+							<ChildrenList>
+								<Action Name="" ID="{F7DBE501-F50B-44B9-8760-C08E2DE3C325}" ShortID="335546977">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Footsteps" ID="{36616A54-2B6F-4F96-9ECE-603B63984C5E}" WorkUnitID="{DD6B140F-0321-4AF7-81C6-B8E0A5C8F93D}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{8EC5C958-87BA-4124-BDDA-3090DBC8CF68}" ShortID="937621329">
+									<PropertyList>
+										<Property Name="Probability" Type="Real64" Value="47"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Cloth" ID="{D534DA5F-FE6B-43DC-BEC9-854A8D5543EC}" WorkUnitID="{DD6B140F-0321-4AF7-81C6-B8E0A5C8F93D}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Player_GetHit" ID="{08BFAF40-7DEF-42EC-A25D-09172B69DE87}">
+							<ChildrenList>
+								<Action Name="" ID="{BF22C86F-6A89-4FA8-82A4-BF8318F3B80D}" ShortID="582021511">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="GetHit" ID="{3CF2D36C-9F7E-4A3E-8D21-B220765999EC}" WorkUnitID="{DD6B140F-0321-4AF7-81C6-B8E0A5C8F93D}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_Land" ID="{30DD00CE-7E6C-45FC-98D5-ED0EA1411D59}">
+							<ChildrenList>
+								<Action Name="" ID="{66CA32E9-2631-4CB2-8DE5-9DC635505AAD}" ShortID="729885439">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Footsteps" ID="{36616A54-2B6F-4F96-9ECE-603B63984C5E}" WorkUnitID="{DD6B140F-0321-4AF7-81C6-B8E0A5C8F93D}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{DE3E6E07-50D7-4389-9611-BBB235613AFB}" ShortID="813227986">
+									<PropertyList>
+										<Property Name="Delay" Type="Real64" Value="0.07"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Footsteps" ID="{36616A54-2B6F-4F96-9ECE-603B63984C5E}" WorkUnitID="{DD6B140F-0321-4AF7-81C6-B8E0A5C8F93D}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_JumpSound" ID="{1FB058CE-5317-4B89-B947-62500F3F362B}">
+							<ChildrenList>
+								<Action Name="" ID="{176A4386-05E9-480D-AF2E-EAB5DBD72A55}" ShortID="583436990">
+									<PropertyList>
+										<Property Name="Probability" Type="Real64" Value="58"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="JumpSigh" ID="{82FD3FBC-88CD-423A-916F-DA3E58AF5B92}" WorkUnitID="{DD6B140F-0321-4AF7-81C6-B8E0A5C8F93D}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+					</ChildrenList>
+				</Folder>
+				<Event Name="PlayTestBattleMusic" ID="{4C0CAFE7-5E14-4DE5-82C0-BB0DEE6B6F8F}">
+					<ChildrenList>
+						<Action Name="" ID="{B225DC07-25D7-4710-99CC-2C48692976B9}" ShortID="909641010">
+							<PropertyList>
+								<Property Name="FadeTime" Type="Real64" Value="1.5"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="TestBattleMusic" ID="{CA112737-EB9D-4D60-9E8E-B37427EBE157}" WorkUnitID="{DD6B140F-0321-4AF7-81C6-B8E0A5C8F93D}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="StopTestBattleMusic" ID="{4E30BA76-7A9D-4BC6-9F97-E02D5453ADCF}">
+					<ChildrenList>
+						<Action Name="" ID="{EE624D0E-144F-404F-A4E5-ED13100AA14F}" ShortID="934793023">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+								<Property Name="FadeTime" Type="Real64" Value="1.5"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="TestBattleMusic" ID="{CA112737-EB9D-4D60-9E8E-B37427EBE157}" WorkUnitID="{DD6B140F-0321-4AF7-81C6-B8E0A5C8F93D}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>
