@@ -137,7 +137,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 4
+  m_Constraints: 7
 --- !u!114 &3056591562166829181
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -152,12 +152,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sRend: {fileID: 3056591562166829182}
   rb: {fileID: 3056591562166829152}
-  anim: {fileID: 3056591562166829180}
+  boneAnim: {fileID: 3056591562166829180}
+  fireAnim: {fileID: 3799107586891147257}
   attackRange: {fileID: 7794734339307732934}
   detectRange: {fileID: 1556699237720187221}
-  knockBackForce: 0
   health: 10
   attackPower: 5
+  attackRate: 2
 --- !u!95 &3056591562166829180
 Animator:
   serializedVersion: 4
@@ -307,8 +308,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7794734339307732929}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 7, y: 5, z: 1}
+  m_LocalPosition: {x: -0.5, y: 0.5, z: 0}
+  m_LocalScale: {x: 1, y: 1.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3056591562166829183}

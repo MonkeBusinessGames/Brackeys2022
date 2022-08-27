@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 63be3aa977a0c3749975a0f4154347a8
+guid: a3b5565638e33c547a7d5382c7e6bac0
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -128,7 +128,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Skeleton_Idle2_0
+      name: Skeleton_Calming_B_W_0
       rect:
         serializedVersion: 2
         x: 0
@@ -142,14 +142,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6ee0a0336f246884a9f5a4cb5d679864
-      internalID: 956024751
+      spriteID: f13788ba8f282c24e8aaa7e2c8deaf57
+      internalID: 1105943137
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Skeleton_Idle2_1
+      name: Skeleton_Calming_B_W_1
       rect:
         serializedVersion: 2
         x: 128
@@ -163,14 +163,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b3753f469ae56ab47a76a23425a55070
-      internalID: -924641801
+      spriteID: 0acd24e3a8ccaa24d8d066d9122330fc
+      internalID: 475664578
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Skeleton_Idle2_2
+      name: Skeleton_Calming_B_W_2
       rect:
         serializedVersion: 2
         x: 256
@@ -184,14 +184,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2222584c9ae9dbf4295f3d2cb25aea6f
-      internalID: -200761846
+      spriteID: 30aa5f9194d709242942aa6bf44f2ce1
+      internalID: -698448645
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Skeleton_Idle2_3
+      name: Skeleton_Calming_B_W_3
       rect:
         serializedVersion: 2
         x: 384
@@ -205,14 +205,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 582f9c79213f85449b400b7737f35f40
-      internalID: -746538043
+      spriteID: 9df0590912617574db89801fac38ca53
+      internalID: -1791891553
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Skeleton_Idle2_4
+      name: Skeleton_Calming_B_W_4
       rect:
         serializedVersion: 2
         x: 512
@@ -226,14 +226,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 14d56b2c0c92815469bd73d7e538a29f
-      internalID: -1424905107
+      spriteID: 2c633c1a858df4e48a34d19fb6904126
+      internalID: -1150806815
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Skeleton_Idle2_5
+      name: Skeleton_Calming_B_W_5
       rect:
         serializedVersion: 2
         x: 640
@@ -247,14 +247,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7b7e85338b0d3b3469cfe6e3a2498549
-      internalID: -2044468377
+      spriteID: 1005eaf74de7f57428e4d4e27a3622a9
+      internalID: -1824867332
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Skeleton_Idle2_6
+      name: Skeleton_Calming_B_W_6
       rect:
         serializedVersion: 2
         x: 768
@@ -268,14 +268,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5625ae03cb0edbe4f93765a9e5b7fa6f
-      internalID: -301004688
+      spriteID: 9026e708d57b5294a92419f1480efec1
+      internalID: -173491858
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Skeleton_Idle2_7
+      name: Skeleton_Calming_B_W_7
       rect:
         serializedVersion: 2
         x: 896
@@ -289,14 +289,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 98531184e4f23654295eb07410903f44
-      internalID: -1867043192
+      spriteID: 719ed2af84e957047a1f0d2694f56d83
+      internalID: 100611177
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Skeleton_Idle2_8
+      name: Skeleton_Calming_B_W_8
       rect:
         serializedVersion: 2
         x: 1024
@@ -310,14 +310,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ba00cf9b42aae954a85996b1173514ca
-      internalID: 46883888
+      spriteID: b36ec471d1ee860449e33ea46a55905f
+      internalID: 598733616
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Skeleton_Idle2_9
+      name: Skeleton_Calming_B_W_9
       rect:
         serializedVersion: 2
         x: 1152
@@ -331,14 +331,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 16ac64d8485d52244b3064221ce455a5
-      internalID: -490571988
+      spriteID: c4271e48d573fdc488c9e672e8d2c005
+      internalID: -635197489
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Skeleton_Idle2_10
+      name: Skeleton_Calming_B_W_10
       rect:
         serializedVersion: 2
         x: 1280
@@ -352,50 +352,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f1812123e1b32e84f904b273386319e6
-      internalID: -603742275
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Skeleton_Idle2_11
-      rect:
-        serializedVersion: 2
-        x: 1408
-        y: 0
-        width: 128
-        height: 128
-      alignment: 9
-      pivot: {x: 0.65, y: 0.35}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3dcd7c30921126d4288821ed37180894
-      internalID: 1324459847
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Skeleton_Idle2_12
-      rect:
-        serializedVersion: 2
-        x: 1536
-        y: 0
-        width: 128
-        height: 128
-      alignment: 9
-      pivot: {x: 0.65, y: 0.35}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6345fb6fe89019941992675ddec0c726
-      internalID: -1131672320
+      spriteID: 3696abbea82c5d64589f7d4ad5a20034
+      internalID: -1439058463
       vertices: []
       indices: 
       edges: []
@@ -411,19 +369,17 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Skeleton_Idle2_5: -2044468377
-      Skeleton_Idle2_2: -200761846
-      Skeleton_Idle2_1: -924641801
-      Skeleton_Idle2_10: -603742275
-      Skeleton_Idle2_11: 1324459847
-      Skeleton_Idle2_12: -1131672320
-      Skeleton_Idle2_0: 956024751
-      Skeleton_Idle2_3: -746538043
-      Skeleton_Idle2_9: -490571988
-      Skeleton_Idle2_6: -301004688
-      Skeleton_Idle2_8: 46883888
-      Skeleton_Idle2_7: -1867043192
-      Skeleton_Idle2_4: -1424905107
+      Skeleton_Calming_B_W_7: 100611177
+      Skeleton_Calming_B_W_0: 1105943137
+      Skeleton_Calming_B_W_8: 598733616
+      Skeleton_Calming_B_W_4: -1150806815
+      Skeleton_Calming_B_W_6: -173491858
+      Skeleton_Calming_B_W_10: -1439058463
+      Skeleton_Calming_B_W_1: 475664578
+      Skeleton_Calming_B_W_2: -698448645
+      Skeleton_Calming_B_W_5: -1824867332
+      Skeleton_Calming_B_W_3: -1791891553
+      Skeleton_Calming_B_W_9: -635197489
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
