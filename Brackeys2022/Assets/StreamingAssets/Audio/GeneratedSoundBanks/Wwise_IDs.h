@@ -16,14 +16,37 @@ namespace AK
         static const AkUniqueID MUSICTEST = 4195921398U;
         static const AkUniqueID PLAY_DUNGEONAMBIENCE = 4258174524U;
         static const AkUniqueID PLAY_FOOTSTEP = 1602358412U;
+        static const AkUniqueID PLAY_HIDE = 2586843602U;
+        static const AkUniqueID PLAY_JUMPSOUND = 2371580015U;
         static const AkUniqueID PLAY_LAND = 4285282925U;
+        static const AkUniqueID PLAY_LEVELMUSIC = 2671044069U;
+        static const AkUniqueID PLAY_STOPHIDE = 4095150858U;
         static const AkUniqueID PLAYER_GETHIT = 3945457670U;
         static const AkUniqueID PLAYTESTBATTLEMUSIC = 1786435558U;
         static const AkUniqueID SKELETONATTACK = 4153337164U;
         static const AkUniqueID SKELETONDEATH = 139523582U;
+        static const AkUniqueID SKELETONGETHIT = 650055683U;
         static const AkUniqueID SKELETONSTEPS = 2032018185U;
+        static const AkUniqueID STOP_LEVELMUSIC = 2518039975U;
         static const AkUniqueID STOPTESTBATTLEMUSIC = 1076666776U;
+        static const AkUniqueID UI_SELECT = 2774129122U;
     } // namespace EVENTS
+
+    namespace STATES
+    {
+        namespace PLAYERHIDE
+        {
+            static const AkUniqueID GROUP = 3703386026U;
+
+            namespace STATE
+            {
+                static const AkUniqueID HIDING = 3538823496U;
+                static const AkUniqueID NONE = 748895195U;
+                static const AkUniqueID NOTHIDING = 234385385U;
+            } // namespace STATE
+        } // namespace PLAYERHIDE
+
+    } // namespace STATES
 
     namespace BANKS
     {

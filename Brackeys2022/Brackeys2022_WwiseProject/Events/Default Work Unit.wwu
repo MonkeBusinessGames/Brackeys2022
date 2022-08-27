@@ -3,35 +3,6 @@
 	<Events>
 		<WorkUnit Name="Default Work Unit" ID="{19B0CD82-E871-4AC1-95E6-261D6261E874}" PersistMode="Standalone">
 			<ChildrenList>
-				<Event Name="Play_DungeonAmbience" ID="{27B08BE1-9FDE-4CC0-BFF0-79A0932E0D2F}">
-					<ChildrenList>
-						<Action Name="" ID="{063CBF71-2C5F-43F2-8659-D66C40C77F91}" ShortID="292747612">
-							<ReferenceList>
-								<Reference Name="Target">
-									<ObjectRef Name="DungeonAmbiance" ID="{0F9305B2-DE2A-41FB-A309-961492527340}" WorkUnitID="{DD6B140F-0321-4AF7-81C6-B8E0A5C8F93D}"/>
-								</Reference>
-							</ReferenceList>
-						</Action>
-						<Action Name="" ID="{D0664E93-35E6-4BF8-BABF-10F279F15B72}" ShortID="767411260">
-							<ReferenceList>
-								<Reference Name="Target">
-									<ObjectRef Name="Waterdrops" ID="{CA3F2274-1F13-4580-B610-DFDE0C2BAB49}" WorkUnitID="{DD6B140F-0321-4AF7-81C6-B8E0A5C8F93D}"/>
-								</Reference>
-							</ReferenceList>
-						</Action>
-					</ChildrenList>
-				</Event>
-				<Event Name="MusicTest" ID="{221E90BB-78F0-4335-9E4F-36C5BE388BF9}">
-					<ChildrenList>
-						<Action Name="" ID="{2B6E2CEC-B811-415A-9015-60A01940161B}" ShortID="680830921">
-							<ReferenceList>
-								<Reference Name="Target">
-									<ObjectRef Name="MusicTest" ID="{79E4F180-AB99-45A3-A3E1-8C9D527FE503}" WorkUnitID="{DD6B140F-0321-4AF7-81C6-B8E0A5C8F93D}"/>
-								</Reference>
-							</ReferenceList>
-						</Action>
-					</ChildrenList>
-				</Event>
 				<Folder Name="Enemies" ID="{816C41CA-0398-4488-94D1-86C1D539683A}" ShortID="787782388">
 					<ChildrenList>
 						<Event Name="SkeletonAttack" ID="{71C9E154-3433-4C87-87AA-8EEEE18688E2}">
@@ -69,6 +40,17 @@
 									<ReferenceList>
 										<Reference Name="Target">
 											<ObjectRef Name="Skelly_Death" ID="{F17C5282-62C1-40E4-B256-00C05458D785}" WorkUnitID="{DD6B140F-0321-4AF7-81C6-B8E0A5C8F93D}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="SkeletonGetHit" ID="{0C66B243-E842-416E-B115-2CF8DAA3344D}">
+							<ChildrenList>
+								<Action Name="" ID="{E475DDB8-AE49-409C-9D83-E63A08C2D034}" ShortID="428332420">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Skeleton_GetHit" ID="{20A26A06-9636-49FC-9CA2-321E4CBE52A8}" WorkUnitID="{DD6B140F-0321-4AF7-81C6-B8E0A5C8F93D}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
@@ -134,9 +116,6 @@
 						<Event Name="Play_JumpSound" ID="{1FB058CE-5317-4B89-B947-62500F3F362B}">
 							<ChildrenList>
 								<Action Name="" ID="{176A4386-05E9-480D-AF2E-EAB5DBD72A55}" ShortID="583436990">
-									<PropertyList>
-										<Property Name="Probability" Type="Real64" Value="58"/>
-									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Target">
 											<ObjectRef Name="JumpSigh" ID="{82FD3FBC-88CD-423A-916F-DA3E58AF5B92}" WorkUnitID="{DD6B140F-0321-4AF7-81C6-B8E0A5C8F93D}"/>
@@ -145,37 +124,141 @@
 								</Action>
 							</ChildrenList>
 						</Event>
+						<Event Name="Play_Hide" ID="{A2818672-0CDD-49E5-BBC7-A413A0EDD753}">
+							<ChildrenList>
+								<Action Name="" ID="{31A25971-4344-4268-88AE-A52A52A46228}" ShortID="229990568">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Hiding" ID="{9420BF8F-D5F1-4E1C-A7FA-B7804A0C96F0}" WorkUnitID="{DD6B140F-0321-4AF7-81C6-B8E0A5C8F93D}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_StopHide" ID="{017CF4DF-C79A-4DD6-BFC7-90927331D07E}">
+							<ChildrenList>
+								<Action Name="" ID="{10CFA2FD-8192-41BF-BAC1-956D43D55E1F}" ShortID="525993009">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="NotHiding" ID="{EF59993D-0615-4DB2-B7A9-1AFB9AC43656}" WorkUnitID="{DD6B140F-0321-4AF7-81C6-B8E0A5C8F93D}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play" ID="{F8BC7F0A-3FD7-4796-86B2-967CB27D8D75}">
+							<ChildrenList>
+								<Action Name="" ID="{4987D90A-A733-455C-9573-08741FAD6A9E}" ShortID="858091541"/>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
 				</Folder>
-				<Event Name="PlayTestBattleMusic" ID="{4C0CAFE7-5E14-4DE5-82C0-BB0DEE6B6F8F}">
+				<Folder Name="Music" ID="{3409A357-CE54-4B9B-B1D4-613C9ED25B29}" ShortID="294431048">
 					<ChildrenList>
-						<Action Name="" ID="{B225DC07-25D7-4710-99CC-2C48692976B9}" ShortID="909641010">
-							<PropertyList>
-								<Property Name="FadeTime" Type="Real64" Value="1.5"/>
-							</PropertyList>
-							<ReferenceList>
-								<Reference Name="Target">
-									<ObjectRef Name="TestBattleMusic" ID="{CA112737-EB9D-4D60-9E8E-B37427EBE157}" WorkUnitID="{DD6B140F-0321-4AF7-81C6-B8E0A5C8F93D}"/>
-								</Reference>
-							</ReferenceList>
-						</Action>
+						<Event Name="MusicTest" ID="{221E90BB-78F0-4335-9E4F-36C5BE388BF9}">
+							<ChildrenList>
+								<Action Name="" ID="{2B6E2CEC-B811-415A-9015-60A01940161B}" ShortID="680830921">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="MusicTest" ID="{79E4F180-AB99-45A3-A3E1-8C9D527FE503}" WorkUnitID="{DD6B140F-0321-4AF7-81C6-B8E0A5C8F93D}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_DungeonAmbience" ID="{27B08BE1-9FDE-4CC0-BFF0-79A0932E0D2F}">
+							<ChildrenList>
+								<Action Name="" ID="{063CBF71-2C5F-43F2-8659-D66C40C77F91}" ShortID="292747612">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="DungeonAmbiance" ID="{0F9305B2-DE2A-41FB-A309-961492527340}" WorkUnitID="{DD6B140F-0321-4AF7-81C6-B8E0A5C8F93D}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{D0664E93-35E6-4BF8-BABF-10F279F15B72}" ShortID="767411260">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Waterdrops" ID="{CA3F2274-1F13-4580-B610-DFDE0C2BAB49}" WorkUnitID="{DD6B140F-0321-4AF7-81C6-B8E0A5C8F93D}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="PlayTestBattleMusic" ID="{4C0CAFE7-5E14-4DE5-82C0-BB0DEE6B6F8F}">
+							<ChildrenList>
+								<Action Name="" ID="{B225DC07-25D7-4710-99CC-2C48692976B9}" ShortID="909641010">
+									<PropertyList>
+										<Property Name="FadeTime" Type="Real64" Value="2"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="TestBattleMusic" ID="{CA112737-EB9D-4D60-9E8E-B37427EBE157}" WorkUnitID="{DD6B140F-0321-4AF7-81C6-B8E0A5C8F93D}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="StopTestBattleMusic" ID="{4E30BA76-7A9D-4BC6-9F97-E02D5453ADCF}">
+							<ChildrenList>
+								<Action Name="" ID="{EE624D0E-144F-404F-A4E5-ED13100AA14F}" ShortID="934793023">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="2"/>
+										<Property Name="FadeTime" Type="Real64" Value="2"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="TestBattleMusic" ID="{CA112737-EB9D-4D60-9E8E-B37427EBE157}" WorkUnitID="{DD6B140F-0321-4AF7-81C6-B8E0A5C8F93D}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_LevelMusic" ID="{1E3AAD5F-2AE9-466C-AF60-756DDF88DAC4}">
+							<ChildrenList>
+								<Action Name="" ID="{7BE6BB68-EEFB-4515-B4F2-F75E25332CAB}" ShortID="900591786">
+									<PropertyList>
+										<Property Name="FadeTime" Type="Real64" Value="2"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="LevelMusicRandomContainer" ID="{EE8852E8-10E8-4E3F-A5AD-CE899AE225AA}" WorkUnitID="{DD6B140F-0321-4AF7-81C6-B8E0A5C8F93D}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Stop_LevelMusic" ID="{99D2549A-F279-4887-BA17-771E43136594}">
+							<ChildrenList>
+								<Action Name="" ID="{4013050E-5CD1-4F4B-B6E9-D9C7CDFD7FD0}" ShortID="758912997">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="2"/>
+										<Property Name="FadeTime" Type="Real64" Value="2.5"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="LevelMusicRandomContainer" ID="{EE8852E8-10E8-4E3F-A5AD-CE899AE225AA}" WorkUnitID="{DD6B140F-0321-4AF7-81C6-B8E0A5C8F93D}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
-				</Event>
-				<Event Name="StopTestBattleMusic" ID="{4E30BA76-7A9D-4BC6-9F97-E02D5453ADCF}">
+				</Folder>
+				<Folder Name="UI" ID="{E3D3AC3B-F5EF-492A-8B3A-4C098EC3ECE8}" ShortID="743636404">
 					<ChildrenList>
-						<Action Name="" ID="{EE624D0E-144F-404F-A4E5-ED13100AA14F}" ShortID="934793023">
-							<PropertyList>
-								<Property Name="ActionType" Type="int16" Value="2"/>
-								<Property Name="FadeTime" Type="Real64" Value="1.5"/>
-							</PropertyList>
-							<ReferenceList>
-								<Reference Name="Target">
-									<ObjectRef Name="TestBattleMusic" ID="{CA112737-EB9D-4D60-9E8E-B37427EBE157}" WorkUnitID="{DD6B140F-0321-4AF7-81C6-B8E0A5C8F93D}"/>
-								</Reference>
-							</ReferenceList>
-						</Action>
+						<Event Name="UI_Select" ID="{AB0050BA-E316-47E3-B4A9-D4065C1F620F}">
+							<ChildrenList>
+								<Action Name="" ID="{620058CB-E7DB-4158-93E0-1316BA6BC41C}" ShortID="445404640">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="UI_Select" ID="{65C3F9E6-C8B0-4765-81AE-D581B13A282B}" WorkUnitID="{DD6B140F-0321-4AF7-81C6-B8E0A5C8F93D}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
-				</Event>
+				</Folder>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>
