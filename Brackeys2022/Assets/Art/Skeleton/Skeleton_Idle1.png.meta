@@ -337,69 +337,6 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: Skeleton_Idle1_10
-      rect:
-        serializedVersion: 2
-        x: 1280
-        y: 0
-        width: 128
-        height: 128
-      alignment: 9
-      pivot: {x: 0.65, y: 0.35}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 62d834d660b0a214abf73f2364531cbc
-      internalID: 770373004
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Skeleton_Idle1_11
-      rect:
-        serializedVersion: 2
-        x: 1408
-        y: 0
-        width: 128
-        height: 128
-      alignment: 9
-      pivot: {x: 0.65, y: 0.35}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9f32e444f1ff8a9498e337c9cd95ea5d
-      internalID: -549451165
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Skeleton_Idle1_12
-      rect:
-        serializedVersion: 2
-        x: 1536
-        y: 0
-        width: 128
-        height: 128
-      alignment: 9
-      pivot: {x: 0.65, y: 0.35}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7cc48b7bdfea31d4289cee58ff2fc065
-      internalID: 2046312771
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -409,13 +346,13 @@ TextureImporter:
     indices: 
     edges: []
     weights: []
-    secondaryTextures: []
+    secondaryTextures:
+    - texture: {fileID: 2800000, guid: f86f62bb60f811b4c8d80feca9111d22, type: 3}
+      name: _Emission
     nameFileIdTable:
       Skeleton_Idle1_4: 2097686903
-      Skeleton_Idle1_10: 770373004
       Skeleton_Idle1_9: -1957699615
       Skeleton_Idle1_0: 613763299
-      Skeleton_Idle1_12: 2046312771
       Skeleton_Idle1_3: 1620475520
       Skeleton_Idle1_2: 1760175748
       Skeleton_Idle1_1: 521375056
@@ -423,7 +360,6 @@ TextureImporter:
       Skeleton_Idle1_8: 2136263741
       Skeleton_Idle1_7: -1631522126
       Skeleton_Idle1_6: 170716147
-      Skeleton_Idle1_11: -549451165
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

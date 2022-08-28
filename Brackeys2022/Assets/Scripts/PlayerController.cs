@@ -62,6 +62,13 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private AK.Wwise.Event PlayerGetHit;
     [SerializeField] private AK.Wwise.Event PlayerLanding;
     [SerializeField] private AK.Wwise.Event jumpSound;
+    [SerializeField] private AK.Wwise.Event hideSound;
+    [SerializeField] private AK.Wwise.Event unhideSound;
+    [SerializeField] private AK.Wwise.Event PlayerAttack1;
+    [SerializeField] private AK.Wwise.Event PlayerAttack2;
+    [SerializeField] private AK.Wwise.Event PlayerAttack3;
+    [SerializeField] private AK.Wwise.Event PlayerDeath;
+    
 
 
     void Start()
@@ -415,7 +422,7 @@ public class PlayerController : MonoBehaviour
             rb.velocity = Vector2.zero;
             rb.AddForce((transform.position - enemyRange.position).normalized * knockBackForce, ForceMode2D.Impulse);
             health -= damage;
-        AkSoundEngine.PostEvent(PlayerGetHit.Id, this.gameObject);
+        //AkSoundEngine.PostEvent(PlayerGetHit.Id, this.gameObject);
         healthText.text = "Health: " + health.ToString();
             if (health <= 0)
                 state = PlayerState.Die;
@@ -520,12 +527,16 @@ public class PlayerController : MonoBehaviour
                 hidden = false;
                 speed *= 4;
                 Physics2D.IgnoreLayerCollision(3, 7, false);
+                AkSoundEngine.PostEvent(unhideSound.Id, this.gameObject);
                 OnHideEnd();
+                
+
             }
             return true;
         }
         else if (Input.GetButtonDown("Hide"))
         {
+            AkSoundEngine.PostEvent(hideSound.Id, this.gameObject);
             anim.speed = .5f;
             sRend.color = Color.black;
             hidden = true;
@@ -533,11 +544,6 @@ public class PlayerController : MonoBehaviour
             Physics2D.IgnoreLayerCollision(3, 7, true);
         }
         return false;
-    }
-
-    private void Dash()
-    {
-
     }
 
     /// <summary>Sets the animation based on the player state</summary>
@@ -587,6 +593,31 @@ public class PlayerController : MonoBehaviour
     {
        // AkSoundEngine.PostEvent(PlayerLanding.Id, this.gameObject);
     }
+
+    public void PlayAttackSound1()
+    {
+        AkSoundEngine.PostEvent(PlayerAttack1.Id, this.gameObject);
+    }
+
+    public void PlayAttackSound2()
+    {
+        AkSoundEngine.PostEvent(PlayerAttack2.Id, this.gameObject);
+    }
+    
+    public void PlayAttackSound3()
+    {
+        AkSoundEngine.PostEvent(PlayerAttack3.Id, this.gameObject);
+    }
+
+    public void PlayDeathSound()
+    {
+        AkSoundEngine.PostEvent(PlayerDeath.Id, this.gameObject);
+    }
+    public void PlayerGethitSound()
+    {
+        AkSoundEngine.PostEvent(PlayerGetHit.Id, this.gameObject);
+    }
+
 }
 
 /// <summary>The state the player is in</summary>

@@ -1,13 +1,22 @@
 Event	ID	Name			Wwise Object Path	Notes
 	139523582	SkeletonDeath			\Default Work Unit\Enemies\SkeletonDeath	
-	1076666776	StopTestBattleMusic			\Default Work Unit\StopTestBattleMusic	
+	650055683	SkeletonGetHit			\Default Work Unit\Enemies\SkeletonGetHit	
+	910581297	Play_PlayerDeath			\Default Work Unit\Player\Play_PlayerDeath	
+	1076666776	StopTestBattleMusic			\Default Work Unit\Music\StopTestBattleMusic	
 	1602358412	Play_Footstep			\Default Work Unit\Player\Play_Footstep	
-	1786435558	PlayTestBattleMusic			\Default Work Unit\PlayTestBattleMusic	
+	1786435558	PlayTestBattleMusic			\Default Work Unit\Music\PlayTestBattleMusic	
 	2032018185	SkeletonSteps			\Default Work Unit\Enemies\SkeletonSteps	
+	2371580015	Play_JumpSound			\Default Work Unit\Player\Play_JumpSound	
+	2518039975	Stop_LevelMusic			\Default Work Unit\Music\Stop_LevelMusic	
+	2586843602	Play_Hide			\Default Work Unit\Player\Play_Hide	
+	2671044069	Play_LevelMusic			\Default Work Unit\Music\Play_LevelMusic	
+	2774129122	UI_Select			\Default Work Unit\UI\UI_Select	
+	2824512041	Player_Attack			\Default Work Unit\Player\Player_Attack	
 	3945457670	Player_GetHit			\Default Work Unit\Player\Player_GetHit	
+	4095150858	Play_StopHide			\Default Work Unit\Player\Play_StopHide	
 	4153337164	SkeletonAttack			\Default Work Unit\Enemies\SkeletonAttack	
-	4195921398	MusicTest			\Default Work Unit\MusicTest	
-	4258174524	Play_DungeonAmbience			\Default Work Unit\Play_DungeonAmbience	
+	4195921398	MusicTest			\Default Work Unit\Music\MusicTest	
+	4258174524	Play_DungeonAmbience			\Default Work Unit\Music\Play_DungeonAmbience	
 	4285282925	Play_Land			\Default Work Unit\Player\Play_Land	
 
 Effect plug-ins	ID	Name	Type				Notes
@@ -16,23 +25,38 @@ Effect plug-ins	ID	Name	Type				Notes
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	32749564	Jump	P:\Unity\Brackeys2022\Brackeys2022\Brackeys2022_WwiseProject\.cache\Mac\SFX\66139-Grunt_breathe_male_seven_year_old_boy-BLASTWAVEFX-03843_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\JumpSigh\Jump		133464
-	200315710	Amb_Dungeon	P:\Unity\Brackeys2022\Brackeys2022\Brackeys2022_WwiseProject\.cache\Mac\SFX\DungeonAmbience_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\DungeonAmbiance\Amb_Dungeon		5956596
-	213181015	WaterDrop3	P:\Unity\Brackeys2022\Brackeys2022\Brackeys2022_WwiseProject\.cache\Mac\SFX\WaterDrop3_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\DungeonAmbiance\Waterdrops\WaterDrop3		57368
+	151693611	GetHit5	P:\Unity\Brackeys2022\Brackeys2022\Brackeys2022_WwiseProject\.cache\Mac\SFX\GetHit5_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\Skeleton\Skeleton_GetHit\GetHit5		171472
+	169778164	GetHit6	P:\Unity\Brackeys2022\Brackeys2022\Brackeys2022_WwiseProject\.cache\Mac\SFX\GetHit6_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\Skeleton\Skeleton_GetHit\GetHit6		171472
+	200315710	Amb_Dungeon	P:\Unity\Brackeys2022\Brackeys2022\Brackeys2022_WwiseProject\.cache\Mac\SFX\DungeonAmbience_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\Music\DungeonAmbiance\Amb_Dungeon		5956596
+	213181015	WaterDrop3	P:\Unity\Brackeys2022\Brackeys2022\Brackeys2022_WwiseProject\.cache\Mac\SFX\WaterDrop3_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Music\DungeonAmbiance\Waterdrops\WaterDrop3		57368
 	302286763	Cloth1	P:\Unity\Brackeys2022\Brackeys2022\Brackeys2022_WwiseProject\.cache\Mac\SFX\Cloth1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\Cloth\Cloth1		116460
 	302313211	FS3	P:\Unity\Brackeys2022\Brackeys2022\Brackeys2022_WwiseProject\.cache\Mac\SFX\FS3Stereo_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\Footsteps\FS3		47268
-	349328889	DungeonAmbience2	P:\Unity\Brackeys2022\Brackeys2022\Brackeys2022_WwiseProject\.cache\Mac\SFX\DungeonAmbience2_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\DungeonAmbiance\DungeonAmbience2		2148964
+	313573349	UI_Select	P:\Unity\Brackeys2022\Brackeys2022\Brackeys2022_WwiseProject\.cache\Mac\SFX\UI_Select_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\UI_Select		33096
+	348981408	Jump2	P:\Unity\Brackeys2022\Brackeys2022\Brackeys2022_WwiseProject\.cache\Mac\SFX\317498-EMOTE_Liam-Child-Anger_Fight_Grunt_Small_07_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\JumpSigh\Jump2		34400
+	349328889	DungeonAmbience2	P:\Unity\Brackeys2022\Brackeys2022\Brackeys2022_WwiseProject\.cache\Mac\SFX\DungeonAmbience2_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\Music\DungeonAmbiance\DungeonAmbience2		2148964
+	359717535	Player_Attack1	P:\Unity\Brackeys2022\Brackeys2022\Brackeys2022_WwiseProject\.cache\Mac\SFX\Player_Attack1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\PlayerAttack\Player_Attack1		189848
 	362917710	Skelly_Sword_hit2	P:\Unity\Brackeys2022\Brackeys2022\Brackeys2022_WwiseProject\.cache\Mac\SFX\Skelly_Sword_hit2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\Skeleton\Skelly_Attack\Skeleton_Sword_Woosh\Skelly_Sword_hit2		66032
-	472719549	TestBattleMusic	P:\Unity\Brackeys2022\Brackeys2022\Brackeys2022_WwiseProject\.cache\Mac\SFX\TestBattleMusic_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\TestBattleMusic		1316668
+	369493372	GetHit2	P:\Unity\Brackeys2022\Brackeys2022\Brackeys2022_WwiseProject\.cache\Mac\SFX\GetHit2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\Skeleton\Skeleton_GetHit\GetHit2		192096
+	471127437	GetHit3	P:\Unity\Brackeys2022\Brackeys2022\Brackeys2022_WwiseProject\.cache\Mac\SFX\GetHit3_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\Skeleton\Skeleton_GetHit\GetHit3		192096
+	472719549	TestBattleMusic	P:\Unity\Brackeys2022\Brackeys2022\Brackeys2022_WwiseProject\.cache\Mac\SFX\TestBattleMusic_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\Music\TestBattleMusic		3686496
 	588511061	Skelly_Step2	P:\Unity\Brackeys2022\Brackeys2022\Brackeys2022_WwiseProject\.cache\Mac\SFX\Skelly_Step2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\Skeleton\Skelly_FS\Skelly_Step2		57848
 	617516731	Skelly_Step1	P:\Unity\Brackeys2022\Brackeys2022\Brackeys2022_WwiseProject\.cache\Mac\SFX\Skelly_Step1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\Skeleton\Skelly_FS\Skelly_Step1		49596
 	621761934	Cloth3	P:\Unity\Brackeys2022\Brackeys2022\Brackeys2022_WwiseProject\.cache\Mac\SFX\Cloth3_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\Cloth\Cloth3		100140
 	621944606	Skelly_Sword_hit	P:\Unity\Brackeys2022\Brackeys2022\Brackeys2022_WwiseProject\.cache\Mac\SFX\Skelly_Sword_hit_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\Skeleton\Skelly_Attack\Skeleton_Sword_Woosh\Skelly_Sword_hit		60076
+	642100944	NotHiding	P:\Unity\Brackeys2022\Brackeys2022\Brackeys2022_WwiseProject\.cache\Mac\SFX\Player_Unhiding_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\NotHiding		74348
+	660298236	Player_Attack2	P:\Unity\Brackeys2022\Brackeys2022\Brackeys2022_WwiseProject\.cache\Mac\SFX\Player_Attack2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\PlayerAttack\Player_Attack2		173348
 	677411498	Skelly_Death	P:\Unity\Brackeys2022\Brackeys2022\Brackeys2022_WwiseProject\.cache\Mac\SFX\Skeleton_Death_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\Skeleton\Skelly_Death		297096
 	683425856	FS2	P:\Unity\Brackeys2022\Brackeys2022\Brackeys2022_WwiseProject\.cache\Mac\SFX\FS2Stereo_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\Footsteps\FS2		73752
 	705979647	FS1	P:\Unity\Brackeys2022\Brackeys2022\Brackeys2022_WwiseProject\.cache\Mac\SFX\FS1Stereo_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\Footsteps\FS1		46504
-	793106254	WaterDrop2	P:\Unity\Brackeys2022\Brackeys2022\Brackeys2022_WwiseProject\.cache\Mac\SFX\WaterDrop2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\DungeonAmbiance\Waterdrops\WaterDrop2		61072
+	724180997	Hiding	P:\Unity\Brackeys2022\Brackeys2022\Brackeys2022_WwiseProject\.cache\Mac\SFX\Player_Hiding_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\Hiding		357692
+	742716024	GetHit1	P:\Unity\Brackeys2022\Brackeys2022\Brackeys2022_WwiseProject\.cache\Mac\SFX\GetHit1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\Skeleton\Skeleton_GetHit\GetHit1		192096
+	793106254	WaterDrop2	P:\Unity\Brackeys2022\Brackeys2022\Brackeys2022_WwiseProject\.cache\Mac\SFX\WaterDrop2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Music\DungeonAmbiance\Waterdrops\WaterDrop2		61072
 	856300465	Cloth2	P:\Unity\Brackeys2022\Brackeys2022\Brackeys2022_WwiseProject\.cache\Mac\SFX\Cloth2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\Cloth\Cloth2		120784
+	929970491	LevelMusic2	P:\Unity\Brackeys2022\Brackeys2022\Brackeys2022_WwiseProject\.cache\Mac\SFX\LevelMusic2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Music\LevelMusicRandomContainer\LevelMusic2		1316668
+	939873588	GetHit4	P:\Unity\Brackeys2022\Brackeys2022\Brackeys2022_WwiseProject\.cache\Mac\SFX\GetHit4_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\Skeleton\Skeleton_GetHit\GetHit4		154972
 	940916448	338147-Male_vocalization_-restrained_pain_-grunting_1	P:\Unity\Brackeys2022\Brackeys2022\Brackeys2022_WwiseProject\.cache\Mac\SFX\338147-Male_vocalization_-restrained_pain_-grunting_1_61B09802.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\GetHit\338147-Male_vocalization_-restrained_pain_-grunting_1		35936
-	986866790	MusicTest	P:\Unity\Brackeys2022\Brackeys2022\Brackeys2022_WwiseProject\.cache\Mac\SFX\HubTrigger_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\MusicTest		5924668
-	1013361031	WaterDrop1	P:\Unity\Brackeys2022\Brackeys2022\Brackeys2022_WwiseProject\.cache\Mac\SFX\WaterDrop1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\DungeonAmbiance\Waterdrops\WaterDrop1		89176
+	986866790	MusicTest	P:\Unity\Brackeys2022\Brackeys2022\Brackeys2022_WwiseProject\.cache\Mac\SFX\HubTrigger_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Music\MusicTest		5924668
+	1013361031	WaterDrop1	P:\Unity\Brackeys2022\Brackeys2022\Brackeys2022_WwiseProject\.cache\Mac\SFX\WaterDrop1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Music\DungeonAmbiance\Waterdrops\WaterDrop1		89176
+	1025909737	Player_Death	P:\Unity\Brackeys2022\Brackeys2022\Brackeys2022_WwiseProject\.cache\Mac\SFX\Player_Death_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\Player_Death		429096
+	1059693162	LevelMusic1	P:\Unity\Brackeys2022\Brackeys2022\Brackeys2022_WwiseProject\.cache\Mac\SFX\LevelMusic1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Music\LevelMusicRandomContainer\LevelMusic1		2633240
 

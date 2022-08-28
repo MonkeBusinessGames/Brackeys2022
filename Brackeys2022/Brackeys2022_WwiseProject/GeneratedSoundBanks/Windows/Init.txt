@@ -1,3 +1,11 @@
+State Group	ID	Name			Wwise Object Path	Notes
+	3703386026	PlayerHide			\Default Work Unit\PlayerHide	
+
+State	ID	Name	State Group			Notes
+	234385385	NotHiding	PlayerHide			
+	748895195	None	PlayerHide			
+	3538823496	Hiding	PlayerHide			
+
 Audio Bus	ID	Name			Wwise Object Path	Notes
 	1069431850	Player			\Default Work Unit\Master Audio Bus\Player	
 	1229948536	Environment			\Default Work Unit\Master Audio Bus\Environment	

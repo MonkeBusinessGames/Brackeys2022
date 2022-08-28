@@ -31,6 +31,9 @@ public class EnemyController : MonoBehaviour
     private float timer;
     private EnemyState state;
 
+    [Header("SFX")]
+    [SerializeField] private AK.Wwise.Event getHitSound;
+
     void Start()
     {
         player = FindObjectOfType<PlayerController>();
@@ -124,6 +127,7 @@ public class EnemyController : MonoBehaviour
     public void TakeDamage(float damageDealt, Vector2 playerPosition)
     {
         state = EnemyState.Hit;
+        AkSoundEngine.PostEvent(getHitSound.Id, this.gameObject);
         rb.velocity = Vector2.zero;
         rb.AddForce(((Vector2)transform.position - playerPosition).normalized * knockBackForce, ForceMode2D.Impulse);
         health -= damageDealt;
