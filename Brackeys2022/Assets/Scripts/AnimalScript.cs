@@ -13,6 +13,10 @@ public class AnimalScript : MonoBehaviour
     [Space(5)]
     [SerializeField] private bool birbAbility = false;
 
+    [SerializeField] private AK.Wwise.Event BirdSound;
+    [SerializeField] private AK.Wwise.Event CatSound;
+    [SerializeField] private AK.Wwise.Event MoleSound;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.transform.CompareTag("Player"))
@@ -20,14 +24,17 @@ public class AnimalScript : MonoBehaviour
             if (catAbility)
             {
                 collision.gameObject.GetComponent<PlayerController>().AcquireCatAbilities();
+                AkSoundEngine.PostEvent(CatSound.Id, this.gameObject);
             }
             else if (moleAbility)
             {
                 collision.gameObject.GetComponent<PlayerController>().AcquireMoleAbilities();
+                AkSoundEngine.PostEvent(MoleSound.Id, this.gameObject);
             }
             else if (birbAbility)
             {
                 collision.gameObject.GetComponent<PlayerController>().AcquireBirbAbilities();
+                AkSoundEngine.PostEvent(BirdSound.Id, this.gameObject);
             }
 
             //Destroy(gameObject);

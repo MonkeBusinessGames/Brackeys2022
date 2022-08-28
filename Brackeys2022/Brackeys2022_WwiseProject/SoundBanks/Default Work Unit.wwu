@@ -13,8 +13,10 @@
 						<ObjectRef Name="MusicTest" ID="{221E90BB-78F0-4335-9E4F-36C5BE388BF9}" WorkUnitID="{19B0CD82-E871-4AC1-95E6-261D6261E874}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Land" ID="{30DD00CE-7E6C-45FC-98D5-ED0EA1411D59}" WorkUnitID="{19B0CD82-E871-4AC1-95E6-261D6261E874}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Jump" ID="{660C6A4F-B28A-4627-9B98-424F5E439346}" WorkUnitID="{DD6B140F-0321-4AF7-81C6-B8E0A5C8F93D}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_Cat" ID="{BB5296C4-DE7A-4723-9CE7-2C55ED277F43}" WorkUnitID="{19B0CD82-E871-4AC1-95E6-261D6261E874}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="UI_Select" ID="{AB0050BA-E316-47E3-B4A9-D4065C1F620F}" WorkUnitID="{19B0CD82-E871-4AC1-95E6-261D6261E874}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Footstep" ID="{3BD47F5E-71CA-48A9-963C-665FF75E62FE}" WorkUnitID="{19B0CD82-E871-4AC1-95E6-261D6261E874}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_Mole" ID="{A76C64DA-EB65-48E0-B6C1-7656B21F2275}" WorkUnitID="{19B0CD82-E871-4AC1-95E6-261D6261E874}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Hide" ID="{A2818672-0CDD-49E5-BBC7-A413A0EDD753}" WorkUnitID="{19B0CD82-E871-4AC1-95E6-261D6261E874}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="GetHit" ID="{3CF2D36C-9F7E-4A3E-8D21-B220765999EC}" WorkUnitID="{DD6B140F-0321-4AF7-81C6-B8E0A5C8F93D}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_JumpSound" ID="{1FB058CE-5317-4B89-B947-62500F3F362B}" WorkUnitID="{19B0CD82-E871-4AC1-95E6-261D6261E874}" Origin="Manual" Filter="7"/>
@@ -25,6 +27,7 @@
 						<ObjectRef Name="PlayTestBattleMusic" ID="{4C0CAFE7-5E14-4DE5-82C0-BB0DEE6B6F8F}" WorkUnitID="{19B0CD82-E871-4AC1-95E6-261D6261E874}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="LevelMusicRandomContainer" ID="{EE8852E8-10E8-4E3F-A5AD-CE899AE225AA}" WorkUnitID="{DD6B140F-0321-4AF7-81C6-B8E0A5C8F93D}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="SkeletonDeath" ID="{161704D3-B6A8-4E51-B1E9-6E1E528CD2BC}" WorkUnitID="{19B0CD82-E871-4AC1-95E6-261D6261E874}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_Bird" ID="{717A2EA6-BF41-4EE2-80CE-28BB6DDE03AA}" WorkUnitID="{19B0CD82-E871-4AC1-95E6-261D6261E874}" Origin="Manual" Filter="7"/>
 					</ObjectInclusionList>
 					<ObjectExclusionList/>
 					<GameSyncExclusionList/>
