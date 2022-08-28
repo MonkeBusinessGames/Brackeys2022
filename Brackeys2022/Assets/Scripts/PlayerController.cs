@@ -152,14 +152,11 @@ public class PlayerController : MonoBehaviour
                 }
                 else if (Input.GetButtonDown("Attack"))
                 {
-                    if (catAcquired)
-                    {
-                        EndFall();
-                        state = PlayerState.Attack;
-                        anim.SetInteger("AttackCounter", 0);
-                        SetAnimation();
-                        movementX = 0;
-                    }
+                    EndFall();
+                    state = PlayerState.Attack;
+                    anim.SetInteger("AttackCounter", 0);
+                    SetAnimation();
+                    movementX = 0;
                 }
                 break;
             case PlayerState.JumpStart:
@@ -283,9 +280,7 @@ public class PlayerController : MonoBehaviour
     {
         if (state == (PlayerState.Hit))
             return; 
-        else if (state == (PlayerState.JumpCharge))
-            return;
-        else if (state == (PlayerState.Die))
+        if (state == (PlayerState.JumpCharge))
             return;
 
         //Set Velocity
@@ -549,11 +544,6 @@ public class PlayerController : MonoBehaviour
             Physics2D.IgnoreLayerCollision(3, 7, true);
         }
         return false;
-    }
-
-    private void Dash()
-    {
-
     }
 
     /// <summary>Sets the animation based on the player state</summary>
