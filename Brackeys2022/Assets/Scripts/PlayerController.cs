@@ -256,7 +256,8 @@ public class PlayerController : MonoBehaviour
         {
             if (movementX > 0)
             {
-                transform.localScale = new Vector3(-1, 1, 1);
+                sRend.flipX = false;
+                //transform.localScale = new Vector3(-1, 1, 1);
                 flip = false;
             }
         }
@@ -264,7 +265,8 @@ public class PlayerController : MonoBehaviour
         {
             if (movementX < 0)
             {
-                transform.localScale = new Vector3(1, 1, 1);
+                sRend.flipX = true;
+                //transform.localScale = new Vector3(1, 1, 1);
                 flip = true;
             }
         }

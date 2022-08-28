@@ -13,6 +13,9 @@ public class AnimalScript : MonoBehaviour
     [Space(5)]
     [SerializeField] private bool birbAbility = false;
 
+    public static event Action<Popup> OnAnimalAcquired;
+    Popup popup;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.transform.CompareTag("Player"))
@@ -20,17 +23,21 @@ public class AnimalScript : MonoBehaviour
             if (catAbility)
             {
                 collision.gameObject.GetComponent<PlayerController>().AcquireCatAbilities();
+                popup = Popup.CAT_ABILITY_ACQUIRED;
             }
             else if (moleAbility)
             {
                 collision.gameObject.GetComponent<PlayerController>().AcquireMoleAbilities();
+                popup = Popup.MOLE_ABILITY_ACQUIRED;
             }
             else if (birbAbility)
             {
                 collision.gameObject.GetComponent<PlayerController>().AcquireBirbAbilities();
+                popup = Popup.BIRB_ABILITY_ACQUIRED;
             }
 
             //Destroy(gameObject);
+            OnAnimalAcquired?.Invoke(popup);
             gameObject.SetActive(false);
         }
     }
