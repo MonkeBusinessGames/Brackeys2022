@@ -10,6 +10,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject gameOverMenu;
     [SerializeField] private GameObject gameCompleteMenu;
     [SerializeField] private Animator healthBar;
+    [SerializeField] private CanvasGroup[] cutScenes;
     private bool isPaused = false;
 
 
@@ -66,11 +67,24 @@ public class UIManager : MonoBehaviour
     {
         Time.timeScale = 0;
         gameCompleteMenu.SetActive(true);
+        StartCoroutine(EndingCutscene());
     }
 
     public void RemoveHealth()
     {
         healthBar.SetTrigger("Take Damage");
+    }
+
+    private IEnumerator EndingCutscene()
+    {
+        for (int i = 0; i < cutScenes.Length; i++)
+        {
+            while (cutScenes[i].alpha < 1)
+            {
+                cutScenes[i].alpha += Time.unscaledDeltaTime / 2;
+                yield return null;
+            }
+        }
     }
 
 }
