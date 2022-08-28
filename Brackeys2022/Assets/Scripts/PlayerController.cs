@@ -68,8 +68,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private AK.Wwise.Event PlayerAttack3;
     [SerializeField] private AK.Wwise.Event PlayerDeath;
     
-
-
     void Start()
     {
         catAcquired = false;
@@ -257,7 +255,6 @@ public class PlayerController : MonoBehaviour
             if (movementX > 0)
             {
                 sRend.flipX = false;
-                //transform.localScale = new Vector3(-1, 1, 1);
                 flip = false;
             }
         }
@@ -266,7 +263,6 @@ public class PlayerController : MonoBehaviour
             if (movementX < 0)
             {
                 sRend.flipX = true;
-                //transform.localScale = new Vector3(1, 1, 1);
                 flip = true;
             }
         }
