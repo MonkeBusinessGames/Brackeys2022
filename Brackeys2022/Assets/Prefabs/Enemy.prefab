@@ -271,7 +271,7 @@ MonoBehaviour:
   detectRange: {fileID: 8472079624185686561}
   knockBackForce: 10
   health: 10
-  attackPower: 3
+  attackPower: 1
   getHitSound:
     idInternal: 0
     valueGuidInternal: 
