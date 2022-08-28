@@ -7,6 +7,7 @@ public class SkeletonSFX : MonoBehaviour
     [SerializeField] private AK.Wwise.Event attackSound;
     [SerializeField] private AK.Wwise.Event footstepSound;
     [SerializeField] private AK.Wwise.Event deathSound;
+    [SerializeField] private AK.Wwise.Event gethitSound;
     
     public void PlayFootstepSound()
     {
@@ -22,5 +23,10 @@ public class SkeletonSFX : MonoBehaviour
     {
        // AkSoundEngine.PostEvent(deathSound.Id, this.gameObject);
     }
-    
+
+    public void PlayGethitSound()
+    {
+        // AkSoundEngine.PostEvent(deathSound.Id, this.gameObject);
+    }
+
 }

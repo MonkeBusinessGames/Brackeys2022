@@ -276,6 +276,43 @@
 						</Event>
 					</ChildrenList>
 				</Folder>
+				<Folder Name="Animals" ID="{7501656A-5A1C-4F5A-A7D4-C60FD86F8200}" ShortID="415844983">
+					<ChildrenList>
+						<Event Name="Play_Bird" ID="{717A2EA6-BF41-4EE2-80CE-28BB6DDE03AA}">
+							<ChildrenList>
+								<Action Name="" ID="{D4E0B13F-4143-49CD-AC46-7BD857AA030B}" ShortID="893570982">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Bird" ID="{61D83A3C-6FFA-4F76-A542-37446F5DBDA7}" WorkUnitID="{DD6B140F-0321-4AF7-81C6-B8E0A5C8F93D}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_Cat" ID="{BB5296C4-DE7A-4723-9CE7-2C55ED277F43}">
+							<ChildrenList>
+								<Action Name="" ID="{4FFA54F1-1B5B-4218-B7EC-23F9A8DF89AD}" ShortID="194419934">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Cat" ID="{412DE2A0-3551-4F65-AAAE-0DF1810879CE}" WorkUnitID="{DD6B140F-0321-4AF7-81C6-B8E0A5C8F93D}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_Mole" ID="{A76C64DA-EB65-48E0-B6C1-7656B21F2275}">
+							<ChildrenList>
+								<Action Name="" ID="{C38E3756-6936-4E32-8EDB-E6496B837319}" ShortID="228866289">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Mole" ID="{99D1EE7C-15AE-4269-8FD8-AB3B52890F52}" WorkUnitID="{DD6B140F-0321-4AF7-81C6-B8E0A5C8F93D}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+					</ChildrenList>
+				</Folder>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>
