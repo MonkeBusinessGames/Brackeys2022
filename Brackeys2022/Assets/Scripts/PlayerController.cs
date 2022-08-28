@@ -35,10 +35,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private PolygonCollider2D spikeRange;
     [SerializeField] private BoxCollider2D hitBox;
     [SerializeField] private ContactFilter2D enemies;
-    [SerializeField] private float health = 100;
+    private float health = 5;
     [SerializeField] private float attackPower = 10;
     [SerializeField] private float knockBackForce = 100;
-    [SerializeField] private TMP_Text healthText;
     [SerializeField] private bool keepAttacking = false;
 
     [Header("Long/Double Jump Fields")]
@@ -359,7 +358,7 @@ public class PlayerController : MonoBehaviour
                 rb.velocity = Vector2.zero;
                 rb.AddForce((transform.position - collision.transform.position).normalized * knockBackForce, ForceMode2D.Impulse);
                 health -= 1;
-                healthText.text = "Health: " + health.ToString();
+                uiManager.RemoveHealth();
                 if (health <= 0)
                 {
                     state = PlayerState.Die;
@@ -386,7 +385,7 @@ public class PlayerController : MonoBehaviour
                 rb.velocity = Vector2.zero;
                 rb.AddForce((transform.position - collider.transform.position).normalized * knockBackForce, ForceMode2D.Impulse);
                 health -= 1;
-                healthText.text = "Health: " + health.ToString();
+                uiManager.RemoveHealth();
                 if (health <= 0)
                 {
                     state = PlayerState.Die;
@@ -452,7 +451,7 @@ public class PlayerController : MonoBehaviour
             anim.speed = 1;
             sRend.color = Color.white;
             hidden = false;
-            speed *= 4;
+            speed *= 2;
             Physics2D.IgnoreLayerCollision(3, 7, false);
             OnHideEnd();
         }
@@ -461,10 +460,10 @@ public class PlayerController : MonoBehaviour
         diveRange.enabled = false;
         rb.velocity = Vector2.zero;
         rb.AddForce((transform.position - enemyRange.position).normalized * knockBackForce, ForceMode2D.Impulse);
-        health -= damage;
+        health -= 1;
         //AkSoundEngine.PostEvent(PlayerGetHit.Id, this.gameObject);
-        healthText.text = "Health: " + health.ToString();
-            if (health <= 0)
+        uiManager.RemoveHealth();
+        if (health <= 0)
                 state = PlayerState.Die;
             SetAnimation();
     }
@@ -556,7 +555,7 @@ public class PlayerController : MonoBehaviour
                 anim.speed = 1;
                 sRend.color = Color.white;
                 hidden = false;
-                speed *= 4;
+                speed *= 2;
                 Physics2D.IgnoreLayerCollision(3, 7, false);
                 AkSoundEngine.PostEvent(unhideSound.Id, this.gameObject);
                 OnHideEnd();
@@ -571,7 +570,7 @@ public class PlayerController : MonoBehaviour
             anim.speed = .5f;
             sRend.color = Color.black;
             hidden = true;
-            speed /= 4;
+            speed /= 2;
             Physics2D.IgnoreLayerCollision(3, 7, true);
         }
         return false;
