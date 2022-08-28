@@ -7,7 +7,7 @@ public class Particle_Spawn : MonoBehaviour
     public GameObject PS;
     public GameObject Spawner;
     public void SpawnParticles(){
-        Instantiate(PS, Spawner.transform.position, Spawner.transform.rotation);
+        Instantiate(PS, Spawner.transform.position, Quaternion.identity);
         
     }
 }

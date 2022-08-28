@@ -166,8 +166,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 928815127
+  m_SortingLayer: 2
   m_SortingOrder: 4
   m_Sprite: {fileID: -1726633806, guid: 21d1d55f101978b41ab1a5ce41e30c09, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -272,6 +272,10 @@ MonoBehaviour:
   knockBackForce: 5
   health: 10
   attackPower: 3
+  getHitSound:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 0}
 --- !u!114 &946345870840349084
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -296,7 +300,3 @@ MonoBehaviour:
     idInternal: 0
     valueGuidInternal: 
     WwiseObjectReference: {fileID: 11400000, guid: 27a8cdb3a1387b547880fe62495e5b6b, type: 2}
-  getHitSound:
-    idInternal: 0
-    valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: 18b56bef098e0c648935f85491e3d2a2, type: 2}
