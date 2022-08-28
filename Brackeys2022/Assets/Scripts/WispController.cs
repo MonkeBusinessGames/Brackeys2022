@@ -15,9 +15,11 @@ public class WispController : MonoBehaviour
     [SerializeField] private Vector2[] points;
     private int pointIndex = 0;
     private Vector2 targetWaypoint;
+    [SerializeField] private int current = 0;
     [SerializeField] private float speed = 3;
     [SerializeField] private float idleTime = 1;
     private bool facingLeft;
+    private bool playerInRange = false;
 
 
     [Header("Combat Fields")]
@@ -58,7 +60,7 @@ public class WispController : MonoBehaviour
                 Idling();
                 break;
             case WispState.Walking:
-                Walking();
+                Move();
                 break;
             case WispState.Chasing:
                 Chasing();
@@ -79,6 +81,14 @@ public class WispController : MonoBehaviour
                 return;
             state = WispState.Chasing;
             GetAngry();
+            MoveToPlayer();
+        }
+
+        if (collision.CompareTag("Dive"))
+        {
+            if (state == (WispState.Die | WispState.Hit))
+                return;
+            TakeDamage(3, collision.transform.position);
         }
     }
 
@@ -91,15 +101,8 @@ public class WispController : MonoBehaviour
             state = WispState.Idle;
             CalmDown();
             targetWaypoint = points[pointIndex];
-            FlipCheck();
+            Move();
         }        
-
-        if (collision.CompareTag("Dive"))
-        {
-            if (state == ( WispState.Die | WispState.Hit))
-                return;
-            TakeDamage(3, collision.transform.position);
-        }
     }
 
     private void DetectPlayer()
@@ -147,10 +150,10 @@ public class WispController : MonoBehaviour
             CalmDown();
             targetWaypoint = points[pointIndex];
             FlipCheck();
+            Move();
             return;
         }
-        targetWaypoint = player.transform.position;
-        FlipCheck();
+        MoveToPlayer();
         if (Physics2D.OverlapBox(attackRange.position, attackRange.localScale, 0, 128) != null)
             AttackModeStart();
 
@@ -162,39 +165,14 @@ public class WispController : MonoBehaviour
         {
             CalmDown();
             targetWaypoint = points[pointIndex];
-            FlipCheck();
+            Move();
             return;
         }
-        targetWaypoint = player.transform.position;
-        FlipCheck();
+        MoveToPlayer();
         if (Physics2D.OverlapBox(attackRange.position, attackRange.localScale, 0, 128) == null)
             AttackModeEnd();
         else
             StartCoroutine(Attack(player.transform.position));
-    }
-
-    /// <summary>Checks whether the walk is over</summary>
-    private void Walking()
-    {
-        if (facingLeft)
-        {
-            if (transform.position.x <= targetWaypoint.x)
-            {
-                pointIndex++;
-                pointIndex = pointIndex % points.Length;
-                targetWaypoint = points[pointIndex];
-                state = WispState.Idle;
-                rb.velocity = Vector2.zero;
-            }
-        }
-        else if (transform.position.x >= targetWaypoint.x)
-        {
-            pointIndex++;
-            pointIndex = pointIndex % points.Length;
-            targetWaypoint = points[pointIndex];
-            state = WispState.Idle;
-            rb.velocity = Vector2.zero;
-        }
     }
 
     /// <summary>Checks whether idling is over</summary>
@@ -204,7 +182,7 @@ public class WispController : MonoBehaviour
         if (timer >= idleTime)
         {
             state = WispState.Walking;
-            FlipCheck();
+            Move();
             timer = 0;
         }
     }
@@ -234,16 +212,40 @@ public class WispController : MonoBehaviour
     private IEnumerator Attack(Vector3 target)
     {
         state = WispState.Attack;
-        rb.AddForce((transform.position - target).normalized * attackSpeed, ForceMode2D.Impulse);
+        print((transform.position - target).normalized * attackSpeed);
 
-        while ((transform.position - player.transform.position).magnitude > 1)
+        while (transform.position != target)
+        {
+            transform.position = Vector2.MoveTowards(transform.position, target, attackSpeed * Time.deltaTime);
             yield return null;
+        }
 
         state = WispState.AttackReady;
     }
+
     private void AttackModeEnd()
     {
         anim.SetBool("Attack", false);
+    }
+    private void MoveToPlayer() //Move to the player
+    {
+        targetWaypoint = player.transform.position;
+        FlipCheck();
+        transform.position = Vector2.MoveTowards(transform.position, targetWaypoint, speed * Time.deltaTime);
+    }
+
+    private void Move() //Move to the next point
+    {
+        FlipCheck();
+        transform.position = Vector2.MoveTowards(transform.position, targetWaypoint, speed * Time.deltaTime);
+        if (transform.position == (Vector3)targetWaypoint)
+        {
+            current++;
+            current = current % points.Length;
+            targetWaypoint = points[current];
+            state = WispState.Idle;
+            rb.velocity = Vector2.zero;
+        }
     }
 
     /// <summary>Checks if it's facing right direction</summary>
@@ -253,28 +255,28 @@ public class WispController : MonoBehaviour
         {
             if (targetWaypoint.x > transform.position.x)
             {
-                facingLeft = sRend.flipX = false;
+                facingLeft = false;
+                transform.localScale = new Vector3(1, 1, 1);
             }
         }
         else
             if (targetWaypoint.x < transform.position.x)
         {
-            facingLeft = sRend.flipX = true;
+            facingLeft = true;
+            transform.localScale = new Vector3(-1, 1, 1);
         }
-
-        if (facingLeft)
-            rb.velocity = new Vector2(-1 * speed, 0);
-        else
-            rb.velocity = new Vector2(speed, 0);
     }
+
 
     /// <summary> Allows the editor to show the transform points </summary>
     private void OnDrawGizmos()
     {
-        Gizmos.color = Color.green;
-        Gizmos.DrawSphere(new Vector2(points[0].x, transform.position.y), .2f);
-        Gizmos.DrawSphere(new Vector2(points[1].x, transform.position.y), .2f);
-        Gizmos.DrawLine(new Vector2(points[0].x, transform.position.y), new Vector2(points[1].x, transform.position.y));
+        Gizmos.color = Color.green; Gizmos.color = Color.green;
+        for (int i = 0; i < points.Length; i++)
+        {
+            Gizmos.DrawSphere(points[i], .2f);
+            Gizmos.DrawLine(points[i], points[(i + 1) % points.Length]);
+        }
         Gizmos.DrawWireCube(attackRange.position, attackRange.localScale);
     }
 }

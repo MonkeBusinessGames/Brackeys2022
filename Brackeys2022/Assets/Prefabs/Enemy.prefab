@@ -269,7 +269,7 @@ MonoBehaviour:
   idleTime: 1
   attackRange: {fileID: 8613506503563549812}
   detectRange: {fileID: 8472079624185686561}
-  knockBackForce: 5
+  knockBackForce: 10
   health: 10
   attackPower: 3
   getHitSound:

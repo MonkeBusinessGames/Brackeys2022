@@ -1150,6 +1150,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wisp (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 4823702686123520118, guid: b712399f758a78847af98fa1e655f237, type: 3}
+      propertyPath: points.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4823702686123520118, guid: b712399f758a78847af98fa1e655f237, type: 3}
+      propertyPath: points.Array.data[0].x
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 4823702686123520118, guid: b712399f758a78847af98fa1e655f237, type: 3}
+      propertyPath: points.Array.data[0].y
+      value: 42
+      objectReference: {fileID: 0}
+    - target: {fileID: 4823702686123520118, guid: b712399f758a78847af98fa1e655f237, type: 3}
+      propertyPath: points.Array.data[1].x
+      value: 27
+      objectReference: {fileID: 0}
+    - target: {fileID: 4823702686123520118, guid: b712399f758a78847af98fa1e655f237, type: 3}
+      propertyPath: points.Array.data[1].y
+      value: 42
+      objectReference: {fileID: 0}
+    - target: {fileID: 4823702686123520118, guid: b712399f758a78847af98fa1e655f237, type: 3}
+      propertyPath: points.Array.data[2].x
+      value: 23
+      objectReference: {fileID: 0}
+    - target: {fileID: 4823702686123520118, guid: b712399f758a78847af98fa1e655f237, type: 3}
+      propertyPath: points.Array.data[2].y
+      value: 45
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b712399f758a78847af98fa1e655f237, type: 3}
 --- !u!4 &105669076 stripped
@@ -1491,6 +1519,42 @@ PrefabInstance:
     - target: {fileID: 4823702686123520115, guid: b712399f758a78847af98fa1e655f237, type: 3}
       propertyPath: m_Name
       value: Wisp (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4823702686123520118, guid: b712399f758a78847af98fa1e655f237, type: 3}
+      propertyPath: points.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4823702686123520118, guid: b712399f758a78847af98fa1e655f237, type: 3}
+      propertyPath: points.Array.data[0].x
+      value: 140
+      objectReference: {fileID: 0}
+    - target: {fileID: 4823702686123520118, guid: b712399f758a78847af98fa1e655f237, type: 3}
+      propertyPath: points.Array.data[0].y
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 4823702686123520118, guid: b712399f758a78847af98fa1e655f237, type: 3}
+      propertyPath: points.Array.data[1].x
+      value: 135
+      objectReference: {fileID: 0}
+    - target: {fileID: 4823702686123520118, guid: b712399f758a78847af98fa1e655f237, type: 3}
+      propertyPath: points.Array.data[1].y
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 4823702686123520118, guid: b712399f758a78847af98fa1e655f237, type: 3}
+      propertyPath: points.Array.data[2].x
+      value: 135
+      objectReference: {fileID: 0}
+    - target: {fileID: 4823702686123520118, guid: b712399f758a78847af98fa1e655f237, type: 3}
+      propertyPath: points.Array.data[2].y
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 4823702686123520118, guid: b712399f758a78847af98fa1e655f237, type: 3}
+      propertyPath: points.Array.data[3].x
+      value: 140
+      objectReference: {fileID: 0}
+    - target: {fileID: 4823702686123520118, guid: b712399f758a78847af98fa1e655f237, type: 3}
+      propertyPath: points.Array.data[3].y
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b712399f758a78847af98fa1e655f237, type: 3}
@@ -3216,6 +3280,42 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wisp (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 4823702686123520118, guid: b712399f758a78847af98fa1e655f237, type: 3}
+      propertyPath: points.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4823702686123520118, guid: b712399f758a78847af98fa1e655f237, type: 3}
+      propertyPath: points.Array.data[0].x
+      value: 36
+      objectReference: {fileID: 0}
+    - target: {fileID: 4823702686123520118, guid: b712399f758a78847af98fa1e655f237, type: 3}
+      propertyPath: points.Array.data[0].y
+      value: 27
+      objectReference: {fileID: 0}
+    - target: {fileID: 4823702686123520118, guid: b712399f758a78847af98fa1e655f237, type: 3}
+      propertyPath: points.Array.data[1].x
+      value: 36
+      objectReference: {fileID: 0}
+    - target: {fileID: 4823702686123520118, guid: b712399f758a78847af98fa1e655f237, type: 3}
+      propertyPath: points.Array.data[1].y
+      value: 31
+      objectReference: {fileID: 0}
+    - target: {fileID: 4823702686123520118, guid: b712399f758a78847af98fa1e655f237, type: 3}
+      propertyPath: points.Array.data[2].x
+      value: 43
+      objectReference: {fileID: 0}
+    - target: {fileID: 4823702686123520118, guid: b712399f758a78847af98fa1e655f237, type: 3}
+      propertyPath: points.Array.data[2].y
+      value: 27
+      objectReference: {fileID: 0}
+    - target: {fileID: 4823702686123520118, guid: b712399f758a78847af98fa1e655f237, type: 3}
+      propertyPath: points.Array.data[3].x
+      value: 43
+      objectReference: {fileID: 0}
+    - target: {fileID: 4823702686123520118, guid: b712399f758a78847af98fa1e655f237, type: 3}
+      propertyPath: points.Array.data[3].y
+      value: 31
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b712399f758a78847af98fa1e655f237, type: 3}
 --- !u!4 &243452931 stripped
@@ -3964,6 +4064,34 @@ PrefabInstance:
     - target: {fileID: 4823702686123520115, guid: b712399f758a78847af98fa1e655f237, type: 3}
       propertyPath: m_Name
       value: Wisp (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4823702686123520118, guid: b712399f758a78847af98fa1e655f237, type: 3}
+      propertyPath: points.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4823702686123520118, guid: b712399f758a78847af98fa1e655f237, type: 3}
+      propertyPath: points.Array.data[0].x
+      value: 145
+      objectReference: {fileID: 0}
+    - target: {fileID: 4823702686123520118, guid: b712399f758a78847af98fa1e655f237, type: 3}
+      propertyPath: points.Array.data[0].y
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 4823702686123520118, guid: b712399f758a78847af98fa1e655f237, type: 3}
+      propertyPath: points.Array.data[1].x
+      value: 155
+      objectReference: {fileID: 0}
+    - target: {fileID: 4823702686123520118, guid: b712399f758a78847af98fa1e655f237, type: 3}
+      propertyPath: points.Array.data[1].y
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 4823702686123520118, guid: b712399f758a78847af98fa1e655f237, type: 3}
+      propertyPath: points.Array.data[2].x
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 4823702686123520118, guid: b712399f758a78847af98fa1e655f237, type: 3}
+      propertyPath: points.Array.data[2].y
+      value: 14
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b712399f758a78847af98fa1e655f237, type: 3}
@@ -5283,7 +5411,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4823702686123520111, guid: b712399f758a78847af98fa1e655f237, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 84.68568
+      value: 84
       objectReference: {fileID: 0}
     - target: {fileID: 4823702686123520111, guid: b712399f758a78847af98fa1e655f237, type: 3}
       propertyPath: m_LocalPosition.y
@@ -5324,6 +5452,42 @@ PrefabInstance:
     - target: {fileID: 4823702686123520115, guid: b712399f758a78847af98fa1e655f237, type: 3}
       propertyPath: m_Name
       value: Wisp (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4823702686123520118, guid: b712399f758a78847af98fa1e655f237, type: 3}
+      propertyPath: points.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4823702686123520118, guid: b712399f758a78847af98fa1e655f237, type: 3}
+      propertyPath: points.Array.data[0].x
+      value: 74
+      objectReference: {fileID: 0}
+    - target: {fileID: 4823702686123520118, guid: b712399f758a78847af98fa1e655f237, type: 3}
+      propertyPath: points.Array.data[0].y
+      value: 61
+      objectReference: {fileID: 0}
+    - target: {fileID: 4823702686123520118, guid: b712399f758a78847af98fa1e655f237, type: 3}
+      propertyPath: points.Array.data[1].x
+      value: 82
+      objectReference: {fileID: 0}
+    - target: {fileID: 4823702686123520118, guid: b712399f758a78847af98fa1e655f237, type: 3}
+      propertyPath: points.Array.data[1].y
+      value: 61
+      objectReference: {fileID: 0}
+    - target: {fileID: 4823702686123520118, guid: b712399f758a78847af98fa1e655f237, type: 3}
+      propertyPath: points.Array.data[2].x
+      value: 85
+      objectReference: {fileID: 0}
+    - target: {fileID: 4823702686123520118, guid: b712399f758a78847af98fa1e655f237, type: 3}
+      propertyPath: points.Array.data[2].y
+      value: 56
+      objectReference: {fileID: 0}
+    - target: {fileID: 4823702686123520118, guid: b712399f758a78847af98fa1e655f237, type: 3}
+      propertyPath: points.Array.data[3].x
+      value: 72
+      objectReference: {fileID: 0}
+    - target: {fileID: 4823702686123520118, guid: b712399f758a78847af98fa1e655f237, type: 3}
+      propertyPath: points.Array.data[3].y
+      value: 56
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b712399f758a78847af98fa1e655f237, type: 3}
@@ -151479,6 +151643,7 @@ GameObject:
   - component: {fileID: 685652041}
   - component: {fileID: 685652040}
   - component: {fileID: 685652042}
+  - component: {fileID: 685652043}
   m_Layer: 0
   m_Name: ClawAttack
   m_TagString: Untagged
@@ -151579,6 +151744,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &685652043
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 685652039}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &693438005
 GameObject:
   m_ObjectHideFlags: 0
@@ -159405,7 +159591,7 @@ MonoBehaviour:
     maxNormalAngle: 0
   health: 20
   attackPower: 5
-  knockBackForce: 5
+  knockBackForce: 10
   healthText: {fileID: 360511603}
   keepAttacking: 0
   jumpHoldTime: 1
@@ -159880,16 +160066,28 @@ PrefabInstance:
       value: Wisp (1)
       objectReference: {fileID: 0}
     - target: {fileID: 4823702686123520118, guid: b712399f758a78847af98fa1e655f237, type: 3}
+      propertyPath: knockBackForce
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4823702686123520118, guid: b712399f758a78847af98fa1e655f237, type: 3}
       propertyPath: points.Array.size
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4823702686123520118, guid: b712399f758a78847af98fa1e655f237, type: 3}
       propertyPath: points.Array.data[0].x
-      value: -8
+      value: -5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4823702686123520118, guid: b712399f758a78847af98fa1e655f237, type: 3}
+      propertyPath: points.Array.data[0].y
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 4823702686123520118, guid: b712399f758a78847af98fa1e655f237, type: 3}
       propertyPath: points.Array.data[1].x
-      value: -14
+      value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4823702686123520118, guid: b712399f758a78847af98fa1e655f237, type: 3}
+      propertyPath: points.Array.data[1].y
+      value: -2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b712399f758a78847af98fa1e655f237, type: 3}
@@ -162811,6 +163009,42 @@ PrefabInstance:
     - target: {fileID: 4823702686123520115, guid: b712399f758a78847af98fa1e655f237, type: 3}
       propertyPath: m_Name
       value: Wisp (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4823702686123520118, guid: b712399f758a78847af98fa1e655f237, type: 3}
+      propertyPath: points.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4823702686123520118, guid: b712399f758a78847af98fa1e655f237, type: 3}
+      propertyPath: points.Array.data[0].x
+      value: 101
+      objectReference: {fileID: 0}
+    - target: {fileID: 4823702686123520118, guid: b712399f758a78847af98fa1e655f237, type: 3}
+      propertyPath: points.Array.data[0].y
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 4823702686123520118, guid: b712399f758a78847af98fa1e655f237, type: 3}
+      propertyPath: points.Array.data[1].x
+      value: 95
+      objectReference: {fileID: 0}
+    - target: {fileID: 4823702686123520118, guid: b712399f758a78847af98fa1e655f237, type: 3}
+      propertyPath: points.Array.data[1].y
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 4823702686123520118, guid: b712399f758a78847af98fa1e655f237, type: 3}
+      propertyPath: points.Array.data[2].x
+      value: 95
+      objectReference: {fileID: 0}
+    - target: {fileID: 4823702686123520118, guid: b712399f758a78847af98fa1e655f237, type: 3}
+      propertyPath: points.Array.data[2].y
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 4823702686123520118, guid: b712399f758a78847af98fa1e655f237, type: 3}
+      propertyPath: points.Array.data[3].x
+      value: 101
+      objectReference: {fileID: 0}
+    - target: {fileID: 4823702686123520118, guid: b712399f758a78847af98fa1e655f237, type: 3}
+      propertyPath: points.Array.data[3].y
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b712399f758a78847af98fa1e655f237, type: 3}
@@ -168455,6 +168689,42 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wisp (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 4823702686123520118, guid: b712399f758a78847af98fa1e655f237, type: 3}
+      propertyPath: points.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4823702686123520118, guid: b712399f758a78847af98fa1e655f237, type: 3}
+      propertyPath: points.Array.data[0].x
+      value: 54
+      objectReference: {fileID: 0}
+    - target: {fileID: 4823702686123520118, guid: b712399f758a78847af98fa1e655f237, type: 3}
+      propertyPath: points.Array.data[0].y
+      value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 4823702686123520118, guid: b712399f758a78847af98fa1e655f237, type: 3}
+      propertyPath: points.Array.data[1].x
+      value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 4823702686123520118, guid: b712399f758a78847af98fa1e655f237, type: 3}
+      propertyPath: points.Array.data[1].y
+      value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 4823702686123520118, guid: b712399f758a78847af98fa1e655f237, type: 3}
+      propertyPath: points.Array.data[2].x
+      value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 4823702686123520118, guid: b712399f758a78847af98fa1e655f237, type: 3}
+      propertyPath: points.Array.data[2].y
+      value: 28
+      objectReference: {fileID: 0}
+    - target: {fileID: 4823702686123520118, guid: b712399f758a78847af98fa1e655f237, type: 3}
+      propertyPath: points.Array.data[3].x
+      value: 54
+      objectReference: {fileID: 0}
+    - target: {fileID: 4823702686123520118, guid: b712399f758a78847af98fa1e655f237, type: 3}
+      propertyPath: points.Array.data[3].y
+      value: 28
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b712399f758a78847af98fa1e655f237, type: 3}
 --- !u!4 &1454331686 stripped
@@ -170397,6 +170667,42 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wisp (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 4823702686123520118, guid: b712399f758a78847af98fa1e655f237, type: 3}
+      propertyPath: points.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4823702686123520118, guid: b712399f758a78847af98fa1e655f237, type: 3}
+      propertyPath: points.Array.data[0].x
+      value: 44
+      objectReference: {fileID: 0}
+    - target: {fileID: 4823702686123520118, guid: b712399f758a78847af98fa1e655f237, type: 3}
+      propertyPath: points.Array.data[0].y
+      value: 48
+      objectReference: {fileID: 0}
+    - target: {fileID: 4823702686123520118, guid: b712399f758a78847af98fa1e655f237, type: 3}
+      propertyPath: points.Array.data[1].x
+      value: 38
+      objectReference: {fileID: 0}
+    - target: {fileID: 4823702686123520118, guid: b712399f758a78847af98fa1e655f237, type: 3}
+      propertyPath: points.Array.data[1].y
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 4823702686123520118, guid: b712399f758a78847af98fa1e655f237, type: 3}
+      propertyPath: points.Array.data[2].x
+      value: 44
+      objectReference: {fileID: 0}
+    - target: {fileID: 4823702686123520118, guid: b712399f758a78847af98fa1e655f237, type: 3}
+      propertyPath: points.Array.data[2].y
+      value: 52
+      objectReference: {fileID: 0}
+    - target: {fileID: 4823702686123520118, guid: b712399f758a78847af98fa1e655f237, type: 3}
+      propertyPath: points.Array.data[3].x
+      value: 38
+      objectReference: {fileID: 0}
+    - target: {fileID: 4823702686123520118, guid: b712399f758a78847af98fa1e655f237, type: 3}
+      propertyPath: points.Array.data[3].y
+      value: 54
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b712399f758a78847af98fa1e655f237, type: 3}
 --- !u!4 &1618584260 stripped
@@ -170712,6 +171018,42 @@ PrefabInstance:
     - target: {fileID: 4823702686123520115, guid: b712399f758a78847af98fa1e655f237, type: 3}
       propertyPath: m_Name
       value: Wisp (13)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4823702686123520118, guid: b712399f758a78847af98fa1e655f237, type: 3}
+      propertyPath: points.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4823702686123520118, guid: b712399f758a78847af98fa1e655f237, type: 3}
+      propertyPath: points.Array.data[0].x
+      value: 111
+      objectReference: {fileID: 0}
+    - target: {fileID: 4823702686123520118, guid: b712399f758a78847af98fa1e655f237, type: 3}
+      propertyPath: points.Array.data[0].y
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 4823702686123520118, guid: b712399f758a78847af98fa1e655f237, type: 3}
+      propertyPath: points.Array.data[1].x
+      value: 114
+      objectReference: {fileID: 0}
+    - target: {fileID: 4823702686123520118, guid: b712399f758a78847af98fa1e655f237, type: 3}
+      propertyPath: points.Array.data[1].y
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 4823702686123520118, guid: b712399f758a78847af98fa1e655f237, type: 3}
+      propertyPath: points.Array.data[2].x
+      value: 117
+      objectReference: {fileID: 0}
+    - target: {fileID: 4823702686123520118, guid: b712399f758a78847af98fa1e655f237, type: 3}
+      propertyPath: points.Array.data[2].y
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 4823702686123520118, guid: b712399f758a78847af98fa1e655f237, type: 3}
+      propertyPath: points.Array.data[3].x
+      value: 108
+      objectReference: {fileID: 0}
+    - target: {fileID: 4823702686123520118, guid: b712399f758a78847af98fa1e655f237, type: 3}
+      propertyPath: points.Array.data[3].y
+      value: 14
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b712399f758a78847af98fa1e655f237, type: 3}
@@ -171722,6 +172064,58 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wisp (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 4823702686123520118, guid: b712399f758a78847af98fa1e655f237, type: 3}
+      propertyPath: points.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4823702686123520118, guid: b712399f758a78847af98fa1e655f237, type: 3}
+      propertyPath: points.Array.data[0].x
+      value: 122
+      objectReference: {fileID: 0}
+    - target: {fileID: 4823702686123520118, guid: b712399f758a78847af98fa1e655f237, type: 3}
+      propertyPath: points.Array.data[0].y
+      value: 46
+      objectReference: {fileID: 0}
+    - target: {fileID: 4823702686123520118, guid: b712399f758a78847af98fa1e655f237, type: 3}
+      propertyPath: points.Array.data[1].x
+      value: 119
+      objectReference: {fileID: 0}
+    - target: {fileID: 4823702686123520118, guid: b712399f758a78847af98fa1e655f237, type: 3}
+      propertyPath: points.Array.data[1].y
+      value: 51
+      objectReference: {fileID: 0}
+    - target: {fileID: 4823702686123520118, guid: b712399f758a78847af98fa1e655f237, type: 3}
+      propertyPath: points.Array.data[2].x
+      value: 122
+      objectReference: {fileID: 0}
+    - target: {fileID: 4823702686123520118, guid: b712399f758a78847af98fa1e655f237, type: 3}
+      propertyPath: points.Array.data[2].y
+      value: 56
+      objectReference: {fileID: 0}
+    - target: {fileID: 4823702686123520118, guid: b712399f758a78847af98fa1e655f237, type: 3}
+      propertyPath: points.Array.data[3].x
+      value: 119
+      objectReference: {fileID: 0}
+    - target: {fileID: 4823702686123520118, guid: b712399f758a78847af98fa1e655f237, type: 3}
+      propertyPath: points.Array.data[3].y
+      value: 61
+      objectReference: {fileID: 0}
+    - target: {fileID: 4823702686123520118, guid: b712399f758a78847af98fa1e655f237, type: 3}
+      propertyPath: points.Array.data[4].x
+      value: 122
+      objectReference: {fileID: 0}
+    - target: {fileID: 4823702686123520118, guid: b712399f758a78847af98fa1e655f237, type: 3}
+      propertyPath: points.Array.data[4].y
+      value: 56
+      objectReference: {fileID: 0}
+    - target: {fileID: 4823702686123520118, guid: b712399f758a78847af98fa1e655f237, type: 3}
+      propertyPath: points.Array.data[5].x
+      value: 119
+      objectReference: {fileID: 0}
+    - target: {fileID: 4823702686123520118, guid: b712399f758a78847af98fa1e655f237, type: 3}
+      propertyPath: points.Array.data[5].y
+      value: 51
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b712399f758a78847af98fa1e655f237, type: 3}
 --- !u!4 &1794504855 stripped
@@ -171853,11 +172247,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4823702686123520111, guid: b712399f758a78847af98fa1e655f237, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 32.038357
+      value: 26.06
       objectReference: {fileID: 0}
     - target: {fileID: 4823702686123520111, guid: b712399f758a78847af98fa1e655f237, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 28.308064
+      value: 33.27
       objectReference: {fileID: 0}
     - target: {fileID: 4823702686123520111, guid: b712399f758a78847af98fa1e655f237, type: 3}
       propertyPath: m_LocalPosition.z
@@ -171894,6 +172288,34 @@ PrefabInstance:
     - target: {fileID: 4823702686123520115, guid: b712399f758a78847af98fa1e655f237, type: 3}
       propertyPath: m_Name
       value: Wisp (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4823702686123520118, guid: b712399f758a78847af98fa1e655f237, type: 3}
+      propertyPath: points.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4823702686123520118, guid: b712399f758a78847af98fa1e655f237, type: 3}
+      propertyPath: points.Array.data[0].x
+      value: 26
+      objectReference: {fileID: 0}
+    - target: {fileID: 4823702686123520118, guid: b712399f758a78847af98fa1e655f237, type: 3}
+      propertyPath: points.Array.data[0].y
+      value: 34
+      objectReference: {fileID: 0}
+    - target: {fileID: 4823702686123520118, guid: b712399f758a78847af98fa1e655f237, type: 3}
+      propertyPath: points.Array.data[1].x
+      value: 34
+      objectReference: {fileID: 0}
+    - target: {fileID: 4823702686123520118, guid: b712399f758a78847af98fa1e655f237, type: 3}
+      propertyPath: points.Array.data[1].y
+      value: 34
+      objectReference: {fileID: 0}
+    - target: {fileID: 4823702686123520118, guid: b712399f758a78847af98fa1e655f237, type: 3}
+      propertyPath: points.Array.data[2].x
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 4823702686123520118, guid: b712399f758a78847af98fa1e655f237, type: 3}
+      propertyPath: points.Array.data[2].y
+      value: 30
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b712399f758a78847af98fa1e655f237, type: 3}
@@ -255669,6 +256091,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wisp (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 4823702686123520118, guid: b712399f758a78847af98fa1e655f237, type: 3}
+      propertyPath: points.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4823702686123520118, guid: b712399f758a78847af98fa1e655f237, type: 3}
+      propertyPath: points.Array.data[0].x
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 4823702686123520118, guid: b712399f758a78847af98fa1e655f237, type: 3}
+      propertyPath: points.Array.data[0].y
+      value: 61
+      objectReference: {fileID: 0}
+    - target: {fileID: 4823702686123520118, guid: b712399f758a78847af98fa1e655f237, type: 3}
+      propertyPath: points.Array.data[1].x
+      value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 4823702686123520118, guid: b712399f758a78847af98fa1e655f237, type: 3}
+      propertyPath: points.Array.data[1].y
+      value: 61
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b712399f758a78847af98fa1e655f237, type: 3}
 --- !u!4 &1984399523 stripped
@@ -279497,6 +279939,30 @@ PrefabInstance:
     - target: {fileID: 4823702686123520115, guid: b712399f758a78847af98fa1e655f237, type: 3}
       propertyPath: m_Name
       value: Wisp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4823702686123520118, guid: b712399f758a78847af98fa1e655f237, type: 3}
+      propertyPath: points.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4823702686123520118, guid: b712399f758a78847af98fa1e655f237, type: 3}
+      propertyPath: points.Array.data[0].x
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4823702686123520118, guid: b712399f758a78847af98fa1e655f237, type: 3}
+      propertyPath: points.Array.data[0].y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4823702686123520118, guid: b712399f758a78847af98fa1e655f237, type: 3}
+      propertyPath: points.Array.data[1].x
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 4823702686123520118, guid: b712399f758a78847af98fa1e655f237, type: 3}
+      propertyPath: points.Array.data[1].y
+      value: -3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4823702686123520118, guid: b712399f758a78847af98fa1e655f237, type: 3}
+      propertyPath: points.Array.data[2].x
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b712399f758a78847af98fa1e655f237, type: 3}

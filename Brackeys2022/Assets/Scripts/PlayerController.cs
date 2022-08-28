@@ -373,6 +373,33 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D collider)
+    {
+        if (hidden)
+            return;
+
+        if (collider.CompareTag("Enemy"))
+        {
+            if (state != PlayerState.Hit)
+            {
+                state = PlayerState.Hit;
+                rb.velocity = Vector2.zero;
+                rb.AddForce((transform.position - collider.transform.position).normalized * knockBackForce, ForceMode2D.Impulse);
+                health -= 1;
+                healthText.text = "Health: " + health.ToString();
+                if (health <= 0)
+                {
+                    state = PlayerState.Die;
+                    anim.updateMode = AnimatorUpdateMode.UnscaledTime;
+                    Time.timeScale = 0;
+                    Time.timeScale = 0;
+                }
+
+                SetAnimation();
+            }
+        }
+    }
+
     /// <summary>Use this method to enable doublejump and dive, when animal selection event is fired</summary>
     public void AcquireBirbAbilities()
     {
@@ -394,6 +421,7 @@ public class PlayerController : MonoBehaviour
     /// <summary>Checks if the any enemies were hit by the claw</summary>
     public void HitCheck() 
     {
+        
         List<Collider2D> hitEnemies = new List<Collider2D>();
         clawRange.OverlapCollider(enemies, hitEnemies);
         for (int i = 0; i < hitEnemies.Count; i++)
@@ -431,7 +459,6 @@ public class PlayerController : MonoBehaviour
         
         state = PlayerState.Hit;
         diveRange.enabled = false;
-        sRend.color = Color.grey;
         rb.velocity = Vector2.zero;
         rb.AddForce((transform.position - enemyRange.position).normalized * knockBackForce, ForceMode2D.Impulse);
         health -= damage;
