@@ -10,11 +10,26 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] private GameObject controlsMenu;
     [SerializeField] private GameObject creditsMenu;
     [SerializeField] private AK.Wwise.Event UISelectSound;
+    [SerializeField] private CanvasGroup[] cutScenes;
 
     public void Play()
     {
-        SceneManager.LoadSceneAsync(1);
+        StartCoroutine(OpeningCutscenes());
         AkSoundEngine.PostEvent(UISelectSound.Id, this.gameObject);
+    }
+
+    private IEnumerator OpeningCutscenes()
+    {
+        for(int i = 0; i < cutScenes.Length; i++)
+        {
+            while (cutScenes[i].alpha < 1)
+            {
+                cutScenes[i].alpha += Time.deltaTime/2;
+                yield return null;
+            }
+        }
+
+        SceneManager.LoadSceneAsync(1);
     }
 
     public void toMainMenu()
