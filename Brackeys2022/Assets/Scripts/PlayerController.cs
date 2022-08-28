@@ -152,11 +152,14 @@ public class PlayerController : MonoBehaviour
                 }
                 else if (Input.GetButtonDown("Attack"))
                 {
-                    EndFall();
-                    state = PlayerState.Attack;
-                    anim.SetInteger("AttackCounter", 0);
-                    SetAnimation();
-                    movementX = 0;
+                    if (catAcquired)
+                    {
+                        EndFall();
+                        state = PlayerState.Attack;
+                        anim.SetInteger("AttackCounter", 0);
+                        SetAnimation();
+                        movementX = 0;
+                    }
                 }
                 break;
             case PlayerState.JumpStart:
@@ -416,12 +419,22 @@ public class PlayerController : MonoBehaviour
     /// <summary>Checks how much damage to take</summary>
     public void DamageCheck(Transform enemyRange, float damage)
     {
-            state = PlayerState.Hit;
-            diveRange.enabled = false;
-            sRend.color = Color.grey;
-            rb.velocity = Vector2.zero;
-            rb.AddForce((transform.position - enemyRange.position).normalized * knockBackForce, ForceMode2D.Impulse);
-            health -= damage;
+        if (hidden)
+        {
+            anim.speed = 1;
+            sRend.color = Color.white;
+            hidden = false;
+            speed *= 4;
+            Physics2D.IgnoreLayerCollision(3, 7, false);
+            OnHideEnd();
+        }
+        
+        state = PlayerState.Hit;
+        diveRange.enabled = false;
+        sRend.color = Color.grey;
+        rb.velocity = Vector2.zero;
+        rb.AddForce((transform.position - enemyRange.position).normalized * knockBackForce, ForceMode2D.Impulse);
+        health -= damage;
         //AkSoundEngine.PostEvent(PlayerGetHit.Id, this.gameObject);
         healthText.text = "Health: " + health.ToString();
             if (health <= 0)
@@ -511,16 +524,7 @@ public class PlayerController : MonoBehaviour
     {
         if (hidden)
         {
-            if (state == PlayerState.Hit)
-            {
-                anim.speed = 1;
-                sRend.color = Color.white;
-                hidden = false;
-                speed *= 4;
-                Physics2D.IgnoreLayerCollision(3, 7, false);
-                OnHideEnd();
-            }
-            else if (Input.GetButtonUp("Hide"))
+            if (Input.GetButtonUp("Hide"))
             {
                 anim.speed = 1;
                 sRend.color = Color.white;

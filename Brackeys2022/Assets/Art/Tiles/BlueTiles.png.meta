@@ -454,7 +454,10 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -12.5, y: -12.5}
+        - {x: 12.5, y: 12.5}
+        - {x: 12.5, y: -12.5}
       tessellationDetail: 0
       bones: []
       spriteID: 211a8ac4ba4fcdf428fc9bf01685d856
@@ -1609,7 +1612,10 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -12.5, y: -12.5}
+        - {x: 12.5, y: 12.5}
+        - {x: 12.5, y: -12.5}
       tessellationDetail: 0
       bones: []
       spriteID: 77e09bb43de6c2144a37ea590f80c128
@@ -1720,7 +1726,7 @@ TextureImporter:
       BlueTiles_29: -972541794
       BlueTiles_48: 1972914639
       BlueTiles_23: 1488447656
-      BlueTiles_22: 705730759
+      BlueTiles_77: -2074275321
       BlueTiles_62: -847789357
       BlueTiles_84: 392267568
       BlueTiles_21: 1078005285
@@ -1797,8 +1803,8 @@ TextureImporter:
       BlueTiles_38: 1230707202
       BlueTiles_56: -1807226058
       BlueTiles_45: 1171884238
+      BlueTiles_22: 705730759
       BlueTiles_27: 343903103
-      BlueTiles_77: -2074275321
       BlueTiles_43: 704688681
   spritePackingTag: 
   pSDRemoveMatte: 0
