@@ -497,62 +497,36 @@
 						</Folder>
 						<Folder Name="Wisp" ID="{0074F1C6-01FE-4B78-8747-6095530BACEA}" ShortID="960812864">
 							<ChildrenList>
-								<BlendContainer Name="Wisp_MovementBlend" ID="{5C495E50-B9BF-4347-879C-07297890F5CB}" ShortID="49503524">
+								<Sound Name="WispMovement" ID="{EA0C14CC-FCC3-40F9-AADA-497ACE065305}" ShortID="154157755">
+									<PropertyList>
+										<Property Name="Highpass" Type="int16">
+											<ValueList>
+												<Value>29</Value>
+											</ValueList>
+										</Property>
+										<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DA81C040-160D-42DD-8D03-DD780C3A123F}"/>
 										</Reference>
 										<Reference Name="OutputBus">
-											<ObjectRef Name="Enemies" ID="{F5DCD25B-533A-40EC-A08A-60ACED304F73}" WorkUnitID="{AB79E37D-4C29-4B8B-B89E-8859415A296B}"/>
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AB79E37D-4C29-4B8B-B89E-8859415A296B}"/>
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<Sound Name="Wisp_Movement" ID="{1B5F4324-87C5-406C-AF76-51A30FC99249}" ShortID="22683703">
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DA81C040-160D-42DD-8D03-DD780C3A123F}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AB79E37D-4C29-4B8B-B89E-8859415A296B}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="Wisp_Movement" ID="{0F00AD85-20E5-4BFE-A50E-3FE8AA1822B0}">
-													<Language>SFX</Language>
-													<AudioFile>Wisp_Movement.wav</AudioFile>
-													<MediaIDList>
-														<MediaID ID="911850817"/>
-													</MediaIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="Wisp_Movement" ID="{0F00AD85-20E5-4BFE-A50E-3FE8AA1822B0}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-										<Sound Name="Wisp_Movement_Angry" ID="{11DC1204-05D1-47D6-BEA0-83162C5687A1}" ShortID="789644486">
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DA81C040-160D-42DD-8D03-DD780C3A123F}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AB79E37D-4C29-4B8B-B89E-8859415A296B}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="Wisp_Movement_Angry" ID="{A810F81A-8F6D-47C0-AB69-EACDC6A33F02}">
-													<Language>SFX</Language>
-													<AudioFile>Wisp_Movement_Angry.wav</AudioFile>
-													<MediaIDList>
-														<MediaID ID="268381052"/>
-													</MediaIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="Wisp_Movement_Angry" ID="{A810F81A-8F6D-47C0-AB69-EACDC6A33F02}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
+										<AudioFileSource Name="Wisp_Movement" ID="{F64156DD-46C1-4BF9-A580-BF572FCA3867}">
+											<Language>SFX</Language>
+											<AudioFile>Wisp_Movement.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="911850817"/>
+											</MediaIDList>
+										</AudioFileSource>
 									</ChildrenList>
-								</BlendContainer>
+									<ActiveSourceList>
+										<ActiveSource Name="Wisp_Movement" ID="{F64156DD-46C1-4BF9-A580-BF572FCA3867}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
 							</ChildrenList>
 						</Folder>
 					</ChildrenList>
@@ -781,7 +755,7 @@
 								</Property>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>3</Value>
+										<Value>4</Value>
 									</ValueList>
 									<ModifierList>
 										<ModifierInfo>
@@ -953,7 +927,7 @@
 							<PropertyList>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-6</Value>
+										<Value>-2</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -1192,6 +1166,40 @@
 								</Sound>
 							</ChildrenList>
 						</RandomSequenceContainer>
+						<Sound Name="Player_Death" ID="{61C09405-2B79-4FA2-A035-050ECCFFF4A6}" ShortID="67293760">
+							<PropertyList>
+								<Property Name="Lowpass" Type="int16">
+									<ValueList>
+										<Value>29</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-4</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DA81C040-160D-42DD-8D03-DD780C3A123F}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Player" ID="{34417AA0-B4A4-405A-91BF-F8BAD8A9049C}" WorkUnitID="{AB79E37D-4C29-4B8B-B89E-8859415A296B}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Player_Death" ID="{BCF20A11-FB99-40E7-830C-D0B0E225CBCE}">
+									<Language>SFX</Language>
+									<AudioFile>Player_Death.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="1025909737"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Player_Death" ID="{BCF20A11-FB99-40E7-830C-D0B0E225CBCE}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="UI" ID="{A31C59A2-B855-4ACC-ACF1-38B9986FD342}" ShortID="193207123">
@@ -1536,6 +1544,13 @@
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="MusicTest" ID="{79E4F180-AB99-45A3-A3E1-8C9D527FE503}" ShortID="875544258">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-3</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DA81C040-160D-42DD-8D03-DD780C3A123F}"/>

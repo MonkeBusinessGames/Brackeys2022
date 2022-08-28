@@ -20,7 +20,9 @@ namespace AK
         static const AkUniqueID PLAY_JUMPSOUND = 2371580015U;
         static const AkUniqueID PLAY_LAND = 4285282925U;
         static const AkUniqueID PLAY_LEVELMUSIC = 2671044069U;
+        static const AkUniqueID PLAY_PLAYERDEATH = 910581297U;
         static const AkUniqueID PLAY_STOPHIDE = 4095150858U;
+        static const AkUniqueID PLAYER_ATTACK = 2824512041U;
         static const AkUniqueID PLAYER_GETHIT = 3945457670U;
         static const AkUniqueID PLAYTESTBATTLEMUSIC = 1786435558U;
         static const AkUniqueID SKELETONATTACK = 4153337164U;

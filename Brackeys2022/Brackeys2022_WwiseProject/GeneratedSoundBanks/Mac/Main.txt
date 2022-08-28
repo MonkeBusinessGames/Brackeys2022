@@ -1,6 +1,7 @@
 Event	ID	Name			Wwise Object Path	Notes
 	139523582	SkeletonDeath			\Default Work Unit\Enemies\SkeletonDeath	
 	650055683	SkeletonGetHit			\Default Work Unit\Enemies\SkeletonGetHit	
+	910581297	Play_PlayerDeath			\Default Work Unit\Player\Play_PlayerDeath	
 	1076666776	StopTestBattleMusic			\Default Work Unit\Music\StopTestBattleMusic	
 	1602358412	Play_Footstep			\Default Work Unit\Player\Play_Footstep	
 	1786435558	PlayTestBattleMusic			\Default Work Unit\Music\PlayTestBattleMusic	
@@ -10,6 +11,7 @@ Event	ID	Name			Wwise Object Path	Notes
 	2586843602	Play_Hide			\Default Work Unit\Player\Play_Hide	
 	2671044069	Play_LevelMusic			\Default Work Unit\Music\Play_LevelMusic	
 	2774129122	UI_Select			\Default Work Unit\UI\UI_Select	
+	2824512041	Player_Attack			\Default Work Unit\Player\Player_Attack	
 	3945457670	Player_GetHit			\Default Work Unit\Player\Player_GetHit	
 	4095150858	Play_StopHide			\Default Work Unit\Player\Play_StopHide	
 	4153337164	SkeletonAttack			\Default Work Unit\Enemies\SkeletonAttack	
@@ -32,15 +34,17 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	313573349	UI_Select	P:\Unity\Brackeys2022\Brackeys2022\Brackeys2022_WwiseProject\.cache\Mac\SFX\UI_Select_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\UI_Select		33096
 	348981408	Jump2	P:\Unity\Brackeys2022\Brackeys2022\Brackeys2022_WwiseProject\.cache\Mac\SFX\317498-EMOTE_Liam-Child-Anger_Fight_Grunt_Small_07_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\JumpSigh\Jump2		34400
 	349328889	DungeonAmbience2	P:\Unity\Brackeys2022\Brackeys2022\Brackeys2022_WwiseProject\.cache\Mac\SFX\DungeonAmbience2_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\Music\DungeonAmbiance\DungeonAmbience2		2148964
+	359717535	Player_Attack1	P:\Unity\Brackeys2022\Brackeys2022\Brackeys2022_WwiseProject\.cache\Mac\SFX\Player_Attack1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\PlayerAttack\Player_Attack1		189848
 	362917710	Skelly_Sword_hit2	P:\Unity\Brackeys2022\Brackeys2022\Brackeys2022_WwiseProject\.cache\Mac\SFX\Skelly_Sword_hit2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\Skeleton\Skelly_Attack\Skeleton_Sword_Woosh\Skelly_Sword_hit2		66032
 	369493372	GetHit2	P:\Unity\Brackeys2022\Brackeys2022\Brackeys2022_WwiseProject\.cache\Mac\SFX\GetHit2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\Skeleton\Skeleton_GetHit\GetHit2		192096
 	471127437	GetHit3	P:\Unity\Brackeys2022\Brackeys2022\Brackeys2022_WwiseProject\.cache\Mac\SFX\GetHit3_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\Skeleton\Skeleton_GetHit\GetHit3		192096
-	472719549	TestBattleMusic	P:\Unity\Brackeys2022\Brackeys2022\Brackeys2022_WwiseProject\.cache\Mac\SFX\TestBattleMusic_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\Music\TestBattleMusic		1316668
+	472719549	TestBattleMusic	P:\Unity\Brackeys2022\Brackeys2022\Brackeys2022_WwiseProject\.cache\Mac\SFX\TestBattleMusic_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\Music\TestBattleMusic		3686496
 	588511061	Skelly_Step2	P:\Unity\Brackeys2022\Brackeys2022\Brackeys2022_WwiseProject\.cache\Mac\SFX\Skelly_Step2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\Skeleton\Skelly_FS\Skelly_Step2		57848
 	617516731	Skelly_Step1	P:\Unity\Brackeys2022\Brackeys2022\Brackeys2022_WwiseProject\.cache\Mac\SFX\Skelly_Step1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\Skeleton\Skelly_FS\Skelly_Step1		49596
 	621761934	Cloth3	P:\Unity\Brackeys2022\Brackeys2022\Brackeys2022_WwiseProject\.cache\Mac\SFX\Cloth3_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\Cloth\Cloth3		100140
 	621944606	Skelly_Sword_hit	P:\Unity\Brackeys2022\Brackeys2022\Brackeys2022_WwiseProject\.cache\Mac\SFX\Skelly_Sword_hit_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\Skeleton\Skelly_Attack\Skeleton_Sword_Woosh\Skelly_Sword_hit		60076
 	642100944	NotHiding	P:\Unity\Brackeys2022\Brackeys2022\Brackeys2022_WwiseProject\.cache\Mac\SFX\Player_Unhiding_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\NotHiding		74348
+	660298236	Player_Attack2	P:\Unity\Brackeys2022\Brackeys2022\Brackeys2022_WwiseProject\.cache\Mac\SFX\Player_Attack2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\PlayerAttack\Player_Attack2		173348
 	677411498	Skelly_Death	P:\Unity\Brackeys2022\Brackeys2022\Brackeys2022_WwiseProject\.cache\Mac\SFX\Skeleton_Death_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\Skeleton\Skelly_Death		297096
 	683425856	FS2	P:\Unity\Brackeys2022\Brackeys2022\Brackeys2022_WwiseProject\.cache\Mac\SFX\FS2Stereo_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\Footsteps\FS2		73752
 	705979647	FS1	P:\Unity\Brackeys2022\Brackeys2022\Brackeys2022_WwiseProject\.cache\Mac\SFX\FS1Stereo_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\Footsteps\FS1		46504
@@ -53,5 +57,6 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	940916448	338147-Male_vocalization_-restrained_pain_-grunting_1	P:\Unity\Brackeys2022\Brackeys2022\Brackeys2022_WwiseProject\.cache\Mac\SFX\338147-Male_vocalization_-restrained_pain_-grunting_1_61B09802.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\GetHit\338147-Male_vocalization_-restrained_pain_-grunting_1		35936
 	986866790	MusicTest	P:\Unity\Brackeys2022\Brackeys2022\Brackeys2022_WwiseProject\.cache\Mac\SFX\HubTrigger_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Music\MusicTest		5924668
 	1013361031	WaterDrop1	P:\Unity\Brackeys2022\Brackeys2022\Brackeys2022_WwiseProject\.cache\Mac\SFX\WaterDrop1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Music\DungeonAmbiance\Waterdrops\WaterDrop1		89176
+	1025909737	Player_Death	P:\Unity\Brackeys2022\Brackeys2022\Brackeys2022_WwiseProject\.cache\Mac\SFX\Player_Death_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\Player_Death		429096
 	1059693162	LevelMusic1	P:\Unity\Brackeys2022\Brackeys2022\Brackeys2022_WwiseProject\.cache\Mac\SFX\LevelMusic1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Music\LevelMusicRandomContainer\LevelMusic1		2633240
 

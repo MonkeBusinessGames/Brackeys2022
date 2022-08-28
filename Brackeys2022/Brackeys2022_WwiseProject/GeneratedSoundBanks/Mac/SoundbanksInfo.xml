@@ -44,7 +44,7 @@
 				</StateGroup>
 			</StateGroups>
 		</SoundBank>
-		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{56A6D6D1-FDD0-6A82-2432-7C4B06D8B498}">
+		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{41789AFB-C74A-F746-8BE3-7FCD1D2C5C8A}">
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
 			<Media>
@@ -88,6 +88,10 @@
 					<ShortName>DungeonAmbience2.wav</ShortName>
 					<CachePath>SFX/DungeonAmbience2_D79FB2B7.wem</CachePath>
 				</File>
+				<File Id="359717535" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Player_Attack1.wav</ShortName>
+					<CachePath>SFX/Player_Attack1_10C4C929.wem</CachePath>
+				</File>
 				<File Id="362917710" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Skelly_Sword_hit2.wav</ShortName>
 					<CachePath>SFX/Skelly_Sword_hit2_10C4C929.wem</CachePath>
@@ -123,6 +127,10 @@
 				<File Id="642100944" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Player_Unhiding.wav</ShortName>
 					<CachePath>SFX/Player_Unhiding_10C4C929.wem</CachePath>
+				</File>
+				<File Id="660298236" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Player_Attack2.wav</ShortName>
+					<CachePath>SFX/Player_Attack2_10C4C929.wem</CachePath>
 				</File>
 				<File Id="677411498" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Skeleton_Death.wav</ShortName>
@@ -171,6 +179,10 @@
 				<File Id="1013361031" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>WaterDrop1.wav</ShortName>
 					<CachePath>SFX/WaterDrop1_10C4C929.wem</CachePath>
+				</File>
+				<File Id="1025909737" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Player_Death.wav</ShortName>
+					<CachePath>SFX/Player_Death_10C4C929.wem</CachePath>
 				</File>
 				<File Id="1059693162" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>LevelMusic1.wav</ShortName>
@@ -242,9 +254,20 @@
 						<MediaRef Id="1059693162"/>
 					</MediaRefs>
 				</Event>
+				<Event Id="910581297" Name="Play_PlayerDeath" DurationType="OneShot" DurationMin="2.234375" DurationMax="2.234375">
+					<MediaRefs>
+						<MediaRef Id="1025909737"/>
+					</MediaRefs>
+				</Event>
 				<Event Id="4095150858" Name="Play_StopHide" DurationType="OneShot" DurationMin="0.38672918" DurationMax="0.38672918">
 					<MediaRefs>
 						<MediaRef Id="642100944"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="2824512041" Name="Player_Attack" DurationType="OneShot" DurationMin="0.88941735" DurationMax="1.0026667">
+					<MediaRefs>
+						<MediaRef Id="359717535"/>
+						<MediaRef Id="660298236"/>
 					</MediaRefs>
 				</Event>
 				<Event Id="3945457670" Name="Player_GetHit" DurationType="OneShot" DurationMin="0.282233" DurationMax="0.2993611">
@@ -301,5 +324,5 @@
 			</Events>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{EAF5AD2E-2003-12A1-0E5E-CFE75A5C9A8D}</FileHash>
+	<FileHash>{394AB986-5B3D-99BA-EEA4-786EB773E76C}</FileHash>
 </SoundBanksInfo>

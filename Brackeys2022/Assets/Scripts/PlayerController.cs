@@ -67,8 +67,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private AK.Wwise.Event PlayerAttack1;
     [SerializeField] private AK.Wwise.Event PlayerAttack2;
     [SerializeField] private AK.Wwise.Event PlayerAttack3;
-    private float oldIntensity;
-    [SerializeField] private Light playerLight;
+    [SerializeField] private AK.Wwise.Event PlayerDeath;
     
 
 
@@ -84,7 +83,6 @@ public class PlayerController : MonoBehaviour
         hidden = false;
         timer = 0;
         longJumpCharged = false;
-        oldIntensity = playerLight.intensity;
     }
 
     void Update()
@@ -154,14 +152,11 @@ public class PlayerController : MonoBehaviour
                 }
                 else if (Input.GetButtonDown("Attack"))
                 {
-                    if (catAcquired)
-                    {
-                        EndFall();
-                        state = PlayerState.Attack;
-                        anim.SetInteger("AttackCounter", 0);
-                        SetAnimation();
-                        movementX = 0;
-                    }
+                    EndFall();
+                    state = PlayerState.Attack;
+                    anim.SetInteger("AttackCounter", 0);
+                    SetAnimation();
+                    movementX = 0;
                 }
                 break;
             case PlayerState.JumpStart:
@@ -285,9 +280,7 @@ public class PlayerController : MonoBehaviour
     {
         if (state == (PlayerState.Hit))
             return; 
-        else if (state == (PlayerState.JumpCharge))
-            return;
-        else if (state == (PlayerState.Die))
+        if (state == (PlayerState.JumpCharge))
             return;
 
         //Set Velocity
@@ -429,7 +422,7 @@ public class PlayerController : MonoBehaviour
             rb.velocity = Vector2.zero;
             rb.AddForce((transform.position - enemyRange.position).normalized * knockBackForce, ForceMode2D.Impulse);
             health -= damage;
-        AkSoundEngine.PostEvent(PlayerGetHit.Id, this.gameObject);
+        //AkSoundEngine.PostEvent(PlayerGetHit.Id, this.gameObject);
         healthText.text = "Health: " + health.ToString();
             if (health <= 0)
                 state = PlayerState.Die;
@@ -533,7 +526,6 @@ public class PlayerController : MonoBehaviour
                 sRend.color = Color.white;
                 hidden = false;
                 speed *= 4;
-                playerLight.intensity = oldIntensity;
                 Physics2D.IgnoreLayerCollision(3, 7, false);
                 AkSoundEngine.PostEvent(unhideSound.Id, this.gameObject);
                 OnHideEnd();
@@ -547,17 +539,11 @@ public class PlayerController : MonoBehaviour
             AkSoundEngine.PostEvent(hideSound.Id, this.gameObject);
             anim.speed = .5f;
             sRend.color = Color.black;
-            playerLight.intensity = 0f;
             hidden = true;
             speed /= 4;
             Physics2D.IgnoreLayerCollision(3, 7, true);
         }
         return false;
-    }
-
-    private void Dash()
-    {
-
     }
 
     /// <summary>Sets the animation based on the player state</summary>
@@ -617,12 +603,20 @@ public class PlayerController : MonoBehaviour
     {
         AkSoundEngine.PostEvent(PlayerAttack2.Id, this.gameObject);
     }
-
+    
     public void PlayAttackSound3()
     {
         AkSoundEngine.PostEvent(PlayerAttack3.Id, this.gameObject);
     }
 
+    public void PlayDeathSound()
+    {
+        AkSoundEngine.PostEvent(PlayerDeath.Id, this.gameObject);
+    }
+    public void PlayerGethitSound()
+    {
+        AkSoundEngine.PostEvent(PlayerGetHit.Id, this.gameObject);
+    }
 
 }
 

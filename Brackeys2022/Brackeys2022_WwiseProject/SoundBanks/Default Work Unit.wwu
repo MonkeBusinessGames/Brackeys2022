@@ -5,9 +5,11 @@
 			<ChildrenList>
 				<SoundBank Name="Main" ID="{9D83D739-212E-4937-80C4-DBCF6C26361D}">
 					<ObjectInclusionList>
+						<ObjectRef Name="Player_Attack" ID="{4EF2651D-A9F2-4163-BBB7-12336F217BEC}" WorkUnitID="{19B0CD82-E871-4AC1-95E6-261D6261E874}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="SkeletonGetHit" ID="{0C66B243-E842-416E-B115-2CF8DAA3344D}" WorkUnitID="{19B0CD82-E871-4AC1-95E6-261D6261E874}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="SkeletonSteps" ID="{0281C1F8-3E84-417B-BCAC-832CCD9B1906}" WorkUnitID="{19B0CD82-E871-4AC1-95E6-261D6261E874}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Player_GetHit" ID="{08BFAF40-7DEF-42EC-A25D-09172B69DE87}" WorkUnitID="{19B0CD82-E871-4AC1-95E6-261D6261E874}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_PlayerDeath" ID="{A55DCAC2-0C76-4306-BCEE-FA6DE2E46E82}" WorkUnitID="{19B0CD82-E871-4AC1-95E6-261D6261E874}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="MusicTest" ID="{221E90BB-78F0-4335-9E4F-36C5BE388BF9}" WorkUnitID="{19B0CD82-E871-4AC1-95E6-261D6261E874}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Land" ID="{30DD00CE-7E6C-45FC-98D5-ED0EA1411D59}" WorkUnitID="{19B0CD82-E871-4AC1-95E6-261D6261E874}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Jump" ID="{660C6A4F-B28A-4627-9B98-424F5E439346}" WorkUnitID="{DD6B140F-0321-4AF7-81C6-B8E0A5C8F93D}" Origin="Manual" Filter="7"/>
