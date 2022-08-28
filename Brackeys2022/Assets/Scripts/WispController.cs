@@ -33,42 +33,42 @@ public class WispController : MonoBehaviour
 
     void Start()
     {
-        player = FindObjectOfType<PlayerController>();
-        state = WispState.Idle;
-        timer = 0;
-        targetWaypoint = points[pointIndex];
-        facingLeft = false;
+        //player = FindObjectOfType<PlayerController>();
+        //state = WispState.Idle;
+        //timer = 0;
+        //targetWaypoint = points[pointIndex];
+        //facingLeft = false;
     }
 
     private void OnEnable()
     {
-        PlayerController.OnHideEnd += DetectPlayer;
+        //PlayerController.OnHideEnd += DetectPlayer;
     }
 
     private void OnDisable()
     {
-        PlayerController.OnHideEnd -= DetectPlayer;
+       // PlayerController.OnHideEnd -= DetectPlayer;
     }
 
     void Update()
     {
-        switch (state)
-        {
-            case WispState.Idle:
-                Idling();
-                break;
-            case WispState.Walking:
-                Walking();
-                break;
-            case WispState.Chasing:
-                Chasing();
-                break;
-            case WispState.Hit:
-                break;
-            case WispState.AttackReady:
-                Attacking();
-                break;
-        }
+        //switch (state)
+        //{
+        //    case WispState.Idle:
+        //        Idling();
+        //        break;
+        //    case WispState.Walking:
+        //        Walking();
+        //        break;
+        //    case WispState.Chasing:
+        //        Chasing();
+        //        break;
+        //    case WispState.Hit:
+        //        break;
+        //    case WispState.AttackReady:
+        //        Attacking();
+        //        break;
+        //}
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

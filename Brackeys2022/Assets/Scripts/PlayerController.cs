@@ -581,11 +581,11 @@ public class PlayerController : MonoBehaviour
     //SFX
     public void PlayFootstepSound()
     {
-        AkSoundEngine.PostEvent(footstepsEvent.Id, this.gameObject);
+       // AkSoundEngine.PostEvent(footstepsEvent.Id, this.gameObject);
     }
     public void PlayLandingSound()
     {
-        AkSoundEngine.PostEvent(PlayerLanding.Id, this.gameObject);
+       // AkSoundEngine.PostEvent(PlayerLanding.Id, this.gameObject);
     }
 }
 
