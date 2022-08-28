@@ -10,17 +10,17 @@ public class SkeletonSFX : MonoBehaviour
     
     public void PlayFootstepSound()
     {
-        AkSoundEngine.PostEvent(footstepSound.Id, this.gameObject);
+        //AkSoundEngine.PostEvent(footstepSound.Id, this.gameObject);
     }
 
     public void PlayAttackSound()
     {
-        AkSoundEngine.PostEvent(attackSound.Id, this.gameObject);
+       /// AkSoundEngine.PostEvent(attackSound.Id, this.gameObject);
     }
 
     public void PlayDeathSound()
     {
-        AkSoundEngine.PostEvent(deathSound.Id, this.gameObject);
+       // AkSoundEngine.PostEvent(deathSound.Id, this.gameObject);
     }
     
 }
