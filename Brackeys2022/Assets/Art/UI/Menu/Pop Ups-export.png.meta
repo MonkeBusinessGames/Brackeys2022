@@ -173,9 +173,9 @@ TextureImporter:
       name: Pop Ups-export_2
       rect:
         serializedVersion: 2
-        x: 2
+        x: 0
         y: 38
-        width: 125
+        width: 256
         height: 25
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -199,7 +199,7 @@ TextureImporter:
         width: 256
         height: 25
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -207,27 +207,6 @@ TextureImporter:
       bones: []
       spriteID: 0830ad98cff8c8d4296e40516b84f10e
       internalID: 802671856
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Pop Ups-export_4
-      rect:
-        serializedVersion: 2
-        x: 135
-        y: 38
-        width: 116
-        height: 25
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a4a1146abc54e4d45b27503eeaf451c0
-      internalID: -2022775570
       vertices: []
       indices: 
       edges: []
@@ -245,7 +224,6 @@ TextureImporter:
     nameFileIdTable:
       Pop Ups-export_0: -1251438226
       Pop Ups-export_1: 26811253
-      Pop Ups-export_4: -2022775570
       Pop Ups-export_3: 802671856
       Pop Ups-export_2: 645957952
   spritePackingTag: 
