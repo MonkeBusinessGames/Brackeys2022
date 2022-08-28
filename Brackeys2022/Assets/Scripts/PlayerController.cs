@@ -124,14 +124,7 @@ public class PlayerController : MonoBehaviour
                         movementX = 0;
                     }
                 }
-                else if(catAcquired)
-                {
-                    if(Input.GetAxis("Vertical") < 0)
-                    {
-                        state = PlayerState.JumpCharge;
-                        SetAnimation();
-                    }
-                }
+
                 break;
             case PlayerState.Walking:
                 //Handle Hide Input
@@ -374,10 +367,16 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        if (hidden)
-            return;
 
-        if (collider.CompareTag("Enemy"))
+        if (collider.CompareTag("End"))
+        {
+            uiManager.GameComplete();
+        }
+
+        if (hidden)
+        return;
+
+            if (collider.CompareTag("Enemy"))
         {
             if (state != PlayerState.Hit)
             {
@@ -457,6 +456,7 @@ public class PlayerController : MonoBehaviour
         }
         
         state = PlayerState.Hit;
+        anim.SetInteger("AttackCounter", 1);
         diveRange.enabled = false;
         rb.velocity = Vector2.zero;
         rb.AddForce((transform.position - enemyRange.position).normalized * knockBackForce, ForceMode2D.Impulse);
@@ -514,7 +514,7 @@ public class PlayerController : MonoBehaviour
     /// <summary>Checks whether to dive</summary>
     public void DiveCheck()
     {
-        if (birbAcquired)
+        if (moleAcquired)
             if (Input.GetButtonDown("Attack"))
             {
                 doubleJumped = true;
