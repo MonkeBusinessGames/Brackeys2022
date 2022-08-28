@@ -35,10 +35,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private PolygonCollider2D spikeRange;
     [SerializeField] private BoxCollider2D hitBox;
     [SerializeField] private ContactFilter2D enemies;
-    [SerializeField] private float health = 100;
+    private float health = 5;
     [SerializeField] private float attackPower = 10;
     [SerializeField] private float knockBackForce = 100;
-    [SerializeField] private TMP_Text healthText;
     [SerializeField] private bool keepAttacking = false;
 
     [Header("Long/Double Jump Fields")]
@@ -125,14 +124,7 @@ public class PlayerController : MonoBehaviour
                         movementX = 0;
                     }
                 }
-                else if(catAcquired)
-                {
-                    if(Input.GetAxis("Vertical") < 0)
-                    {
-                        state = PlayerState.JumpCharge;
-                        SetAnimation();
-                    }
-                }
+
                 break;
             case PlayerState.Walking:
                 //Handle Hide Input
@@ -152,11 +144,14 @@ public class PlayerController : MonoBehaviour
                 }
                 else if (Input.GetButtonDown("Attack"))
                 {
-                    EndFall();
-                    state = PlayerState.Attack;
-                    anim.SetInteger("AttackCounter", 0);
-                    SetAnimation();
-                    movementX = 0;
+                    if (catAcquired)
+                    {
+                        EndFall();
+                        state = PlayerState.Attack;
+                        anim.SetInteger("AttackCounter", 0);
+                        SetAnimation();
+                        movementX = 0;
+                    }
                 }
                 break;
             case PlayerState.JumpStart:
@@ -356,7 +351,40 @@ public class PlayerController : MonoBehaviour
                 rb.velocity = Vector2.zero;
                 rb.AddForce((transform.position - collision.transform.position).normalized * knockBackForce, ForceMode2D.Impulse);
                 health -= 1;
-                healthText.text = "Health: " + health.ToString();
+                uiManager.RemoveHealth();
+                if (health <= 0)
+                {
+                    state = PlayerState.Die;
+                    anim.updateMode = AnimatorUpdateMode.UnscaledTime;
+                    Time.timeScale = 0;
+                    Time.timeScale = 0;
+                }
+
+                SetAnimation();
+            }
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collider)
+    {
+
+        if (collider.CompareTag("End"))
+        {
+            uiManager.GameComplete();
+        }
+
+        if (hidden)
+        return;
+
+            if (collider.CompareTag("Enemy"))
+        {
+            if (state != PlayerState.Hit)
+            {
+                state = PlayerState.Hit;
+                rb.velocity = Vector2.zero;
+                rb.AddForce((transform.position - collider.transform.position).normalized * knockBackForce, ForceMode2D.Impulse);
+                health -= 1;
+                uiManager.RemoveHealth();
                 if (health <= 0)
                 {
                     state = PlayerState.Die;
@@ -391,6 +419,7 @@ public class PlayerController : MonoBehaviour
     /// <summary>Checks if the any enemies were hit by the claw</summary>
     public void HitCheck() 
     {
+        
         List<Collider2D> hitEnemies = new List<Collider2D>();
         clawRange.OverlapCollider(enemies, hitEnemies);
         for (int i = 0; i < hitEnemies.Count; i++)
@@ -416,15 +445,25 @@ public class PlayerController : MonoBehaviour
     /// <summary>Checks how much damage to take</summary>
     public void DamageCheck(Transform enemyRange, float damage)
     {
-            state = PlayerState.Hit;
-            diveRange.enabled = false;
-            sRend.color = Color.grey;
-            rb.velocity = Vector2.zero;
-            rb.AddForce((transform.position - enemyRange.position).normalized * knockBackForce, ForceMode2D.Impulse);
-            health -= damage;
+        if (hidden)
+        {
+            anim.speed = 1;
+            sRend.color = Color.white;
+            hidden = false;
+            speed *= 2;
+            Physics2D.IgnoreLayerCollision(3, 7, false);
+            OnHideEnd();
+        }
+        
+        state = PlayerState.Hit;
+        anim.SetInteger("AttackCounter", 1);
+        diveRange.enabled = false;
+        rb.velocity = Vector2.zero;
+        rb.AddForce((transform.position - enemyRange.position).normalized * knockBackForce, ForceMode2D.Impulse);
+        health -= 1;
         //AkSoundEngine.PostEvent(PlayerGetHit.Id, this.gameObject);
-        healthText.text = "Health: " + health.ToString();
-            if (health <= 0)
+        uiManager.RemoveHealth();
+        if (health <= 0)
                 state = PlayerState.Die;
             SetAnimation();
     }
@@ -475,7 +514,7 @@ public class PlayerController : MonoBehaviour
     /// <summary>Checks whether to dive</summary>
     public void DiveCheck()
     {
-        if (birbAcquired)
+        if (moleAcquired)
             if (Input.GetButtonDown("Attack"))
             {
                 doubleJumped = true;
@@ -511,21 +550,12 @@ public class PlayerController : MonoBehaviour
     {
         if (hidden)
         {
-            if (state == PlayerState.Hit)
+            if (Input.GetButtonUp("Hide"))
             {
                 anim.speed = 1;
                 sRend.color = Color.white;
                 hidden = false;
-                speed *= 4;
-                Physics2D.IgnoreLayerCollision(3, 7, false);
-                OnHideEnd();
-            }
-            else if (Input.GetButtonUp("Hide"))
-            {
-                anim.speed = 1;
-                sRend.color = Color.white;
-                hidden = false;
-                speed *= 4;
+                speed *= 2;
                 Physics2D.IgnoreLayerCollision(3, 7, false);
                 //AkSoundEngine.PostEvent(unhideSound.Id, this.gameObject);
                 OnHideEnd();
@@ -540,7 +570,7 @@ public class PlayerController : MonoBehaviour
             anim.speed = .5f;
             sRend.color = Color.black;
             hidden = true;
-            speed /= 4;
+            speed /= 2;
             Physics2D.IgnoreLayerCollision(3, 7, true);
         }
         return false;

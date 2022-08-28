@@ -9,6 +9,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject pauseMenu;
     [SerializeField] private GameObject gameOverMenu;
     [SerializeField] private GameObject gameCompleteMenu;
+    [SerializeField] private Animator healthBar;
     private bool isPaused = false;
 
 
@@ -65,6 +66,11 @@ public class UIManager : MonoBehaviour
     {
         Time.timeScale = 0;
         gameCompleteMenu.SetActive(true);
+    }
+
+    public void RemoveHealth()
+    {
+        healthBar.SetTrigger("Take Damage");
     }
 
 }
