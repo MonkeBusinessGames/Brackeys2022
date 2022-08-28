@@ -456,7 +456,7 @@ public class PlayerController : MonoBehaviour
         }
         
         state = PlayerState.Hit;
-        anim.SetInteger("AttackCounter", 1);
+        anim.SetInteger("AttackCounter", 0);
         diveRange.enabled = false;
         rb.velocity = Vector2.zero;
         rb.AddForce((transform.position - enemyRange.position).normalized * knockBackForce, ForceMode2D.Impulse);
