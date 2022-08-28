@@ -468,7 +468,7 @@ public class PlayerController : MonoBehaviour
             {
                 doubleJumped = true;
                 state = PlayerState.DoubleJump;
-                AkSoundEngine.PostEvent(jumpSound.Id, this.gameObject);
+                //AkSoundEngine.PostEvent(jumpSound.Id, this.gameObject);
                 SetAnimation();
             }
     }
@@ -527,7 +527,7 @@ public class PlayerController : MonoBehaviour
                 hidden = false;
                 speed *= 4;
                 Physics2D.IgnoreLayerCollision(3, 7, false);
-                AkSoundEngine.PostEvent(unhideSound.Id, this.gameObject);
+                //AkSoundEngine.PostEvent(unhideSound.Id, this.gameObject);
                 OnHideEnd();
                 
 
@@ -536,7 +536,7 @@ public class PlayerController : MonoBehaviour
         }
         else if (Input.GetButtonDown("Hide"))
         {
-            AkSoundEngine.PostEvent(hideSound.Id, this.gameObject);
+            //AkSoundEngine.PostEvent(hideSound.Id, this.gameObject);
             anim.speed = .5f;
             sRend.color = Color.black;
             hidden = true;
@@ -596,26 +596,26 @@ public class PlayerController : MonoBehaviour
 
     public void PlayAttackSound1()
     {
-        AkSoundEngine.PostEvent(PlayerAttack1.Id, this.gameObject);
+        //AkSoundEngine.PostEvent(PlayerAttack1.Id, this.gameObject);
     }
 
     public void PlayAttackSound2()
     {
-        AkSoundEngine.PostEvent(PlayerAttack2.Id, this.gameObject);
+        //AkSoundEngine.PostEvent(PlayerAttack2.Id, this.gameObject);
     }
     
     public void PlayAttackSound3()
     {
-        AkSoundEngine.PostEvent(PlayerAttack3.Id, this.gameObject);
+        //AkSoundEngine.PostEvent(PlayerAttack3.Id, this.gameObject);
     }
 
     public void PlayDeathSound()
     {
-        AkSoundEngine.PostEvent(PlayerDeath.Id, this.gameObject);
+        //AkSoundEngine.PostEvent(PlayerDeath.Id, this.gameObject);
     }
     public void PlayerGethitSound()
     {
-        AkSoundEngine.PostEvent(PlayerGetHit.Id, this.gameObject);
+        //AkSoundEngine.PostEvent(PlayerGetHit.Id, this.gameObject);
     }
 
 }
