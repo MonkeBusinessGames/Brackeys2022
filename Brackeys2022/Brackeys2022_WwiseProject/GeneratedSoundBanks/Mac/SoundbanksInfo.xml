@@ -44,7 +44,7 @@
 				</StateGroup>
 			</StateGroups>
 		</SoundBank>
-		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{41789AFB-C74A-F746-8BE3-7FCD1D2C5C8A}">
+		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{C4BF5111-7087-7F7B-DE68-B1CD89D25937}">
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
 			<Media>
@@ -68,6 +68,10 @@
 					<ShortName>WaterDrop3.wav</ShortName>
 					<CachePath>SFX/WaterDrop3_10C4C929.wem</CachePath>
 				</File>
+				<File Id="250425196" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Mole.wav</ShortName>
+					<CachePath>SFX/Mole_10C4C929.wem</CachePath>
+				</File>
 				<File Id="302286763" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Cloth1.wav</ShortName>
 					<CachePath>SFX/Cloth1_10C4C929.wem</CachePath>
@@ -79,6 +83,10 @@
 				<File Id="313573349" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>UI_Select.wav</ShortName>
 					<CachePath>SFX/UI_Select_10C4C929.wem</CachePath>
+				</File>
+				<File Id="326893740" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>471208-Cat_Moew-04.wav</ShortName>
+					<CachePath>SFX/471208-Cat_Moew-04_10C4C929.wem</CachePath>
 				</File>
 				<File Id="348981408" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>317498-EMOTE_Liam-Child-Anger_Fight_Grunt_Small_07.wav</ShortName>
@@ -152,6 +160,10 @@
 					<ShortName>GetHit1.wav</ShortName>
 					<CachePath>SFX/GetHit1_10C4C929.wem</CachePath>
 				</File>
+				<File Id="757522145" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Bird.wav</ShortName>
+					<CachePath>SFX/Bird_10C4C929.wem</CachePath>
+				</File>
 				<File Id="793106254" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>WaterDrop2.wav</ShortName>
 					<CachePath>SFX/WaterDrop2_10C4C929.wem</CachePath>
@@ -199,6 +211,16 @@
 				<Event Id="4195921398" Name="MusicTest" DurationType="OneShot" DurationMin="30.857145" DurationMax="30.857145">
 					<MediaRefs>
 						<MediaRef Id="986866790"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="1844467875" Name="Play_Bird" DurationType="OneShot" DurationMin="1.5521458" DurationMax="1.5521458">
+					<MediaRefs>
+						<MediaRef Id="757522145"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="2690797150" Name="Play_Cat" DurationType="OneShot" DurationMin="0.9315104" DurationMax="0.9315104">
+					<MediaRefs>
+						<MediaRef Id="326893740"/>
 					</MediaRefs>
 				</Event>
 				<Event Id="4258174524" Name="Play_DungeonAmbience" DurationType="Infinite">
@@ -252,6 +274,11 @@
 					<MediaRefs>
 						<MediaRef Id="929970491"/>
 						<MediaRef Id="1059693162"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="1313611223" Name="Play_Mole" DurationType="OneShot" DurationMin="0.48341668" DurationMax="0.48341668">
+					<MediaRefs>
+						<MediaRef Id="250425196"/>
 					</MediaRefs>
 				</Event>
 				<Event Id="910581297" Name="Play_PlayerDeath" DurationType="OneShot" DurationMin="2.234375" DurationMax="2.234375">
@@ -316,7 +343,7 @@
 					</MediaRefs>
 				</Event>
 				<Event Id="1076666776" Name="StopTestBattleMusic" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
-				<Event Id="2774129122" Name="UI_Select" DurationType="OneShot" DurationMin="0.17039225" DurationMax="0.17337066">
+				<Event Id="2774129122" Name="UI_Select" DurationType="OneShot" DurationMin="0.171875" DurationMax="0.171875">
 					<MediaRefs>
 						<MediaRef Id="313573349"/>
 					</MediaRefs>
@@ -324,5 +351,5 @@
 			</Events>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{394AB986-5B3D-99BA-EEA4-786EB773E76C}</FileHash>
+	<FileHash>{906DFD01-EE53-DC04-D484-802634783135}</FileHash>
 </SoundBanksInfo>

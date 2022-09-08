@@ -14,12 +14,15 @@ namespace AK
     namespace EVENTS
     {
         static const AkUniqueID MUSICTEST = 4195921398U;
+        static const AkUniqueID PLAY_BIRD = 1844467875U;
+        static const AkUniqueID PLAY_CAT = 2690797150U;
         static const AkUniqueID PLAY_DUNGEONAMBIENCE = 4258174524U;
         static const AkUniqueID PLAY_FOOTSTEP = 1602358412U;
         static const AkUniqueID PLAY_HIDE = 2586843602U;
         static const AkUniqueID PLAY_JUMPSOUND = 2371580015U;
         static const AkUniqueID PLAY_LAND = 4285282925U;
         static const AkUniqueID PLAY_LEVELMUSIC = 2671044069U;
+        static const AkUniqueID PLAY_MOLE = 1313611223U;
         static const AkUniqueID PLAY_PLAYERDEATH = 910581297U;
         static const AkUniqueID PLAY_STOPHIDE = 4095150858U;
         static const AkUniqueID PLAYER_ATTACK = 2824512041U;
