@@ -282,6 +282,13 @@ AnimationClip:
     intParameter: 0
     messageOptions: 0
   - time: 0.33333334
+    functionName: NextAttackCheck
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.53333336
     functionName: AnimationEnd
     data: 
     objectReferenceParameter: {fileID: 0}

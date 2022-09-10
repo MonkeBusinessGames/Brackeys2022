@@ -211,41 +211,13 @@ public class PlayerController : MonoBehaviour
                 //Handle Hide Input
                 HideCheck();
                 break;
-            case PlayerState.JumpCharge:
-                if (Input.GetAxis("Vertical") >= 0)
-                {
-                    longJumpCharged = false;
-                    sRend.color = Color.white;
-                    timer = 0;
-                    state = PlayerState.Idle;
-                    SetAnimation();
-                }
-                if (longJumpCharged)
-                {
-                    if (Input.GetButtonDown("Jump"))
-                    {
-                        sRend.color = Color.white;
-                        state = PlayerState.JumpStart;
-                        SetAnimation();
-                        timer = 0;
-                    }
-                }
-                else
-                {
-                    timer += Time.deltaTime;
-                    sRend.color = Color.grey;
-                    if (timer >= jumpHoldTime)
-                    {
-                        longJumpCharged = true;
-                        doubleJumped = true;
-                        sRend.color = Color.cyan;
-                        timer = 0;
-                    }
-                }
-                break;
             case PlayerState.Attack:
                 if (Input.GetButtonDown("Attack"))
                     keepAttacking = true;
+                movementX = 0;
+                break;
+            case PlayerState.AttackEnd:
+                movementX = 0;
                 break;
         }
 
@@ -254,7 +226,7 @@ public class PlayerController : MonoBehaviour
         {
             if (movementX > 0)
             {
-                sRend.flipX = false;
+                transform.localScale = new Vector3(-1, 1, 1);
                 flip = false;
             }
         }
@@ -262,7 +234,7 @@ public class PlayerController : MonoBehaviour
         {
             if (movementX < 0)
             {
-                sRend.flipX = true;
+                transform.localScale = new Vector3(1, 1, 1);
                 flip = true;
             }
         }
@@ -273,8 +245,6 @@ public class PlayerController : MonoBehaviour
     {
         if (state == (PlayerState.Hit))
             return; 
-        if (state == (PlayerState.JumpCharge))
-            return;
 
         //Set Velocity
         if (!longJumpCharged)
@@ -469,7 +439,15 @@ public class PlayerController : MonoBehaviour
     /// <summary>Ends the animation and resets to Idle</summary>
     public void AnimationEnd()
     {
-        sRend.color = Color.white;
+        if(state == PlayerState.Attack)
+            return;
+        state = PlayerState.Idle;
+        SetAnimation();
+    }
+    
+    /// <summary>Ends the animation and resets to Idle</summary>
+    public void NextAttackCheck()
+    {
         if (keepAttacking)
         {
             keepAttacking = false;
@@ -485,10 +463,12 @@ public class PlayerController : MonoBehaviour
                 anim.SetInteger("AttackCounter", 2);
                 return;
             }
-            
+
         }
-        state = PlayerState.Idle;
+        state = PlayerState.AttackEnd;
     }
+
+
 
     /// <summary>Activates the game over experience</summary>
     public void DeathEnd()
@@ -661,6 +641,6 @@ public enum PlayerState
     Die,
     Attack,
     DoubleJump,
-    JumpCharge,
-    Dive
+    AttackEnd,
+    Dive,
 }

@@ -212,7 +212,7 @@ public class WispController : MonoBehaviour
     private IEnumerator Attack(Vector3 target)
     {
         state = WispState.Attack;
-        print((transform.position - target).normalized * attackSpeed);
+        //print((transform.position - target).normalized * attackSpeed);
 
         while (transform.position != target)
         {
