@@ -269,7 +269,7 @@ MonoBehaviour:
   attackRange: {fileID: 7794734339307732934}
   detectRange: {fileID: 1556699237720187221}
   health: 10
-  attackPower: 1
+  attackPower: 5
   attackRate: 2
 --- !u!95 &3056591562166829180
 Animator:

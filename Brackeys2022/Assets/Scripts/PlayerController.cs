@@ -68,8 +68,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private AK.Wwise.Event PlayerAttack3;
     [SerializeField] private AK.Wwise.Event PlayerDeath;
     
-
-
     void Start()
     {
         catAcquired = false;
@@ -256,7 +254,7 @@ public class PlayerController : MonoBehaviour
         {
             if (movementX > 0)
             {
-                transform.localScale = new Vector3(-1, 1, 1);
+                sRend.flipX = false;
                 flip = false;
             }
         }
@@ -264,7 +262,7 @@ public class PlayerController : MonoBehaviour
         {
             if (movementX < 0)
             {
-                transform.localScale = new Vector3(1, 1, 1);
+                sRend.flipX = true;
                 flip = true;
             }
         }
@@ -456,7 +454,7 @@ public class PlayerController : MonoBehaviour
         }
         
         state = PlayerState.Hit;
-        anim.SetInteger("AttackCounter", 0);
+        anim.SetInteger("AttackCounter", 1);
         diveRange.enabled = false;
         rb.velocity = Vector2.zero;
         rb.AddForce((transform.position - enemyRange.position).normalized * knockBackForce, ForceMode2D.Impulse);
