@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private SpriteRenderer wingBack;
     [SerializeField] private SpriteRenderer wingFront;
     [SerializeField] private UIManager uiManager;
+    [SerializeField] private Transform cameraTarget;
 
 
     [Header("Movement Fields")]
@@ -28,6 +29,7 @@ public class PlayerController : MonoBehaviour
     private PlayerState state;
     public bool hidden = false;
     private bool doubleJumped = false;
+    private bool isLooking;
 
     [Header("Combat Fields")]
     [SerializeField] private BoxCollider2D clawRange;
@@ -73,6 +75,7 @@ public class PlayerController : MonoBehaviour
         catAcquired = false;
         birbAcquired = false;
         moleAcquired = false;
+        isLooking = false;
 
         state = PlayerState.Idle;
         flip = false;
@@ -83,7 +86,10 @@ public class PlayerController : MonoBehaviour
     }
 
     void Update()
-    {
+    {                
+        //Handles Look Input
+        Look();
+
         if (state == (PlayerState.Hit))
             return;
 
@@ -624,6 +630,52 @@ public class PlayerController : MonoBehaviour
     public void PlayerGethitSound()
     {
         AkSoundEngine.PostEvent(PlayerGetHit.Id, this.gameObject);
+    }
+
+    private void Look()
+    {
+        if (isLooking)
+        {
+            if (state == PlayerState.Idle)
+            {
+                float vertical = Input.GetAxis("Vertical");
+
+                if (vertical > .1f)
+                {
+                    cameraTarget.localPosition = new Vector2(0, Mathf.Lerp(cameraTarget.localPosition.y, 4, Time.deltaTime));
+                    return;
+                }
+                if (vertical < -.1f)
+                {
+                    cameraTarget.localPosition = new Vector2(0, Mathf.Lerp(cameraTarget.localPosition.y, -4, Time.deltaTime));
+                    return;
+                }
+            }
+
+            //If not idle or not looking, return cameratarget to normal
+            cameraTarget.localPosition = Vector2.Lerp(cameraTarget.localPosition, Vector2.zero, 4 * Time.deltaTime);
+            if (cameraTarget.localPosition == Vector3.zero)
+                isLooking = false;
+            return;
+        }
+
+        else if (state == PlayerState.Idle)
+        {
+            float vertical = Input.GetAxis("Vertical");
+
+            if (vertical > .1f)
+            {
+                cameraTarget.localPosition = new Vector2(0, Mathf.Lerp(cameraTarget.localPosition.y, 4, Time.deltaTime));
+                isLooking = true;
+                return;
+            }
+            if (vertical < -.1f)
+            {
+                cameraTarget.localPosition = new Vector2(0, Mathf.Lerp(cameraTarget.localPosition.y, -4, Time.deltaTime));
+                isLooking = true;
+                return;
+            }
+        }
     }
 
 }
