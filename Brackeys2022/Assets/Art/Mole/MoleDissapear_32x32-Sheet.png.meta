@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 9588f2735371a5f459bb504dc60b6c67
+guid: 4158ea2ebac4ef641ad8755405f97a75
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -69,7 +69,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -128,13 +128,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Cat_B_W_32x32-Sheet_0
+      name: MoleDissapear_32x32-Sheet_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 32
-        height: 32
+        width: 25
+        height: 25
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -142,20 +142,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e35e0d5d0c72fb846b9d3d97706908a9
-      internalID: 700097087
+      spriteID: 78fcf087506eb814fa526c480ff7b517
+      internalID: 1712371493
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cat_B_W_32x32-Sheet_1
+      name: MoleDissapear_32x32-Sheet_1
       rect:
         serializedVersion: 2
-        x: 32
+        x: 25
         y: 0
-        width: 32
-        height: 32
+        width: 25
+        height: 25
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -163,20 +163,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 88f0f4af5dbc09342947c9fd1e727c73
-      internalID: 1598457582
+      spriteID: ab38e2d60c0cdd141ac1070b7838d252
+      internalID: 1808393128
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cat_B_W_32x32-Sheet_2
+      name: MoleDissapear_32x32-Sheet_2
       rect:
         serializedVersion: 2
-        x: 64
+        x: 50
         y: 0
-        width: 32
-        height: 32
+        width: 25
+        height: 25
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -184,20 +184,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a82987eb6f2f8ca4b818fcdf05f4b6d1
-      internalID: 1048280307
+      spriteID: 03e67a3f0d6d3ad40ab1f320a4de7201
+      internalID: -1566448950
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cat_B_W_32x32-Sheet_3
+      name: MoleDissapear_32x32-Sheet_3
       rect:
         serializedVersion: 2
-        x: 96
+        x: 75
         y: 0
-        width: 32
-        height: 32
+        width: 25
+        height: 25
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -205,20 +205,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 25e8c83d4dc78d64681502f91e3f0651
-      internalID: -793689087
+      spriteID: acd93e82917b8754296c31e1d38ef4a9
+      internalID: -980407660
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cat_B_W_32x32-Sheet_4
+      name: MoleDissapear_32x32-Sheet_4
       rect:
         serializedVersion: 2
-        x: 128
+        x: 100
         y: 0
-        width: 32
-        height: 32
+        width: 25
+        height: 25
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -226,20 +226,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 430423c4dfb8be14c82e92f9407c31c1
-      internalID: -395926415
+      spriteID: b5c74cd717825c542a83b21fcecd532a
+      internalID: 1736343368
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cat_B_W_32x32-Sheet_5
+      name: MoleDissapear_32x32-Sheet_5
       rect:
         serializedVersion: 2
-        x: 160
+        x: 125
         y: 0
-        width: 32
-        height: 32
+        width: 25
+        height: 25
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -247,20 +247,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c81ffc896dc592d47a8e45b09ebb6da6
-      internalID: 2092818888
+      spriteID: 6484bfa7a3cf79d4197a2934725a1a86
+      internalID: 331650454
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cat_B_W_32x32-Sheet_6
+      name: MoleDissapear_32x32-Sheet_6
       rect:
         serializedVersion: 2
-        x: 192
+        x: 150
         y: 0
-        width: 32
-        height: 32
+        width: 25
+        height: 25
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -268,20 +268,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8239a7ec7c69cf64a864239a4bed7ecc
-      internalID: -20704063
+      spriteID: 8ad7fd3a5c2c8b44a86e5a9b5c92e5ba
+      internalID: 1225455042
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cat_B_W_32x32-Sheet_7
+      name: MoleDissapear_32x32-Sheet_7
       rect:
         serializedVersion: 2
-        x: 224
+        x: 175
         y: 0
-        width: 32
-        height: 32
+        width: 25
+        height: 25
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -289,20 +289,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b9f356cb0cf02e4459b43b82febbef69
-      internalID: -47213151
+      spriteID: c62d58844a5868e4a887bd2da46b258a
+      internalID: 1813226624
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cat_B_W_32x32-Sheet_8
+      name: MoleDissapear_32x32-Sheet_8
       rect:
         serializedVersion: 2
-        x: 256
+        x: 200
         y: 0
-        width: 32
-        height: 32
+        width: 25
+        height: 25
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -310,20 +310,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 641ff1d46fe791e46a82bd23a43d6e8f
-      internalID: 143727852
+      spriteID: ff2698e39814f0649826e1a2d45a82ad
+      internalID: 795363634
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cat_B_W_32x32-Sheet_9
+      name: MoleDissapear_32x32-Sheet_9
       rect:
         serializedVersion: 2
-        x: 288
+        x: 225
         y: 0
-        width: 32
-        height: 32
+        width: 25
+        height: 25
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -331,8 +331,113 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2c276c97d60243342b7b41df88a23a35
-      internalID: -790652115
+      spriteID: 030a44ecf59114140ab5bcb6f1d62ff3
+      internalID: -170772744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MoleDissapear_32x32-Sheet_10
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 0
+        width: 25
+        height: 25
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47039b8e616c09043bcddc00c02548fb
+      internalID: 1780196393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MoleDissapear_32x32-Sheet_11
+      rect:
+        serializedVersion: 2
+        x: 275
+        y: 0
+        width: 25
+        height: 25
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5a36f470e96c8944bf3a29b5e630b2f
+      internalID: -1368939347
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MoleDissapear_32x32-Sheet_12
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 0
+        width: 25
+        height: 25
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a214cae155e412943b26be7672f3f00b
+      internalID: -690481153
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MoleDissapear_32x32-Sheet_13
+      rect:
+        serializedVersion: 2
+        x: 325
+        y: 0
+        width: 25
+        height: 25
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b42367f0e2258eb43b0450fc63822a2c
+      internalID: 1009412720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MoleDissapear_32x32-Sheet_14
+      rect:
+        serializedVersion: 2
+        x: 350
+        y: 0
+        width: 25
+        height: 25
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ddffdcee20962064186bf82d1348a885
+      internalID: -737916329
       vertices: []
       indices: 
       edges: []
@@ -348,16 +453,21 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Cat_B_W_32x32-Sheet_9: -790652115
-      Cat_B_W_32x32-Sheet_0: 700097087
-      Cat_B_W_32x32-Sheet_3: -793689087
-      Cat_B_W_32x32-Sheet_6: -20704063
-      Cat_B_W_32x32-Sheet_7: -47213151
-      Cat_B_W_32x32-Sheet_4: -395926415
-      Cat_B_W_32x32-Sheet_2: 1048280307
-      Cat_B_W_32x32-Sheet_8: 143727852
-      Cat_B_W_32x32-Sheet_5: 2092818888
-      Cat_B_W_32x32-Sheet_1: 1598457582
+      MoleDissapear_32x32-Sheet_11: -1368939347
+      MoleDissapear_32x32-Sheet_6: 1225455042
+      MoleDissapear_32x32-Sheet_13: 1009412720
+      MoleDissapear_32x32-Sheet_12: -690481153
+      MoleDissapear_32x32-Sheet_9: -170772744
+      MoleDissapear_32x32-Sheet_4: 1736343368
+      MoleDissapear_32x32-Sheet_7: 1813226624
+      MoleDissapear_32x32-Sheet_1: 1808393128
+      MoleDissapear_32x32-Sheet_10: 1780196393
+      MoleDissapear_32x32-Sheet_3: -980407660
+      MoleDissapear_32x32-Sheet_2: -1566448950
+      MoleDissapear_32x32-Sheet_0: 1712371493
+      MoleDissapear_32x32-Sheet_5: 331650454
+      MoleDissapear_32x32-Sheet_8: 795363634
+      MoleDissapear_32x32-Sheet_14: -737916329
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

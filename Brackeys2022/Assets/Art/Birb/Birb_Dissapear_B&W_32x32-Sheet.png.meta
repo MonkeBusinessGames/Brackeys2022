@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 9588f2735371a5f459bb504dc60b6c67
+guid: c3649c6fc46fdbf499ad2303784eaf2c
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -69,7 +69,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -128,211 +128,274 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Cat_B_W_32x32-Sheet_0
+      name: Birb_Dissapear_B&W_32x32-Sheet_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 32
-        height: 32
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        width: 25
+        height: 25
+      alignment: 9
+      pivot: {x: 0.16, y: 0.22}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e35e0d5d0c72fb846b9d3d97706908a9
-      internalID: 700097087
+      spriteID: f1fada4e382cac045aa29b421dc907a2
+      internalID: -950844128
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cat_B_W_32x32-Sheet_1
+      name: Birb_Dissapear_B&W_32x32-Sheet_1
       rect:
         serializedVersion: 2
-        x: 32
+        x: 25
         y: 0
-        width: 32
-        height: 32
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        width: 25
+        height: 25
+      alignment: 9
+      pivot: {x: 0.16, y: 0.22}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 88f0f4af5dbc09342947c9fd1e727c73
-      internalID: 1598457582
+      spriteID: 9a5515ecfb6ff1e4bb24ef634eb44bab
+      internalID: 700411681
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cat_B_W_32x32-Sheet_2
+      name: Birb_Dissapear_B&W_32x32-Sheet_2
       rect:
         serializedVersion: 2
-        x: 64
+        x: 50
         y: 0
-        width: 32
-        height: 32
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        width: 25
+        height: 25
+      alignment: 9
+      pivot: {x: 0.16, y: 0.22}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a82987eb6f2f8ca4b818fcdf05f4b6d1
-      internalID: 1048280307
+      spriteID: 606d629b92dd0104eaa4ff8399ff2d6f
+      internalID: 1760641032
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cat_B_W_32x32-Sheet_3
+      name: Birb_Dissapear_B&W_32x32-Sheet_3
       rect:
         serializedVersion: 2
-        x: 96
+        x: 75
         y: 0
-        width: 32
-        height: 32
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        width: 25
+        height: 25
+      alignment: 9
+      pivot: {x: 0.16, y: 0.22}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 25e8c83d4dc78d64681502f91e3f0651
-      internalID: -793689087
+      spriteID: 651db8b330c2034449fd70936da85c9d
+      internalID: -1367450721
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cat_B_W_32x32-Sheet_4
+      name: Birb_Dissapear_B&W_32x32-Sheet_4
       rect:
         serializedVersion: 2
-        x: 128
+        x: 100
         y: 0
-        width: 32
-        height: 32
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        width: 25
+        height: 25
+      alignment: 9
+      pivot: {x: 0.16, y: 0.22}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 430423c4dfb8be14c82e92f9407c31c1
-      internalID: -395926415
+      spriteID: 673a68d691a94a148975e90df1cf4a96
+      internalID: -1205434664
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cat_B_W_32x32-Sheet_5
+      name: Birb_Dissapear_B&W_32x32-Sheet_5
       rect:
         serializedVersion: 2
-        x: 160
+        x: 125
         y: 0
-        width: 32
-        height: 32
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        width: 25
+        height: 25
+      alignment: 9
+      pivot: {x: 0.16, y: 0.22}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c81ffc896dc592d47a8e45b09ebb6da6
-      internalID: 2092818888
+      spriteID: 4743217ef19222a4793096f44c7120ac
+      internalID: -1244996788
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cat_B_W_32x32-Sheet_6
+      name: Birb_Dissapear_B&W_32x32-Sheet_6
       rect:
         serializedVersion: 2
-        x: 192
+        x: 150
         y: 0
-        width: 32
-        height: 32
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        width: 25
+        height: 25
+      alignment: 9
+      pivot: {x: 0.16, y: 0.22}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8239a7ec7c69cf64a864239a4bed7ecc
-      internalID: -20704063
+      spriteID: 3885328484ddee24dbc7032b2e078638
+      internalID: 898046948
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cat_B_W_32x32-Sheet_7
+      name: Birb_Dissapear_B&W_32x32-Sheet_7
       rect:
         serializedVersion: 2
-        x: 224
+        x: 175
         y: 0
-        width: 32
-        height: 32
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        width: 25
+        height: 25
+      alignment: 9
+      pivot: {x: 0.16, y: 0.22}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b9f356cb0cf02e4459b43b82febbef69
-      internalID: -47213151
+      spriteID: be76ea3bc2eccaa45ba6b3eef4c51234
+      internalID: 759300453
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cat_B_W_32x32-Sheet_8
+      name: Birb_Dissapear_B&W_32x32-Sheet_8
       rect:
         serializedVersion: 2
-        x: 256
+        x: 200
         y: 0
-        width: 32
-        height: 32
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        width: 25
+        height: 25
+      alignment: 9
+      pivot: {x: 0.16, y: 0.22}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 641ff1d46fe791e46a82bd23a43d6e8f
-      internalID: 143727852
+      spriteID: 3786800016948d84092e29e82653f572
+      internalID: 125016628
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cat_B_W_32x32-Sheet_9
+      name: Birb_Dissapear_B&W_32x32-Sheet_9
       rect:
         serializedVersion: 2
-        x: 288
+        x: 225
         y: 0
-        width: 32
-        height: 32
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        width: 25
+        height: 25
+      alignment: 9
+      pivot: {x: 0.16, y: 0.22}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2c276c97d60243342b7b41df88a23a35
-      internalID: -790652115
+      spriteID: 51a9d4567124b9249b4dce0a70b4128a
+      internalID: 1016261772
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Birb_Dissapear_B&W_32x32-Sheet_10
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 0
+        width: 25
+        height: 25
+      alignment: 9
+      pivot: {x: 0.16, y: 0.22}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09fadb5ca02ae96418647eb2704aa25a
+      internalID: -59522448
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Birb_Dissapear_B&W_32x32-Sheet_11
+      rect:
+        serializedVersion: 2
+        x: 275
+        y: 0
+        width: 25
+        height: 25
+      alignment: 9
+      pivot: {x: 0.16, y: 0.22}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eab678fe968448e4d90d613ca94f8daf
+      internalID: -559084212
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Birb_Dissapear_B&W_32x32-Sheet_12
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 0
+        width: 25
+        height: 25
+      alignment: 9
+      pivot: {x: 0.16, y: 0.22}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ba57c8093174344c995bda951496409
+      internalID: 407622670
       vertices: []
       indices: 
       edges: []
@@ -348,16 +411,19 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Cat_B_W_32x32-Sheet_9: -790652115
-      Cat_B_W_32x32-Sheet_0: 700097087
-      Cat_B_W_32x32-Sheet_3: -793689087
-      Cat_B_W_32x32-Sheet_6: -20704063
-      Cat_B_W_32x32-Sheet_7: -47213151
-      Cat_B_W_32x32-Sheet_4: -395926415
-      Cat_B_W_32x32-Sheet_2: 1048280307
-      Cat_B_W_32x32-Sheet_8: 143727852
-      Cat_B_W_32x32-Sheet_5: 2092818888
-      Cat_B_W_32x32-Sheet_1: 1598457582
+      Birb_Dissapear_B&W_32x32-Sheet_0: -950844128
+      Birb_Dissapear_B&W_32x32-Sheet_5: -1244996788
+      Birb_Dissapear_B&W_32x32-Sheet_9: 1016261772
+      Birb_Dissapear_B&W_32x32-Sheet_3: -1367450721
+      Birb_Dissapear_B&W_32x32-Sheet_4: -1205434664
+      Birb_Dissapear_B&W_32x32-Sheet_2: 1760641032
+      Birb_Dissapear_B&W_32x32-Sheet_10: -59522448
+      Birb_Dissapear_B&W_32x32-Sheet_1: 700411681
+      Birb_Dissapear_B&W_32x32-Sheet_8: 125016628
+      Birb_Dissapear_B&W_32x32-Sheet_6: 898046948
+      Birb_Dissapear_B&W_32x32-Sheet_7: 759300453
+      Birb_Dissapear_B&W_32x32-Sheet_11: -559084212
+      Birb_Dissapear_B&W_32x32-Sheet_12: 407622670
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

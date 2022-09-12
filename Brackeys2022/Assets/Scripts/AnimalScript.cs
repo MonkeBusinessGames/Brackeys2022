@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class AnimalScript : MonoBehaviour
 {
+    [SerializeField] private GameObject checkPoint;
+
     [Header("SET ANIMAL ABILITY")]
     [Space(5)]
     [SerializeField] private bool catAbility = false;
@@ -12,6 +14,10 @@ public class AnimalScript : MonoBehaviour
     [SerializeField] private bool moleAbility = false;
     [Space(5)]
     [SerializeField] private bool birbAbility = false;
+    [Space(5)]
+    [SerializeField] private bool goatAbility = false;
+    [Space(5)]
+    [SerializeField] private bool monkeyAbility = false;
 
     public static event Action<Popup> OnAnimalAcquired;
     Popup popup;
@@ -43,10 +49,15 @@ public class AnimalScript : MonoBehaviour
                 AkSoundEngine.PostEvent(BirdSound.Id, this.gameObject);
             }
 
-            //Destroy(gameObject);
             OnAnimalAcquired?.Invoke(popup);
-            gameObject.SetActive(false);
+            GetComponent<Animator>().SetTrigger("Disappear");
         }
+    }
+
+    public void CreateCheckPoint()
+    {
+        checkPoint.SetActive(true);
+        Destroy(gameObject);
     }
 
     #region Validation

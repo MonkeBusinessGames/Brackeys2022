@@ -17,7 +17,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private SpriteRenderer wingFront;
     [SerializeField] private UIManager uiManager;
     [SerializeField] private Transform cameraTarget;
-
+    [SerializeField] private bool startFresh = false;
+    private SaveData data;
+    [SerializeField] private Transform[] checkPointList;
 
     [Header("Movement Fields")]
     [SerializeField] private float speed = 8;
@@ -42,21 +44,21 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float knockBackForce = 100;
     [SerializeField] private bool keepAttacking = false;
 
-    [Header("Long/Double Jump Fields")]
-    [SerializeField] private float jumpHoldTime = 2;
-
-    [Tooltip("Enables: Long Jump and Claw Abilities")]
+    [Tooltip("Enables: Claw Abilities")]
     [SerializeField] private bool catAcquired = false;
-    [SerializeField] private float longJumpForce = 500;
-    private float timer = 0;
-    private bool longJumpCharged = false;
 
     [Tooltip("Enables: Double Jump and Dive Abilities")]
     [SerializeField] private bool birbAcquired;
     [SerializeField] private Vector2 diveSpeed;
 
-    [Tooltip("Enables: Dig and Spike Abilities")]
+    [Tooltip("Enables: Ground Slam Abilities")]
     [SerializeField] private bool moleAcquired;
+
+    [Tooltip("Enables: Dash/Bash Abilities")]
+    [SerializeField] private bool goatAcquired;
+
+    [Tooltip("Enables: Climb Abilities")]
+    [SerializeField] private bool monkeyAcquired;
 
     [Header("Player SFX")]
     [SerializeField] private AK.Wwise.Event footstepsEvent;
@@ -69,22 +71,30 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private AK.Wwise.Event PlayerAttack2;
     [SerializeField] private AK.Wwise.Event PlayerAttack3;
     [SerializeField] private AK.Wwise.Event PlayerDeath;
-    
+
+
+    private void Awake()
+    {
+        data = SaveSystem.Load();
+        if (startFresh)
+            data = new SaveData();
+        catAcquired = data.hasCat;
+        birbAcquired = data.hasBirb;
+        moleAcquired = data.hasMole;
+        goatAcquired = data.hasGoat;
+        monkeyAcquired = data.hasMonkey;
+        transform.position = checkPointList[data.checkPointIndex].position;
+    }
+
     void Start()
     {
-        catAcquired = false;
-        birbAcquired = false;
-        moleAcquired = false;
         isLooking = false;
-
         state = PlayerState.Idle;
         flip = false;
         doubleJumped = false;
         hidden = false;
-        timer = 0;
-        longJumpCharged = false;
     }
-
+    
     void Update()
     {                
         //Handles Look Input
@@ -189,7 +199,6 @@ public class PlayerController : MonoBehaviour
                 //If the player touches the ground, reset them to idle.
                 if (groundCheck.IsTouchingLayers(ground))
                 {
-                    longJumpCharged = false;
                     doubleJumped = false;
                     state = PlayerState.Idle;
                     SetAnimation();
@@ -202,7 +211,6 @@ public class PlayerController : MonoBehaviour
                 //If the player touches the ground, reset them to idle.
                 if (groundCheck.IsTouchingLayers(ground))
                 {
-                    longJumpCharged = false;
                     doubleJumped = false;
                     state = PlayerState.Idle;
                     SetAnimation();
@@ -253,8 +261,7 @@ public class PlayerController : MonoBehaviour
             return; 
 
         //Set Velocity
-        if (!longJumpCharged)
-            rb.velocity = new Vector2(movementX * speed, rb.velocity.y);
+        rb.velocity = new Vector2(movementX * speed, rb.velocity.y);
 
         //State Machine
         switch (state)
@@ -276,15 +283,7 @@ public class PlayerController : MonoBehaviour
                 break;
             case PlayerState.JumpStart:
                 //Initiates Jump
-                if (longJumpCharged)
-                {
-                    if (flip)
-                        rb.AddForce(new Vector2(-longJumpForce, jumpForce));
-                    else
-                        rb.AddForce(new Vector2(longJumpForce, jumpForce));
-                }
-                else
-                    rb.AddForce(new Vector2(0, jumpForce)); 
+                rb.AddForce(new Vector2(0, jumpForce)); 
                 state = PlayerState.Jumping;
                 SetAnimation();
                 break;
@@ -376,18 +375,45 @@ public class PlayerController : MonoBehaviour
     public void AcquireBirbAbilities()
     {
         birbAcquired = true;
+        data.hasBirb = true;
+        SetCheckPoint(1);
     }
 
     /// <summary>Use this method to enable long jump and claws, when animal selection event is fired</summary>
     public void AcquireCatAbilities()
     {
         catAcquired = true;
+        data.hasCat = true;
+        SetCheckPoint(2);
     }
 
     /// <summary>Use this method to enable dig and spikes, when animal selection event is fired</summary>
     public void AcquireMoleAbilities()
     {
         moleAcquired = true;
+        data.hasMole = true;
+        SetCheckPoint(3);
+    }   
+    
+    /// <summary>Use this method to enable dash/bash, when animal selection event is fired</summary>
+    public void AcquireGoatAbilities()
+    {
+        goatAcquired = true;
+        data.hasGoat = true;
+        SetCheckPoint(4);
+    }
+
+    /// <summary>Use this method to enable climb, when animal selection event is fired</summary>
+    public void AcquireMonkeyAbilities()
+    {
+        monkeyAcquired = true;
+        data.hasMonkey = true;
+        SetCheckPoint(5);
+    }
+    private void SetCheckPoint(int checkPointNumber)
+    {
+        data.checkPointIndex = checkPointNumber;
+        SaveSystem.Save(data);
     }
 
     /// <summary>Checks if the any enemies were hit by the claw</summary>
@@ -473,8 +499,6 @@ public class PlayerController : MonoBehaviour
         }
         state = PlayerState.AttackEnd;
     }
-
-
 
     /// <summary>Activates the game over experience</summary>
     public void DeathEnd()
@@ -677,7 +701,6 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
-
 }
 
 /// <summary>The state the player is in</summary>
