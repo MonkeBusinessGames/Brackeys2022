@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private SpriteRenderer wingBack;
     [SerializeField] private SpriteRenderer wingFront;
     [SerializeField] private UIManager uiManager;
+    [SerializeField] private Transform cameraTarget;
 
 
     [Header("Movement Fields")]
@@ -28,6 +29,7 @@ public class PlayerController : MonoBehaviour
     private PlayerState state;
     public bool hidden = false;
     private bool doubleJumped = false;
+    private bool isLooking;
 
     [Header("Combat Fields")]
     [SerializeField] private BoxCollider2D clawRange;
@@ -68,13 +70,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private AK.Wwise.Event PlayerAttack3;
     [SerializeField] private AK.Wwise.Event PlayerDeath;
     
-
-
     void Start()
     {
         catAcquired = false;
         birbAcquired = false;
         moleAcquired = false;
+        isLooking = false;
 
         state = PlayerState.Idle;
         flip = false;
@@ -85,7 +86,10 @@ public class PlayerController : MonoBehaviour
     }
 
     void Update()
-    {
+    {                
+        //Handles Look Input
+        Look();
+
         if (state == (PlayerState.Hit))
             return;
 
@@ -213,41 +217,13 @@ public class PlayerController : MonoBehaviour
                 //Handle Hide Input
                 HideCheck();
                 break;
-            case PlayerState.JumpCharge:
-                if (Input.GetAxis("Vertical") >= 0)
-                {
-                    longJumpCharged = false;
-                    sRend.color = Color.white;
-                    timer = 0;
-                    state = PlayerState.Idle;
-                    SetAnimation();
-                }
-                if (longJumpCharged)
-                {
-                    if (Input.GetButtonDown("Jump"))
-                    {
-                        sRend.color = Color.white;
-                        state = PlayerState.JumpStart;
-                        SetAnimation();
-                        timer = 0;
-                    }
-                }
-                else
-                {
-                    timer += Time.deltaTime;
-                    sRend.color = Color.grey;
-                    if (timer >= jumpHoldTime)
-                    {
-                        longJumpCharged = true;
-                        doubleJumped = true;
-                        sRend.color = Color.cyan;
-                        timer = 0;
-                    }
-                }
-                break;
             case PlayerState.Attack:
                 if (Input.GetButtonDown("Attack"))
                     keepAttacking = true;
+                movementX = 0;
+                break;
+            case PlayerState.AttackEnd:
+                movementX = 0;
                 break;
         }
 
@@ -275,8 +251,6 @@ public class PlayerController : MonoBehaviour
     {
         if (state == (PlayerState.Hit))
             return; 
-        if (state == (PlayerState.JumpCharge))
-            return;
 
         //Set Velocity
         if (!longJumpCharged)
@@ -471,7 +445,15 @@ public class PlayerController : MonoBehaviour
     /// <summary>Ends the animation and resets to Idle</summary>
     public void AnimationEnd()
     {
-        sRend.color = Color.white;
+        if(state == PlayerState.Attack)
+            return;
+        state = PlayerState.Idle;
+        SetAnimation();
+    }
+    
+    /// <summary>Ends the animation and resets to Idle</summary>
+    public void NextAttackCheck()
+    {
         if (keepAttacking)
         {
             keepAttacking = false;
@@ -487,10 +469,12 @@ public class PlayerController : MonoBehaviour
                 anim.SetInteger("AttackCounter", 2);
                 return;
             }
-            
+
         }
-        state = PlayerState.Idle;
+        state = PlayerState.AttackEnd;
     }
+
+
 
     /// <summary>Activates the game over experience</summary>
     public void DeathEnd()
@@ -648,6 +632,52 @@ public class PlayerController : MonoBehaviour
         AkSoundEngine.PostEvent(PlayerGetHit.Id, this.gameObject);
     }
 
+    private void Look()
+    {
+        if (isLooking)
+        {
+            if (state == PlayerState.Idle)
+            {
+                float vertical = Input.GetAxis("Vertical");
+
+                if (vertical > .1f)
+                {
+                    cameraTarget.localPosition = new Vector2(0, Mathf.Lerp(cameraTarget.localPosition.y, 4, Time.deltaTime));
+                    return;
+                }
+                if (vertical < -.1f)
+                {
+                    cameraTarget.localPosition = new Vector2(0, Mathf.Lerp(cameraTarget.localPosition.y, -4, Time.deltaTime));
+                    return;
+                }
+            }
+
+            //If not idle or not looking, return cameratarget to normal
+            cameraTarget.localPosition = Vector2.Lerp(cameraTarget.localPosition, Vector2.zero, 4 * Time.deltaTime);
+            if (cameraTarget.localPosition == Vector3.zero)
+                isLooking = false;
+            return;
+        }
+
+        else if (state == PlayerState.Idle)
+        {
+            float vertical = Input.GetAxis("Vertical");
+
+            if (vertical > .1f)
+            {
+                cameraTarget.localPosition = new Vector2(0, Mathf.Lerp(cameraTarget.localPosition.y, 4, Time.deltaTime));
+                isLooking = true;
+                return;
+            }
+            if (vertical < -.1f)
+            {
+                cameraTarget.localPosition = new Vector2(0, Mathf.Lerp(cameraTarget.localPosition.y, -4, Time.deltaTime));
+                isLooking = true;
+                return;
+            }
+        }
+    }
+
 }
 
 /// <summary>The state the player is in</summary>
@@ -663,6 +693,6 @@ public enum PlayerState
     Die,
     Attack,
     DoubleJump,
-    JumpCharge,
-    Dive
+    AttackEnd,
+    Dive,
 }
