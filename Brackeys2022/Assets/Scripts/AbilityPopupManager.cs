@@ -5,16 +5,15 @@ using UnityEngine.UI;
 
 public class AbilityPopupManager : MonoBehaviour
 {
-    [SerializeField] private Transform catAbilityPopup;
-    [SerializeField] private Transform moleAbilityPopup;
-    [SerializeField] private Transform birbAbilityPopup;
-    [SerializeField] private Transform doubleJumpAcquired;
-    [SerializeField] private Transform tryToHideWithX;
+    [SerializeField] private Sprite catAbilityPopup;
+    [SerializeField] private Sprite moleAbilityPopup;
+    [SerializeField] private Sprite birbAbilityPopup;
+    [SerializeField] private Sprite doubleJumpAcquired;
+    [SerializeField] private Sprite tryToHideWithX;
 
     private Animator popupAnimator;
 
-    private SpriteRenderer spriteRenderer;
-    private Sprite popupSprite;
+    [SerializeField] private SpriteRenderer spriteRenderer;
 
     private void Awake()
     {
@@ -33,24 +32,19 @@ public class AbilityPopupManager : MonoBehaviour
         switch (popup)
         {
             case Popup.CAT_ABILITY_ACQUIRED:
-                popupSprite = catAbilityPopup.GetComponent<SpriteRenderer>().sprite;
-                spriteRenderer.sprite = popupSprite;
+                spriteRenderer.sprite = catAbilityPopup;
                 break;
             case Popup.MOLE_ABILITY_ACQUIRED:
-                popupSprite = moleAbilityPopup.GetComponent<SpriteRenderer>().sprite;
-                spriteRenderer.sprite = popupSprite;
+                spriteRenderer.sprite = moleAbilityPopup;
                 break;
             case Popup.BIRB_ABILITY_ACQUIRED:
-                popupSprite = birbAbilityPopup.GetComponent<SpriteRenderer>().sprite;
-                spriteRenderer.sprite = popupSprite;
+                spriteRenderer.sprite = birbAbilityPopup;
                 break;
             case Popup.DOUBLE_JUMP_ACQUIRED:
-                popupSprite = doubleJumpAcquired.GetComponent<SpriteRenderer>().sprite;
-                spriteRenderer.sprite = popupSprite;
+                spriteRenderer.sprite = doubleJumpAcquired;
                 break;
             case Popup.TRY_TO_HIDE_WITH_X:
-                popupSprite = tryToHideWithX.GetComponent<SpriteRenderer>().sprite;
-                spriteRenderer.sprite = popupSprite;
+                spriteRenderer.sprite = tryToHideWithX;
                 break;
         }
         popupAnimator.enabled = true;

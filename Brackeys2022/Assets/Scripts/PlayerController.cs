@@ -344,6 +344,8 @@ public class PlayerController : MonoBehaviour
         if (collider.CompareTag("End"))
         {
             uiManager.GameComplete();
+            data = new SaveData(data.volume, data.languageIndex);
+            SaveSystem.Save(data);
         }
 
         if (hidden)

@@ -38,6 +38,19 @@ public class SaveData
         languageIndex = 0;
     }
 
+    /// <summary>Creates a new save file with the given sound and language.</summary>
+    /// <param name="soundVolume">Determines what volume to set the sound at</param>
+    /// <param name="language">Determined what the language should be</param>
+    public SaveData(float soundVolume, int language)
+    {
+        hasCat = hasBirb = hasMole = hasGoat = hasMonkey = false;
+        checkPointIndex = 0;
+        volume = soundVolume;
+        languageIndex = language;
+    }
+
+
+
     /// <summary>    /// <summary>Creates a save file from the given save information</summary>
     /// <param name="cat">Determines whether the cat power is on</param>
     /// <param name="birb">Determines whether the birb power is on</param>
