@@ -22,11 +22,21 @@ public class AbilityPopupManager : MonoBehaviour
 
         popupAnimator.enabled = false;
     }
-    private void Start()
+    private void OnEnable()
     {
         AnimalScript.OnAnimalAcquired += AnimalScript_OnAnimalAcquired;
     }
-
+    private void OnDestroy()
+    {
+        AnimalScript.OnAnimalAcquired -= AnimalScript_OnAnimalAcquired;
+    }
+    private void Update()
+    {
+        if (popupAnimator.enabled)
+        {
+            CheckPopupDirection();
+        }
+    }
     public void ShowPopup(Popup popup)
     {
         switch (popup)
@@ -39,7 +49,10 @@ public class AbilityPopupManager : MonoBehaviour
                 break;
             case Popup.BIRB_ABILITY_ACQUIRED:
                 spriteRenderer.sprite = birbAbilityPopup;
-                break;
+                break; 
+            //case Popup.GOAT_ABILITY_ACQUIRED:
+            //    spriteRenderer.sprite = goatAbilityPopup;
+            //    break;
             case Popup.DOUBLE_JUMP_ACQUIRED:
                 spriteRenderer.sprite = doubleJumpAcquired;
                 break;
@@ -48,6 +61,18 @@ public class AbilityPopupManager : MonoBehaviour
                 break;
         }
         popupAnimator.enabled = true;
+    }
+
+    private void CheckPopupDirection()
+    {
+        if(transform.parent.transform.localScale.x < 0)
+        {
+            spriteRenderer.flipX = false;
+        }
+        else
+        {
+            spriteRenderer.flipX = true;
+        }
     }
 
     private void AnimalScript_OnAnimalAcquired(Popup popup)

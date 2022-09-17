@@ -37,11 +37,10 @@ public class PlayerController : MonoBehaviour
     [Header("Dashing Fields")]
     [SerializeField] private float dashTime;
     [SerializeField] private float dashSpeed;
-    [SerializeField] private float distanceBetweenImages = 0.1f;
     [SerializeField] private float dashCooldown;
     bool isDashing = false;
     bool canDash = true;
-    DashAfterImage afterImage;
+    DashAfterImage afterImage;  // A bit of a dependency meme
 
     [Header("Combat Fields")]
     [SerializeField] private BoxCollider2D clawRange;

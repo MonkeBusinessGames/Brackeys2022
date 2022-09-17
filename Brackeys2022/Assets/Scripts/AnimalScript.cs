@@ -74,20 +74,40 @@ public class AnimalScript : MonoBehaviour
     /// </summary>
     private void OnValidate()
     {
-        if (catAbility && (moleAbility || birbAbility))
+        if (catAbility)
         {
             moleAbility = false;
             birbAbility = false;
+            goatAbility = false;
+            monkeyAbility = false;
         }
-        if (moleAbility && (catAbility || birbAbility))
+        if (moleAbility)
         {
             birbAbility = false;
             catAbility = false;
+            goatAbility = false;
+            monkeyAbility = false;
         }
-        if (birbAbility && (moleAbility || birbAbility))
+        if (birbAbility)
         {
             moleAbility = false;
             catAbility = false;
+            goatAbility = false;
+            monkeyAbility = false;
+        }
+        if (goatAbility)
+        {
+            moleAbility = false;
+            catAbility = false;
+            birbAbility = false;
+            monkeyAbility = false;
+        }
+        if (monkeyAbility)
+        {
+            moleAbility = false;
+            catAbility = false;
+            birbAbility = false;
+            goatAbility = false;
         }
     }
 #endif
