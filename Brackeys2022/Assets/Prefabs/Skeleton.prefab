@@ -126,6 +126,7 @@ GameObject:
   - component: {fileID: 3056591562166829181}
   - component: {fileID: 3056591562166829180}
   - component: {fileID: 2804494306991981463}
+  - component: {fileID: 7735786957223481838}
   m_Layer: 3
   m_Name: Skeleton
   m_TagString: Enemy
@@ -319,6 +320,20 @@ MonoBehaviour:
     idInternal: 0
     valueGuidInternal: 
     WwiseObjectReference: {fileID: 11400000, guid: 18b56bef098e0c648935f85491e3d2a2, type: 2}
+--- !u!114 &7735786957223481838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3056591562166829155}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11b95f361f497b9498bdc52c52dd9e9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  manaPrefab: {fileID: 2877836548612758623, guid: 635c738b6253bf7499c98c5b4a5c18d6, type: 3}
+  manaCount: 3
 --- !u!1 &5597891260576395096
 GameObject:
   m_ObjectHideFlags: 0

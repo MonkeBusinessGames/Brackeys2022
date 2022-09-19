@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private bool startFresh = false;
     private SaveData data;
     [SerializeField] private Transform[] checkPointList;
+    [SerializeField] private ParticleSystem particles;
 
     [Header("Movement Fields")]
     [SerializeField] private float speed = 8;
@@ -39,7 +40,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private PolygonCollider2D spikeRange;
     [SerializeField] private BoxCollider2D hitBox;
     [SerializeField] private ContactFilter2D enemies;
-    private float health = 5;
+    private int health = 5;
+    private float mana = 20;
     [SerializeField] private float attackPower = 10;
     [SerializeField] private float knockBackForce = 100;
     [SerializeField] private bool keepAttacking = false;
@@ -78,6 +80,10 @@ public class PlayerController : MonoBehaviour
         data = SaveSystem.Load();
         if (startFresh)
             data = new SaveData();
+        health = data.healthCount;
+        mana = data.manaCount;
+        uiManager.IncreaseManaLimit(data.manaCount - 20);
+        uiManager.AddHealthStar(data.healthCount);
         catAcquired = data.hasCat;
         birbAcquired = data.hasBirb;
         moleAcquired = data.hasMole;
@@ -131,11 +137,14 @@ public class PlayerController : MonoBehaviour
                 {
                     if(catAcquired)
                     {
-                        EndFall();
-                        state = PlayerState.Attack;
-                        anim.SetInteger("AttackCounter", 0);
-                        SetAnimation();
-                        movementX = 0;
+                        if (mana > 1)
+                        {
+                            EndFall();
+                            state = PlayerState.Attack;
+                            anim.SetInteger("AttackCounter", 0);
+                            SetAnimation();
+                            movementX = 0;
+                        }
                     }
                 }
 
@@ -324,7 +333,7 @@ public class PlayerController : MonoBehaviour
                 rb.velocity = Vector2.zero;
                 rb.AddForce((transform.position - collision.transform.position).normalized * knockBackForce, ForceMode2D.Impulse);
                 health -= 1;
-                uiManager.RemoveHealth();
+                uiManager.RemoveHealth(health);
                 if (health <= 0)
                 {
                     state = PlayerState.Die;
@@ -348,6 +357,38 @@ public class PlayerController : MonoBehaviour
             SaveSystem.Save(data);
         }
 
+        if (collider.CompareTag("Checkpoint"))
+        {
+            SetCheckPoint(1);
+            uiManager.RecoverHealth();
+            mana = uiManager.RecoverMana(100);
+        }
+
+        if (collider.CompareTag("Star"))
+        {
+            print("Star collided!");
+
+            data.healthCount += 1;
+            SaveSystem.Save(data);
+            health = data.healthCount;
+            uiManager.AddHealthStar(health);
+            Destroy(collider.gameObject);
+        }
+
+        if (collider.CompareTag("ManaOrb"))
+        {
+            data.manaCount += 5;
+            SaveSystem.Save(data);
+            mana = uiManager.IncreaseManaLimit(5);
+            Destroy(collider.gameObject);
+        }
+
+        if (collider.CompareTag("ManaDust"))
+        {
+            mana = uiManager.RecoverMana(1);
+            Destroy(collider.gameObject);
+        }
+
         if (hidden)
         return;
 
@@ -359,7 +400,7 @@ public class PlayerController : MonoBehaviour
                 rb.velocity = Vector2.zero;
                 rb.AddForce((transform.position - collider.transform.position).normalized * knockBackForce, ForceMode2D.Impulse);
                 health -= 1;
-                uiManager.RemoveHealth();
+                uiManager.RemoveHealth(health);
                 if (health <= 0)
                 {
                     state = PlayerState.Die;
@@ -415,6 +456,8 @@ public class PlayerController : MonoBehaviour
     private void SetCheckPoint(int checkPointNumber)
     {
         data.checkPointIndex = checkPointNumber;
+        uiManager.RecoverHealth();
+        health = data.healthCount;
         SaveSystem.Save(data);
     }
 
@@ -464,7 +507,7 @@ public class PlayerController : MonoBehaviour
         rb.AddForce((transform.position - enemyRange.position).normalized * knockBackForce, ForceMode2D.Impulse);
         health -= 1;
         AkSoundEngine.PostEvent(PlayerGetHit.Id, this.gameObject);
-        uiManager.RemoveHealth();
+        uiManager.RemoveHealth(health);
         if (health <= 0)
                 state = PlayerState.Die;
             SetAnimation();
@@ -515,10 +558,13 @@ public class PlayerController : MonoBehaviour
         if (birbAcquired & !doubleJumped)
             if (Input.GetButtonDown("Jump"))
             {
-                doubleJumped = true;
-                state = PlayerState.DoubleJump;
-                AkSoundEngine.PostEvent(jumpSound.Id, this.gameObject);
-                SetAnimation();
+                if (mana >= 2)
+                {
+                    doubleJumped = true;
+                    state = PlayerState.DoubleJump;
+                    AkSoundEngine.PostEvent(jumpSound.Id, this.gameObject);
+                    SetAnimation();
+                }
             }
     }
     /// <summary>Checks whether to dive</summary>
@@ -555,11 +601,32 @@ public class PlayerController : MonoBehaviour
         anim.SetFloat("Jump Velocity", 0);
     }
 
+    /// <summary>Use the specified amount of mana</summary>
+    /// <param name="manaUsed">The amount of mana used</param>
+    public void UseMana(int manaUsed)
+    {
+        mana = uiManager.RemoveMana(manaUsed);
+        particles.Emit(manaUsed*10);
+    }
+
     /// <summary>Checks whether to hide</summary>
     private bool HideCheck()
     {
         if (hidden)
         {
+            if(mana <= 0)
+            {
+
+                anim.speed = 1;
+                sRend.color = Color.white;
+                hidden = false;
+                speed *= 2;
+                Physics2D.IgnoreLayerCollision(3, 7, false);
+                AkSoundEngine.PostEvent(unhideSound.Id, this.gameObject);
+                OnHideEnd();
+                particles.Stop();
+            }
+            mana = uiManager.RemoveMana(Time.deltaTime);
             if (Input.GetButtonUp("Hide"))
             {
                 anim.speed = 1;
@@ -569,8 +636,7 @@ public class PlayerController : MonoBehaviour
                 Physics2D.IgnoreLayerCollision(3, 7, false);
                 AkSoundEngine.PostEvent(unhideSound.Id, this.gameObject);
                 OnHideEnd();
-                
-
+                particles.Stop();
             }
             return true;
         }
@@ -582,6 +648,7 @@ public class PlayerController : MonoBehaviour
             hidden = true;
             speed /= 2;
             Physics2D.IgnoreLayerCollision(3, 7, true);
+            particles.Play();
         }
         return false;
     }
