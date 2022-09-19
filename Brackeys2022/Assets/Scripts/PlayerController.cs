@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.Tilemaps;
+using System;
 
 public class PlayerController : MonoBehaviour
 {
@@ -33,6 +34,14 @@ public class PlayerController : MonoBehaviour
     public bool hidden = false;
     private bool doubleJumped = false;
     private bool isLooking;
+
+    [Header("Dashing Fields")]
+    [SerializeField] private float dashTime;
+    [SerializeField] private float dashSpeed;
+    [SerializeField] private float dashCooldown;
+    bool isDashing = false;
+    bool canDash = true;
+    DashAfterImage afterImage;  // A bit of a dependency meme
 
     [Header("Combat Fields")]
     [SerializeField] private BoxCollider2D clawRange;
@@ -77,6 +86,7 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
+        afterImage = GetComponent<DashAfterImage>();
         data = SaveSystem.Load();
         if (startFresh)
             data = new SaveData();
@@ -110,7 +120,11 @@ public class PlayerController : MonoBehaviour
             return;
 
         //Get Walk Input
-        movementX = Input.GetAxis("Horizontal");
+        if (!isDashing)
+        {
+            movementX = Input.GetAxis("Horizontal");
+        }
+        
 
         //Get Input Based on State
         switch (state)
@@ -176,6 +190,16 @@ public class PlayerController : MonoBehaviour
                         movementX = 0;
                     }
                 }
+
+                // Dashing
+                if (goatAcquired)
+                {
+                    if (Input.GetKeyDown(KeyCode.LeftShift) && canDash)
+                    {
+                        state = PlayerState.Dash;
+                    }
+                }
+
                 break;
             case PlayerState.JumpStart:
                 break;
@@ -272,6 +296,19 @@ public class PlayerController : MonoBehaviour
         //Set Velocity
         rb.velocity = new Vector2(movementX * speed, rb.velocity.y);
 
+        if (isDashing)
+        {
+            if(rb.velocity.x > 0)
+            {
+                rb.AddForce(new Vector2(dashSpeed, 0), ForceMode2D.Impulse);
+            }
+            else
+            {
+                rb.AddForce(new Vector2(-dashSpeed, 0), ForceMode2D.Impulse);
+            }
+        }
+            
+
         //State Machine
         switch (state)
         {
@@ -317,9 +354,27 @@ public class PlayerController : MonoBehaviour
                 else
                     rb.velocity = diveSpeed;
                 break;
+            case PlayerState.Dash:
+                afterImage.ActivateAfterImages(true);
+                StartCoroutine(Dash());
+                break;
         }
     }
 
+    private IEnumerator Dash()
+    {
+        canDash = false;
+        isDashing = true;
+        yield return new WaitForSeconds(dashTime);
+
+        isDashing = false;
+        rb.velocity = Vector2.zero;
+        state = PlayerState.Walking;
+        afterImage.ActivateAfterImages(false);
+        yield return new WaitForSeconds(dashCooldown);
+        canDash = true;
+    }
+    
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (hidden)
@@ -787,4 +842,5 @@ public enum PlayerState
     DoubleJump,
     AttackEnd,
     Dive,
+    Dash
 }

@@ -48,6 +48,13 @@ public class AnimalScript : MonoBehaviour
                 popup = Popup.BIRB_ABILITY_ACQUIRED;
                 AkSoundEngine.PostEvent(BirdSound.Id, this.gameObject);
             }
+            else if (goatAbility)
+            {
+                collision.gameObject.GetComponent<PlayerController>().AcquireGoatAbilities();
+                popup = Popup.GOAT_ABILITY_ACQUIRED;
+                //AkSoundEngine.PostEvent(GoatSound.Id, this.gameObject);
+            }
+
 
             OnAnimalAcquired?.Invoke(popup);
             GetComponent<Animator>().SetTrigger("Disappear");
@@ -67,20 +74,40 @@ public class AnimalScript : MonoBehaviour
     /// </summary>
     private void OnValidate()
     {
-        if (catAbility && (moleAbility || birbAbility))
+        if (catAbility)
         {
             moleAbility = false;
             birbAbility = false;
+            goatAbility = false;
+            monkeyAbility = false;
         }
-        if (moleAbility && (catAbility || birbAbility))
+        if (moleAbility)
         {
             birbAbility = false;
             catAbility = false;
+            goatAbility = false;
+            monkeyAbility = false;
         }
-        if (birbAbility && (moleAbility || birbAbility))
+        if (birbAbility)
         {
             moleAbility = false;
             catAbility = false;
+            goatAbility = false;
+            monkeyAbility = false;
+        }
+        if (goatAbility)
+        {
+            moleAbility = false;
+            catAbility = false;
+            birbAbility = false;
+            monkeyAbility = false;
+        }
+        if (monkeyAbility)
+        {
+            moleAbility = false;
+            catAbility = false;
+            birbAbility = false;
+            goatAbility = false;
         }
     }
 #endif
