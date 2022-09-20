@@ -78,24 +78,28 @@ public class UIManager : MonoBehaviour
         healthStars[healthRemaining].SetBool("Broken", true);
     }
 
-    public void RecoverHealth()
+    public int RecoverHealth()
     {
+        int health = 0;
         for(int i = 0; i < healthStars.Length; i++)
         {
             healthStars[i].SetBool("Broken", false);
+            if (healthStars[i].isActiveAndEnabled)
+                health++;
         }
+
+        return health;
     }
 
-    public void AddHealthStar(int healthCount)
+    public int AddHealthStar(int starCount)
     {
         print("Star added!");
-        RecoverHealth();
 
-        for (int i = 0; i < healthCount; i++)
+        for (int i = 0; i < starCount; i++)
         {
             healthStars[i].gameObject.SetActive(true);
         }
-
+        return RecoverHealth();
     }
     public float RemoveMana(float manaDrained)
     {
@@ -121,10 +125,10 @@ public class UIManager : MonoBehaviour
 
     public float IncreaseManaLimit(float manaIncrease)
     {
-        RecoverMana(manaIncrease);
 
         manaSlider.maxValue += manaIncrease;
         manaBar.sizeDelta = new Vector2(manaBar.sizeDelta.x + (10 * manaIncrease), manaBar.sizeDelta.y);
+        RecoverMana(manaIncrease);
         return manaSlider.value;
     }
 

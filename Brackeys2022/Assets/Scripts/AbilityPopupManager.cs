@@ -8,6 +8,8 @@ public class AbilityPopupManager : MonoBehaviour
     [SerializeField] private Sprite catAbilityPopup;
     [SerializeField] private Sprite moleAbilityPopup;
     [SerializeField] private Sprite birbAbilityPopup;
+    [SerializeField] private Sprite goatAbilityPopup;
+    [SerializeField] private Sprite monkeyAbilityPopup;
     [SerializeField] private Sprite doubleJumpAcquired;
     [SerializeField] private Sprite tryToHideWithX;
 
@@ -49,9 +51,12 @@ public class AbilityPopupManager : MonoBehaviour
                 break;
             case Popup.BIRB_ABILITY_ACQUIRED:
                 spriteRenderer.sprite = birbAbilityPopup;
-                break; 
+                break;
             //case Popup.GOAT_ABILITY_ACQUIRED:
             //    spriteRenderer.sprite = goatAbilityPopup;
+            //    break;
+            //case Popup.MONKEY_ABILITY_ACQUIRED:
+            //    spriteRenderer.sprite = monkeyAbilityPopup;
             //    break;
             case Popup.DOUBLE_JUMP_ACQUIRED:
                 spriteRenderer.sprite = doubleJumpAcquired;
@@ -94,6 +99,7 @@ public enum Popup
     MOLE_ABILITY_ACQUIRED,
     BIRB_ABILITY_ACQUIRED,
     GOAT_ABILITY_ACQUIRED,
+    MONKEY_ABILITY_ACQUIRED,
     DOUBLE_JUMP_ACQUIRED,
     TRY_TO_HIDE_WITH_X
 }

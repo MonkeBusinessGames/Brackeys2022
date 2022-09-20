@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3621245386776631807}
   - component: {fileID: 3621245386776631800}
   - component: {fileID: 1070175548670852416}
+  - component: {fileID: 6671413622196717142}
   m_Layer: 0
   m_Name: ManaStar
   m_TagString: ManaOrb
@@ -101,3 +102,16 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &6671413622196717142
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3621245386776631806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e4cdaf241b9ab14abfd30707e50f4d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  indexNumber: 0

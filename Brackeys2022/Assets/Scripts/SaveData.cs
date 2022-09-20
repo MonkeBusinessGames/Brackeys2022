@@ -4,11 +4,11 @@ using System.Collections.Generic;
 /// <summary>A class to store a player's save data.</summary>
 public class SaveData
 {
-    /// <summary>Shows how many health stars the player has.</summary>
-    public int healthCount;
+    /// <summary>Shows which health stars the player has.</summary>
+    public bool[] starsAcquired;
     
     /// <summary>Shows how many mana orbs the player has.</summary>
-    public float manaCount;
+    public bool[] orbsAcquired;
 
     /// <summary>Shows whether the player has gained cat powers.</summary>
     public bool hasCat;    
@@ -37,8 +37,8 @@ public class SaveData
     /// <summary>Creates a brand new, empty save file.</summary>
     public SaveData()
     {
-        healthCount = 5;
-        manaCount = 20;
+        starsAcquired = new bool[3];
+        orbsAcquired = new bool[3];
         hasCat = hasBirb = hasMole = hasGoat = hasMonkey = false;
         checkPointIndex = 0;
         volume = 1;
@@ -50,8 +50,8 @@ public class SaveData
     /// <param name="language">Determined what the language should be</param>
     public SaveData(float soundVolume, int language)
     {
-        healthCount = 5;
-        manaCount = 20;
+        starsAcquired = new bool[3];
+        orbsAcquired = new bool[3];
         hasCat = hasBirb = hasMole = hasGoat = hasMonkey = false;
         checkPointIndex = 0;
         volume = soundVolume;
@@ -61,8 +61,8 @@ public class SaveData
 
 
     /// <summary>Creates a save file from the given save information</summary>
-    /// <param name="health">Determines how much health the player can have</param>
-    /// <param name="mana">Determines how much mana the player can have</param>
+    /// <param name="health">Determines how many health stars the player has</param>
+    /// <param name="mana">Determines how many mana orbs the player has</param>
     /// <param name="cat">Determines whether the cat power is on</param>
     /// <param name="birb">Determines whether the birb power is on</param>
     /// <param name="mole">Determines whether the mole power is on</param>
@@ -71,10 +71,10 @@ public class SaveData
     /// <param name="checkPoint">Determines which chekpoint to spawn at</param>
     /// <param name="soundVolume">Determines what volume to set the sound at</param>
     /// <param name="language">Determined what the language should be</param>
-    public SaveData(int health, int mana, bool cat, bool birb, bool mole, bool goat, bool monkey, int checkPoint, float soundVolume, int language)
+    public SaveData(bool[] health, bool[] mana, bool cat, bool birb, bool mole, bool goat, bool monkey, int checkPoint, float soundVolume, int language)
     {
-        healthCount = health;
-        manaCount = mana;
+        starsAcquired = health;
+        orbsAcquired = mana;
         hasCat = cat;
         hasBirb = birb;
         hasMole = mole;

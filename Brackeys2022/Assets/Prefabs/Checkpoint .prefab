@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3856507474973319700}
   - component: {fileID: 3856507474973319703}
+  - component: {fileID: 7611074643064961775}
   - component: {fileID: 8122484741232070027}
   m_Layer: 0
   m_Name: 'Checkpoint '
@@ -85,6 +86,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &7611074643064961775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3856507474973319701}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e4cdaf241b9ab14abfd30707e50f4d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  indexNumber: 0
 --- !u!61 &8122484741232070027
 BoxCollider2D:
   m_ObjectHideFlags: 0

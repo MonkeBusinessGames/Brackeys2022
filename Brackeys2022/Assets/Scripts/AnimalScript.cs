@@ -54,7 +54,12 @@ public class AnimalScript : MonoBehaviour
                 popup = Popup.GOAT_ABILITY_ACQUIRED;
                 //AkSoundEngine.PostEvent(GoatSound.Id, this.gameObject);
             }
-
+            else if (monkeyAbility)
+            {
+                collision.gameObject.GetComponent<PlayerController>().AcquireMonkeyAbilities();
+                popup = Popup.MONKEY_ABILITY_ACQUIRED;
+                //AkSoundEngine.PostEvent(MonkeySound.Id, this.gameObject);
+            }
 
             OnAnimalAcquired?.Invoke(popup);
             GetComponent<Animator>().SetTrigger("Disappear");

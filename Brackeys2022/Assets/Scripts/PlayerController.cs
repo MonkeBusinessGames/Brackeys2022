@@ -20,8 +20,13 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Transform cameraTarget;
     [SerializeField] private bool startFresh = false;
     private SaveData data;
-    [SerializeField] private Transform[] checkPointList;
     [SerializeField] private ParticleSystem particles;
+
+    [Header("Object Lists")]
+    [SerializeField] private Transform[] checkPointList;
+    [SerializeField] private AnimalScript[] animalList;
+    [SerializeField] private GameObject[] starList;
+    [SerializeField] private GameObject[] orbList;
 
     [Header("Movement Fields")]
     [SerializeField] private float speed = 8;
@@ -90,16 +95,7 @@ public class PlayerController : MonoBehaviour
         data = SaveSystem.Load();
         if (startFresh)
             data = new SaveData();
-        health = data.healthCount;
-        mana = data.manaCount;
-        uiManager.IncreaseManaLimit(data.manaCount - 20);
-        uiManager.AddHealthStar(data.healthCount);
-        catAcquired = data.hasCat;
-        birbAcquired = data.hasBirb;
-        moleAcquired = data.hasMole;
-        goatAcquired = data.hasGoat;
-        monkeyAcquired = data.hasMonkey;
-        transform.position = checkPointList[data.checkPointIndex].position;
+        InitializeArea();
     }
 
     void Start()
@@ -361,20 +357,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private IEnumerator Dash()
-    {
-        canDash = false;
-        isDashing = true;
-        yield return new WaitForSeconds(dashTime);
-
-        isDashing = false;
-        rb.velocity = Vector2.zero;
-        state = PlayerState.Walking;
-        afterImage.ActivateAfterImages(false);
-        yield return new WaitForSeconds(dashCooldown);
-        canDash = true;
-    }
-    
+    #region"Collision handling"
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (hidden)
@@ -414,8 +397,8 @@ public class PlayerController : MonoBehaviour
 
         if (collider.CompareTag("Checkpoint"))
         {
-            SetCheckPoint(1);
-            uiManager.RecoverHealth();
+            SetCheckPoint(collider.GetComponent<IndexNumber>().indexNumber);
+            health = uiManager.RecoverHealth();
             mana = uiManager.RecoverMana(100);
         }
 
@@ -423,16 +406,15 @@ public class PlayerController : MonoBehaviour
         {
             print("Star collided!");
 
-            data.healthCount += 1;
+            data.starsAcquired[collider.GetComponent<IndexNumber>().indexNumber] = true;
             SaveSystem.Save(data);
-            health = data.healthCount;
-            uiManager.AddHealthStar(health);
+            health = uiManager.AddHealthStar(health);
             Destroy(collider.gameObject);
         }
 
         if (collider.CompareTag("ManaOrb"))
         {
-            data.manaCount += 5;
+            data.orbsAcquired[collider.GetComponent<IndexNumber>().indexNumber] = true;
             SaveSystem.Save(data);
             mana = uiManager.IncreaseManaLimit(5);
             Destroy(collider.gameObject);
@@ -468,7 +450,9 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
+    #endregion
 
+    #region"Ability Acquisition"
     /// <summary>Use this method to enable doublejump and dive, when animal selection event is fired</summary>
     public void AcquireBirbAbilities()
     {
@@ -508,11 +492,114 @@ public class PlayerController : MonoBehaviour
         data.hasMonkey = true;
         SetCheckPoint(5);
     }
+    #endregion
+
+    /// <summary>Allows the player to look up or down</summary>
+    private void Look()
+    {
+        if (isLooking)
+        {
+            if (state == PlayerState.Idle)
+            {
+                float vertical = Input.GetAxis("Vertical");
+
+                if (vertical > .1f)
+                {
+                    cameraTarget.localPosition = new Vector2(0, Mathf.Lerp(cameraTarget.localPosition.y, 4, Time.deltaTime));
+                    return;
+                }
+                if (vertical < -.1f)
+                {
+                    cameraTarget.localPosition = new Vector2(0, Mathf.Lerp(cameraTarget.localPosition.y, -4, Time.deltaTime));
+                    return;
+                }
+            }
+
+            //If not idle or not looking, return cameratarget to normal
+            cameraTarget.localPosition = Vector2.Lerp(cameraTarget.localPosition, Vector2.zero, 4 * Time.deltaTime);
+            if (cameraTarget.localPosition == Vector3.zero)
+                isLooking = false;
+            return;
+        }
+
+        else if (state == PlayerState.Idle)
+        {
+            float vertical = Input.GetAxis("Vertical");
+
+            if (vertical > .1f)
+            {
+                cameraTarget.localPosition = new Vector2(0, Mathf.Lerp(cameraTarget.localPosition.y, 4, Time.deltaTime));
+                isLooking = true;
+                return;
+            }
+            if (vertical < -.1f)
+            {
+                cameraTarget.localPosition = new Vector2(0, Mathf.Lerp(cameraTarget.localPosition.y, -4, Time.deltaTime));
+                isLooking = true;
+                return;
+            }
+        }
+    }
+
+    private void InitializeArea()
+    {
+        //Health
+        for(int i = 0; i < data.starsAcquired.Length; i++)
+        {
+            if (data.starsAcquired[i])
+            {
+                health += 5;
+                starList[i].SetActive(false);
+            }
+        }
+
+        uiManager.AddHealthStar(health/5 - 4);
+
+        //Mana
+        for (int i = 0; i < data.orbsAcquired.Length; i++)
+        {
+            if (data.orbsAcquired[i])
+            {
+                mana = uiManager.IncreaseManaLimit(5);
+                orbList[i].SetActive(false);
+            }
+        }
+        //Abilities
+        if (data.hasCat)
+        {
+            catAcquired = true;
+            animalList[0].CreateCheckPoint();
+        }
+        if (data.hasBirb)
+        {
+            birbAcquired = true;
+            animalList[1].CreateCheckPoint();
+        }
+        if (data.hasMole)
+        {
+            moleAcquired = true;
+            animalList[2].CreateCheckPoint();
+        }
+        if (data.hasGoat)
+        {
+            goatAcquired = true;
+            animalList[3].CreateCheckPoint();
+        }
+        if (data.hasMonkey)
+        {
+            monkeyAcquired = true;
+            animalList[4].CreateCheckPoint();
+        }
+        
+        //Checkpoints
+        transform.position = checkPointList[data.checkPointIndex].position;
+    }
+
+    /// <summary>Sets the checkPoint number</summary>
+    /// <param name="checkPointNumber"></param>
     private void SetCheckPoint(int checkPointNumber)
     {
         data.checkPointIndex = checkPointNumber;
-        uiManager.RecoverHealth();
-        health = data.healthCount;
         SaveSystem.Save(data);
     }
 
@@ -607,6 +694,7 @@ public class PlayerController : MonoBehaviour
         uiManager.GameOver();
     }
 
+    #region"Jump Methods"
     /// <summary>Checks whether to double jump</summary>
     public void DoubleJumpCheck()
     {
@@ -655,6 +743,22 @@ public class PlayerController : MonoBehaviour
     {
         anim.SetFloat("Jump Velocity", 0);
     }
+    #endregion
+
+    private IEnumerator Dash()
+    {
+        canDash = false;
+        isDashing = true;
+        yield return new WaitForSeconds(dashTime);
+
+        isDashing = false;
+        rb.velocity = Vector2.zero;
+        state = PlayerState.Walking;
+        afterImage.ActivateAfterImages(false);
+        yield return new WaitForSeconds(dashCooldown);
+        canDash = true;
+    }
+
 
     /// <summary>Use the specified amount of mana</summary>
     /// <param name="manaUsed">The amount of mana used</param>
@@ -746,7 +850,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    //SFX
+#region"SFX"
     public void PlayFootstepSound()
     {
         AkSoundEngine.PostEvent(footstepsEvent.Id, this.gameObject);
@@ -779,52 +883,8 @@ public class PlayerController : MonoBehaviour
     {
         AkSoundEngine.PostEvent(PlayerGetHit.Id, this.gameObject);
     }
+    #endregion
 
-    private void Look()
-    {
-        if (isLooking)
-        {
-            if (state == PlayerState.Idle)
-            {
-                float vertical = Input.GetAxis("Vertical");
-
-                if (vertical > .1f)
-                {
-                    cameraTarget.localPosition = new Vector2(0, Mathf.Lerp(cameraTarget.localPosition.y, 4, Time.deltaTime));
-                    return;
-                }
-                if (vertical < -.1f)
-                {
-                    cameraTarget.localPosition = new Vector2(0, Mathf.Lerp(cameraTarget.localPosition.y, -4, Time.deltaTime));
-                    return;
-                }
-            }
-
-            //If not idle or not looking, return cameratarget to normal
-            cameraTarget.localPosition = Vector2.Lerp(cameraTarget.localPosition, Vector2.zero, 4 * Time.deltaTime);
-            if (cameraTarget.localPosition == Vector3.zero)
-                isLooking = false;
-            return;
-        }
-
-        else if (state == PlayerState.Idle)
-        {
-            float vertical = Input.GetAxis("Vertical");
-
-            if (vertical > .1f)
-            {
-                cameraTarget.localPosition = new Vector2(0, Mathf.Lerp(cameraTarget.localPosition.y, 4, Time.deltaTime));
-                isLooking = true;
-                return;
-            }
-            if (vertical < -.1f)
-            {
-                cameraTarget.localPosition = new Vector2(0, Mathf.Lerp(cameraTarget.localPosition.y, -4, Time.deltaTime));
-                isLooking = true;
-                return;
-            }
-        }
-    }
 }
 
 /// <summary>The state the player is in</summary>
