@@ -39,6 +39,8 @@ public class PlayerController : MonoBehaviour
     public bool hidden = false;
     private bool doubleJumped = false;
     private bool isLooking;
+    [SerializeField] private float coyoteTime = 0.2f;
+    [SerializeField] private float coyoteTimeCounter;
 
     [Header("Dashing Fields")]
     [SerializeField] private float dashTime;
@@ -116,11 +118,19 @@ public class PlayerController : MonoBehaviour
             return;
 
         //Get Walk Input
-        if (!isDashing)
+        if (!isDashing && state != PlayerState.Die)
         {
             movementX = Input.GetAxis("Horizontal");
         }
-        
+
+        if (groundCheck.IsTouchingLayers(ground))
+        {
+            coyoteTimeCounter = coyoteTime;
+        }
+        else
+        {
+            coyoteTimeCounter -= Time.deltaTime;
+        }
 
         //Get Input Based on State
         switch (state)
@@ -131,7 +141,7 @@ public class PlayerController : MonoBehaviour
                     break;
 
                 //Start Jumping
-                if (Input.GetButtonDown("Jump"))
+                if (Input.GetButtonDown("Jump") && coyoteTimeCounter > 0f)
                 {
                     EndFall();
                     state = PlayerState.JumpStart;
@@ -156,6 +166,11 @@ public class PlayerController : MonoBehaviour
                             movementX = 0;
                         }
                     }
+                }
+
+                if (Input.GetButtonUp("Jump"))
+                {
+                    coyoteTimeCounter = 0f;
                 }
 
                 break;
@@ -356,6 +371,7 @@ public class PlayerController : MonoBehaviour
                 break;
         }
     }
+
 
     #region"Collision handling"
     private void OnCollisionEnter2D(Collision2D collision)
