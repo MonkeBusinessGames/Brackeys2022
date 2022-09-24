@@ -29,6 +29,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject[] orbList;
 
     [Header("Movement Fields")]
+    public static bool frozen = false;
     [SerializeField] private float speed = 8;
     [SerializeField] private float jumpForce = 900;
     [SerializeField] private BoxCollider2D groundCheck;
@@ -93,6 +94,7 @@ public class PlayerController : MonoBehaviour
     {
         afterImage = GetComponent<DashAfterImage>();
         data = SaveSystem.Load();
+        frozen = false;
         if (startFresh)
             data = new SaveData();
         InitializeArea();
@@ -111,7 +113,8 @@ public class PlayerController : MonoBehaviour
     {                
         //Handles Look Input
         Look();
-
+        if (frozen)
+            return;
         if (state == (PlayerState.Hit))
             return;
 
@@ -286,6 +289,8 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (frozen)
+            return;
         if (state == (PlayerState.Hit))
             return; 
 
@@ -374,6 +379,7 @@ public class PlayerController : MonoBehaviour
                 uiManager.RemoveHealth(health);
                 if (health <= 0)
                 {
+                    frozen = true;
                     state = PlayerState.Die;
                     anim.updateMode = AnimatorUpdateMode.UnscaledTime;
                     Time.timeScale = 0;
@@ -387,6 +393,10 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
+        if (collider.CompareTag("DialogueTrigger"))
+        {
+            collider.GetComponent<DialogueTrigger>().TriggerDialogue();
+        }
 
         if (collider.CompareTag("End"))
         {
@@ -440,6 +450,7 @@ public class PlayerController : MonoBehaviour
                 uiManager.RemoveHealth(health);
                 if (health <= 0)
                 {
+                    frozen = true;
                     state = PlayerState.Die;
                     anim.updateMode = AnimatorUpdateMode.UnscaledTime;
                     Time.timeScale = 0;
