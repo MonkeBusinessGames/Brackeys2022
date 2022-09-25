@@ -44,7 +44,7 @@
 				</StateGroup>
 			</StateGroups>
 		</SoundBank>
-		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{C4BF5111-7087-7F7B-DE68-B1CD89D25937}">
+		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{F1379EA3-BBA0-2B22-36F3-177AE005038F}">
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
 			<Media>
@@ -343,7 +343,7 @@
 					</MediaRefs>
 				</Event>
 				<Event Id="1076666776" Name="StopTestBattleMusic" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
-				<Event Id="2774129122" Name="UI_Select" DurationType="OneShot" DurationMin="0.171875" DurationMax="0.171875">
+				<Event Id="2774129122" Name="UI_Select" DurationType="OneShot" DurationMin="0.09871626" DurationMax="0.09871626">
 					<MediaRefs>
 						<MediaRef Id="313573349"/>
 					</MediaRefs>
@@ -351,5 +351,5 @@
 			</Events>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{906DFD01-EE53-DC04-D484-802634783135}</FileHash>
+	<FileHash>{AE76A8C2-6AEB-4E3E-A1F8-D39E2D584997}</FileHash>
 </SoundBanksInfo>

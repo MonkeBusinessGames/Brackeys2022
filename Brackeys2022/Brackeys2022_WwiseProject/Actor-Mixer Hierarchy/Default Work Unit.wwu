@@ -1207,6 +1207,9 @@
 						<Sound Name="UI_Select" ID="{65C3F9E6-C8B0-4765-81AE-D581B13A282B}" ShortID="787148054">
 							<PropertyList>
 								<Property Name="Pitch" Type="int32">
+									<ValueList>
+										<Value>960</Value>
+									</ValueList>
 									<ModifierList>
 										<ModifierInfo>
 											<Modifier Name="" ID="{C2F8156D-1512-42C0-B18D-51F256AB219A}">
