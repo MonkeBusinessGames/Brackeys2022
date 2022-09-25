@@ -1,0 +1,99 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: Main Menu_en
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: en
+  m_SharedData: {fileID: 11400000, guid: 8d1448ef071573847953883cfd23b636, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 68693700608
+    m_Localized: Play
+    m_Metadata:
+      m_Items: []
+  - m_Id: 132027691008
+    m_Localized: Options
+    m_Metadata:
+      m_Items: []
+  - m_Id: 295173533696
+    m_Localized: Credits
+    m_Metadata:
+      m_Items: []
+  - m_Id: 449486172160
+    m_Localized: Exit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 695735074336768
+    m_Localized: 'Movement:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 696264525524992
+    m_Localized: Arrow Keys
+    m_Metadata:
+      m_Items: []
+  - m_Id: 696333500854272
+    m_Localized: 'Jump:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 696398088941568
+    m_Localized: Space
+    m_Metadata:
+      m_Items: []
+  - m_Id: 696455454437376
+    m_Localized: 'Hide:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 696493693906944
+    m_Localized: X
+    m_Metadata:
+      m_Items: []
+  - m_Id: 696525633531904
+    m_Localized: 'Attack:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 696740490948608
+    m_Localized: C
+    m_Metadata:
+      m_Items: []
+  - m_Id: 696780068401152
+    m_Localized: 'Pause:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 696831842889728
+    m_Localized: Esc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 696860859084800
+    m_Localized: 'Language:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 696933688979456
+    m_Localized: 'Volume:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 699604244279296
+    m_Localized: CODE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 699616680390656
+    m_Localized: ART
+    m_Metadata:
+      m_Items: []
+  - m_Id: 699628038565888
+    m_Localized: SOUND
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

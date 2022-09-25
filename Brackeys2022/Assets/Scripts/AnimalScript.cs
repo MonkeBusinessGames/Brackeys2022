@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class AnimalScript : MonoBehaviour
 {
+    [SerializeField] private GameObject checkPoint;
+
     [Header("SET ANIMAL ABILITY")]
     [Space(5)]
     [SerializeField] private bool catAbility = false;
@@ -12,6 +14,10 @@ public class AnimalScript : MonoBehaviour
     [SerializeField] private bool moleAbility = false;
     [Space(5)]
     [SerializeField] private bool birbAbility = false;
+    [Space(5)]
+    [SerializeField] private bool goatAbility = false;
+    [Space(5)]
+    [SerializeField] private bool monkeyAbility = false;
 
     public static event Action<Popup> OnAnimalAcquired;
     Popup popup;
@@ -42,11 +48,28 @@ public class AnimalScript : MonoBehaviour
                 popup = Popup.BIRB_ABILITY_ACQUIRED;
                 AkSoundEngine.PostEvent(BirdSound.Id, this.gameObject);
             }
+            else if (goatAbility)
+            {
+                collision.gameObject.GetComponent<PlayerController>().AcquireGoatAbilities();
+                popup = Popup.GOAT_ABILITY_ACQUIRED;
+                //AkSoundEngine.PostEvent(GoatSound.Id, this.gameObject);
+            }
+            else if (monkeyAbility)
+            {
+                collision.gameObject.GetComponent<PlayerController>().AcquireMonkeyAbilities();
+                popup = Popup.MONKEY_ABILITY_ACQUIRED;
+                //AkSoundEngine.PostEvent(MonkeySound.Id, this.gameObject);
+            }
 
-            //Destroy(gameObject);
             OnAnimalAcquired?.Invoke(popup);
-            gameObject.SetActive(false);
+            GetComponent<Animator>().SetTrigger("Disappear");
         }
+    }
+
+    public void CreateCheckPoint()
+    {
+        checkPoint.SetActive(true);
+        Destroy(gameObject);
     }
 
     #region Validation
@@ -56,20 +79,40 @@ public class AnimalScript : MonoBehaviour
     /// </summary>
     private void OnValidate()
     {
-        if (catAbility && (moleAbility || birbAbility))
+        if (catAbility)
         {
             moleAbility = false;
             birbAbility = false;
+            goatAbility = false;
+            monkeyAbility = false;
         }
-        if (moleAbility && (catAbility || birbAbility))
+        if (moleAbility)
         {
             birbAbility = false;
             catAbility = false;
+            goatAbility = false;
+            monkeyAbility = false;
         }
-        if (birbAbility && (moleAbility || birbAbility))
+        if (birbAbility)
         {
             moleAbility = false;
             catAbility = false;
+            goatAbility = false;
+            monkeyAbility = false;
+        }
+        if (goatAbility)
+        {
+            moleAbility = false;
+            catAbility = false;
+            birbAbility = false;
+            monkeyAbility = false;
+        }
+        if (monkeyAbility)
+        {
+            moleAbility = false;
+            catAbility = false;
+            birbAbility = false;
+            goatAbility = false;
         }
     }
 #endif

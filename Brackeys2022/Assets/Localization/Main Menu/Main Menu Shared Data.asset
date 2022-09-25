@@ -1,0 +1,104 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: Main Menu Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: Main Menu
+  m_TableCollectionNameGuidString: 8d1448ef071573847953883cfd23b636
+  m_Entries:
+  - m_Id: 68693700608
+    m_Key: Play
+    m_Metadata:
+      m_Items: []
+  - m_Id: 132027691008
+    m_Key: Options
+    m_Metadata:
+      m_Items: []
+  - m_Id: 295173533696
+    m_Key: Credits
+    m_Metadata:
+      m_Items: []
+  - m_Id: 449486172160
+    m_Key: Exit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 695735074336768
+    m_Key: Movement
+    m_Metadata:
+      m_Items: []
+  - m_Id: 696264525524992
+    m_Key: Arrow Keys
+    m_Metadata:
+      m_Items: []
+  - m_Id: 696333500854272
+    m_Key: Jump
+    m_Metadata:
+      m_Items: []
+  - m_Id: 696398088941568
+    m_Key: Space
+    m_Metadata:
+      m_Items: []
+  - m_Id: 696455454437376
+    m_Key: Hide
+    m_Metadata:
+      m_Items: []
+  - m_Id: 696493693906944
+    m_Key: X
+    m_Metadata:
+      m_Items: []
+  - m_Id: 696525633531904
+    m_Key: Attack
+    m_Metadata:
+      m_Items: []
+  - m_Id: 696740490948608
+    m_Key: C
+    m_Metadata:
+      m_Items: []
+  - m_Id: 696780068401152
+    m_Key: Pause
+    m_Metadata:
+      m_Items: []
+  - m_Id: 696831842889728
+    m_Key: Esc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 696860859084800
+    m_Key: Language
+    m_Metadata:
+      m_Items: []
+  - m_Id: 696933688979456
+    m_Key: Volume
+    m_Metadata:
+      m_Items: []
+  - m_Id: 699604244279296
+    m_Key: Code
+    m_Metadata:
+      m_Items: []
+  - m_Id: 699616680390656
+    m_Key: Art
+    m_Metadata:
+      m_Items: []
+  - m_Id: 699628038565888
+    m_Key: Sound
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 4435345766551388212
+  references:
+    version: 2
+    RefIds:
+    - rid: 4435345766551388212
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1663897369353

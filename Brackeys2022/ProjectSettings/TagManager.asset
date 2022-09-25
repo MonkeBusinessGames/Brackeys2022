@@ -7,6 +7,11 @@ TagManager:
   - Enemy
   - Dive
   - End
+  - Star
+  - Checkpoint
+  - ManaOrb
+  - ManaDust
+  - DialogueTrigger
   layers:
   - Default
   - TransparentFX

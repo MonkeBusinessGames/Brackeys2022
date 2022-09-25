@@ -5,16 +5,17 @@ using UnityEngine.UI;
 
 public class AbilityPopupManager : MonoBehaviour
 {
-    [SerializeField] private Transform catAbilityPopup;
-    [SerializeField] private Transform moleAbilityPopup;
-    [SerializeField] private Transform birbAbilityPopup;
-    [SerializeField] private Transform doubleJumpAcquired;
-    [SerializeField] private Transform tryToHideWithX;
+    [SerializeField] private Sprite catAbilityPopup;
+    [SerializeField] private Sprite moleAbilityPopup;
+    [SerializeField] private Sprite birbAbilityPopup;
+    [SerializeField] private Sprite goatAbilityPopup;
+    [SerializeField] private Sprite monkeyAbilityPopup;
+    [SerializeField] private Sprite doubleJumpAcquired;
+    [SerializeField] private Sprite tryToHideWithX;
 
     private Animator popupAnimator;
 
-    private SpriteRenderer spriteRenderer;
-    private Sprite popupSprite;
+    [SerializeField] private SpriteRenderer spriteRenderer;
 
     private void Awake()
     {
@@ -23,37 +24,60 @@ public class AbilityPopupManager : MonoBehaviour
 
         popupAnimator.enabled = false;
     }
-    private void Start()
+    private void OnEnable()
     {
         AnimalScript.OnAnimalAcquired += AnimalScript_OnAnimalAcquired;
     }
-
+    private void OnDestroy()
+    {
+        AnimalScript.OnAnimalAcquired -= AnimalScript_OnAnimalAcquired;
+    }
+    private void Update()
+    {
+        if (popupAnimator.enabled)
+        {
+            CheckPopupDirection();
+        }
+    }
     public void ShowPopup(Popup popup)
     {
         switch (popup)
         {
             case Popup.CAT_ABILITY_ACQUIRED:
-                popupSprite = catAbilityPopup.GetComponent<SpriteRenderer>().sprite;
-                spriteRenderer.sprite = popupSprite;
+                spriteRenderer.sprite = catAbilityPopup;
                 break;
             case Popup.MOLE_ABILITY_ACQUIRED:
-                popupSprite = moleAbilityPopup.GetComponent<SpriteRenderer>().sprite;
-                spriteRenderer.sprite = popupSprite;
+                spriteRenderer.sprite = moleAbilityPopup;
                 break;
             case Popup.BIRB_ABILITY_ACQUIRED:
-                popupSprite = birbAbilityPopup.GetComponent<SpriteRenderer>().sprite;
-                spriteRenderer.sprite = popupSprite;
+                spriteRenderer.sprite = birbAbilityPopup;
                 break;
+            //case Popup.GOAT_ABILITY_ACQUIRED:
+            //    spriteRenderer.sprite = goatAbilityPopup;
+            //    break;
+            //case Popup.MONKEY_ABILITY_ACQUIRED:
+            //    spriteRenderer.sprite = monkeyAbilityPopup;
+            //    break;
             case Popup.DOUBLE_JUMP_ACQUIRED:
-                popupSprite = doubleJumpAcquired.GetComponent<SpriteRenderer>().sprite;
-                spriteRenderer.sprite = popupSprite;
+                spriteRenderer.sprite = doubleJumpAcquired;
                 break;
             case Popup.TRY_TO_HIDE_WITH_X:
-                popupSprite = tryToHideWithX.GetComponent<SpriteRenderer>().sprite;
-                spriteRenderer.sprite = popupSprite;
+                spriteRenderer.sprite = tryToHideWithX;
                 break;
         }
         popupAnimator.enabled = true;
+    }
+
+    private void CheckPopupDirection()
+    {
+        if(transform.parent.transform.localScale.x < 0)
+        {
+            spriteRenderer.flipX = false;
+        }
+        else
+        {
+            spriteRenderer.flipX = true;
+        }
     }
 
     private void AnimalScript_OnAnimalAcquired(Popup popup)
@@ -74,6 +98,8 @@ public enum Popup
     CAT_ABILITY_ACQUIRED,
     MOLE_ABILITY_ACQUIRED,
     BIRB_ABILITY_ACQUIRED,
+    GOAT_ABILITY_ACQUIRED,
+    MONKEY_ABILITY_ACQUIRED,
     DOUBLE_JUMP_ACQUIRED,
     TRY_TO_HIDE_WITH_X
 }

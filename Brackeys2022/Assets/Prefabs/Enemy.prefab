@@ -104,6 +104,7 @@ GameObject:
   - component: {fileID: 5360251016416480008}
   - component: {fileID: 5360251016416480009}
   - component: {fileID: 946345870840349084}
+  - component: {fileID: 2543850940023725416}
   m_Layer: 3
   m_Name: Enemy
   m_TagString: Enemy
@@ -271,11 +272,11 @@ MonoBehaviour:
   detectRange: {fileID: 8472079624185686561}
   knockBackForce: 10
   health: 10
-  attackPower: 3
+  attackPower: 1
   getHitSound:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 0}
+    WwiseObjectReference: {fileID: 11400000, guid: 18b56bef098e0c648935f85491e3d2a2, type: 2}
 --- !u!114 &946345870840349084
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -300,3 +301,21 @@ MonoBehaviour:
     idInternal: 0
     valueGuidInternal: 
     WwiseObjectReference: {fileID: 11400000, guid: 27a8cdb3a1387b547880fe62495e5b6b, type: 2}
+  gethitSound:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 18b56bef098e0c648935f85491e3d2a2, type: 2}
+--- !u!114 &2543850940023725416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5360251016416480023}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11b95f361f497b9498bdc52c52dd9e9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  manaPrefab: {fileID: 2877836548612758623, guid: 635c738b6253bf7499c98c5b4a5c18d6, type: 3}
+  manaCount: 3

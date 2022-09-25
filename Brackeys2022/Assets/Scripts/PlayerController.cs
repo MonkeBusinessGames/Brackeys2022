@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.Tilemaps;
+using System;
 
 public class PlayerController : MonoBehaviour
 {
@@ -17,9 +18,18 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private SpriteRenderer wingFront;
     [SerializeField] private UIManager uiManager;
     [SerializeField] private Transform cameraTarget;
+    [SerializeField] private bool startFresh = false;
+    private SaveData data;
+    [SerializeField] private ParticleSystem particles;
 
+    [Header("Object Lists")]
+    [SerializeField] private Transform[] checkPointList;
+    [SerializeField] private AnimalScript[] animalList;
+    [SerializeField] private GameObject[] starList;
+    [SerializeField] private GameObject[] orbList;
 
     [Header("Movement Fields")]
+    public static bool frozen = false;
     [SerializeField] private float speed = 8;
     [SerializeField] private float jumpForce = 900;
     [SerializeField] private BoxCollider2D groundCheck;
@@ -31,32 +41,41 @@ public class PlayerController : MonoBehaviour
     private bool doubleJumped = false;
     private bool isLooking;
 
+    [Header("Dashing Fields")]
+    [SerializeField] private float dashTime;
+    [SerializeField] private float dashSpeed;
+    [SerializeField] private float dashCooldown;
+    bool isDashing = false;
+    bool canDash = true;
+    DashAfterImage afterImage;  // A bit of a dependency meme
+
     [Header("Combat Fields")]
     [SerializeField] private BoxCollider2D clawRange;
     [SerializeField] private PolygonCollider2D diveRange;
     [SerializeField] private PolygonCollider2D spikeRange;
     [SerializeField] private BoxCollider2D hitBox;
     [SerializeField] private ContactFilter2D enemies;
-    private float health = 5;
+    private int health = 5;
+    private float mana = 20;
     [SerializeField] private float attackPower = 10;
     [SerializeField] private float knockBackForce = 100;
     [SerializeField] private bool keepAttacking = false;
 
-    [Header("Long/Double Jump Fields")]
-    [SerializeField] private float jumpHoldTime = 2;
-
-    [Tooltip("Enables: Long Jump and Claw Abilities")]
+    [Tooltip("Enables: Claw Abilities")]
     [SerializeField] private bool catAcquired = false;
-    [SerializeField] private float longJumpForce = 500;
-    private float timer = 0;
-    private bool longJumpCharged = false;
 
     [Tooltip("Enables: Double Jump and Dive Abilities")]
     [SerializeField] private bool birbAcquired;
     [SerializeField] private Vector2 diveSpeed;
 
-    [Tooltip("Enables: Dig and Spike Abilities")]
+    [Tooltip("Enables: Ground Slam Abilities")]
     [SerializeField] private bool moleAcquired;
+
+    [Tooltip("Enables: Dash/Bash Abilities")]
+    [SerializeField] private bool goatAcquired;
+
+    [Tooltip("Enables: Climb Abilities")]
+    [SerializeField] private bool monkeyAcquired;
 
     [Header("Player SFX")]
     [SerializeField] private AK.Wwise.Event footstepsEvent;
@@ -69,32 +88,42 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private AK.Wwise.Event PlayerAttack2;
     [SerializeField] private AK.Wwise.Event PlayerAttack3;
     [SerializeField] private AK.Wwise.Event PlayerDeath;
-    
+
+
+    private void Awake()
+    {
+        afterImage = GetComponent<DashAfterImage>();
+        data = SaveSystem.Load();
+        frozen = false;
+        if (startFresh)
+            data = new SaveData();
+        InitializeArea();
+    }
+
     void Start()
     {
-        catAcquired = false;
-        birbAcquired = false;
-        moleAcquired = false;
         isLooking = false;
-
         state = PlayerState.Idle;
         flip = false;
         doubleJumped = false;
         hidden = false;
-        timer = 0;
-        longJumpCharged = false;
     }
-
+    
     void Update()
     {                
         //Handles Look Input
         Look();
-
+        if (frozen)
+            return;
         if (state == (PlayerState.Hit))
             return;
 
         //Get Walk Input
-        movementX = Input.GetAxis("Horizontal");
+        if (!isDashing)
+        {
+            movementX = Input.GetAxis("Horizontal");
+        }
+        
 
         //Get Input Based on State
         switch (state)
@@ -121,11 +150,14 @@ public class PlayerController : MonoBehaviour
                 {
                     if(catAcquired)
                     {
-                        EndFall();
-                        state = PlayerState.Attack;
-                        anim.SetInteger("AttackCounter", 0);
-                        SetAnimation();
-                        movementX = 0;
+                        if (mana > 1)
+                        {
+                            EndFall();
+                            state = PlayerState.Attack;
+                            anim.SetInteger("AttackCounter", 0);
+                            SetAnimation();
+                            movementX = 0;
+                        }
                     }
                 }
 
@@ -157,6 +189,16 @@ public class PlayerController : MonoBehaviour
                         movementX = 0;
                     }
                 }
+
+                // Dashing
+                if (goatAcquired)
+                {
+                    if (Input.GetKeyDown(KeyCode.LeftShift) && canDash)
+                    {
+                        state = PlayerState.Dash;
+                    }
+                }
+
                 break;
             case PlayerState.JumpStart:
                 break;
@@ -189,7 +231,6 @@ public class PlayerController : MonoBehaviour
                 //If the player touches the ground, reset them to idle.
                 if (groundCheck.IsTouchingLayers(ground))
                 {
-                    longJumpCharged = false;
                     doubleJumped = false;
                     state = PlayerState.Idle;
                     SetAnimation();
@@ -202,7 +243,6 @@ public class PlayerController : MonoBehaviour
                 //If the player touches the ground, reset them to idle.
                 if (groundCheck.IsTouchingLayers(ground))
                 {
-                    longJumpCharged = false;
                     doubleJumped = false;
                     state = PlayerState.Idle;
                     SetAnimation();
@@ -249,12 +289,26 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (frozen)
+            return;
         if (state == (PlayerState.Hit))
             return; 
 
         //Set Velocity
-        if (!longJumpCharged)
-            rb.velocity = new Vector2(movementX * speed, rb.velocity.y);
+        rb.velocity = new Vector2(movementX * speed, rb.velocity.y);
+
+        if (isDashing)
+        {
+            if(rb.velocity.x > 0)
+            {
+                rb.AddForce(new Vector2(dashSpeed, 0), ForceMode2D.Impulse);
+            }
+            else
+            {
+                rb.AddForce(new Vector2(-dashSpeed, 0), ForceMode2D.Impulse);
+            }
+        }
+            
 
         //State Machine
         switch (state)
@@ -276,15 +330,7 @@ public class PlayerController : MonoBehaviour
                 break;
             case PlayerState.JumpStart:
                 //Initiates Jump
-                if (longJumpCharged)
-                {
-                    if (flip)
-                        rb.AddForce(new Vector2(-longJumpForce, jumpForce));
-                    else
-                        rb.AddForce(new Vector2(longJumpForce, jumpForce));
-                }
-                else
-                    rb.AddForce(new Vector2(0, jumpForce)); 
+                rb.AddForce(new Vector2(0, jumpForce)); 
                 state = PlayerState.Jumping;
                 SetAnimation();
                 break;
@@ -309,9 +355,14 @@ public class PlayerController : MonoBehaviour
                 else
                     rb.velocity = diveSpeed;
                 break;
+            case PlayerState.Dash:
+                afterImage.ActivateAfterImages(true);
+                StartCoroutine(Dash());
+                break;
         }
     }
 
+    #region"Collision handling"
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (hidden)
@@ -325,9 +376,10 @@ public class PlayerController : MonoBehaviour
                 rb.velocity = Vector2.zero;
                 rb.AddForce((transform.position - collision.transform.position).normalized * knockBackForce, ForceMode2D.Impulse);
                 health -= 1;
-                uiManager.RemoveHealth();
+                uiManager.RemoveHealth(health);
                 if (health <= 0)
                 {
+                    frozen = true;
                     state = PlayerState.Die;
                     anim.updateMode = AnimatorUpdateMode.UnscaledTime;
                     Time.timeScale = 0;
@@ -341,10 +393,47 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
+        if (collider.CompareTag("DialogueTrigger"))
+        {
+            collider.GetComponent<DialogueTrigger>().TriggerDialogue();
+        }
 
         if (collider.CompareTag("End"))
         {
             uiManager.GameComplete();
+            data = new SaveData(data.volume, data.languageIndex);
+            SaveSystem.Save(data);
+        }
+
+        if (collider.CompareTag("Checkpoint"))
+        {
+            SetCheckPoint(collider.GetComponent<IndexNumber>().indexNumber);
+            health = uiManager.RecoverHealth();
+            mana = uiManager.RecoverMana(100);
+        }
+
+        if (collider.CompareTag("Star"))
+        {
+            print("Star collided!");
+
+            data.starsAcquired[collider.GetComponent<IndexNumber>().indexNumber] = true;
+            SaveSystem.Save(data);
+            health = uiManager.AddHealthStar(health);
+            Destroy(collider.gameObject);
+        }
+
+        if (collider.CompareTag("ManaOrb"))
+        {
+            data.orbsAcquired[collider.GetComponent<IndexNumber>().indexNumber] = true;
+            SaveSystem.Save(data);
+            mana = uiManager.IncreaseManaLimit(5);
+            Destroy(collider.gameObject);
+        }
+
+        if (collider.CompareTag("ManaDust"))
+        {
+            mana = uiManager.RecoverMana(1);
+            Destroy(collider.gameObject);
         }
 
         if (hidden)
@@ -358,9 +447,10 @@ public class PlayerController : MonoBehaviour
                 rb.velocity = Vector2.zero;
                 rb.AddForce((transform.position - collider.transform.position).normalized * knockBackForce, ForceMode2D.Impulse);
                 health -= 1;
-                uiManager.RemoveHealth();
+                uiManager.RemoveHealth(health);
                 if (health <= 0)
                 {
+                    frozen = true;
                     state = PlayerState.Die;
                     anim.updateMode = AnimatorUpdateMode.UnscaledTime;
                     Time.timeScale = 0;
@@ -371,23 +461,157 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
+    #endregion
 
+    #region"Ability Acquisition"
     /// <summary>Use this method to enable doublejump and dive, when animal selection event is fired</summary>
     public void AcquireBirbAbilities()
     {
         birbAcquired = true;
+        data.hasBirb = true;
+        SetCheckPoint(1);
     }
 
     /// <summary>Use this method to enable long jump and claws, when animal selection event is fired</summary>
     public void AcquireCatAbilities()
     {
         catAcquired = true;
+        data.hasCat = true;
+        SetCheckPoint(2);
     }
 
     /// <summary>Use this method to enable dig and spikes, when animal selection event is fired</summary>
     public void AcquireMoleAbilities()
     {
         moleAcquired = true;
+        data.hasMole = true;
+        SetCheckPoint(3);
+    }   
+    
+    /// <summary>Use this method to enable dash/bash, when animal selection event is fired</summary>
+    public void AcquireGoatAbilities()
+    {
+        goatAcquired = true;
+        data.hasGoat = true;
+        SetCheckPoint(4);
+    }
+
+    /// <summary>Use this method to enable climb, when animal selection event is fired</summary>
+    public void AcquireMonkeyAbilities()
+    {
+        monkeyAcquired = true;
+        data.hasMonkey = true;
+        SetCheckPoint(5);
+    }
+    #endregion
+
+    /// <summary>Allows the player to look up or down</summary>
+    private void Look()
+    {
+        if (isLooking)
+        {
+            if (state == PlayerState.Idle)
+            {
+                float vertical = Input.GetAxis("Vertical");
+
+                if (vertical > .1f)
+                {
+                    cameraTarget.localPosition = new Vector2(0, Mathf.Lerp(cameraTarget.localPosition.y, 4, Time.deltaTime));
+                    return;
+                }
+                if (vertical < -.1f)
+                {
+                    cameraTarget.localPosition = new Vector2(0, Mathf.Lerp(cameraTarget.localPosition.y, -4, Time.deltaTime));
+                    return;
+                }
+            }
+
+            //If not idle or not looking, return cameratarget to normal
+            cameraTarget.localPosition = Vector2.Lerp(cameraTarget.localPosition, Vector2.zero, 4 * Time.deltaTime);
+            if (cameraTarget.localPosition == Vector3.zero)
+                isLooking = false;
+            return;
+        }
+
+        else if (state == PlayerState.Idle)
+        {
+            float vertical = Input.GetAxis("Vertical");
+
+            if (vertical > .1f)
+            {
+                cameraTarget.localPosition = new Vector2(0, Mathf.Lerp(cameraTarget.localPosition.y, 4, Time.deltaTime));
+                isLooking = true;
+                return;
+            }
+            if (vertical < -.1f)
+            {
+                cameraTarget.localPosition = new Vector2(0, Mathf.Lerp(cameraTarget.localPosition.y, -4, Time.deltaTime));
+                isLooking = true;
+                return;
+            }
+        }
+    }
+
+    private void InitializeArea()
+    {
+        //Health
+        for(int i = 0; i < data.starsAcquired.Length; i++)
+        {
+            if (data.starsAcquired[i])
+            {
+                health += 5;
+                starList[i].SetActive(false);
+            }
+        }
+
+        uiManager.AddHealthStar(health/5 - 4);
+
+        //Mana
+        for (int i = 0; i < data.orbsAcquired.Length; i++)
+        {
+            if (data.orbsAcquired[i])
+            {
+                mana = uiManager.IncreaseManaLimit(5);
+                orbList[i].SetActive(false);
+            }
+        }
+        //Abilities
+        if (data.hasCat)
+        {
+            catAcquired = true;
+            animalList[0].CreateCheckPoint();
+        }
+        if (data.hasBirb)
+        {
+            birbAcquired = true;
+            animalList[1].CreateCheckPoint();
+        }
+        if (data.hasMole)
+        {
+            moleAcquired = true;
+            animalList[2].CreateCheckPoint();
+        }
+        if (data.hasGoat)
+        {
+            goatAcquired = true;
+            animalList[3].CreateCheckPoint();
+        }
+        if (data.hasMonkey)
+        {
+            monkeyAcquired = true;
+            animalList[4].CreateCheckPoint();
+        }
+        
+        //Checkpoints
+        transform.position = checkPointList[data.checkPointIndex].position;
+    }
+
+    /// <summary>Sets the checkPoint number</summary>
+    /// <param name="checkPointNumber"></param>
+    private void SetCheckPoint(int checkPointNumber)
+    {
+        data.checkPointIndex = checkPointNumber;
+        SaveSystem.Save(data);
     }
 
     /// <summary>Checks if the any enemies were hit by the claw</summary>
@@ -436,7 +660,7 @@ public class PlayerController : MonoBehaviour
         rb.AddForce((transform.position - enemyRange.position).normalized * knockBackForce, ForceMode2D.Impulse);
         health -= 1;
         AkSoundEngine.PostEvent(PlayerGetHit.Id, this.gameObject);
-        uiManager.RemoveHealth();
+        uiManager.RemoveHealth(health);
         if (health <= 0)
                 state = PlayerState.Die;
             SetAnimation();
@@ -474,8 +698,6 @@ public class PlayerController : MonoBehaviour
         state = PlayerState.AttackEnd;
     }
 
-
-
     /// <summary>Activates the game over experience</summary>
     public void DeathEnd()
     {
@@ -483,16 +705,20 @@ public class PlayerController : MonoBehaviour
         uiManager.GameOver();
     }
 
+    #region"Jump Methods"
     /// <summary>Checks whether to double jump</summary>
     public void DoubleJumpCheck()
     {
         if (birbAcquired & !doubleJumped)
             if (Input.GetButtonDown("Jump"))
             {
-                doubleJumped = true;
-                state = PlayerState.DoubleJump;
-                AkSoundEngine.PostEvent(jumpSound.Id, this.gameObject);
-                SetAnimation();
+                if (mana >= 2)
+                {
+                    doubleJumped = true;
+                    state = PlayerState.DoubleJump;
+                    AkSoundEngine.PostEvent(jumpSound.Id, this.gameObject);
+                    SetAnimation();
+                }
             }
     }
     /// <summary>Checks whether to dive</summary>
@@ -528,12 +754,49 @@ public class PlayerController : MonoBehaviour
     {
         anim.SetFloat("Jump Velocity", 0);
     }
+    #endregion
+
+    private IEnumerator Dash()
+    {
+        canDash = false;
+        isDashing = true;
+        yield return new WaitForSeconds(dashTime);
+
+        isDashing = false;
+        rb.velocity = Vector2.zero;
+        state = PlayerState.Walking;
+        afterImage.ActivateAfterImages(false);
+        yield return new WaitForSeconds(dashCooldown);
+        canDash = true;
+    }
+
+
+    /// <summary>Use the specified amount of mana</summary>
+    /// <param name="manaUsed">The amount of mana used</param>
+    public void UseMana(int manaUsed)
+    {
+        mana = uiManager.RemoveMana(manaUsed);
+        particles.Emit(manaUsed*10);
+    }
 
     /// <summary>Checks whether to hide</summary>
     private bool HideCheck()
     {
         if (hidden)
         {
+            if(mana <= 0)
+            {
+
+                anim.speed = 1;
+                sRend.color = Color.white;
+                hidden = false;
+                speed *= 2;
+                Physics2D.IgnoreLayerCollision(3, 7, false);
+                AkSoundEngine.PostEvent(unhideSound.Id, this.gameObject);
+                OnHideEnd();
+                particles.Stop();
+            }
+            mana = uiManager.RemoveMana(Time.deltaTime);
             if (Input.GetButtonUp("Hide"))
             {
                 anim.speed = 1;
@@ -543,8 +806,7 @@ public class PlayerController : MonoBehaviour
                 Physics2D.IgnoreLayerCollision(3, 7, false);
                 AkSoundEngine.PostEvent(unhideSound.Id, this.gameObject);
                 OnHideEnd();
-                
-
+                particles.Stop();
             }
             return true;
         }
@@ -556,6 +818,7 @@ public class PlayerController : MonoBehaviour
             hidden = true;
             speed /= 2;
             Physics2D.IgnoreLayerCollision(3, 7, true);
+            particles.Play();
         }
         return false;
     }
@@ -598,7 +861,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    //SFX
+#region"SFX"
     public void PlayFootstepSound()
     {
         AkSoundEngine.PostEvent(footstepsEvent.Id, this.gameObject);
@@ -631,52 +894,7 @@ public class PlayerController : MonoBehaviour
     {
         AkSoundEngine.PostEvent(PlayerGetHit.Id, this.gameObject);
     }
-
-    private void Look()
-    {
-        if (isLooking)
-        {
-            if (state == PlayerState.Idle)
-            {
-                float vertical = Input.GetAxis("Vertical");
-
-                if (vertical > .1f)
-                {
-                    cameraTarget.localPosition = new Vector2(0, Mathf.Lerp(cameraTarget.localPosition.y, 4, Time.deltaTime));
-                    return;
-                }
-                if (vertical < -.1f)
-                {
-                    cameraTarget.localPosition = new Vector2(0, Mathf.Lerp(cameraTarget.localPosition.y, -4, Time.deltaTime));
-                    return;
-                }
-            }
-
-            //If not idle or not looking, return cameratarget to normal
-            cameraTarget.localPosition = Vector2.Lerp(cameraTarget.localPosition, Vector2.zero, 4 * Time.deltaTime);
-            if (cameraTarget.localPosition == Vector3.zero)
-                isLooking = false;
-            return;
-        }
-
-        else if (state == PlayerState.Idle)
-        {
-            float vertical = Input.GetAxis("Vertical");
-
-            if (vertical > .1f)
-            {
-                cameraTarget.localPosition = new Vector2(0, Mathf.Lerp(cameraTarget.localPosition.y, 4, Time.deltaTime));
-                isLooking = true;
-                return;
-            }
-            if (vertical < -.1f)
-            {
-                cameraTarget.localPosition = new Vector2(0, Mathf.Lerp(cameraTarget.localPosition.y, -4, Time.deltaTime));
-                isLooking = true;
-                return;
-            }
-        }
-    }
+    #endregion
 
 }
 
@@ -695,4 +913,5 @@ public enum PlayerState
     DoubleJump,
     AttackEnd,
     Dive,
+    Dash
 }
