@@ -34,6 +34,66 @@ MonoBehaviour:
     m_Localized: Exit
     m_Metadata:
       m_Items: []
+  - m_Id: 695735074336768
+    m_Localized: 'Movement:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 696264525524992
+    m_Localized: Arrow Keys
+    m_Metadata:
+      m_Items: []
+  - m_Id: 696333500854272
+    m_Localized: 'Jump:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 696398088941568
+    m_Localized: Space
+    m_Metadata:
+      m_Items: []
+  - m_Id: 696455454437376
+    m_Localized: 'Hide:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 696493693906944
+    m_Localized: X
+    m_Metadata:
+      m_Items: []
+  - m_Id: 696525633531904
+    m_Localized: 'Attack:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 696740490948608
+    m_Localized: C
+    m_Metadata:
+      m_Items: []
+  - m_Id: 696780068401152
+    m_Localized: 'Pause:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 696831842889728
+    m_Localized: Esc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 696860859084800
+    m_Localized: 'Language:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 696933688979456
+    m_Localized: 'Volume:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 699604244279296
+    m_Localized: CODE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 699616680390656
+    m_Localized: ART
+    m_Metadata:
+      m_Items: []
+  - m_Id: 699628038565888
+    m_Localized: SOUND
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

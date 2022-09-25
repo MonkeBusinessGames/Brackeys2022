@@ -10,22 +10,28 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
-  m_Name: Localization-String-Tables-Russian (ru)
+  m_Name: Localization-String-Tables-French
   m_EditorClassIdentifier: 
-  m_GroupName: Localization-String-Tables-Russian (ru)
+  m_GroupName: Localization-String-Tables-French
   m_Data:
     m_SerializedData: []
-  m_GUID: 7be7a5c681ef674409ccdc6caf9ebde9
+  m_GUID: 4ee728dc0b007af459ff265f35f567b0
   m_SerializeEntries:
-  - m_GUID: 0cd4983048169f946a57490df06436de
-    m_Address: Game Menu_ru
+  - m_GUID: 5744bd6c63599b044afe804fa42a5de0
+    m_Address: Dialogue_fr
     m_ReadOnly: 1
     m_SerializedLabels:
-    - Locale-ru
+    - Locale-fr
+    - Preload
+  - m_GUID: b3aa91ac421d8f94d8968f661957c97b
+    m_Address: Main Menu_fr
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-fr
     - Preload
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: 2d9dddab2514ad846aaac695d6c049d3, type: 2}
   m_SchemaSet:
     m_Schemas:
-    - {fileID: 11400000, guid: 6a3a415b5f6098948b63e2ad7f82e8da, type: 2}
-    - {fileID: 11400000, guid: 3752b14443a925e4aa7aef8e956fa298, type: 2}
+    - {fileID: 11400000, guid: 2b24092125f7ac447900cda04eca26bc, type: 2}
+    - {fileID: 11400000, guid: 7d23c2b5a5b63f84eaa1fa1184b2dcac, type: 2}

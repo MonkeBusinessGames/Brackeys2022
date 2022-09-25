@@ -30,6 +30,18 @@ MonoBehaviour:
     m_Localized: Restart
     m_Metadata:
       m_Items: []
+  - m_Id: 699615166246912
+    m_Localized: Paused
+    m_Metadata:
+      m_Items: []
+  - m_Id: 699872822341632
+    m_Localized: Game Over
+    m_Metadata:
+      m_Items: []
+  - m_Id: 700185310572544
+    m_Localized: Thanks for Playing!
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
