@@ -21,6 +21,13 @@
 										</Reference>
 									</ReferenceList>
 								</Action>
+								<Action Name="" ID="{4B914442-459D-4D91-9483-E08A1936D95D}" ShortID="666899968">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="SkellyGrunt" ID="{84C39C1C-0DA2-433E-95C2-52A85A5C3149}" WorkUnitID="{DD6B140F-0321-4AF7-81C6-B8E0A5C8F93D}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
 							</ChildrenList>
 						</Event>
 						<Event Name="SkeletonSteps" ID="{0281C1F8-3E84-417B-BCAC-832CCD9B1906}">

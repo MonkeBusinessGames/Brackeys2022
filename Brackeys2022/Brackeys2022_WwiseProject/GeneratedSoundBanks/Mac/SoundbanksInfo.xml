@@ -9,7 +9,7 @@
 	</RootPaths>
 	<DialogueEvents/>
 	<SoundBanks>
-		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{AF4900DB-32AE-CF67-FB91-DB0A869178FA}">
+		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{7F2C2236-C708-BF25-1F0E-AD3F4E61C95A}">
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 			<Plugins>
@@ -44,7 +44,7 @@
 				</StateGroup>
 			</StateGroups>
 		</SoundBank>
-		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{F1379EA3-BBA0-2B22-36F3-177AE005038F}">
+		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{D22481E6-0450-4320-690D-01FF3B21265E}">
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
 			<Media>
@@ -168,9 +168,17 @@
 					<ShortName>WaterDrop2.wav</ShortName>
 					<CachePath>SFX/WaterDrop2_10C4C929.wem</CachePath>
 				</File>
+				<File Id="823199432" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Grunt1.wav</ShortName>
+					<CachePath>SFX/Grunt1_10C4C929.wem</CachePath>
+				</File>
 				<File Id="856300465" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Cloth2.wav</ShortName>
 					<CachePath>SFX/Cloth2_10C4C929.wem</CachePath>
+				</File>
+				<File Id="883268061" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Grunt2.wav</ShortName>
+					<CachePath>SFX/Grunt2_10C4C929.wem</CachePath>
 				</File>
 				<File Id="929970491" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>LevelMusic2.wav</ShortName>
@@ -307,12 +315,14 @@
 						<MediaRef Id="472719549"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="4153337164" Name="SkeletonAttack" DurationType="OneShot" DurationMin="0.2779917" DurationMax="0.38591772">
+				<Event Id="4153337164" Name="SkeletonAttack" DurationType="OneShot" DurationMin="0.8200456" DurationMax="0.9083222">
 					<MediaRefs>
 						<MediaRef Id="362917710"/>
 						<MediaRef Id="588511061"/>
 						<MediaRef Id="617516731"/>
 						<MediaRef Id="621944606"/>
+						<MediaRef Id="823199432"/>
+						<MediaRef Id="883268061"/>
 					</MediaRefs>
 				</Event>
 				<Event Id="139523582" Name="SkeletonDeath" DurationType="OneShot" DurationMin="1.546875" DurationMax="1.546875">
@@ -351,5 +361,5 @@
 			</Events>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{AE76A8C2-6AEB-4E3E-A1F8-D39E2D584997}</FileHash>
+	<FileHash>{66BCE73C-CD02-3064-4BF3-D305CC4F3A06}</FileHash>
 </SoundBanksInfo>

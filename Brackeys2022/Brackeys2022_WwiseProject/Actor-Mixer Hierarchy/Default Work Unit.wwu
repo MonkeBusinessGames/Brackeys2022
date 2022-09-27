@@ -11,8 +11,6 @@
 									<ChildrenList>
 										<RandomSequenceContainer Name="Skeleton_Bone_Rattle" ID="{12538195-1BA9-4CAE-8E44-015A2A3805D6}" ShortID="103348275">
 											<PropertyList>
-												<Property Name="3DPosition" Type="int16" Value="2"/>
-												<Property Name="3DSpatialization" Type="int16" Value="1"/>
 												<Property Name="Pitch" Type="int32">
 													<ModifierList>
 														<ModifierInfo>
@@ -110,14 +108,9 @@
 													</ActiveSourceList>
 												</Sound>
 											</ChildrenList>
-											<PositioningInfo>
-												<Position Name="" ID="{0BC3F542-818E-4AD3-8B53-1AADDEDA289B}"/>
-											</PositioningInfo>
 										</RandomSequenceContainer>
 										<RandomSequenceContainer Name="Skeleton_Sword_Woosh" ID="{02F66F00-E9B9-440E-8A31-C90688A825FC}" ShortID="741895542">
 											<PropertyList>
-												<Property Name="3DPosition" Type="int16" Value="2"/>
-												<Property Name="3DSpatialization" Type="int16" Value="1"/>
 												<Property Name="Pitch" Type="int32">
 													<ModifierList>
 														<ModifierInfo>
@@ -149,7 +142,7 @@
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DA81C040-160D-42DD-8D03-DD780C3A123F}"/>
 												</Reference>
 												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AB79E37D-4C29-4B8B-B89E-8859415A296B}"/>
+													<ObjectRef Name="Enemies" ID="{F5DCD25B-533A-40EC-A08A-60ACED304F73}" WorkUnitID="{AB79E37D-4C29-4B8B-B89E-8859415A296B}"/>
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
@@ -198,9 +191,92 @@
 													</ActiveSourceList>
 												</Sound>
 											</ChildrenList>
-											<PositioningInfo>
-												<Position Name="" ID="{C3C521FF-74A4-4C24-AFE9-CE9EC1B533A4}"/>
-											</PositioningInfo>
+										</RandomSequenceContainer>
+										<RandomSequenceContainer Name="SkellyGrunt" ID="{84C39C1C-0DA2-433E-95C2-52A85A5C3149}" ShortID="611610403">
+											<PropertyList>
+												<Property Name="Pitch" Type="int32">
+													<ModifierList>
+														<ModifierInfo>
+															<Modifier Name="" ID="{40696054-16F5-48A2-BE77-623763A316D6}">
+																<PropertyList>
+																	<Property Name="Enabled" Type="bool" Value="True"/>
+																	<Property Name="Max" Type="Real64" Value="51"/>
+																	<Property Name="Min" Type="Real64" Value="-126"/>
+																</PropertyList>
+															</Modifier>
+														</ModifierInfo>
+													</ModifierList>
+												</Property>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-1</Value>
+													</ValueList>
+													<ModifierList>
+														<ModifierInfo>
+															<Modifier Name="" ID="{C1690CCF-C6AC-440B-A8B8-D9610D978BAD}">
+																<PropertyList>
+																	<Property Name="Enabled" Type="bool" Value="True"/>
+																	<Property Name="Min" Type="Real64" Value="-1"/>
+																</PropertyList>
+															</Modifier>
+														</ModifierInfo>
+													</ModifierList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DA81C040-160D-42DD-8D03-DD780C3A123F}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Enemies" ID="{F5DCD25B-533A-40EC-A08A-60ACED304F73}" WorkUnitID="{AB79E37D-4C29-4B8B-B89E-8859415A296B}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<Sound Name="Grunt1" ID="{55C8F639-36C5-40FF-9DA2-ABE95D8C158A}" ShortID="266851908">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DA81C040-160D-42DD-8D03-DD780C3A123F}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AB79E37D-4C29-4B8B-B89E-8859415A296B}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Grunt1" ID="{E00B7780-D351-492E-9D09-3EE7FD0AA6B6}">
+															<Language>SFX</Language>
+															<AudioFile>Grunt1.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="823199432"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Grunt1" ID="{E00B7780-D351-492E-9D09-3EE7FD0AA6B6}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="Grunt2" ID="{9706967F-9584-42DF-BD48-9BC92BDE1379}" ShortID="224509862">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DA81C040-160D-42DD-8D03-DD780C3A123F}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{AB79E37D-4C29-4B8B-B89E-8859415A296B}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Grunt2" ID="{BCFD850F-8D43-4685-AD6A-932EBA816774}">
+															<Language>SFX</Language>
+															<AudioFile>Grunt2.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="883268061"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Grunt2" ID="{BCFD850F-8D43-4685-AD6A-932EBA816774}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+											</ChildrenList>
 										</RandomSequenceContainer>
 									</ChildrenList>
 								</Folder>
