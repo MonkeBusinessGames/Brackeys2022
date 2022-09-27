@@ -26,6 +26,8 @@ public class AnimalScript : MonoBehaviour
     [SerializeField] private AK.Wwise.Event CatSound;
     [SerializeField] private AK.Wwise.Event MoleSound;
 
+    [SerializeField] private AK.Wwise.Event animalIdleSound;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.transform.CompareTag("Player"))
@@ -70,6 +72,11 @@ public class AnimalScript : MonoBehaviour
     {
         checkPoint.SetActive(true);
         Destroy(gameObject);
+    }
+
+    public void playAnimalIdleSound()
+    {
+        AkSoundEngine.PostEvent(animalIdleSound.Id, this.gameObject);
     }
 
     #region Validation

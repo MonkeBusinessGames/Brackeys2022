@@ -63,6 +63,17 @@
 								</Action>
 							</ChildrenList>
 						</Event>
+						<Event Name="SkeletonAngering" ID="{5B4B0253-4EEC-4F49-B8C4-32D08AF13CD6}">
+							<ChildrenList>
+								<Action Name="" ID="{9256AA39-9233-4B68-94DA-CDA8857A28B9}" ShortID="36451212">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Skeleton_Angering" ID="{3D2F9E77-193B-43E6-8294-F5A8C434EA94}" WorkUnitID="{DD6B140F-0321-4AF7-81C6-B8E0A5C8F93D}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="Player" ID="{3D21BEDB-B496-4494-8784-9970B94C79E6}" ShortID="829047073">
@@ -170,6 +181,17 @@
 									<ReferenceList>
 										<Reference Name="Target">
 											<ObjectRef Name="Player_Death" ID="{61C09405-2B79-4FA2-A035-050ECCFFF4A6}" WorkUnitID="{DD6B140F-0321-4AF7-81C6-B8E0A5C8F93D}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_ManaCollect" ID="{6A48C1B5-5AAF-49F9-8367-07200D9235C4}">
+							<ChildrenList>
+								<Action Name="" ID="{F52E637D-8169-4530-9734-62DEE5AC72A4}" ShortID="113500235">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="ManaCollect" ID="{C389BB04-0EAD-4FE7-AA2E-19869F2961C9}" WorkUnitID="{DD6B140F-0321-4AF7-81C6-B8E0A5C8F93D}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
@@ -318,8 +340,33 @@
 								</Action>
 							</ChildrenList>
 						</Event>
+						<Event Name="Bird_Chirping" ID="{04A68855-A192-495E-9C14-B9AECE2FAC35}">
+							<ChildrenList>
+								<Action Name="" ID="{726A93C8-02D3-4B21-A64A-AE9A92C9318C}" ShortID="1020125705">
+									<PropertyList>
+										<Property Name="Probability" Type="Real64" Value="80"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Birb_Chirping" ID="{387DE105-5CD8-4858-98E3-8C679376F4D8}" WorkUnitID="{DD6B140F-0321-4AF7-81C6-B8E0A5C8F93D}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
 				</Folder>
+				<Event Name="Play_BigManaCollect" ID="{81115367-20FA-4D19-BCDC-20CFC977785E}">
+					<ChildrenList>
+						<Action Name="" ID="{C7F8B710-459B-4663-9DB8-BB3E870A4F3F}" ShortID="140596011">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="BigManaCollect" ID="{9CF992F3-C393-4807-82BD-60DBC083F057}" WorkUnitID="{DD6B140F-0321-4AF7-81C6-B8E0A5C8F93D}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

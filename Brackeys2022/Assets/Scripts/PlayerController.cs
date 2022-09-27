@@ -78,17 +78,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private bool monkeyAcquired;
 
     [Header("Player SFX")]
-    [SerializeField] private AK.Wwise.Event footstepsEvent;
-    [SerializeField] private AK.Wwise.Event PlayerGetHit;
-    [SerializeField] private AK.Wwise.Event PlayerLanding;
     [SerializeField] private AK.Wwise.Event jumpSound;
     [SerializeField] private AK.Wwise.Event hideSound;
     [SerializeField] private AK.Wwise.Event unhideSound;
-    [SerializeField] private AK.Wwise.Event PlayerAttack1;
-    [SerializeField] private AK.Wwise.Event PlayerAttack2;
-    [SerializeField] private AK.Wwise.Event PlayerAttack3;
-    [SerializeField] private AK.Wwise.Event PlayerDeath;
-
+    [SerializeField] private AK.Wwise.Event playManaCollectSound;
+    [SerializeField] private AK.Wwise.Event playBigManaCollect;
 
     private void Awake()
     {
@@ -427,13 +421,16 @@ public class PlayerController : MonoBehaviour
             data.orbsAcquired[collider.GetComponent<IndexNumber>().indexNumber] = true;
             SaveSystem.Save(data);
             mana = uiManager.IncreaseManaLimit(5);
+            AkSoundEngine.PostEvent(playBigManaCollect.Id, gameObject);
             Destroy(collider.gameObject);
         }
 
         if (collider.CompareTag("ManaDust"))
         {
             mana = uiManager.RecoverMana(1);
+            AkSoundEngine.PostEvent(playManaCollectSound.Id, gameObject);
             Destroy(collider.gameObject);
+            
         }
 
         if (hidden)
@@ -659,7 +656,6 @@ public class PlayerController : MonoBehaviour
         rb.velocity = Vector2.zero;
         rb.AddForce((transform.position - enemyRange.position).normalized * knockBackForce, ForceMode2D.Impulse);
         health -= 1;
-        AkSoundEngine.PostEvent(PlayerGetHit.Id, this.gameObject);
         uiManager.RemoveHealth(health);
         if (health <= 0)
                 state = PlayerState.Die;
@@ -860,42 +856,6 @@ public class PlayerController : MonoBehaviour
                 break;
         }
     }
-
-#region"SFX"
-    public void PlayFootstepSound()
-    {
-        AkSoundEngine.PostEvent(footstepsEvent.Id, this.gameObject);
-    }
-    public void PlayLandingSound()
-    {
-        AkSoundEngine.PostEvent(PlayerLanding.Id, this.gameObject);
-    }
-
-    public void PlayAttackSound1()
-    {
-        AkSoundEngine.PostEvent(PlayerAttack1.Id, this.gameObject);
-    }
-
-    public void PlayAttackSound2()
-    {
-        AkSoundEngine.PostEvent(PlayerAttack2.Id, this.gameObject);
-    }
-    
-    public void PlayAttackSound3()
-    {
-        AkSoundEngine.PostEvent(PlayerAttack3.Id, this.gameObject);
-    }
-
-    public void PlayDeathSound()
-    {
-        AkSoundEngine.PostEvent(PlayerDeath.Id, this.gameObject);
-    }
-    public void PlayerGethitSound()
-    {
-        AkSoundEngine.PostEvent(PlayerGetHit.Id, this.gameObject);
-    }
-    #endregion
-
 }
 
 /// <summary>The state the player is in</summary>

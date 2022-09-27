@@ -38,7 +38,7 @@ MonoBehaviour:
     ParentPath: Master-Mixer Hierarchy\Default Work Unit
     guid: 7de379ab294c8b4bb89e8859415a296b
     GuidInternal: 
-    m_lastTime: -8585373411209868312
+    m_lastTime: -8585373033704596299
     List:
     - name: Enemies
       guid: 5bd2dcf53a53ec40a08a60aced304f73
@@ -134,7 +134,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: 8e4f66b589979341a9758fc582d8ef42
     GuidInternal: 
-    m_lastTime: -8585385965881333004
+    m_lastTime: -8585372953496276148
     List:
     - name: Main
       guid: 39d7839d2e21374980c4dbcf6c26361d
@@ -162,7 +162,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: 82cdb01971e8c14a95e6261d6261e874
     GuidInternal: 
-    m_lastTime: -8585373434343410626
+    m_lastTime: -8585372953568816016
     List:
     - name: Animals
       guid: 6a6501751c5a5a4fa7d4c60fd86f8200
@@ -178,6 +178,26 @@ MonoBehaviour:
         ObjectType: 4
         guid: 6a6501751c5a5a4fa7d4c60fd86f8200
       Path: Events\Default Work Unit\Animals
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Bird_Chirping
+      guid: 5588a60492a15e499c14b9aece2fac35
+      id: 4074828199
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 82cdb01971e8c14a95e6261d6261e874
+      - ElementName: Animals
+        ObjectType: 4
+        guid: 6a6501751c5a5a4fa7d4c60fd86f8200
+      - ElementName: Bird_Chirping
+        ObjectType: 3
+        guid: 5588a60492a15e499c14b9aece2fac35
+      Path: Events\Default Work Unit\Animals\Bird_Chirping
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -232,6 +252,23 @@ MonoBehaviour:
         ObjectType: 3
         guid: bb901e22f07835439e4f36c5be388bf9
       Path: Events\Default Work Unit\Music\MusicTest
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Play_BigManaCollect
+      guid: 67531181fa20194dbcdc20cfc977785e
+      id: 3731267505
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 82cdb01971e8c14a95e6261d6261e874
+      - ElementName: Play_BigManaCollect
+        ObjectType: 3
+        guid: 67531181fa20194dbcdc20cfc977785e
+      Path: Events\Default Work Unit\Play_BigManaCollect
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -395,6 +432,26 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
+    - name: Play_ManaCollect
+      guid: b5c1486aaf5af949836707200d9235c4
+      id: 2127717455
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 82cdb01971e8c14a95e6261d6261e874
+      - ElementName: Player
+        ObjectType: 4
+        guid: dbbe213d96b4944487849970b94c79e6
+      - ElementName: Play_ManaCollect
+        ObjectType: 3
+        guid: b5c1486aaf5af949836707200d9235c4
+      Path: Events\Default Work Unit\Player\Play_ManaCollect
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
     - name: Play_Mole
       guid: da646ca765ebe048b6c17656b21f2275
       id: 1313611223
@@ -529,6 +586,26 @@ MonoBehaviour:
         ObjectType: 3
         guid: e7af0c4c145ee54d82c0bb0dee6b6f8f
       Path: Events\Default Work Unit\Music\PlayTestBattleMusic
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: SkeletonAngering
+      guid: 53024b5bec4e494fb8c432d08af13cd6
+      id: 535223923
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 82cdb01971e8c14a95e6261d6261e874
+      - ElementName: Enemies
+        ObjectType: 4
+        guid: ca416c819803884494d186c1d539683a
+      - ElementName: SkeletonAngering
+        ObjectType: 3
+        guid: 53024b5bec4e494fb8c432d08af13cd6
+      Path: Events\Default Work Unit\Enemies\SkeletonAngering
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -812,7 +889,7 @@ MonoBehaviour:
     m_lastTime: -8585385965881212896
     List: []
   ExpandedFileSystemItemIds: 
-  ExpandedWaapiItemIds: 01000000060000000700000008000000090000000a0000000f00000010000000
+  ExpandedWaapiItemIds: 0500000006000000070000000a0000000b0000001a0000001b0000001d000000
   AutoSyncSelection: 0
   autoPopulateEnabled: 1
   currentDataSource: 0

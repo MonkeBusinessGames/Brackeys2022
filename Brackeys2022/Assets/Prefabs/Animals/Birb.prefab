@@ -52,7 +52,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.16, y: 0.22}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 4, y: 4}
     newSize: {x: 0.32, y: 0.32}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -73,9 +73,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a499c4ba5e75d9e48a3002d4c5885210, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  checkPoint: {fileID: 0}
   catAbility: 0
   moleAbility: 0
   birbAbility: 1
+  goatAbility: 0
+  monkeyAbility: 0
   BirdSound:
     idInternal: 0
     valueGuidInternal: 
@@ -88,6 +91,10 @@ MonoBehaviour:
     idInternal: 0
     valueGuidInternal: 
     WwiseObjectReference: {fileID: 11400000, guid: 4903aae8426da974ab916bd642088ea9, type: 2}
+  animalIdleSound:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 543399d4b36fe214dae52401a0bec769, type: 2}
 --- !u!212 &5383295718659140273
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -20,6 +20,11 @@
 						<Bus Name="Environment" ID="{20EF0A14-D65E-42F8-85BA-D3F932EFDABC}"/>
 						<Bus Name="Music" ID="{EBB7EBE0-E9D5-41C4-B912-A8B95A91C026}">
 							<PropertyList>
+								<Property Name="BusVolume" Type="Real64">
+									<ValueList>
+										<Value>-5</Value>
+									</ValueList>
+								</Property>
 								<Property Name="RecoveryTime" Type="Real64" Value="0.5"/>
 							</PropertyList>
 							<DuckingList>
