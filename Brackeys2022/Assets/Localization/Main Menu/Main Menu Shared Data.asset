@@ -76,7 +76,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 696933688979456
-    m_Key: Volume
+    m_Key: MusicVolume
     m_Metadata:
       m_Items: []
   - m_Id: 699604244279296
@@ -89,6 +89,10 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 699628038565888
     m_Key: Sound
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3474602340036608
+    m_Key: Sound Volume
     m_Metadata:
       m_Items: []
   m_Metadata:

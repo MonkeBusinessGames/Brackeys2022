@@ -28,8 +28,11 @@ public class SaveData
     /// <summary>The index of the last checkPoint.</summary>
     public int checkPointIndex;
 
-    /// <summary> Sound volume</summary>
-    public float volume;
+    /// <summary> Music volume</summary>
+    public float musicVolume;
+
+    /// <summary> SFX volume</summary>
+    public float sfxVolume;
 
     /// <summary> Preferred language</summary>
     public int languageIndex;
@@ -41,24 +44,25 @@ public class SaveData
         orbsAcquired = new bool[3];
         hasCat = hasBirb = hasMole = hasGoat = hasMonkey = false;
         checkPointIndex = 0;
-        volume = 1;
+        musicVolume = .8f;
+        sfxVolume = .8f;
         languageIndex = 0;
     }
 
     /// <summary>Creates a new save file with the given sound and language.</summary>
-    /// <param name="soundVolume">Determines what volume to set the sound at</param>
+    /// <param name="music">Determines what volume to set the music at</param>
+    /// <param name="sound">Determines what volume to set the sfx at</param>
     /// <param name="language">Determined what the language should be</param>
-    public SaveData(float soundVolume, int language)
+    public SaveData(float music, float sound, int language)
     {
         starsAcquired = new bool[3];
         orbsAcquired = new bool[3];
         hasCat = hasBirb = hasMole = hasGoat = hasMonkey = false;
         checkPointIndex = 0;
-        volume = soundVolume;
+        musicVolume = music;
+        sfxVolume = sound;
         languageIndex = language;
     }
-
-
 
     /// <summary>Creates a save file from the given save information</summary>
     /// <param name="health">Determines how many health stars the player has</param>
@@ -69,9 +73,10 @@ public class SaveData
     /// <param name="goat">Determines whether the goat power is on</param>
     /// <param name="monkey">Determines whether the monkey power is on</param>
     /// <param name="checkPoint">Determines which chekpoint to spawn at</param>
-    /// <param name="soundVolume">Determines what volume to set the sound at</param>
+    /// <param name="music">Determines what volume to set the music at</param>
+    /// <param name="sound">Determines what volume to set the sfx at</param>
     /// <param name="language">Determined what the language should be</param>
-    public SaveData(bool[] health, bool[] mana, bool cat, bool birb, bool mole, bool goat, bool monkey, int checkPoint, float soundVolume, int language)
+    public SaveData(bool[] health, bool[] mana, bool cat, bool birb, bool mole, bool goat, bool monkey, int checkPoint, float music, float sound, int language)
     {
         starsAcquired = health;
         orbsAcquired = mana;
@@ -81,7 +86,8 @@ public class SaveData
         hasGoat = goat;
         hasMonkey = monkey;
         checkPointIndex = checkPoint;
-        volume = soundVolume;
+        musicVolume = music;
+        sfxVolume = sound;
         languageIndex = language;
     }
 }

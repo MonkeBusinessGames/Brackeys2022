@@ -16,7 +16,8 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] private AK.Wwise.Event UISelectSound;
     [SerializeField] private CanvasGroup[] cutScenes;
     [SerializeField] private TMP_Dropdown localeDropdown;
-    [SerializeField] private Slider volumeSlider;
+    [SerializeField] private Slider musicSlider;
+    [SerializeField] private Slider sfxSlider;
     private SaveData data;
 
     private void Start()
@@ -112,12 +113,35 @@ public class MainMenuManager : MonoBehaviour
     #region"Volume"
     private void InitializeVolume()
     {
-        //Initialize Volume
+        //Sets the slider values
+        musicSlider.value = data.musicVolume;
+        sfxSlider.value = data.sfxVolume;
+
+        //Sets Music Volume
+        //AkSoundEngine.SetRIPCValue("MusicVolume", data.musicVolume);
+
+        //Sets SFX Volume
+        //AkSoundEngine.SetRIPCValue("SFXVolume", data.sfxVolume);
     }
 
-    public void ChangeVolume()
+    public void ChangeMusicVolume()
     {
-        //Change Volume
+        //Sets Music Volume to Slider Value
+        //AkSoundEngine.SetRIPCValue("MusicVolume", musicSlider.value);
+
+        //Saves Music Volume for future sessions
+        data.musicVolume = musicSlider.value;
+        SaveSystem.Save(data);
+    }
+
+    public void ChangeSFXVolume()
+    {        
+        //Sets SFX Volume to Slider Value
+        //AkSoundEngine.SetRIPCValue("SFXVolume", sfxSlider.value);
+
+        //Saves Music Volume for future sessions
+        data.sfxVolume = sfxSlider.value;
+        SaveSystem.Save(data);
     }
     #endregion
 
