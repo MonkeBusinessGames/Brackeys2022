@@ -278190,7 +278190,7 @@ MonoBehaviour:
   wingFront: {fileID: 387836485}
   uiManager: {fileID: 1104965827}
   cameraTarget: {fileID: 1817742341}
-  startFresh: 1
+  startFresh: 0
   particles: {fileID: 1744083784}
   checkPointList:
   - {fileID: 314709619}

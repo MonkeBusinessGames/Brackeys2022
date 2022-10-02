@@ -37,6 +37,11 @@ public class SaveData
     /// <summary> Preferred language</summary>
     public int languageIndex;
 
+    /// <summary>
+    /// The keymanager saved for this user
+    /// </summary>
+    public KeyManager keyManager;
+
     /// <summary>Creates a brand new, empty save file.</summary>
     public SaveData()
     {
@@ -47,21 +52,16 @@ public class SaveData
         musicVolume = .8f;
         sfxVolume = .8f;
         languageIndex = 0;
+        keyManager = new KeyManager();
     }
 
-    /// <summary>Creates a new save file with the given sound and language.</summary>
-    /// <param name="music">Determines what volume to set the music at</param>
-    /// <param name="sound">Determines what volume to set the sfx at</param>
-    /// <param name="language">Determined what the language should be</param>
-    public SaveData(float music, float sound, int language)
+    /// <summary>Resets the save data with default level values</summary>
+    public void Reset()
     {
         starsAcquired = new bool[3];
         orbsAcquired = new bool[3];
         hasCat = hasBirb = hasMole = hasGoat = hasMonkey = false;
         checkPointIndex = 0;
-        musicVolume = music;
-        sfxVolume = sound;
-        languageIndex = language;
     }
 
     /// <summary>Creates a save file from the given save information</summary>
