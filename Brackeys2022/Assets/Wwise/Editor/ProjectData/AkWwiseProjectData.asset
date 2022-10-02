@@ -38,7 +38,7 @@ MonoBehaviour:
     ParentPath: Master-Mixer Hierarchy\Default Work Unit
     guid: 7de379ab294c8b4bb89e8859415a296b
     GuidInternal: 
-    m_lastTime: -8585371161935153157
+    m_lastTime: -8585368841577678481
     List:
     - name: Enemies
       guid: 5bd2dcf53a53ec40a08a60aced304f73
@@ -122,6 +122,23 @@ MonoBehaviour:
         ObjectType: 2
         guid: a07a4134a4b45a4091bff8bad8a9049c
       Path: Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\Player
+    - name: SFX
+      guid: 6150b5a0080da04db630ede09355e87a
+      id: 393239870
+      PathAndIcons:
+      - ElementName: Master-Mixer Hierarchy
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 7de379ab294c8b4bb89e8859415a296b
+      - ElementName: Master Audio Bus
+        ObjectType: 2
+        guid: d8a41415a61d2a41a17e75ca0c2149f3
+      - ElementName: SFX
+        ObjectType: 2
+        guid: 6150b5a0080da04db630ede09355e87a
+      Path: Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\SFX
   BankWwu:
   - PhysicalPath: SoundBanks\Default Work Unit.wwu
     PathAndIcons:
@@ -134,7 +151,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: 8e4f66b589979341a9758fc582d8ef42
     GuidInternal: 
-    m_lastTime: -8585371161934602756
+    m_lastTime: -8585372936269241545
     List:
     - name: Main
       guid: 39d7839d2e21374980c4dbcf6c26361d
@@ -162,7 +179,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: 82cdb01971e8c14a95e6261d6261e874
     GuidInternal: 
-    m_lastTime: -8585371161939643335
+    m_lastTime: -8585372936273185129
     List:
     - name: Animals
       guid: 6a6501751c5a5a4fa7d4c60fd86f8200
@@ -778,8 +795,56 @@ MonoBehaviour:
     ParentPath: Game Parameters\Default Work Unit
     guid: 205402400bc290468fc2df91a19f2658
     GuidInternal: 
-    m_lastTime: -8585385965929307669
-    List: []
+    m_lastTime: -8585368841581562535
+    List:
+    - name: MusicVolume
+      guid: 07ebab7480b3ea43b713995bc6591d44
+      id: 2346531308
+      PathAndIcons:
+      - ElementName: Game Parameters
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 205402400bc290468fc2df91a19f2658
+      - ElementName: Volume
+        ObjectType: 4
+        guid: 9e2455a98e6e1c4c9eed0c4e4e787722
+      - ElementName: MusicVolume
+        ObjectType: 13
+        guid: 07ebab7480b3ea43b713995bc6591d44
+      Path: Game Parameters\Default Work Unit\Volume\MusicVolume
+    - name: SFXVolume
+      guid: 73388dda588426429f59f8f377247f7d
+      id: 988953028
+      PathAndIcons:
+      - ElementName: Game Parameters
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 205402400bc290468fc2df91a19f2658
+      - ElementName: Volume
+        ObjectType: 4
+        guid: 9e2455a98e6e1c4c9eed0c4e4e787722
+      - ElementName: SFXVolume
+        ObjectType: 13
+        guid: 73388dda588426429f59f8f377247f7d
+      Path: Game Parameters\Default Work Unit\Volume\SFXVolume
+    - name: Volume
+      guid: 9e2455a98e6e1c4c9eed0c4e4e787722
+      id: 2415836739
+      PathAndIcons:
+      - ElementName: Game Parameters
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 205402400bc290468fc2df91a19f2658
+      - ElementName: Volume
+        ObjectType: 4
+        guid: 9e2455a98e6e1c4c9eed0c4e4e787722
+      Path: Game Parameters\Default Work Unit\Volume
   StateWwu:
   - PhysicalPath: States\Default Work Unit.wwu
     PathAndIcons:
@@ -889,7 +954,7 @@ MonoBehaviour:
     m_lastTime: -8585385965881212896
     List: []
   ExpandedFileSystemItemIds: 
-  ExpandedWaapiItemIds: 0500000006000000070000000a0000000b0000001a0000001b0000001d000000
+  ExpandedWaapiItemIds: 
   AutoSyncSelection: 0
   autoPopulateEnabled: 1
   currentDataSource: 0

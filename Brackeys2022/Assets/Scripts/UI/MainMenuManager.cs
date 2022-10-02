@@ -118,16 +118,16 @@ public class MainMenuManager : MonoBehaviour
         sfxSlider.value = data.sfxVolume;
 
         //Sets Music Volume
-        //AkSoundEngine.SetRIPCValue("MusicVolume", data.musicVolume);
+        AkSoundEngine.SetRTPCValue("MusicVolume", data.musicVolume);
 
         //Sets SFX Volume
-        //AkSoundEngine.SetRIPCValue("SFXVolume", data.sfxVolume);
+        AkSoundEngine.SetRTPCValue("SFXVolume", data.sfxVolume);
     }
 
     public void ChangeMusicVolume()
     {
         //Sets Music Volume to Slider Value
-        //AkSoundEngine.SetRIPCValue("MusicVolume", musicSlider.value);
+        AkSoundEngine.SetRTPCValue("MusicVolume", musicSlider.value);
 
         //Saves Music Volume for future sessions
         data.musicVolume = musicSlider.value;
@@ -137,7 +137,7 @@ public class MainMenuManager : MonoBehaviour
     public void ChangeSFXVolume()
     {        
         //Sets SFX Volume to Slider Value
-        //AkSoundEngine.SetRIPCValue("SFXVolume", sfxSlider.value);
+        AkSoundEngine.SetRTPCValue("SFXVolume", sfxSlider.value);
 
         //Saves Music Volume for future sessions
         data.sfxVolume = sfxSlider.value;
