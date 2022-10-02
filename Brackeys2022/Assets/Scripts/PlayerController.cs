@@ -395,7 +395,7 @@ public class PlayerController : MonoBehaviour
         if (collider.CompareTag("End"))
         {
             uiManager.GameComplete();
-            data = new SaveData(data.volume, data.languageIndex);
+            data = new SaveData(data.musicVolume, data.sfxVolume, data.languageIndex);
             SaveSystem.Save(data);
         }
 
