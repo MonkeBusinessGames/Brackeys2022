@@ -86,16 +86,18 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
-        afterImage = GetComponent<DashAfterImage>();
-        data = SaveSystem.Load();
-        frozen = false;
         if (startFresh)
             data = new SaveData();
-        InitializeArea();
+        else
+            data = SaveSystem.Load();
+        uiManager.pauseKey = data.keyManager.keys[Key.Pause];
+        afterImage = GetComponent<DashAfterImage>();
+        frozen = false;
     }
 
     void Start()
     {
+        InitializeArea();
         isLooking = false;
         state = PlayerState.Idle;
         flip = false;
@@ -115,7 +117,7 @@ public class PlayerController : MonoBehaviour
         //Get Walk Input
         if (!isDashing)
         {
-            movementX = Input.GetAxis("Horizontal");
+            movementX = data.keyManager.Horizontal();
         }
         
 
@@ -128,7 +130,7 @@ public class PlayerController : MonoBehaviour
                     break;
 
                 //Start Jumping
-                if (Input.GetButtonDown("Jump"))
+                if (Input.GetKeyDown(data.keyManager.keys[Key.Jump]))
                 {
                     EndFall();
                     state = PlayerState.JumpStart;
@@ -140,7 +142,7 @@ public class PlayerController : MonoBehaviour
                     state = PlayerState.Falling;
                     SetAnimation();
                 }
-                else if (Input.GetButtonDown("Attack"))
+                else if (Input.GetKeyDown(data.keyManager.keys[Key.Attack]))
                 {
                     if(catAcquired)
                     {
@@ -162,7 +164,7 @@ public class PlayerController : MonoBehaviour
                     break;
 
                 //Start Jumping
-                if (Input.GetButtonDown("Jump"))
+                if (Input.GetKeyDown(data.keyManager.keys[Key.Jump]))
                 {
                     state = PlayerState.JumpStart;
                     SetAnimation();
@@ -172,7 +174,7 @@ public class PlayerController : MonoBehaviour
                     state = PlayerState.Falling;
                     SetAnimation();
                 }
-                else if (Input.GetButtonDown("Attack"))
+                else if (Input.GetKeyDown(data.keyManager.keys[Key.Attack]))
                 {
                     if (catAcquired)
                     {
@@ -199,7 +201,7 @@ public class PlayerController : MonoBehaviour
             case PlayerState.Jumping:
                 // Short Jump
                 anim.SetFloat("Jump Velocity", rb.velocity.y);
-                if (Input.GetButtonUp("Jump"))
+                if (Input.GetKeyUp(data.keyManager.keys[Key.Jump]))
                 {
                     rb.velocity *= new Vector2(1, .5f);
                     state = PlayerState.JumpStop;
@@ -252,7 +254,7 @@ public class PlayerController : MonoBehaviour
                 HideCheck();
                 break;
             case PlayerState.Attack:
-                if (Input.GetButtonDown("Attack"))
+                if (Input.GetKeyDown(data.keyManager.keys[Key.Attack]))
                     keepAttacking = true;
                 movementX = 0;
                 break;
@@ -395,7 +397,7 @@ public class PlayerController : MonoBehaviour
         if (collider.CompareTag("End"))
         {
             uiManager.GameComplete();
-            data = new SaveData(data.musicVolume, data.sfxVolume, data.languageIndex);
+            data.Reset();
             SaveSystem.Save(data);
         }
 
@@ -509,7 +511,7 @@ public class PlayerController : MonoBehaviour
         {
             if (state == PlayerState.Idle)
             {
-                float vertical = Input.GetAxis("Vertical");
+                float vertical = data.keyManager.Vertical();
 
                 if (vertical > .1f)
                 {
@@ -532,7 +534,7 @@ public class PlayerController : MonoBehaviour
 
         else if (state == PlayerState.Idle)
         {
-            float vertical = Input.GetAxis("Vertical");
+            float vertical = data.keyManager.Vertical();
 
             if (vertical > .1f)
             {
@@ -706,7 +708,7 @@ public class PlayerController : MonoBehaviour
     public void DoubleJumpCheck()
     {
         if (birbAcquired & !doubleJumped)
-            if (Input.GetButtonDown("Jump"))
+            if (Input.GetKeyDown(data.keyManager.keys[Key.Jump]))
             {
                 if (mana >= 2)
                 {
@@ -721,7 +723,7 @@ public class PlayerController : MonoBehaviour
     public void DiveCheck()
     {
         if (moleAcquired)
-            if (Input.GetButtonDown("Attack"))
+            if (Input.GetKeyDown(data.keyManager.keys[Key.Attack]))
             {
                 doubleJumped = true;
                 state = PlayerState.Dive;
@@ -793,7 +795,7 @@ public class PlayerController : MonoBehaviour
                 particles.Stop();
             }
             mana = uiManager.RemoveMana(Time.deltaTime);
-            if (Input.GetButtonUp("Hide"))
+            if (Input.GetKeyUp(data.keyManager.keys[Key.Hide]))
             {
                 anim.speed = 1;
                 sRend.color = Color.white;
@@ -806,7 +808,7 @@ public class PlayerController : MonoBehaviour
             }
             return true;
         }
-        else if (Input.GetButtonDown("Hide"))
+        else if (Input.GetKeyDown(data.keyManager.keys[Key.Hide]))
         {
             AkSoundEngine.PostEvent(hideSound.Id, this.gameObject);
             anim.speed = .5f;

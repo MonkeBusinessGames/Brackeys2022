@@ -35,7 +35,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 695735074336768
-    m_Localized: 'Movement:'
+    m_Localized: 'Up:'
     m_Metadata:
       m_Items: []
   - m_Id: 696264525524992
@@ -95,7 +95,19 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 3474602340036608
-    m_Localized: SFX
+    m_Localized: 'SFX:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3555489014525952
+    m_Localized: 'Right:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3555630542925824
+    m_Localized: 'Left:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3555676642521088
+    m_Localized: 'Down:'
     m_Metadata:
       m_Items: []
   references:

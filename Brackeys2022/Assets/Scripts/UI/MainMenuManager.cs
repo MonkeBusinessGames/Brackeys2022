@@ -18,16 +18,33 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] private TMP_Dropdown localeDropdown;
     [SerializeField] private Slider musicSlider;
     [SerializeField] private Slider sfxSlider;
+    [SerializeField] private List<TMP_Text> keyInputs;
+    private Key currentKey;
+    private bool isWaiting;
+    [SerializeField] private GameObject inputScreen;
+
+    [SerializeField] private bool startFresh = false;
     private SaveData data;
+
+    private void Awake()
+    {
+        if (startFresh)
+            data = new SaveData();
+        else
+            data = SaveSystem.Load();
+
+    }
 
     private void Start()
     {
-        data = SaveSystem.Load();
         //Localization Initialization
         StartCoroutine(InitializeLocales());
 
         //Volume Initialization
         InitializeVolume();
+
+        //Controls Initialization
+        InitializeControls();
     }
 
     #region"Button Methods"
@@ -92,7 +109,7 @@ public class MainMenuManager : MonoBehaviour
         }
         localeDropdown.AddOptions(localeLabels);
         localeDropdown.value = data.languageIndex;
-        SetLocale(data.languageIndex);
+        StartCoroutine(SetLocale(data.languageIndex));
     }
 
     public void ChangeLocale(int i)
@@ -143,6 +160,43 @@ public class MainMenuManager : MonoBehaviour
         data.sfxVolume = sfxSlider.value;
         SaveSystem.Save(data);
     }
+    #endregion
+
+    #region"Input Management"
+    private void InitializeControls()
+    {
+        for(int i = 0; i < keyInputs.Count; i++)
+        {
+            keyInputs[i].text = data.keyManager.keys[(Key)i].ToString();
+        }
+    }
+
+    public void StartKeyInput(int i)
+    {
+        currentKey = (Key) i;
+        inputScreen.SetActive(true);
+        keyInputs[i].fontStyle = FontStyles.Italic;
+        isWaiting = true;
+    }
+
+    private void OnGUI()
+    {
+        if (isWaiting)
+        {
+            Event keyEvent = Event.current;
+
+            if (keyEvent.isKey)
+            {
+                data.keyManager.keys[currentKey] = keyEvent.keyCode;
+                keyInputs[(int)currentKey].text = data.keyManager.keys[currentKey].ToString();
+                keyInputs[(int)currentKey].fontStyle = FontStyles.Bold;
+                SaveSystem.Save(data);
+                inputScreen.SetActive(false);
+                isWaiting = false;
+            }
+        }
+    }
+
     #endregion
 
 }
