@@ -26,7 +26,7 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private float knockBackForce = 5;
     [SerializeField] private float health = 10;
     [SerializeField] private float attackPower = 3;
-    private static PlayerController player;
+    private PlayerController player;
 
     private float timer;
     private EnemyState state;
@@ -94,6 +94,7 @@ public class EnemyController : MonoBehaviour
         {
             if (state == EnemyState.Die)
                 return;
+
             state = EnemyState.Idle;
             SetAnimation();
             targetWaypoint = points[pointIndex];

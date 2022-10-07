@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,7 +11,6 @@ public class WispController : MonoBehaviour
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Animator anim;
 
-
     [Header("Movement Fields")]
     [SerializeField] private Vector2[] points;
     private int pointIndex = 0;
@@ -19,26 +19,35 @@ public class WispController : MonoBehaviour
     [SerializeField] private float speed = 3;
     [SerializeField] private float idleTime = 1;
     private bool facingLeft;
-    private bool playerInRange = false;
+    private bool playerDetected = false;
 
 
     [Header("Combat Fields")]
-    [SerializeField] private Transform attackRange;
     [SerializeField] private BoxCollider2D detectRange;
     [SerializeField] private float knockBackForce = 5;
     [SerializeField] private float health = 10;
     [SerializeField] private float attackSpeed = 5;
-    private static PlayerController player;
-
+    [SerializeField] private LayerMask playerMask;
+    private PlayerController player;
+    private Vector3 chargeDirection;
+    private bool startKnockback = false;
+    private bool timerEnded = false;
     private float timer;
     private WispState state;
 
-    void Start()
+    Rigidbody2D playerRigidbody2D;
+
+    private void Awake()
     {
         player = FindObjectOfType<PlayerController>();
+        playerRigidbody2D = player.GetComponent<Rigidbody2D>();
+    }
+    void Start()
+    {
+        targetWaypoint = points[pointIndex];
+
         state = WispState.Idle;
         timer = 0;
-        targetWaypoint = points[pointIndex];
         facingLeft = false;
     }
 
@@ -54,21 +63,36 @@ public class WispController : MonoBehaviour
 
     void Update()
     {
+        FlipCheck();
+        DetectPlayer();
+
+        print(state);
+
         switch (state)
         {
             case WispState.Idle:
                 Idling();
                 break;
-            case WispState.Walking:
-                Move();
+            case WispState.Patroling:
+                Patrol();
                 break;
             case WispState.Chasing:
                 Chasing();
                 break;
-            case WispState.Hit:
+            case WispState.Charging:
+                Charge();
                 break;
-            case WispState.AttackReady:
-                Attacking();
+            case WispState.Attack:
+                Attack();
+                break;
+            case WispState.Dashing:
+                CheckIfCollided();
+                break;
+            case WispState.Hit:
+                KnockBack();
+                break;
+            case WispState.Cooldown:
+                WaitForNextAttack();
                 break;
         }
     }
@@ -79,40 +103,30 @@ public class WispController : MonoBehaviour
         {
             if (state == WispState.Die)
                 return;
-            state = WispState.Chasing;
-            GetAngry();
-            MoveToPlayer();
-        }
 
-        if (collision.CompareTag("Dive"))
-        {
-            if (state == (WispState.Die | WispState.Hit))
-                return;
-            TakeDamage(3, collision.transform.position);
+            print("Collided " + transform.name);
+            startKnockback = true;
         }
     }
-
-    private void OnTriggerExit2D(Collider2D collision)
+    private void CheckIfCollided()
     {
-        if (collision.CompareTag("Player"))
+        if (startKnockback)
         {
-            if (state == WispState.Die)
-                return;
-            state = WispState.Idle;
-            CalmDown();
-            targetWaypoint = points[pointIndex];
-            Move();
-        }        
+            startKnockback = false;
+            state = WispState.Hit;
+        }
     }
 
     private void DetectPlayer()
     {
         if (state == WispState.Die)
             return;
-        if (detectRange.IsTouchingLayers(128))
+
+        if (detectRange.IsTouchingLayers(playerMask) && !playerDetected)
         {
+            playerDetected = true;
             state = WispState.Chasing;
-            GetAngry();
+            SetAngryAnimation();
         }
     }
 
@@ -130,121 +144,107 @@ public class WispController : MonoBehaviour
             anim.SetTrigger("Die");
         }
     }
-    public void HitEnd()
-    {
-        GetAngry();
-        state = WispState.Chasing;
-    }
 
     public void Die()
     {
         Destroy(gameObject);
     }
 
-
     /// <summary>Move towards the player</summary>
     private void Chasing()
     {
         if (player.hidden)
         {
+            playerDetected = false; 
             CalmDown();
             targetWaypoint = points[pointIndex];
-            FlipCheck();
-            Move();
+            Patrol();
             return;
         }
-        MoveToPlayer();
-        if (Physics2D.OverlapBox(attackRange.position, attackRange.localScale, 0, 128) != null)
-            AttackModeStart();
 
+        MoveToPlayer();
     }
 
-    private void Attacking()
+    private void Charge()
     {
-        if (player.hidden)
+        StartTimer(1.6f);
+
+        if (timerEnded)
+            state = WispState.Attack;
+    }
+
+    private void WaitForNextAttack()
+    {
+        StartTimer(3f);
+
+        if (timerEnded)
         {
-            CalmDown();
-            targetWaypoint = points[pointIndex];
-            Move();
-            return;
+            timerEnded = false;
+            state = WispState.Chasing;
         }
-        MoveToPlayer();
-        if (Physics2D.OverlapBox(attackRange.position, attackRange.localScale, 0, 128) == null)
-            AttackModeEnd();
-        else
-            StartCoroutine(Attack(player.transform.position));
     }
 
     /// <summary>Checks whether idling is over</summary>
     private void Idling()
     {
-        timer += Time.deltaTime;
-        if (timer >= idleTime)
+        if (!playerDetected)
         {
-            state = WispState.Walking;
-            Move();
-            timer = 0;
+            StartTimer(1.5f);
+
+            if (timerEnded)
+            {
+                timerEnded = false;
+                state = WispState.Patroling;
+                Patrol();
+            }
         }
     }
 
-    private void CalmDown()
+    private void Attack()
     {
-        anim.SetBool("Angry", false);
-        anim.SetBool("Attack", false);
+        rb.AddForce(chargeDirection * 8, ForceMode2D.Impulse);
+        state = WispState.Dashing;
     }
 
-    private void GetAngry()
+    private void KnockBack()
     {
-        anim.SetBool("Angry", true);
-        anim.SetBool("Attack", false);
+        AttackModeEnd();
+        rb.velocity = Vector2.zero;
+        rb.AddForce(-chargeDirection * 4, ForceMode2D.Impulse);
+
+        state = WispState.Cooldown;
     }
 
-    private void AttackModeStart()
-    {
-        anim.SetBool("Attack", true);
-    }
-
-    public void AttackReady()
-    {
-        state = WispState.AttackReady;
-    }
-
-    private IEnumerator Attack(Vector3 target)
-    {
-        state = WispState.Attack;
-        //print((transform.position - target).normalized * attackSpeed);
-
-        while (transform.position != target)
-        {
-            transform.position = Vector2.MoveTowards(transform.position, target, attackSpeed * Time.deltaTime);
-            yield return null;
-        }
-
-        state = WispState.AttackReady;
-    }
-
-    private void AttackModeEnd()
-    {
-        anim.SetBool("Attack", false);
-    }
     private void MoveToPlayer() //Move to the player
     {
-        targetWaypoint = player.transform.position;
-        FlipCheck();
-        transform.position = Vector2.MoveTowards(transform.position, targetWaypoint, speed * Time.deltaTime);
+        if (playerDetected && state.Equals(WispState.Chasing))
+        {
+            if (Vector3.Distance(transform.position, targetWaypoint) <= 2f)
+            {
+                targetWaypoint = player.transform.position;
+                state = WispState.Attack;
+            }
+            else
+            {
+                transform.position = Vector2.MoveTowards(transform.position, targetWaypoint, speed * Time.deltaTime);
+            }
+        }
     }
 
-    private void Move() //Move to the next point
+    private void Patrol() //Move to the next point
     {
-        FlipCheck();
-        transform.position = Vector2.MoveTowards(transform.position, targetWaypoint, speed * Time.deltaTime);
-        if (transform.position == (Vector3)targetWaypoint)
+        if (!playerDetected)
         {
-            current++;
-            current = current % points.Length;
-            targetWaypoint = points[current];
-            state = WispState.Idle;
-            rb.velocity = Vector2.zero;
+            transform.position = Vector2.MoveTowards(transform.position, targetWaypoint, speed * Time.deltaTime);
+
+            if (transform.position == (Vector3)targetWaypoint)
+            {
+                current++;
+                current = current % points.Length;
+                targetWaypoint = points[current];
+                state = WispState.Idle;
+                rb.velocity = Vector2.zero;
+            }
         }
     }
 
@@ -267,27 +267,51 @@ public class WispController : MonoBehaviour
         }
     }
 
-
-    /// <summary> Allows the editor to show the transform points </summary>
-    private void OnDrawGizmos()
+    private void AttackModeEnd()
     {
-        Gizmos.color = Color.green; Gizmos.color = Color.green;
-        for (int i = 0; i < points.Length; i++)
+        anim.SetBool("Attack", false);
+    }
+    private void CalmDown()
+    {
+        anim.SetBool("Angry", false);
+        anim.SetBool("Attack", false);
+    }
+
+    private void SetAngryAnimation()
+    {
+        anim.SetBool("Angry", true);
+        anim.SetBool("Attack", false);
+    }
+
+    private void AttackModeAnimationStart()
+    {
+        anim.SetBool("Attack", true);
+    }
+
+    private void StartTimer(float cooldown)
+    {
+        if (!timerEnded)
         {
-            Gizmos.DrawSphere(points[i], .2f);
-            Gizmos.DrawLine(points[i], points[(i + 1) % points.Length]);
+            timer += Time.deltaTime;
+
+            if (timer >= cooldown)
+            {
+                timer = 0;
+                timerEnded = true;
+            }
         }
-        Gizmos.DrawWireCube(attackRange.position, attackRange.localScale);
     }
 }
 
 public enum WispState
 {
     Idle,
-    Walking,
+    Patroling,
     Chasing,
-    AttackReady,
+    Charging,
     Attack,
+    Dashing,
     Hit,
+    Cooldown,
     Die
 }

@@ -48,6 +48,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float dashCooldown;
     bool isDashing = false;
     bool canDash = true;
+    float normalGravity;
     DashAfterImage afterImage;  // A bit of a dependency meme
 
     [Header("Combat Fields")]
@@ -93,6 +94,7 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
+        normalGravity = rb.gravityScale;
         afterImage = GetComponent<DashAfterImage>();
         data = SaveSystem.Load();
         if (startFresh)
@@ -110,7 +112,7 @@ public class PlayerController : MonoBehaviour
     }
     
     void Update()
-    {                
+    {
         //Handles Look Input
         Look();
 
@@ -208,6 +210,9 @@ public class PlayerController : MonoBehaviour
                     if (Input.GetKeyDown(KeyCode.LeftShift) && canDash)
                     {
                         state = PlayerState.Dash;
+
+                        afterImage.ActivateAfterImages(true);
+                        StartCoroutine(Dash());
                     }
                 }
 
@@ -226,17 +231,36 @@ public class PlayerController : MonoBehaviour
                 { 
                     state = PlayerState.JumpStop;
                 }
+
                 DiveCheck();
                 break;
             case PlayerState.JumpStop:
                 anim.SetFloat("Jump Velocity", rb.velocity.y);
+                if (goatAcquired)
+                {
+                    if (Input.GetKeyDown(KeyCode.LeftShift) && canDash)
+                    {
+                        state = PlayerState.Dash;
 
+                        afterImage.ActivateAfterImages(true);
+                        StartCoroutine(Dash());
+                    }
+                }
                 DoubleJumpCheck();
                 DiveCheck();
                 break;
             case PlayerState.Falling:
                 anim.SetFloat("Jump Velocity", rb.velocity.y);
+                if (goatAcquired)
+                {
+                    if (Input.GetKeyDown(KeyCode.LeftShift) && canDash)
+                    {
+                        state = PlayerState.Dash;
 
+                        afterImage.ActivateAfterImages(true);
+                        StartCoroutine(Dash());
+                    }
+                }
                 DoubleJumpCheck();
                 DiveCheck();
 
@@ -263,6 +287,16 @@ public class PlayerController : MonoBehaviour
                 }
                 break;
             case PlayerState.DoubleJump:
+                if (goatAcquired)
+                {
+                    if (Input.GetKeyDown(KeyCode.LeftShift) && canDash)
+                    {
+                        state = PlayerState.Dash;
+
+                        afterImage.ActivateAfterImages(true);
+                        StartCoroutine(Dash());
+                    }
+                }
                 anim.SetFloat("Jump Velocity", rb.velocity.y);
                 break;
             case PlayerState.Hit:
@@ -309,7 +343,7 @@ public class PlayerController : MonoBehaviour
 
         if (isDashing)
         {
-            if(rb.velocity.x > 0)
+            if(movementX > 0)
             {
                 rb.AddForce(new Vector2(dashSpeed, 0), ForceMode2D.Impulse);
             }
@@ -366,8 +400,7 @@ public class PlayerController : MonoBehaviour
                     rb.velocity = diveSpeed;
                 break;
             case PlayerState.Dash:
-                afterImage.ActivateAfterImages(true);
-                StartCoroutine(Dash());
+                
                 break;
         }
     }
@@ -763,12 +796,17 @@ public class PlayerController : MonoBehaviour
 
     private IEnumerator Dash()
     {
+        Vector2 originalVelocity = rb.velocity;
+
         canDash = false;
         isDashing = true;
+        rb.gravityScale = 0;
+        rb.velocity = Vector2.zero;
         yield return new WaitForSeconds(dashTime);
 
         isDashing = false;
-        rb.velocity = Vector2.zero;
+        rb.gravityScale = normalGravity;
+        rb.velocity = originalVelocity;
         state = PlayerState.Walking;
         afterImage.ActivateAfterImages(false);
         yield return new WaitForSeconds(dashCooldown);
