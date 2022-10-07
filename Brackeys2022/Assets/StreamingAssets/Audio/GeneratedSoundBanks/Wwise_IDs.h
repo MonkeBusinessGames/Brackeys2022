@@ -13,7 +13,9 @@ namespace AK
 {
     namespace EVENTS
     {
+        static const AkUniqueID BIRD_CHIRPING = 4074828199U;
         static const AkUniqueID MUSICTEST = 4195921398U;
+        static const AkUniqueID PLAY_BIGMANACOLLECT = 3731267505U;
         static const AkUniqueID PLAY_BIRD = 1844467875U;
         static const AkUniqueID PLAY_CAT = 2690797150U;
         static const AkUniqueID PLAY_DUNGEONAMBIENCE = 4258174524U;
@@ -22,12 +24,14 @@ namespace AK
         static const AkUniqueID PLAY_JUMPSOUND = 2371580015U;
         static const AkUniqueID PLAY_LAND = 4285282925U;
         static const AkUniqueID PLAY_LEVELMUSIC = 2671044069U;
+        static const AkUniqueID PLAY_MANACOLLECT = 2127717455U;
         static const AkUniqueID PLAY_MOLE = 1313611223U;
         static const AkUniqueID PLAY_PLAYERDEATH = 910581297U;
         static const AkUniqueID PLAY_STOPHIDE = 4095150858U;
         static const AkUniqueID PLAYER_ATTACK = 2824512041U;
         static const AkUniqueID PLAYER_GETHIT = 3945457670U;
         static const AkUniqueID PLAYTESTBATTLEMUSIC = 1786435558U;
+        static const AkUniqueID SKELETONANGERING = 535223923U;
         static const AkUniqueID SKELETONATTACK = 4153337164U;
         static const AkUniqueID SKELETONDEATH = 139523582U;
         static const AkUniqueID SKELETONGETHIT = 650055683U;

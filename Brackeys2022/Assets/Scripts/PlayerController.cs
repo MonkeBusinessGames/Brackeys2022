@@ -29,6 +29,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject[] orbList;
 
     [Header("Movement Fields")]
+    public static bool frozen = false;
     [SerializeField] private float speed = 8;
     [SerializeField] private float jumpForce = 900;
     [SerializeField] private BoxCollider2D groundCheck;
@@ -39,8 +40,6 @@ public class PlayerController : MonoBehaviour
     public bool hidden = false;
     private bool doubleJumped = false;
     private bool isLooking;
-    [SerializeField] private float coyoteTime = 0.2f;
-    [SerializeField] private float coyoteTimeCounter;
 
     [Header("Dashing Fields")]
     [SerializeField] private float dashTime;
@@ -48,7 +47,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float dashCooldown;
     bool isDashing = false;
     bool canDash = true;
-    float normalGravity;
     DashAfterImage afterImage;  // A bit of a dependency meme
 
     [Header("Combat Fields")]
@@ -80,30 +78,26 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private bool monkeyAcquired;
 
     [Header("Player SFX")]
-    [SerializeField] private AK.Wwise.Event footstepsEvent;
-    [SerializeField] private AK.Wwise.Event PlayerGetHit;
-    [SerializeField] private AK.Wwise.Event PlayerLanding;
     [SerializeField] private AK.Wwise.Event jumpSound;
     [SerializeField] private AK.Wwise.Event hideSound;
     [SerializeField] private AK.Wwise.Event unhideSound;
-    [SerializeField] private AK.Wwise.Event PlayerAttack1;
-    [SerializeField] private AK.Wwise.Event PlayerAttack2;
-    [SerializeField] private AK.Wwise.Event PlayerAttack3;
-    [SerializeField] private AK.Wwise.Event PlayerDeath;
-
+    [SerializeField] private AK.Wwise.Event playManaCollectSound;
+    [SerializeField] private AK.Wwise.Event playBigManaCollect;
 
     private void Awake()
     {
-        normalGravity = rb.gravityScale;
-        afterImage = GetComponent<DashAfterImage>();
-        data = SaveSystem.Load();
         if (startFresh)
             data = new SaveData();
-        InitializeArea();
+        else
+            data = SaveSystem.Load();
+        uiManager.pauseKey = data.keyManager.keys[Key.Pause];
+        afterImage = GetComponent<DashAfterImage>();
+        frozen = false;
     }
 
     void Start()
     {
+        InitializeArea();
         isLooking = false;
         state = PlayerState.Idle;
         flip = false;
@@ -112,27 +106,20 @@ public class PlayerController : MonoBehaviour
     }
     
     void Update()
-    {
+    {                
         //Handles Look Input
         Look();
-
+        if (frozen)
+            return;
         if (state == (PlayerState.Hit))
             return;
 
         //Get Walk Input
-        if (!isDashing && state != PlayerState.Die)
+        if (!isDashing)
         {
-            movementX = Input.GetAxis("Horizontal");
+            movementX = data.keyManager.Horizontal();
         }
-
-        if (groundCheck.IsTouchingLayers(ground))
-        {
-            coyoteTimeCounter = coyoteTime;
-        }
-        else
-        {
-            coyoteTimeCounter -= Time.deltaTime;
-        }
+        
 
         //Get Input Based on State
         switch (state)
@@ -143,7 +130,7 @@ public class PlayerController : MonoBehaviour
                     break;
 
                 //Start Jumping
-                if (Input.GetButtonDown("Jump") && coyoteTimeCounter > 0f)
+                if (Input.GetKeyDown(data.keyManager.keys[Key.Jump]))
                 {
                     EndFall();
                     state = PlayerState.JumpStart;
@@ -155,7 +142,7 @@ public class PlayerController : MonoBehaviour
                     state = PlayerState.Falling;
                     SetAnimation();
                 }
-                else if (Input.GetButtonDown("Attack"))
+                else if (Input.GetKeyDown(data.keyManager.keys[Key.Attack]))
                 {
                     if(catAcquired)
                     {
@@ -170,11 +157,6 @@ public class PlayerController : MonoBehaviour
                     }
                 }
 
-                if (Input.GetButtonUp("Jump"))
-                {
-                    coyoteTimeCounter = 0f;
-                }
-
                 break;
             case PlayerState.Walking:
                 //Handle Hide Input
@@ -182,7 +164,7 @@ public class PlayerController : MonoBehaviour
                     break;
 
                 //Start Jumping
-                if (Input.GetButtonDown("Jump"))
+                if (Input.GetKeyDown(data.keyManager.keys[Key.Jump]))
                 {
                     state = PlayerState.JumpStart;
                     SetAnimation();
@@ -192,7 +174,7 @@ public class PlayerController : MonoBehaviour
                     state = PlayerState.Falling;
                     SetAnimation();
                 }
-                else if (Input.GetButtonDown("Attack"))
+                else if (Input.GetKeyDown(data.keyManager.keys[Key.Attack]))
                 {
                     if (catAcquired)
                     {
@@ -210,9 +192,6 @@ public class PlayerController : MonoBehaviour
                     if (Input.GetKeyDown(KeyCode.LeftShift) && canDash)
                     {
                         state = PlayerState.Dash;
-
-                        afterImage.ActivateAfterImages(true);
-                        StartCoroutine(Dash());
                     }
                 }
 
@@ -222,7 +201,7 @@ public class PlayerController : MonoBehaviour
             case PlayerState.Jumping:
                 // Short Jump
                 anim.SetFloat("Jump Velocity", rb.velocity.y);
-                if (Input.GetButtonUp("Jump"))
+                if (Input.GetKeyUp(data.keyManager.keys[Key.Jump]))
                 {
                     rb.velocity *= new Vector2(1, .5f);
                     state = PlayerState.JumpStop;
@@ -231,36 +210,17 @@ public class PlayerController : MonoBehaviour
                 { 
                     state = PlayerState.JumpStop;
                 }
-
                 DiveCheck();
                 break;
             case PlayerState.JumpStop:
                 anim.SetFloat("Jump Velocity", rb.velocity.y);
-                if (goatAcquired)
-                {
-                    if (Input.GetKeyDown(KeyCode.LeftShift) && canDash)
-                    {
-                        state = PlayerState.Dash;
 
-                        afterImage.ActivateAfterImages(true);
-                        StartCoroutine(Dash());
-                    }
-                }
                 DoubleJumpCheck();
                 DiveCheck();
                 break;
             case PlayerState.Falling:
                 anim.SetFloat("Jump Velocity", rb.velocity.y);
-                if (goatAcquired)
-                {
-                    if (Input.GetKeyDown(KeyCode.LeftShift) && canDash)
-                    {
-                        state = PlayerState.Dash;
 
-                        afterImage.ActivateAfterImages(true);
-                        StartCoroutine(Dash());
-                    }
-                }
                 DoubleJumpCheck();
                 DiveCheck();
 
@@ -287,16 +247,6 @@ public class PlayerController : MonoBehaviour
                 }
                 break;
             case PlayerState.DoubleJump:
-                if (goatAcquired)
-                {
-                    if (Input.GetKeyDown(KeyCode.LeftShift) && canDash)
-                    {
-                        state = PlayerState.Dash;
-
-                        afterImage.ActivateAfterImages(true);
-                        StartCoroutine(Dash());
-                    }
-                }
                 anim.SetFloat("Jump Velocity", rb.velocity.y);
                 break;
             case PlayerState.Hit:
@@ -304,7 +254,7 @@ public class PlayerController : MonoBehaviour
                 HideCheck();
                 break;
             case PlayerState.Attack:
-                if (Input.GetButtonDown("Attack"))
+                if (Input.GetKeyDown(data.keyManager.keys[Key.Attack]))
                     keepAttacking = true;
                 movementX = 0;
                 break;
@@ -335,6 +285,8 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (frozen)
+            return;
         if (state == (PlayerState.Hit))
             return; 
 
@@ -343,7 +295,7 @@ public class PlayerController : MonoBehaviour
 
         if (isDashing)
         {
-            if(movementX > 0)
+            if(rb.velocity.x > 0)
             {
                 rb.AddForce(new Vector2(dashSpeed, 0), ForceMode2D.Impulse);
             }
@@ -400,11 +352,11 @@ public class PlayerController : MonoBehaviour
                     rb.velocity = diveSpeed;
                 break;
             case PlayerState.Dash:
-                
+                afterImage.ActivateAfterImages(true);
+                StartCoroutine(Dash());
                 break;
         }
     }
-
 
     #region"Collision handling"
     private void OnCollisionEnter2D(Collision2D collision)
@@ -423,6 +375,7 @@ public class PlayerController : MonoBehaviour
                 uiManager.RemoveHealth(health);
                 if (health <= 0)
                 {
+                    frozen = true;
                     state = PlayerState.Die;
                     anim.updateMode = AnimatorUpdateMode.UnscaledTime;
                     Time.timeScale = 0;
@@ -436,11 +389,15 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
+        if (collider.CompareTag("DialogueTrigger"))
+        {
+            collider.GetComponent<DialogueTrigger>().TriggerDialogue();
+        }
 
         if (collider.CompareTag("End"))
         {
             uiManager.GameComplete();
-            data = new SaveData(data.volume, data.languageIndex);
+            data.Reset();
             SaveSystem.Save(data);
         }
 
@@ -466,13 +423,16 @@ public class PlayerController : MonoBehaviour
             data.orbsAcquired[collider.GetComponent<IndexNumber>().indexNumber] = true;
             SaveSystem.Save(data);
             mana = uiManager.IncreaseManaLimit(5);
+            AkSoundEngine.PostEvent(playBigManaCollect.Id, gameObject);
             Destroy(collider.gameObject);
         }
 
         if (collider.CompareTag("ManaDust"))
         {
             mana = uiManager.RecoverMana(1);
+            AkSoundEngine.PostEvent(playManaCollectSound.Id, gameObject);
             Destroy(collider.gameObject);
+            
         }
 
         if (hidden)
@@ -489,6 +449,7 @@ public class PlayerController : MonoBehaviour
                 uiManager.RemoveHealth(health);
                 if (health <= 0)
                 {
+                    frozen = true;
                     state = PlayerState.Die;
                     anim.updateMode = AnimatorUpdateMode.UnscaledTime;
                     Time.timeScale = 0;
@@ -550,7 +511,7 @@ public class PlayerController : MonoBehaviour
         {
             if (state == PlayerState.Idle)
             {
-                float vertical = Input.GetAxis("Vertical");
+                float vertical = data.keyManager.Vertical();
 
                 if (vertical > .1f)
                 {
@@ -573,7 +534,7 @@ public class PlayerController : MonoBehaviour
 
         else if (state == PlayerState.Idle)
         {
-            float vertical = Input.GetAxis("Vertical");
+            float vertical = data.keyManager.Vertical();
 
             if (vertical > .1f)
             {
@@ -697,7 +658,6 @@ public class PlayerController : MonoBehaviour
         rb.velocity = Vector2.zero;
         rb.AddForce((transform.position - enemyRange.position).normalized * knockBackForce, ForceMode2D.Impulse);
         health -= 1;
-        AkSoundEngine.PostEvent(PlayerGetHit.Id, this.gameObject);
         uiManager.RemoveHealth(health);
         if (health <= 0)
                 state = PlayerState.Die;
@@ -748,7 +708,7 @@ public class PlayerController : MonoBehaviour
     public void DoubleJumpCheck()
     {
         if (birbAcquired & !doubleJumped)
-            if (Input.GetButtonDown("Jump"))
+            if (Input.GetKeyDown(data.keyManager.keys[Key.Jump]))
             {
                 if (mana >= 2)
                 {
@@ -763,7 +723,7 @@ public class PlayerController : MonoBehaviour
     public void DiveCheck()
     {
         if (moleAcquired)
-            if (Input.GetButtonDown("Attack"))
+            if (Input.GetKeyDown(data.keyManager.keys[Key.Attack]))
             {
                 doubleJumped = true;
                 state = PlayerState.Dive;
@@ -796,17 +756,12 @@ public class PlayerController : MonoBehaviour
 
     private IEnumerator Dash()
     {
-        Vector2 originalVelocity = rb.velocity;
-
         canDash = false;
         isDashing = true;
-        rb.gravityScale = 0;
-        rb.velocity = Vector2.zero;
         yield return new WaitForSeconds(dashTime);
 
         isDashing = false;
-        rb.gravityScale = normalGravity;
-        rb.velocity = originalVelocity;
+        rb.velocity = Vector2.zero;
         state = PlayerState.Walking;
         afterImage.ActivateAfterImages(false);
         yield return new WaitForSeconds(dashCooldown);
@@ -840,7 +795,7 @@ public class PlayerController : MonoBehaviour
                 particles.Stop();
             }
             mana = uiManager.RemoveMana(Time.deltaTime);
-            if (Input.GetButtonUp("Hide"))
+            if (Input.GetKeyUp(data.keyManager.keys[Key.Hide]))
             {
                 anim.speed = 1;
                 sRend.color = Color.white;
@@ -853,7 +808,7 @@ public class PlayerController : MonoBehaviour
             }
             return true;
         }
-        else if (Input.GetButtonDown("Hide"))
+        else if (Input.GetKeyDown(data.keyManager.keys[Key.Hide]))
         {
             AkSoundEngine.PostEvent(hideSound.Id, this.gameObject);
             anim.speed = .5f;
@@ -903,42 +858,6 @@ public class PlayerController : MonoBehaviour
                 break;
         }
     }
-
-#region"SFX"
-    public void PlayFootstepSound()
-    {
-        AkSoundEngine.PostEvent(footstepsEvent.Id, this.gameObject);
-    }
-    public void PlayLandingSound()
-    {
-        AkSoundEngine.PostEvent(PlayerLanding.Id, this.gameObject);
-    }
-
-    public void PlayAttackSound1()
-    {
-        AkSoundEngine.PostEvent(PlayerAttack1.Id, this.gameObject);
-    }
-
-    public void PlayAttackSound2()
-    {
-        AkSoundEngine.PostEvent(PlayerAttack2.Id, this.gameObject);
-    }
-    
-    public void PlayAttackSound3()
-    {
-        AkSoundEngine.PostEvent(PlayerAttack3.Id, this.gameObject);
-    }
-
-    public void PlayDeathSound()
-    {
-        AkSoundEngine.PostEvent(PlayerDeath.Id, this.gameObject);
-    }
-    public void PlayerGethitSound()
-    {
-        AkSoundEngine.PostEvent(PlayerGetHit.Id, this.gameObject);
-    }
-    #endregion
-
 }
 
 /// <summary>The state the player is in</summary>

@@ -661,15 +661,15 @@ AnimationClip:
     intParameter: 0
     messageOptions: 0
   - time: 0.25
-    functionName: PlayFootstepSound
+    functionName: SpawnParticles
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
   - time: 0.25
-    functionName: SpawnParticles
-    data: 
+    functionName: PlayWwiseEvent
+    data: Play_Footstep
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
@@ -682,8 +682,8 @@ AnimationClip:
     intParameter: 0
     messageOptions: 0
   - time: 0.75
-    functionName: PlayFootstepSound
-    data: 
+    functionName: PlayWwiseEvent
+    data: Play_Footstep
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0

@@ -11,6 +11,7 @@ TagManager:
   - Checkpoint
   - ManaOrb
   - ManaDust
+  - DialogueTrigger
   layers:
   - Default
   - TransparentFX

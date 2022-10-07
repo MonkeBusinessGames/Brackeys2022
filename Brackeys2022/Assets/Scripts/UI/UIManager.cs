@@ -15,19 +15,21 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Slider manaSlider;
     [SerializeField] private CanvasGroup[] cutScenes;
     private bool isPaused = false;
+    public KeyCode pauseKey;
 
 
     // Start is called before the first frame update
     void Start()
     {
         isPaused = false;
+
     }
 
     // Update is called once per frame
     void Update()
     {
         //Pause Button Input
-        if (Input.GetButtonDown("Cancel"))
+        if (Input.GetKeyDown(pauseKey))
         {
             Pause();
         }

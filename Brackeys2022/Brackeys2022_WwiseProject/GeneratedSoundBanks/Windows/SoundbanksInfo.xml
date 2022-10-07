@@ -9,7 +9,7 @@
 	</RootPaths>
 	<DialogueEvents/>
 	<SoundBanks>
-		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{A1FA8341-21BC-0417-8488-1E140D568C8B}">
+		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{8C0916CD-6D31-39EC-486F-AD566B12CDF8}">
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 			<Plugins>
@@ -44,7 +44,7 @@
 				</StateGroup>
 			</StateGroups>
 		</SoundBank>
-		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{C4BF5111-7087-7F7B-DE68-B1CD89D25937}">
+		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{9ED32B06-F829-B388-5304-E79DAFED4065}">
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
 			<Media>
@@ -59,6 +59,10 @@
 				<File Id="169778164" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>GetHit6.wav</ShortName>
 					<CachePath>SFX/GetHit6_10C4C929.wem</CachePath>
+				</File>
+				<File Id="172172866" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Player_ManaCollect2.wav</ShortName>
+					<CachePath>SFX/Player_ManaCollect2_10C4C929.wem</CachePath>
 				</File>
 				<File Id="200315710" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>DungeonAmbience.wav</ShortName>
@@ -108,6 +112,14 @@
 					<ShortName>GetHit2.wav</ShortName>
 					<CachePath>SFX/GetHit2_10C4C929.wem</CachePath>
 				</File>
+				<File Id="383380591" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Player_ManaCollect3.wav</ShortName>
+					<CachePath>SFX/Player_ManaCollect3_10C4C929.wem</CachePath>
+				</File>
+				<File Id="450200820" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Skeleton_Angering1.wav</ShortName>
+					<CachePath>SFX/Skeleton_Angering1_10C4C929.wem</CachePath>
+				</File>
 				<File Id="471127437" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>GetHit3.wav</ShortName>
 					<CachePath>SFX/GetHit3_10C4C929.wem</CachePath>
@@ -124,6 +136,10 @@
 					<ShortName>Skelly_Step1.wav</ShortName>
 					<CachePath>SFX/Skelly_Step1_10C4C929.wem</CachePath>
 				</File>
+				<File Id="621094994" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Birb_Chirp1.wav</ShortName>
+					<CachePath>SFX/Birb_Chirp1_10C4C929.wem</CachePath>
+				</File>
 				<File Id="621761934" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Cloth3.wav</ShortName>
 					<CachePath>SFX/Cloth3_10C4C929.wem</CachePath>
@@ -136,6 +152,10 @@
 					<ShortName>Player_Unhiding.wav</ShortName>
 					<CachePath>SFX/Player_Unhiding_10C4C929.wem</CachePath>
 				</File>
+				<File Id="658769817" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Skeleton_Angering2.wav</ShortName>
+					<CachePath>SFX/Skeleton_Angering2_10C4C929.wem</CachePath>
+				</File>
 				<File Id="660298236" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Player_Attack2.wav</ShortName>
 					<CachePath>SFX/Player_Attack2_10C4C929.wem</CachePath>
@@ -147,6 +167,10 @@
 				<File Id="683425856" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>FS2Stereo.wav</ShortName>
 					<CachePath>SFX/FS2Stereo_10C4C929.wem</CachePath>
+				</File>
+				<File Id="695472629" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Birb_Chirp2.wav</ShortName>
+					<CachePath>SFX/Birb_Chirp2_10C4C929.wem</CachePath>
 				</File>
 				<File Id="705979647" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>FS1Stereo.wav</ShortName>
@@ -168,9 +192,25 @@
 					<ShortName>WaterDrop2.wav</ShortName>
 					<CachePath>SFX/WaterDrop2_10C4C929.wem</CachePath>
 				</File>
+				<File Id="823199432" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Grunt1.wav</ShortName>
+					<CachePath>SFX/Grunt1_10C4C929.wem</CachePath>
+				</File>
+				<File Id="849549976" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Player_ManaCollect.wav</ShortName>
+					<CachePath>SFX/Player_ManaCollect_10C4C929.wem</CachePath>
+				</File>
 				<File Id="856300465" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Cloth2.wav</ShortName>
 					<CachePath>SFX/Cloth2_10C4C929.wem</CachePath>
+				</File>
+				<File Id="883268061" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Grunt2.wav</ShortName>
+					<CachePath>SFX/Grunt2_10C4C929.wem</CachePath>
+				</File>
+				<File Id="919898490" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Player_ManaCollect4.wav</ShortName>
+					<CachePath>SFX/Player_ManaCollect4_10C4C929.wem</CachePath>
 				</File>
 				<File Id="929970491" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>LevelMusic2.wav</ShortName>
@@ -187,6 +227,10 @@
 				<File Id="986866790" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>HubTrigger.wav</ShortName>
 					<CachePath>SFX/HubTrigger_10C4C929.wem</CachePath>
+				</File>
+				<File Id="999391797" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Player_BigManaCollect.wav</ShortName>
+					<CachePath>SFX/Player_BigManaCollect_10C4C929.wem</CachePath>
 				</File>
 				<File Id="1013361031" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>WaterDrop1.wav</ShortName>
@@ -208,9 +252,20 @@
 				</Sharesets>
 			</Plugins>
 			<Events>
+				<Event Id="4074828199" Name="Bird_Chirping" MaxAttenuation="100" DurationType="OneShot" DurationMin="0" DurationMax="0.6875">
+					<MediaRefs>
+						<MediaRef Id="621094994"/>
+						<MediaRef Id="695472629"/>
+					</MediaRefs>
+				</Event>
 				<Event Id="4195921398" Name="MusicTest" DurationType="OneShot" DurationMin="30.857145" DurationMax="30.857145">
 					<MediaRefs>
 						<MediaRef Id="986866790"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="3731267505" Name="Play_BigManaCollect" DurationType="OneShot" DurationMin="0.9023542" DurationMax="0.9023542">
+					<MediaRefs>
+						<MediaRef Id="999391797"/>
 					</MediaRefs>
 				</Event>
 				<Event Id="1844467875" Name="Play_Bird" DurationType="OneShot" DurationMin="1.5521458" DurationMax="1.5521458">
@@ -276,6 +331,14 @@
 						<MediaRef Id="1059693162"/>
 					</MediaRefs>
 				</Event>
+				<Event Id="2127717455" Name="Play_ManaCollect" DurationType="OneShot" DurationMin="0.6776435" DurationMax="0.7080542">
+					<MediaRefs>
+						<MediaRef Id="172172866"/>
+						<MediaRef Id="383380591"/>
+						<MediaRef Id="849549976"/>
+						<MediaRef Id="919898490"/>
+					</MediaRefs>
+				</Event>
 				<Event Id="1313611223" Name="Play_Mole" DurationType="OneShot" DurationMin="0.48341668" DurationMax="0.48341668">
 					<MediaRefs>
 						<MediaRef Id="250425196"/>
@@ -307,12 +370,20 @@
 						<MediaRef Id="472719549"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="4153337164" Name="SkeletonAttack" DurationType="OneShot" DurationMin="0.2779917" DurationMax="0.38591772">
+				<Event Id="535223923" Name="SkeletonAngering" MaxAttenuation="100" DurationType="OneShot" DurationMin="1.3889191" DurationMax="1.5265002">
+					<MediaRefs>
+						<MediaRef Id="450200820"/>
+						<MediaRef Id="658769817"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="4153337164" Name="SkeletonAttack" DurationType="OneShot" DurationMin="0.8200456" DurationMax="0.9083222">
 					<MediaRefs>
 						<MediaRef Id="362917710"/>
 						<MediaRef Id="588511061"/>
 						<MediaRef Id="617516731"/>
 						<MediaRef Id="621944606"/>
+						<MediaRef Id="823199432"/>
+						<MediaRef Id="883268061"/>
 					</MediaRefs>
 				</Event>
 				<Event Id="139523582" Name="SkeletonDeath" DurationType="OneShot" DurationMin="1.546875" DurationMax="1.546875">
@@ -343,7 +414,7 @@
 					</MediaRefs>
 				</Event>
 				<Event Id="1076666776" Name="StopTestBattleMusic" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
-				<Event Id="2774129122" Name="UI_Select" DurationType="OneShot" DurationMin="0.171875" DurationMax="0.171875">
+				<Event Id="2774129122" Name="UI_Select" DurationType="OneShot" DurationMin="0.09871626" DurationMax="0.09871626">
 					<MediaRefs>
 						<MediaRef Id="313573349"/>
 					</MediaRefs>
@@ -351,5 +422,5 @@
 			</Events>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{76887DB2-DBE9-ACFE-D3E3-0D824AB37A97}</FileHash>
+	<FileHash>{EB86B5BA-6642-AFD5-38FA-219BCA84F247}</FileHash>
 </SoundBanksInfo>

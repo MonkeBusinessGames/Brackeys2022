@@ -1,0 +1,52 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: Game Menu Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: Game Menu
+  m_TableCollectionNameGuidString: c073c8ad89051844bafe8d471c3fd304
+  m_Entries:
+  - m_Id: 10602590208
+    m_Key: Main Menu
+    m_Metadata:
+      m_Items: []
+  - m_Id: 38620540928
+    m_Key: Resume
+    m_Metadata:
+      m_Items: []
+  - m_Id: 79900880896
+    m_Key: Restart
+    m_Metadata:
+      m_Items: []
+  - m_Id: 699615166246912
+    m_Key: Paused
+    m_Metadata:
+      m_Items: []
+  - m_Id: 699872822341632
+    m_Key: GameOver
+    m_Metadata:
+      m_Items: []
+  - m_Id: 700185310572544
+    m_Key: GameComplete
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 4435345766551388217
+  references:
+    version: 2
+    RefIds:
+    - rid: 4435345766551388217
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1663897576477
