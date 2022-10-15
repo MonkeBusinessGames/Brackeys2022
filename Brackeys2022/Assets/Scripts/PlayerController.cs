@@ -40,13 +40,17 @@ public class PlayerController : MonoBehaviour
     public bool hidden = false;
     private bool doubleJumped = false;
     private bool isLooking;
+    [SerializeField] private float coyoteTime = 0.2f;
+    [SerializeField] private float coyoteTimeCounter = 0f;
 
     [Header("Dashing Fields")]
-    [SerializeField] private float dashTime;
-    [SerializeField] private float dashSpeed;
+    [SerializeField] private float dashTime = 0.2f;
+    [SerializeField] private float dashSlowdown = 0.4f;
+    [SerializeField] private float dashSpeed = 15f;
     [SerializeField] private float dashCooldown;
-    bool isDashing = false;
+    [HideInInspector] public bool isDashing = false;
     bool canDash = true;
+    float normalGravity, initialDrag;
     DashAfterImage afterImage;  // A bit of a dependency meme
 
     [Header("Combat Fields")]
@@ -103,10 +107,12 @@ public class PlayerController : MonoBehaviour
         flip = false;
         doubleJumped = false;
         hidden = false;
+        normalGravity = rb.gravityScale;
+        initialDrag = rb.drag;
     }
     
     void Update()
-    {                
+    {
         //Handles Look Input
         Look();
         if (frozen)
@@ -115,11 +121,16 @@ public class PlayerController : MonoBehaviour
             return;
 
         //Get Walk Input
-        if (!isDashing)
+        movementX = data.keyManager.Horizontal();
+
+        if (groundCheck.IsTouchingLayers(ground))
         {
-            movementX = data.keyManager.Horizontal();
+            coyoteTimeCounter = coyoteTime;
         }
-        
+        else
+        {
+            coyoteTimeCounter -= Time.deltaTime;
+        }
 
         //Get Input Based on State
         switch (state)
@@ -130,7 +141,7 @@ public class PlayerController : MonoBehaviour
                     break;
 
                 //Start Jumping
-                if (Input.GetKeyDown(data.keyManager.keys[Key.Jump]))
+                if (Input.GetKeyDown(data.keyManager.keys[Key.Jump]) && coyoteTimeCounter > 0f)
                 {
                     EndFall();
                     state = PlayerState.JumpStart;
@@ -164,12 +175,12 @@ public class PlayerController : MonoBehaviour
                     break;
 
                 //Start Jumping
-                if (Input.GetKeyDown(data.keyManager.keys[Key.Jump]))
+                if (Input.GetKeyDown(data.keyManager.keys[Key.Jump]) && coyoteTimeCounter > 0f)
                 {
                     state = PlayerState.JumpStart;
                     SetAnimation();
                 }
-                else if (!groundCheck.IsTouchingLayers(ground))
+                else if (!groundCheck.IsTouchingLayers(ground) && coyoteTimeCounter <= 0f)
                 {
                     state = PlayerState.Falling;
                     SetAnimation();
@@ -203,24 +214,43 @@ public class PlayerController : MonoBehaviour
                 anim.SetFloat("Jump Velocity", rb.velocity.y);
                 if (Input.GetKeyUp(data.keyManager.keys[Key.Jump]))
                 {
+                    coyoteTimeCounter = 0f;
                     rb.velocity *= new Vector2(1, .5f);
                     state = PlayerState.JumpStop;
                 }
                 else if (rb.velocity.y < 5f) 
-                { 
+                {
                     state = PlayerState.JumpStop;
                 }
                 DiveCheck();
                 break;
             case PlayerState.JumpStop:
                 anim.SetFloat("Jump Velocity", rb.velocity.y);
+                if (goatAcquired)
+                {
+                    if (Input.GetKeyDown(KeyCode.LeftShift) && canDash)
+                    {
+                        state = PlayerState.Dash;
 
+                        afterImage.ActivateAfterImages(true);
+                        StartCoroutine(Dash());
+                    }
+                }
                 DoubleJumpCheck();
                 DiveCheck();
                 break;
             case PlayerState.Falling:
                 anim.SetFloat("Jump Velocity", rb.velocity.y);
+                if (goatAcquired)
+                {
+                    if (Input.GetKeyDown(KeyCode.LeftShift) && canDash)
+                    {
+                        state = PlayerState.Dash;
 
+                        afterImage.ActivateAfterImages(true);
+                        StartCoroutine(Dash());
+                    }
+                }
                 DoubleJumpCheck();
                 DiveCheck();
 
@@ -247,6 +277,16 @@ public class PlayerController : MonoBehaviour
                 }
                 break;
             case PlayerState.DoubleJump:
+                if (goatAcquired)
+                {
+                    if (Input.GetKeyDown(KeyCode.LeftShift) && canDash)
+                    {
+                        state = PlayerState.Dash;
+
+                        afterImage.ActivateAfterImages(true);
+                        StartCoroutine(Dash());
+                    }
+                }
                 anim.SetFloat("Jump Velocity", rb.velocity.y);
                 break;
             case PlayerState.Hit:
@@ -260,6 +300,10 @@ public class PlayerController : MonoBehaviour
                 break;
             case PlayerState.AttackEnd:
                 movementX = 0;
+                break;
+            case PlayerState.Dash:
+                afterImage.ActivateAfterImages(true);
+                StartCoroutine(Dash());
                 break;
         }
 
@@ -291,26 +335,16 @@ public class PlayerController : MonoBehaviour
             return; 
 
         //Set Velocity
-        rb.velocity = new Vector2(movementX * speed, rb.velocity.y);
-
-        if (isDashing)
-        {
-            if(rb.velocity.x > 0)
-            {
-                rb.AddForce(new Vector2(dashSpeed, 0), ForceMode2D.Impulse);
-            }
-            else
-            {
-                rb.AddForce(new Vector2(-dashSpeed, 0), ForceMode2D.Impulse);
-            }
-        }
-            
-
+        if(!isDashing)
+            rb.velocity = new Vector2(movementX * speed, rb.velocity.y);
+        else
+            rb.AddForce(new Vector2(movementX * dashSpeed, 0), ForceMode2D.Impulse);
+    
         //State Machine
         switch (state)
         {
             case PlayerState.Idle:
-                if (rb.velocity.x != 0)
+                if (rb.velocity.x != 0 && !isDashing)
                 {
                     EndFall();
                     state = PlayerState.Walking;
@@ -351,11 +385,19 @@ public class PlayerController : MonoBehaviour
                 else
                     rb.velocity = diveSpeed;
                 break;
-            case PlayerState.Dash:
-                afterImage.ActivateAfterImages(true);
-                StartCoroutine(Dash());
-                break;
         }
+    }
+
+    private void PushEnemy(Collision2D enemy)
+    {
+        EnemyController enemyController = new EnemyController();
+        enemyController = enemy.gameObject.GetComponent<EnemyController>();
+
+        rb.velocity = Vector2.zero;
+        enemy.rigidbody.AddForce((transform.position - enemy.transform.position).normalized * knockBackForce, ForceMode2D.Impulse);
+        enemy.rigidbody.drag = 0.3f;
+
+        enemyController.TakeDamage(2, transform.position);
     }
 
     #region"Collision handling"
@@ -366,7 +408,11 @@ public class PlayerController : MonoBehaviour
 
         if (collision.collider.CompareTag("Enemy"))
         {
-            if (state != PlayerState.Hit)
+            if (isDashing)
+            {
+                PushEnemy(collision); 
+            }
+            else
             {
                 state = PlayerState.Hit;
                 rb.velocity = Vector2.zero;
@@ -378,7 +424,6 @@ public class PlayerController : MonoBehaviour
                     frozen = true;
                     state = PlayerState.Die;
                     anim.updateMode = AnimatorUpdateMode.UnscaledTime;
-                    Time.timeScale = 0;
                     Time.timeScale = 0;
                 }
 
@@ -410,7 +455,7 @@ public class PlayerController : MonoBehaviour
 
         if (collider.CompareTag("Star"))
         {
-            print("Star collided!");
+            //print("Star collided!");
 
             data.starsAcquired[collider.GetComponent<IndexNumber>().indexNumber] = true;
             SaveSystem.Save(data);
@@ -432,33 +477,32 @@ public class PlayerController : MonoBehaviour
             mana = uiManager.RecoverMana(1);
             AkSoundEngine.PostEvent(playManaCollectSound.Id, gameObject);
             Destroy(collider.gameObject);
-            
+
         }
 
         if (hidden)
-        return;
+            return;
 
-            if (collider.CompareTag("Enemy"))
-        {
-            if (state != PlayerState.Hit)
-            {
-                state = PlayerState.Hit;
-                rb.velocity = Vector2.zero;
-                rb.AddForce((transform.position - collider.transform.position).normalized * knockBackForce, ForceMode2D.Impulse);
-                health -= 1;
-                uiManager.RemoveHealth(health);
-                if (health <= 0)
-                {
-                    frozen = true;
-                    state = PlayerState.Die;
-                    anim.updateMode = AnimatorUpdateMode.UnscaledTime;
-                    Time.timeScale = 0;
-                    Time.timeScale = 0;
-                }
+        //if (collider.CompareTag("Enemy"))
+        //{
+        //    if (state != PlayerState.Hit)
+        //    {
+        //        state = PlayerState.Hit;
+        //        rb.velocity = Vector2.zero;
+        //        rb.AddForce((transform.position - collider.transform.position).normalized * knockBackForce, ForceMode2D.Impulse);
+        //        health -= 1;
+        //        uiManager.RemoveHealth(health);
+        //        if (health <= 0)
+        //        {
+        //            frozen = true;
+        //            state = PlayerState.Die;
+        //            anim.updateMode = AnimatorUpdateMode.UnscaledTime;
+        //            Time.timeScale = 0;
+        //        }
 
-                SetAnimation();
-            }
-        }
+        //        SetAnimation();
+        //    }
+        //}
     }
     #endregion
 
@@ -606,7 +650,6 @@ public class PlayerController : MonoBehaviour
     }
 
     /// <summary>Sets the checkPoint number</summary>
-    /// <param name="checkPointNumber"></param>
     private void SetCheckPoint(int checkPointNumber)
     {
         data.checkPointIndex = checkPointNumber;
@@ -616,7 +659,6 @@ public class PlayerController : MonoBehaviour
     /// <summary>Checks if the any enemies were hit by the claw</summary>
     public void HitCheck() 
     {
-        
         List<Collider2D> hitEnemies = new List<Collider2D>();
         clawRange.OverlapCollider(enemies, hitEnemies);
         for (int i = 0; i < hitEnemies.Count; i++)
@@ -651,7 +693,7 @@ public class PlayerController : MonoBehaviour
             Physics2D.IgnoreLayerCollision(3, 7, false);
             OnHideEnd();
         }
-        
+
         state = PlayerState.Hit;
         anim.SetInteger("AttackCounter", 1);
         diveRange.enabled = false;
@@ -660,8 +702,8 @@ public class PlayerController : MonoBehaviour
         health -= 1;
         uiManager.RemoveHealth(health);
         if (health <= 0)
-                state = PlayerState.Die;
-            SetAnimation();
+            state = PlayerState.Die;
+        SetAnimation();
     }
 
     /// <summary>Ends the animation and resets to Idle</summary>
@@ -756,14 +798,28 @@ public class PlayerController : MonoBehaviour
 
     private IEnumerator Dash()
     {
+        Vector2 originalVelocity = rb.velocity;
+
         canDash = false;
         isDashing = true;
+
+        rb.gravityScale = 0;
+        
+
+        while(rb.drag < 2)
+        {
+            rb.drag += dashSlowdown * Time.deltaTime;
+        }
+
         yield return new WaitForSeconds(dashTime);
 
         isDashing = false;
-        rb.velocity = Vector2.zero;
-        state = PlayerState.Walking;
         afterImage.ActivateAfterImages(false);
+        isDashing = false;
+        rb.gravityScale = normalGravity;
+        rb.velocity = originalVelocity;
+        rb.drag = initialDrag;
+        state = PlayerState.Walking;
         yield return new WaitForSeconds(dashCooldown);
         canDash = true;
     }
@@ -784,14 +840,13 @@ public class PlayerController : MonoBehaviour
         {
             if(mana <= 0)
             {
-
                 anim.speed = 1;
                 sRend.color = Color.white;
                 hidden = false;
                 speed *= 2;
                 Physics2D.IgnoreLayerCollision(3, 7, false);
                 AkSoundEngine.PostEvent(unhideSound.Id, this.gameObject);
-                OnHideEnd();
+                OnHideEnd?.Invoke();
                 particles.Stop();
             }
             mana = uiManager.RemoveMana(Time.deltaTime);
@@ -803,7 +858,7 @@ public class PlayerController : MonoBehaviour
                 speed *= 2;
                 Physics2D.IgnoreLayerCollision(3, 7, false);
                 AkSoundEngine.PostEvent(unhideSound.Id, this.gameObject);
-                OnHideEnd();
+                OnHideEnd?.Invoke();
                 particles.Stop();
             }
             return true;

@@ -17,7 +17,6 @@ public class DashAfterImage : MonoBehaviour
 
     private void Start()
     {
-        
         baseRenderer = GetComponent<SpriteRenderer>();
         interval = 1f / rate;
     }

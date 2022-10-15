@@ -121,8 +121,10 @@ public class EnemyController : MonoBehaviour
 
     public void HitCheck()
     {
-        if(Physics2D.OverlapBox(attackRange.position, attackRange.localScale, 0, 128) != null)
+        if (Physics2D.OverlapBox(attackRange.position, attackRange.localScale, 0, 128) != null)
+        {
             player.DamageCheck(attackRange, attackPower);
+        }
     }
 
     public void TakeDamage(float damageDealt, Vector2 playerPosition)
@@ -260,7 +262,10 @@ public class EnemyController : MonoBehaviour
         else
             rb.velocity = new Vector2(speed, 0);
     }
-
+    public void SetState(EnemyState state)
+    {
+        this.state = state;
+    }
     /// <summary> Allows the editor to show the transform points </summary>
     private void OnDrawGizmos()
     {
