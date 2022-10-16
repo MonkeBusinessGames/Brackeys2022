@@ -274,6 +274,9 @@ MonoBehaviour:
   knockBackForce: 10
   health: 10
   attackSpeed: 5
+  playerMask:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!114 &7401995796220070166
 MonoBehaviour:
   m_ObjectHideFlags: 0
