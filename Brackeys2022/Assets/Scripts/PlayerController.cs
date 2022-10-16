@@ -337,16 +337,7 @@ public class PlayerController : MonoBehaviour
         if (state == (PlayerState.Hit))
             return;
 
-        //Set Velocity
-        if (!isDashing)
-        {
-            rb.velocity = new Vector2(movementX * speed, rb.velocity.y);
-        }
-        else
-        {
-            rb.AddForce(new Vector2(movementX * dashSpeed, 0), ForceMode2D.Impulse);
-        }
-            
+        CheckForDash();
     
         //State Machine
         switch (state)
@@ -396,6 +387,18 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private void CheckForDash()
+    {
+        //Set Velocity
+        if (!isDashing)
+        {
+            rb.velocity = new Vector2(movementX * speed, rb.velocity.y);
+        }
+        else
+        {
+            rb.AddForce(new Vector2(movementX * dashSpeed, 0), ForceMode2D.Impulse);
+        }
+    }
     private void PushEnemy(Collision2D enemy)
     {
         EnemyController enemyController = enemy.gameObject.GetComponent<EnemyController>();
