@@ -65,6 +65,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float knockBackForce = 100;
     [SerializeField] private bool keepAttacking = false;
 
+    bool timerEnded = false;
+    float timer = 0;
+
     [Tooltip("Enables: Claw Abilities")]
     [SerializeField] private bool catAcquired = false;
 
@@ -332,13 +335,18 @@ public class PlayerController : MonoBehaviour
         if (frozen)
             return;
         if (state == (PlayerState.Hit))
-            return; 
+            return;
 
         //Set Velocity
-        if(!isDashing)
+        if (!isDashing)
+        {
             rb.velocity = new Vector2(movementX * speed, rb.velocity.y);
+        }
         else
+        {
             rb.AddForce(new Vector2(movementX * dashSpeed, 0), ForceMode2D.Impulse);
+        }
+            
     
         //State Machine
         switch (state)
@@ -390,12 +398,11 @@ public class PlayerController : MonoBehaviour
 
     private void PushEnemy(Collision2D enemy)
     {
-        EnemyController enemyController = new EnemyController();
-        enemyController = enemy.gameObject.GetComponent<EnemyController>();
+        EnemyController enemyController = enemy.gameObject.GetComponent<EnemyController>();
 
         rb.velocity = Vector2.zero;
         enemy.rigidbody.AddForce((transform.position - enemy.transform.position).normalized * knockBackForce, ForceMode2D.Impulse);
-        enemy.rigidbody.drag = 0.3f;
+        enemy.rigidbody.drag = 0.4f;
 
         enemyController.TakeDamage(2, transform.position);
     }
@@ -802,31 +809,35 @@ public class PlayerController : MonoBehaviour
 
         canDash = false;
         isDashing = true;
-
         rb.gravityScale = 0;
-        
-
-        while(rb.drag < 2)
-        {
-            rb.drag += dashSlowdown * Time.deltaTime;
-        }
-
+        rb.velocity = Vector2.zero;
         yield return new WaitForSeconds(dashTime);
 
         isDashing = false;
-        afterImage.ActivateAfterImages(false);
-        isDashing = false;
         rb.gravityScale = normalGravity;
         rb.velocity = originalVelocity;
-        rb.drag = initialDrag;
         state = PlayerState.Walking;
+        afterImage.ActivateAfterImages(false);
         yield return new WaitForSeconds(dashCooldown);
         canDash = true;
     }
 
+    private void StartTimer(float cooldown)
+    {
+        if (!timerEnded)
+        {
+            timer += Time.deltaTime;
+
+            if (timer >= cooldown)
+            {
+                timer = 0;
+                timerEnded = true;
+            }
+        }
+    }
+
 
     /// <summary>Use the specified amount of mana</summary>
-    /// <param name="manaUsed">The amount of mana used</param>
     public void UseMana(int manaUsed)
     {
         mana = uiManager.RemoveMana(manaUsed);
