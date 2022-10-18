@@ -6,7 +6,12 @@ State	ID	Name	State Group			Notes
 	748895195	None	PlayerHide			
 	3538823496	Hiding	PlayerHide			
 
+Game Parameter	ID	Name			Wwise Object Path	Notes
+	988953028	SFXVolume			\Default Work Unit\Volume\SFXVolume	
+	2346531308	MusicVolume			\Default Work Unit\Volume\MusicVolume	
+
 Audio Bus	ID	Name			Wwise Object Path	Notes
+	393239870	SFX			\Default Work Unit\Master Audio Bus\SFX	
 	1069431850	Player			\Default Work Unit\Master Audio Bus\Player	
 	1229948536	Environment			\Default Work Unit\Master Audio Bus\Environment	
 	2242381963	Enemies			\Default Work Unit\Master Audio Bus\Enemies	
