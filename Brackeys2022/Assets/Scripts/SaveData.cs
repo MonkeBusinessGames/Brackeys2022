@@ -28,6 +28,9 @@ public class SaveData
     /// <summary>The index of the last checkPoint.</summary>
     public int checkPointIndex;
 
+    /// <summary>The index of the last checkPoint level.</summary>
+    public int checkPointLevelIndex;
+
     /// <summary> Music volume</summary>
     public float musicVolume;
 
@@ -49,6 +52,7 @@ public class SaveData
         orbsAcquired = new bool[3];
         hasCat = hasBirb = hasMole = hasGoat = hasMonkey = false;
         checkPointIndex = 0;
+        checkPointLevelIndex = 1;
         musicVolume = .8f;
         sfxVolume = .8f;
         languageIndex = 0;
@@ -60,8 +64,10 @@ public class SaveData
     {
         starsAcquired = new bool[3];
         orbsAcquired = new bool[3];
-        hasCat = hasBirb = hasMole = hasGoat = hasMonkey = false;
+        hasCat = hasBirb = hasMole = hasGoat = hasMonkey = false; 
         checkPointIndex = 0;
+        checkPointLevelIndex = 1;
+
     }
 
     /// <summary>Creates a save file from the given save information</summary>
@@ -76,7 +82,7 @@ public class SaveData
     /// <param name="music">Determines what volume to set the music at</param>
     /// <param name="sound">Determines what volume to set the sfx at</param>
     /// <param name="language">Determined what the language should be</param>
-    public SaveData(bool[] health, bool[] mana, bool cat, bool birb, bool mole, bool goat, bool monkey, int checkPoint, float music, float sound, int language)
+    public SaveData(bool[] health, bool[] mana, bool cat, bool birb, bool mole, bool goat, bool monkey, int checkPoint, int level, int exit, bool useCheckpoint, float music, float sound, int language)
     {
         starsAcquired = health;
         orbsAcquired = mana;
@@ -86,6 +92,7 @@ public class SaveData
         hasGoat = goat;
         hasMonkey = monkey;
         checkPointIndex = checkPoint;
+        checkPointLevelIndex = level;
         musicVolume = music;
         sfxVolume = sound;
         languageIndex = language;

@@ -12,6 +12,7 @@ TagManager:
   - ManaOrb
   - ManaDust
   - DialogueTrigger
+  - Exit
   layers:
   - Default
   - TransparentFX

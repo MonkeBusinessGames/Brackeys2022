@@ -1,9 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
-using UnityEngine.Tilemaps;
-using System;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -24,6 +22,7 @@ public class PlayerController : MonoBehaviour
 
     [Header("Object Lists")]
     [SerializeField] private Transform[] checkPointList;
+    [SerializeField] private Transform[] entranceList;
     [SerializeField] private AnimalScript[] animalList;
     [SerializeField] private GameObject[] starList;
     [SerializeField] private GameObject[] orbList;
@@ -93,6 +92,7 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
+        print("Awake" + gameObject.GetInstanceID() + gameObject.name);
         if (startFresh)
             data = new SaveData();
         else
@@ -449,6 +449,11 @@ public class PlayerController : MonoBehaviour
             collider.GetComponent<DialogueTrigger>().TriggerDialogue();
         }
 
+        if (collider.CompareTag("Exit"))
+        {
+            ExitLevel(collider.GetComponent<IndexNumber>());
+        }
+
         if (collider.CompareTag("End"))
         {
             uiManager.GameComplete();
@@ -458,7 +463,7 @@ public class PlayerController : MonoBehaviour
 
         if (collider.CompareTag("Checkpoint"))
         {
-            SetCheckPoint(collider.GetComponent<IndexNumber>().indexNumber);
+            SetCheckPoint(collider.GetComponent<IndexNumber>());
             health = uiManager.RecoverHealth();
             mana = uiManager.RecoverMana(100);
         }
@@ -493,26 +498,27 @@ public class PlayerController : MonoBehaviour
         if (hidden)
             return;
 
-        //if (collider.CompareTag("Enemy"))
-        //{
-        //    if (state != PlayerState.Hit)
-        //    {
-        //        state = PlayerState.Hit;
-        //        rb.velocity = Vector2.zero;
-        //        rb.AddForce((transform.position - collider.transform.position).normalized * knockBackForce, ForceMode2D.Impulse);
-        //        health -= 1;
-        //        uiManager.RemoveHealth(health);
-        //        if (health <= 0)
-        //        {
-        //            frozen = true;
-        //            state = PlayerState.Die;
-        //            anim.updateMode = AnimatorUpdateMode.UnscaledTime;
-        //            Time.timeScale = 0;
-        //        }
+        if (collider.CompareTag("Enemy"))
+        {
+            if (state != PlayerState.Hit)
+            {
+                state = PlayerState.Hit;
+                rb.velocity = Vector2.zero;
+                rb.AddForce((transform.position - collider.transform.position).normalized * knockBackForce, ForceMode2D.Impulse);
+                health -= 1;
+                uiManager.RemoveHealth(health);
+                if (health <= 0)
+                {
+                    frozen = true;
+                    state = PlayerState.Die;
+                    anim.updateMode = AnimatorUpdateMode.UnscaledTime;
+                    Time.timeScale = 0;
+                    Time.timeScale = 0;
+                }
 
-        //        SetAnimation();
-        //    }
-        //}
+                SetAnimation();
+            }
+        }
     }
     #endregion
 
@@ -522,7 +528,6 @@ public class PlayerController : MonoBehaviour
     {
         birbAcquired = true;
         data.hasBirb = true;
-        SetCheckPoint(1);
     }
 
     /// <summary>Use this method to enable long jump and claws, when animal selection event is fired</summary>
@@ -530,7 +535,6 @@ public class PlayerController : MonoBehaviour
     {
         catAcquired = true;
         data.hasCat = true;
-        SetCheckPoint(2);
     }
 
     /// <summary>Use this method to enable dig and spikes, when animal selection event is fired</summary>
@@ -538,7 +542,6 @@ public class PlayerController : MonoBehaviour
     {
         moleAcquired = true;
         data.hasMole = true;
-        SetCheckPoint(3);
     }   
     
     /// <summary>Use this method to enable dash/bash, when animal selection event is fired</summary>
@@ -546,7 +549,6 @@ public class PlayerController : MonoBehaviour
     {
         goatAcquired = true;
         data.hasGoat = true;
-        SetCheckPoint(4);
     }
 
     /// <summary>Use this method to enable climb, when animal selection event is fired</summary>
@@ -554,7 +556,6 @@ public class PlayerController : MonoBehaviour
     {
         monkeyAcquired = true;
         data.hasMonkey = true;
-        SetCheckPoint(5);
     }
     #endregion
 
@@ -605,10 +606,34 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Initializes the area around the player
+    /// </summary>
     private void InitializeArea()
     {
+        print("Initialize");
+        //Spawn
+        if (!PlayerPrefs.HasKey("Exit"))
+        {
+            //Check if level is correct
+            if(data.checkPointLevelIndex != SceneManager.GetActiveScene().buildIndex)
+            {
+                //If level is not correct, change the level
+                SceneManager.LoadScene(data.checkPointLevelIndex);
+                return;
+            }
+
+            //Set Position to Checkpoint
+            transform.position = checkPointList[data.checkPointIndex].position;
+        }
+        else
+        {
+            //Set Position to Entrance
+            transform.position = entranceList[PlayerPrefs.GetInt("Exit")].position;
+        }
+
         //Health
-        for(int i = 0; i < data.starsAcquired.Length; i++)
+        for (int i = 0; i < data.starsAcquired.Length; i++)
         {
             if (data.starsAcquired[i])
             {
@@ -618,6 +643,8 @@ public class PlayerController : MonoBehaviour
         }
 
         uiManager.AddHealthStar(health/5 - 4);
+        if(PlayerPrefs.HasKey("Health"))
+            health = PlayerPrefs.GetInt("Health");
 
         //Mana
         for (int i = 0; i < data.orbsAcquired.Length; i++)
@@ -628,6 +655,9 @@ public class PlayerController : MonoBehaviour
                 orbList[i].SetActive(false);
             }
         }
+
+        if (PlayerPrefs.HasKey("Mana"))
+            mana = PlayerPrefs.GetFloat("Mana");
         //Abilities
         if (data.hasCat)
         {
@@ -654,16 +684,28 @@ public class PlayerController : MonoBehaviour
             monkeyAcquired = true;
             animalList[4].CreateCheckPoint();
         }
-        
-        //Checkpoints
-        transform.position = checkPointList[data.checkPointIndex].position;
+
+        PlayerPrefs.DeleteAll();
     }
 
     /// <summary>Sets the checkPoint number</summary>
-    private void SetCheckPoint(int checkPointNumber)
+    /// <param name="checkPointNumber"></param>
+    private void SetCheckPoint(IndexNumber index)
     {
-        data.checkPointIndex = checkPointNumber;
+        data.checkPointIndex = index.indexNumber;
+        data.checkPointLevelIndex = SceneManager.GetActiveScene().buildIndex;
         SaveSystem.Save(data);
+    }
+
+    /// <summary>Exits to another level</summary>
+    /// <param name="index">Provides the values to determine the next level's entrance</param>
+    private void ExitLevel(IndexNumber index)
+    {
+        PlayerPrefs.SetInt("Exit", index.indexNumber);
+        PlayerPrefs.SetFloat("Mana", mana);
+        PlayerPrefs.SetInt("Health", health);
+        SceneManager.LoadScene(index.nextSceneIndex);
+
     }
 
     /// <summary>Checks if the any enemies were hit by the claw</summary>
