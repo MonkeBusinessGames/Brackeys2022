@@ -55,9 +55,9 @@ public class AbilityPopupManager : MonoBehaviour
             //case Popup.GOAT_ABILITY_ACQUIRED:
             //    spriteRenderer.sprite = goatAbilityPopup;
             //    break;
-            //case Popup.MONKEY_ABILITY_ACQUIRED:
-            //    spriteRenderer.sprite = monkeyAbilityPopup;
-            //    break;
+            case Popup.MONKEY_ABILITY_ACQUIRED:
+                spriteRenderer.sprite = monkeyAbilityPopup;
+                break;
             case Popup.DOUBLE_JUMP_ACQUIRED:
                 spriteRenderer.sprite = doubleJumpAcquired;
                 break;
