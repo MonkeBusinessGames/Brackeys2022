@@ -451,7 +451,7 @@ public class PlayerController : MonoBehaviour
 
         if (collider.CompareTag("Exit"))
         {
-            ExitLevel(collider.GetComponent<IndexNumber>());
+            ExitLevel(collider.GetComponent<Path>());
         }
 
         if (collider.CompareTag("End"))
@@ -463,7 +463,7 @@ public class PlayerController : MonoBehaviour
 
         if (collider.CompareTag("Checkpoint"))
         {
-            SetCheckPoint(collider.GetComponent<IndexNumber>());
+            SetCheckPoint(collider.GetComponent<IndexNumber>().indexNumber);
             health = uiManager.RecoverHealth();
             mana = uiManager.RecoverMana(100);
         }
@@ -690,21 +690,21 @@ public class PlayerController : MonoBehaviour
 
     /// <summary>Sets the checkPoint number</summary>
     /// <param name="checkPointNumber"></param>
-    private void SetCheckPoint(IndexNumber index)
+    private void SetCheckPoint(int checkPointIndex)
     {
-        data.checkPointIndex = index.indexNumber;
+        data.checkPointIndex = checkPointIndex;
         data.checkPointLevelIndex = SceneManager.GetActiveScene().buildIndex;
         SaveSystem.Save(data);
     }
 
     /// <summary>Exits to another level</summary>
     /// <param name="index">Provides the values to determine the next level's entrance</param>
-    private void ExitLevel(IndexNumber index)
+    private void ExitLevel(Path path)
     {
-        PlayerPrefs.SetInt("Exit", index.indexNumber);
+        PlayerPrefs.SetInt("Exit", path.indexNumber);
         PlayerPrefs.SetFloat("Mana", mana);
         PlayerPrefs.SetInt("Health", health);
-        SceneManager.LoadScene(index.nextSceneIndex);
+        SceneManager.LoadScene(path.nextSceneIndex);
 
     }
 
@@ -727,7 +727,22 @@ public class PlayerController : MonoBehaviour
                 }
                 catch (System.NullReferenceException)
                 {
-                    hitEnemies[i].GetComponent<SkeletonController>().TakeDamage(attackPower, transform.position);
+                    try
+                    {
+                        hitEnemies[i].GetComponent<SkeletonController>().TakeDamage(attackPower, transform.position);
+                    }
+                    catch (System.NullReferenceException)
+                    {
+                        try
+                        {
+                            hitEnemies[i].GetComponent<ArmoredController>().TakeDamage(attackPower, transform.position);
+                        }
+                        catch (System.NullReferenceException)
+                        {
+
+                            Destroy(hitEnemies[i].gameObject.GetComponentInChildren<PolygonCollider2D>().gameObject);
+                        }
+                    }
                 }
             }
         }
