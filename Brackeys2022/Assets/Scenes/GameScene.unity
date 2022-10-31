@@ -37439,6 +37439,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Monkey
       objectReference: {fileID: 0}
+    - target: {fileID: 5049017758656515459, guid: a16b357081e2f8d4d9172fd8a4fe1419, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5049017758656515469, guid: a16b357081e2f8d4d9172fd8a4fe1419, type: 3}
       propertyPath: m_RootOrder
       value: 4
