@@ -15,6 +15,7 @@ TagManager:
   - Exit
   - Gate
   - Hazard
+  - Unstable
   layers:
   - Default
   - TransparentFX
