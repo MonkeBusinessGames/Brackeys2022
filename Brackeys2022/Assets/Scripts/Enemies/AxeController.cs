@@ -30,7 +30,6 @@ public class AxeController : MonoBehaviour
         {
             speed *= -1;
             rb.velocity = new Vector2(speed, 0);
-
         }
 
     }

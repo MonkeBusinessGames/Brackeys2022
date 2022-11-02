@@ -197,6 +197,10 @@ MonoBehaviour:
   speed: 10
   rb: {fileID: 3060761242935711703}
   line: {fileID: 3060761243099856688}
+  AxeSound:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 4d8d61215c7827f4b800db8a4e6d2e0b, type: 2}
 --- !u!50 &3060761243005763581
 Rigidbody2D:
   serializedVersion: 4
