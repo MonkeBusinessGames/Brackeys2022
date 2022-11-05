@@ -449,6 +449,13 @@ public class PlayerController : MonoBehaviour
             collider.GetComponent<DialogueTrigger>().TriggerDialogue();
         }
 
+        if (collider.CompareTag("Unstable"))
+        {
+            print("Try Start Loop");
+
+            StartCoroutine(collider.GetComponent<UnstableTile>().UnstableLoop());
+        }
+
         if (collider.CompareTag("Exit"))
         {
             ExitLevel(collider.GetComponent<Path>());
