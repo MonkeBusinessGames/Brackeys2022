@@ -466,6 +466,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  entranceList: []
   animalList:
   - {fileID: 0}
   - {fileID: 0}
@@ -487,9 +488,13 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   hidden: 0
+  coyoteTime: 0.2
+  coyoteTimeCounter: 0
   dashTime: 0.2
+  dashSlowdown: 0.4
   dashSpeed: 15
   dashCooldown: 2.5
+  isDashing: 0
   clawRange: {fileID: 1444463847133670817}
   diveRange: {fileID: 1444463848104288227}
   spikeRange: {fileID: 1444463848104288227}

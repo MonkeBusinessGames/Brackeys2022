@@ -66355,7 +66355,7 @@ PrefabInstance:
       objectReference: {fileID: 1104965827}
     - target: {fileID: 1444463847110575035, guid: ffd3672b37be3354d8b073b940c7cf04, type: 3}
       propertyPath: startFresh
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1444463847110575035, guid: ffd3672b37be3354d8b073b940c7cf04, type: 3}
       propertyPath: orbList.Array.data[0]

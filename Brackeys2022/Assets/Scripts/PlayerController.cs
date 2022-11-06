@@ -37,6 +37,7 @@ public class PlayerController : MonoBehaviour
     private bool flip = false;
     private PlayerState state;
     public bool hidden = false;
+    public bool meditating = false;
     private bool doubleJumped = false;
     private bool isLooking;
     [SerializeField] private float coyoteTime = 0.2f;
@@ -110,6 +111,7 @@ public class PlayerController : MonoBehaviour
         flip = false;
         doubleJumped = false;
         hidden = false;
+        meditating = false;
         normalGravity = rb.gravityScale;
         initialDrag = rb.drag;
     }
@@ -141,6 +143,10 @@ public class PlayerController : MonoBehaviour
             case PlayerState.Idle:
                 //Handle Hide Input
                 if (HideCheck())
+                    break;
+                
+                //Handle Meditate input
+                if (MeditateCheck())
                     break;
 
                 //Start Jumping
@@ -175,6 +181,11 @@ public class PlayerController : MonoBehaviour
             case PlayerState.Walking:
                 //Handle Hide Input
                 if (HideCheck())
+                    break;
+
+
+                //Handle Meditate input
+                if (MeditateCheck())
                     break;
 
                 //Start Jumping
@@ -471,6 +482,7 @@ public class PlayerController : MonoBehaviour
         if (collider.CompareTag("Checkpoint"))
         {
             SetCheckPoint(collider.GetComponent<IndexNumber>().indexNumber);
+            collider.gameObject.GetComponent<Animator>().SetBool("Checked", true);
             health = uiManager.RecoverHealth();
             mana = uiManager.RecoverMana(100);
         }
@@ -950,6 +962,31 @@ public class PlayerController : MonoBehaviour
             speed /= 2;
             Physics2D.IgnoreLayerCollision(3, 7, true);
             particles.Play();
+        }
+        return false;
+    }
+    /// <summary>Checks whether to meditate</summary>
+    private bool MeditateCheck()
+    {
+        if (meditating)
+        {
+            mana = uiManager.RecoverMana(Time.deltaTime);
+            if (Input.GetKeyUp(data.keyManager.keys[Key.Meditate]))
+            {
+                anim.speed = 1;
+                sRend.color = Color.white;
+                rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+                meditating = false;
+                //AkSoundEngine.PostEvent(unhideSound.Id, this.gameObject);
+            }
+            return true;
+        }
+        else if (Input.GetKeyDown(data.keyManager.keys[Key.Meditate]))
+        {
+            //AkSoundEngine.PostEvent(hideSound.Id, this.gameObject);
+            rb.constraints = RigidbodyConstraints2D.FreezeAll;
+            sRend.color = Color.magenta;
+            meditating = true;
         }
         return false;
     }
