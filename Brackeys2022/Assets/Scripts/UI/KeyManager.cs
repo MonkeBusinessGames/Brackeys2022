@@ -22,6 +22,7 @@ public class KeyManager
         keys.Add(Key.Hide, KeyCode.X);
         keys.Add(Key.Attack, KeyCode.C);
         keys.Add(Key.Pause, KeyCode.Escape);
+        keys.Add(Key.Meditate, KeyCode.Z);
     }
 
     /// <summary>
@@ -64,5 +65,6 @@ public enum Key
     Jump,
     Hide,
     Attack,
-    Pause
+    Pause,
+    Meditate
 }

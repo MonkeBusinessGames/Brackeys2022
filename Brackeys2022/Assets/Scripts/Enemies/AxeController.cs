@@ -21,7 +21,6 @@ public class AxeController : MonoBehaviour
 
     void FixedUpdate()
     {
-        print(rb.velocity.x);
         if (rb.velocity != Vector2.zero)
         {
             return;
