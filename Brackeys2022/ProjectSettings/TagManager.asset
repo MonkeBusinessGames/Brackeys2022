@@ -12,6 +12,10 @@ TagManager:
   - ManaOrb
   - ManaDust
   - DialogueTrigger
+  - Exit
+  - Gate
+  - Hazard
+  - Unstable
   layers:
   - Default
   - TransparentFX

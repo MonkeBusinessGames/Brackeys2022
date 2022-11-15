@@ -1,0 +1,4903 @@
+fileFormatVersion: 2
+guid: d79d524b6b303fa41bfcd719bb50cbb7
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 25
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Tiles_Cave_9
+      rect:
+        serializedVersion: 2
+        x: 217
+        y: 946
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 141e98149b5eab7418c70eb3e3203be2
+      internalID: -275789409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_10
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 946
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8f0e7baafca2014aa6bbb38976bb8c5
+      internalID: -910185094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_11
+      rect:
+        serializedVersion: 2
+        x: 269
+        y: 946
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a5b686cf9705bd4db68179eaf39fbf5
+      internalID: 827162235
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_12
+      rect:
+        serializedVersion: 2
+        x: 295
+        y: 946
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db77886db13a0f34ba54c8ae8c0aeeb6
+      internalID: 1993237941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_13
+      rect:
+        serializedVersion: 2
+        x: 321
+        y: 946
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d8780c09d483f34991990f558b772d5
+      internalID: -440371272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_14
+      rect:
+        serializedVersion: 2
+        x: 347
+        y: 946
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d46af5ddbe1f6c48852006fef01c9ff
+      internalID: -464345801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_15
+      rect:
+        serializedVersion: 2
+        x: 217
+        y: 920
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 468a040ece54cac418250a3d8b355797
+      internalID: 1690280317
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_16
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 920
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17281ea282ce1b749a7cde6103aef45c
+      internalID: -1531605272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_17
+      rect:
+        serializedVersion: 2
+        x: 269
+        y: 920
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2128f13793abd514e865a81ccee31007
+      internalID: -877104119
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_18
+      rect:
+        serializedVersion: 2
+        x: 295
+        y: 920
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c857d5f8a76d4db4c92124ed42eccabe
+      internalID: -105971154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_19
+      rect:
+        serializedVersion: 2
+        x: 321
+        y: 920
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a946e1cedc3afa48bfebb3b095fef71
+      internalID: -95259818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_20
+      rect:
+        serializedVersion: 2
+        x: 347
+        y: 920
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc70ae3261d824e42b7ec71b06f70cb0
+      internalID: 1520962512
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_22
+      rect:
+        serializedVersion: 2
+        x: 1023
+        y: 936
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8070c934f141784fbec0d8b61554762
+      internalID: -180105059
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_25
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 900
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e94c813ef5eb804b8929ef308c9713e
+      internalID: -703688747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_26
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 900
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed54245c97673ce4f8f0e2cd85c826fa
+      internalID: 707403860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_27
+      rect:
+        serializedVersion: 2
+        x: 544
+        y: 906
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 560e95d57a228294da09231759c0f52a
+      internalID: -1615183982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_28
+      rect:
+        serializedVersion: 2
+        x: 570
+        y: 906
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 565aac6833bc84f49bc2661482f88eca
+      internalID: 1270508575
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_29
+      rect:
+        serializedVersion: 2
+        x: 596
+        y: 906
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4b24c0118f2a0940a172cdfece1e0c7
+      internalID: 1152654731
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_30
+      rect:
+        serializedVersion: 2
+        x: 622
+        y: 906
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89809c25598c2d2418e53c962421e7ff
+      internalID: 72692714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_34
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 874
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f51f6a6c7dd4bd1489993f9a06545a61
+      internalID: 530625884
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_35
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 874
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc54d8a3fc6558948891f56c3e54f7ba
+      internalID: 1958328525
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_38
+      rect:
+        serializedVersion: 2
+        x: 217
+        y: 894
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f83ee53556b1ea243947d2de28ab0cba
+      internalID: 214315739
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_39
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 894
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6154654bebb44f044ad94394263e309e
+      internalID: -1734777130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_40
+      rect:
+        serializedVersion: 2
+        x: 269
+        y: 894
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 074afbd931b61f84586ccaa23350da6d
+      internalID: -1365173399
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_41
+      rect:
+        serializedVersion: 2
+        x: 295
+        y: 894
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b3f972c10c8c7c45a31c8dff84aa7ee
+      internalID: -2038459554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_42
+      rect:
+        serializedVersion: 2
+        x: 321
+        y: 894
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c50c5d573172c64ca41795c6c6780d2
+      internalID: 1700409917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_43
+      rect:
+        serializedVersion: 2
+        x: 347
+        y: 894
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a68bc41771df2f499b9ba0a8576a4b0
+      internalID: -2138103337
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_44
+      rect:
+        serializedVersion: 2
+        x: 544
+        y: 880
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c2e8f6b763757d468945c4f0ff1c8d7
+      internalID: -348044380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_45
+      rect:
+        serializedVersion: 2
+        x: 570
+        y: 880
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68e47e89125fca7479450a0bca986ad4
+      internalID: 1153894152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_46
+      rect:
+        serializedVersion: 2
+        x: 596
+        y: 880
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a1b4e8eace1af34ba672321156bfa75
+      internalID: 1119729737
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_47
+      rect:
+        serializedVersion: 2
+        x: 622
+        y: 880
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1259651391248f54a99c3f87c3d6d608
+      internalID: 331949594
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_48
+      rect:
+        serializedVersion: 2
+        x: 217
+        y: 868
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9a6176d6924ccb44bca232c844b2c03
+      internalID: -1835396551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_49
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 868
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63af61ab348826649911b319c07186dc
+      internalID: -28975412
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_50
+      rect:
+        serializedVersion: 2
+        x: 269
+        y: 868
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a63790f17824dcf4c9e19a40af3a1c91
+      internalID: -269213469
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_51
+      rect:
+        serializedVersion: 2
+        x: 295
+        y: 868
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75f13b1c3fe358c4487d80c4bdb8913a
+      internalID: -515332777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_52
+      rect:
+        serializedVersion: 2
+        x: 321
+        y: 868
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e123ecb5de510564caebc5c1459c596a
+      internalID: -2040873293
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_53
+      rect:
+        serializedVersion: 2
+        x: 347
+        y: 868
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e055d7708d9307c4ea7f102c11cf3faa
+      internalID: -1577933623
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_54
+      rect:
+        serializedVersion: 2
+        x: 1426
+        y: 809
+        width: 58
+        height: 85
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5fcef391ca5c73b4c9cbbd212a6b3f59
+      internalID: -1605215421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_55
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 842
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b40ca43ea7412d47af10050bd6ab6ab
+      internalID: 468453515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_56
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 842
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23dbb862e3c831044b32a4e294ea0df3
+      internalID: 777936665
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_57
+      rect:
+        serializedVersion: 2
+        x: 217
+        y: 842
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c189b18bcad95649aab778d992d1036
+      internalID: 577172047
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_58
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 842
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73e53dc2edbc4094ba47f57d1881a039
+      internalID: -2091458573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_59
+      rect:
+        serializedVersion: 2
+        x: 269
+        y: 842
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 454ba329ed7f8fe488265b77147d3dc1
+      internalID: -1152632877
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_60
+      rect:
+        serializedVersion: 2
+        x: 295
+        y: 842
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7570ecb73b82d5145a4747be8866584c
+      internalID: 889941297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_61
+      rect:
+        serializedVersion: 2
+        x: 321
+        y: 842
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa6a74942e2a67b408ae9b62f49b3396
+      internalID: 592069775
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_62
+      rect:
+        serializedVersion: 2
+        x: 347
+        y: 842
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66a0ea29c61902448be5baf620563995
+      internalID: -182054280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_63
+      rect:
+        serializedVersion: 2
+        x: 544
+        y: 842
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 842426f3d1d2dbb48972fb03da7d69e3
+      internalID: 2042435896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_64
+      rect:
+        serializedVersion: 2
+        x: 570
+        y: 842
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0f87cf5ec98fd947bc930268e5a1fc8
+      internalID: -311580665
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_65
+      rect:
+        serializedVersion: 2
+        x: 596
+        y: 842
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a06f65b67ad27249b11ec525d93f736
+      internalID: -933287308
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_66
+      rect:
+        serializedVersion: 2
+        x: 1306
+        y: 809
+        width: 47
+        height: 57
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f054a5d7fec71346b5fb773e615a9b0
+      internalID: -1142982052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_67
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 816
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed6095b58b36d3945a38435d7c33ac62
+      internalID: -1299976416
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_68
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 816
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3f37f4004b02f64bb92656dd5f14d81
+      internalID: 573441077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_69
+      rect:
+        serializedVersion: 2
+        x: 217
+        y: 816
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc4bcdcc71b4c23459d6eab4f150504c
+      internalID: 249449741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_70
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 816
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c61c75146fda8c84098724a9c57a353c
+      internalID: 1899236918
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_71
+      rect:
+        serializedVersion: 2
+        x: 269
+        y: 816
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01ade7b07a87b3a41a5a4e1ba2927ef5
+      internalID: 1278178568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_72
+      rect:
+        serializedVersion: 2
+        x: 295
+        y: 816
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7834840bc990e5e44a1d33a53d80781d
+      internalID: -1929361056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_73
+      rect:
+        serializedVersion: 2
+        x: 321
+        y: 816
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aebe72a0fdc32db45805c701deb016d1
+      internalID: -1078000255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_74
+      rect:
+        serializedVersion: 2
+        x: 347
+        y: 816
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 064f1bf99c7fd4d4a8be372e228aec03
+      internalID: -1113871055
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_75
+      rect:
+        serializedVersion: 2
+        x: 544
+        y: 816
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 646c9a94a57cfcf418af52033eeb7ae3
+      internalID: -85756702
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_76
+      rect:
+        serializedVersion: 2
+        x: 570
+        y: 816
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9334e904ecb371f45a86933bb4887b9b
+      internalID: 337784649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_77
+      rect:
+        serializedVersion: 2
+        x: 596
+        y: 816
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 704994f51c8e8164686d308b55120b61
+      internalID: -1703482991
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_82
+      rect:
+        serializedVersion: 2
+        x: 752
+        y: 776
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b6524e606e2f8014d8c884b796ddeca7
+      internalID: 1384631921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_83
+      rect:
+        serializedVersion: 2
+        x: 783
+        y: 776
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 60a97e89206f5ac4583271586408677d
+      internalID: -1847065789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_84
+      rect:
+        serializedVersion: 2
+        x: 814
+        y: 776
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7fd7c13e32b6dc844b068682fccd9111
+      internalID: 974751811
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_87
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 764
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 267c3037e9b799948b6084ddaede1cd4
+      internalID: -973142698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_88
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 764
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5f84a9fa21b1814c8f9694ca97652f8
+      internalID: 1624646275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_92
+      rect:
+        serializedVersion: 2
+        x: 301
+        y: 748
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9eec46929b5342748b968e33403c2e82
+      internalID: -1468165008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_93
+      rect:
+        serializedVersion: 2
+        x: 331
+        y: 748
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7125f5459964abf449d25f4988d9dd7c
+      internalID: 867628558
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_96
+      rect:
+        serializedVersion: 2
+        x: 429
+        y: 751
+        width: 33
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -16.5, y: 7.5}
+        - {x: -16.5, y: 12.5}
+        - {x: 16.5, y: 12.5}
+        - {x: 16.5, y: 7.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: fbb214caefe5a2541a6368834b3a3bcd
+      internalID: 522813468
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_97
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 738
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2517e57b9ef33db4080aaf5ca53fa04e
+      internalID: -1472748447
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_98
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 738
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5339e7a1c28d47344989a787d9c1eea3
+      internalID: -1101751660
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_99
+      rect:
+        serializedVersion: 2
+        x: 301
+        y: 719
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -12.5, y: 7.5}
+        - {x: -12.5, y: 12.5}
+        - {x: 12.5, y: 12.5}
+        - {x: 12.5, y: 7.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1eea70a8af0c5e40b41c674fdd6b528
+      internalID: 1979378373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_100
+      rect:
+        serializedVersion: 2
+        x: 331
+        y: 719
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -12.5, y: 12.5}
+        - {x: 12.5, y: 12.5}
+        - {x: 12.5, y: 7.5}
+        - {x: -12.5, y: 7.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24e69687b4e5c5443a2f25a07bbed5d0
+      internalID: 881794129
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_103
+      rect:
+        serializedVersion: 2
+        x: 430
+        y: 715
+        width: 33
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31aaca53b5300c24c9e9ad52f71650f3
+      internalID: 810323807
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_108
+      rect:
+        serializedVersion: 2
+        x: 1335
+        y: 712
+        width: 39
+        height: 37
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73bb80103dbe8ed4dad5694e8d0dbde1
+      internalID: 1740822345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_109
+      rect:
+        serializedVersion: 2
+        x: 1390
+        y: 712
+        width: 50
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5548e58492925d41a092b5408cf65fa
+      internalID: -475966904
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_116
+      rect:
+        serializedVersion: 2
+        x: 1212
+        y: 670
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c6e0ad2ce91350498c07045030f837c
+      internalID: 123053697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_118
+      rect:
+        serializedVersion: 2
+        x: 1456
+        y: 692
+        width: 44
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b21a9b936363e849bec77d0d4519050
+      internalID: 810300347
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_122
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 644
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01da1fafc1467df41ad6ad2f0218847f
+      internalID: -1788061319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_123
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 644
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a0e6e6228e40304a9a7cac055e494cf
+      internalID: -641032950
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_124
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 644
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1aa600e4fa6d28846b5eb9171a6a8f9d
+      internalID: 1880135965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_126
+      rect:
+        serializedVersion: 2
+        x: 1212
+        y: 644
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53f8f975cc88e75418f7a63175e19745
+      internalID: 731359919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_130
+      rect:
+        serializedVersion: 2
+        x: 1377
+        y: 635
+        width: 38
+        height: 37
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc9c8c137a5bd5e4d9e799fe9b2f8141
+      internalID: 1215224918
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_131
+      rect:
+        serializedVersion: 2
+        x: 1439
+        y: 635
+        width: 37
+        height: 37
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07f6471b17e8be34081d6b43600b4015
+      internalID: 778661359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_135
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 617
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0d0227554c40114695bb83352873d83
+      internalID: 1163774802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_136
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 617
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f31dbe52efd06b345840cd93c336f4e9
+      internalID: 1725091008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_137
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 617
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 586a0e79c2858c84fa3155b58e404988
+      internalID: 985846662
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_149
+      rect:
+        serializedVersion: 2
+        x: 1212
+        y: 618
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f403b537a85f894292388403b125539
+      internalID: 1774614430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_151
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 590
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2e991b1132c02c49b59fc8f3bec5d42
+      internalID: -234300002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_152
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 590
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4234db2d81786424cbca7fe88ec88b28
+      internalID: 1360373896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_153
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 590
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12e44cdd0656f654eaff18061572e22c
+      internalID: 742840266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_171
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 563
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b795b6d3bf314df4592cb81cc093ec5a
+      internalID: -376249631
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_172
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 563
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f26804c068a40fd4b948224a97ef068c
+      internalID: -683324533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_173
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 563
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f6c95e9e196b5645b3c78a19f6f6d3f
+      internalID: 276113406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_176
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 536
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0bb6318a72a4e34438ed75338c383f6b
+      internalID: 1502446592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_177
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 536
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ef15f403fc8e314598a23c6137f3133
+      internalID: -1502732504
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_178
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 536
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35c5a3827a7c60249b19ed0eebad88ef
+      internalID: 1852775019
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_189
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 495
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f80540d15e20e341883b88b263670e2
+      internalID: -90634594
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_190
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 495
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc369b84360ee9841ae5b6a1a571130e
+      internalID: -1235474025
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_191
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 495
+        width: 25
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3c1c83be0d04ee4c8f1079e747a60ea
+      internalID: -1568213005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_193
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 495
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e030951df0c66c489503e20f2a3431b
+      internalID: 898168331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_195
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 448
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd9cadbec98c7b94dad88fa71563eec2
+      internalID: 1401893645
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_196
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 448
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bcb8ef6447f825142b96180631b601e2
+      internalID: -236196230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_197
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 448
+        width: 25
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26c6f3f3977a2c14d8b765b5de0075c1
+      internalID: -113276081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_199
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 399
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87555ec4918fd9e438dacb7b9faa9d37
+      internalID: -270291889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_200
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 399
+        width: 25
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb3fb75d2fc61b34a94eb310d48fc804
+      internalID: 1026401062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_201
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 399
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2bbf43e581205bc468da84c5c4c15b18
+      internalID: -1037294544
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_203
+      rect:
+        serializedVersion: 2
+        x: 1301
+        y: 392
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 974befd8a02358e4f88a6019189af8a2
+      internalID: -1223789443
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_205
+      rect:
+        serializedVersion: 2
+        x: 1410
+        y: 392
+        width: 8
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3685e2ab41cc0384681c844a71882657
+      internalID: -302489558
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_209
+      rect:
+        serializedVersion: 2
+        x: 787
+        y: 348
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e6975d7a08501c479f672ca4c155578
+      internalID: 2135158837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_210
+      rect:
+        serializedVersion: 2
+        x: 813
+        y: 348
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69724bd30f8705b459d52529f9b5f0b6
+      internalID: 280400696
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_211
+      rect:
+        serializedVersion: 2
+        x: 839
+        y: 348
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6024da8156e90f64eada6df4dece0f7a
+      internalID: -1500753056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_213
+      rect:
+        serializedVersion: 2
+        x: 1301
+        y: 366
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 015c38f1ddab077469aa7ea0f7a1e8ff
+      internalID: -495583412
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_214
+      rect:
+        serializedVersion: 2
+        x: 1410
+        y: 366
+        width: 8
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6babdb04034008948b1559ae60b72cba
+      internalID: -253384016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_215
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 345
+        width: 25
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3845f20542998aa458e3ed966b67fd56
+      internalID: 1756190220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_216
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 345
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8c5c29a50f6a90478ed4ec326c3e6d2
+      internalID: 1350482711
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_217
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 345
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44aa60aca5469684c944221d63c5125b
+      internalID: 1744884596
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_218
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 345
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4e29966635fc524abb22fbf6cd09d08
+      internalID: 998828532
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_219
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 345
+        width: 25
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dfc6b21a8ec3513499d58519e6bb02c9
+      internalID: -470444038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_221
+      rect:
+        serializedVersion: 2
+        x: 1301
+        y: 340
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7d1a1a380bd61244ad7e4963649e0fd
+      internalID: -545760013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_222
+      rect:
+        serializedVersion: 2
+        x: 1410
+        y: 340
+        width: 8
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd30d1948afc4c3428c9124be1f5b756
+      internalID: -790750816
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_223
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 319
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 049b2ae8b9857b04281330887ff0de44
+      internalID: -1562502898
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_224
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 319
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5cc1e65800c3e2140b9719295149635b
+      internalID: -1929882356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_225
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 319
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f04f131683c37cc498026cffd266dde3
+      internalID: -1545134445
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_226
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 319
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ea25515f73c827488847c3881652bd5
+      internalID: -768629918
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_227
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 319
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3f9e045c8ac6704b925c70269ca1938
+      internalID: 1536873203
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_228
+      rect:
+        serializedVersion: 2
+        x: 791
+        y: 323
+        width: 25
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20cc97b6314e3e1448ff71189ac9df1e
+      internalID: 517282452
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_229
+      rect:
+        serializedVersion: 2
+        x: 824
+        y: 325
+        width: 14
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bcb3dc6768c8bc94890f903f75fc5e13
+      internalID: 1600715038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_230
+      rect:
+        serializedVersion: 2
+        x: 847
+        y: 326
+        width: 12
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2815b163280b4dc4b8df9d73dc83766c
+      internalID: 1789248346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_231
+      rect:
+        serializedVersion: 2
+        x: 1298
+        y: 305
+        width: 28
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aef1e1e6e4ed9f44ebc96e03d7e230b8
+      internalID: 1561018983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_235
+      rect:
+        serializedVersion: 2
+        x: 784
+        y: 321
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8051959507697334ca66c6fd31927030
+      internalID: 1907107479
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_237
+      rect:
+        serializedVersion: 2
+        x: 1410
+        y: 305
+        width: 8
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2565683ee3a99842968d497c6e057e2
+      internalID: -1042994764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_240
+      rect:
+        serializedVersion: 2
+        x: 795
+        y: 296
+        width: 13
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e684d737e8ef8a4c9b74785124ac926
+      internalID: 964915642
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_241
+      rect:
+        serializedVersion: 2
+        x: 819
+        y: 295
+        width: 22
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9d6feea4e4a543488c9e45aa7b6d859
+      internalID: -128108323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_242
+      rect:
+        serializedVersion: 2
+        x: 1301
+        y: 279
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad6ccb4524111534ba351301a40459bf
+      internalID: 1561346997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_243
+      rect:
+        serializedVersion: 2
+        x: 1410
+        y: 279
+        width: 8
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50e19d50209998e458233d49bbfc0ba7
+      internalID: -352415295
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_244
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 266
+        width: 25
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2155cccbae36ed64fad81ee597effe25
+      internalID: 1424423706
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_245
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 266
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec55396d74ac29849a507bd691f6b13a
+      internalID: -1136618147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_246
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 266
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1dfc2d5b238c0544eba38d84387f044e
+      internalID: 253131450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_247
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 266
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b83fbf6228069784b99863775591d748
+      internalID: 655008351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_248
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 266
+        width: 25
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c9915f9f37c28d4387aaac50462df1a
+      internalID: -1652706689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_250
+      rect:
+        serializedVersion: 2
+        x: 1301
+        y: 253
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2eb52742a8107cf4f82fdd81c1a6f7f2
+      internalID: 784128047
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_251
+      rect:
+        serializedVersion: 2
+        x: 1410
+        y: 253
+        width: 8
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 396176b5bb1cb224bad81a5a8a458d27
+      internalID: 1867007011
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_252
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 240
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07010e08732c75d42a95470e9ce48121
+      internalID: 1303967212
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_253
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 240
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68c1f673a18a17c4784cfbe370d65611
+      internalID: -808662048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_254
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 240
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8f6127df49ccda46bf4edc407146099
+      internalID: -1163782702
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_255
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 240
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 822004767d604564990b2591e15a8da0
+      internalID: -481070884
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_256
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 240
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4a351ad94d84d7478be0157b5ccbfc4
+      internalID: -240241793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_257
+      rect:
+        serializedVersion: 2
+        x: 1301
+        y: 224
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b5e342242249144e9e5edf17bf1b5ff
+      internalID: -1719023835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_259
+      rect:
+        serializedVersion: 2
+        x: 1410
+        y: 224
+        width: 8
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79001a0fc0d159545b4bd2d3c1d546bf
+      internalID: -389526678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_261
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 187
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4295d67fc36b01940b34f0d02107b121
+      internalID: 417704970
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_262
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 187
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d4ae3f2d3cfeba49a9ba9b204910513
+      internalID: 1801431293
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_263
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 187
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 464890357369b17428260e54b309d902
+      internalID: 153036474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_265
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 187
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -12.5, y: -12.5}
+        - {x: -12.5, y: -6.5}
+        - {x: 5.5, y: 12.5}
+        - {x: 12.5, y: 12.5}
+        - {x: 12.5, y: -12.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: a83efe782a9c49e4a8d565231f1fcdcc
+      internalID: 1639597395
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_266
+      rect:
+        serializedVersion: 2
+        x: 234
+        y: 187
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66f0424a8dbc6da4f844468f08576bec
+      internalID: 775840061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_267
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 187
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -12.5, y: -12.5}
+        - {x: -12.5, y: 12.5}
+        - {x: -5.5, y: 12.5}
+        - {x: 12.5, y: -6.5}
+        - {x: 12.5, y: -12.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0bf8bc9586a8f5c429244f54856a0f77
+      internalID: -414913158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_268
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 187
+        width: 75
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3bea3b9bc5a0df24ba8a8721e2a82e2c
+      internalID: -1739140038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_269
+      rect:
+        serializedVersion: 2
+        x: 639
+        y: 163
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6890e4601cd09cb47a11dc48933b6f11
+      internalID: 1377282477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_270
+      rect:
+        serializedVersion: 2
+        x: 666
+        y: 161
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b541f39f13c2216419e0e1d57abbf50f
+      internalID: -1598721732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_271
+      rect:
+        serializedVersion: 2
+        x: 1301
+        y: 198
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b784acdd29e896f41a5649bd7d66d245
+      internalID: -1045065825
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_272
+      rect:
+        serializedVersion: 2
+        x: 1410
+        y: 198
+        width: 8
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 286d729abf7446542b7654c49dcd6d3f
+      internalID: 843835914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_273
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 154
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -7.5, y: -12.5}
+        - {x: 12.5, y: 7.5}
+        - {x: 12.5, y: -12.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 186870e6b62e1444696be5029eac54bd
+      internalID: 691801009
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_274
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 154
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -12.5, y: -12.5}
+        - {x: -12.5, y: 7.5}
+        - {x: 12.5, y: 7.5}
+        - {x: 12.5, y: -12.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: eaf675932043f1642b4b1302127f08e9
+      internalID: -1502795297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_275
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 154
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -12.5, y: -12.5}
+        - {x: -12.5, y: 7.5}
+        - {x: 7.5, y: -12.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78ec60efba316a04780cb8e28c066a41
+      internalID: 337466115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_277
+      rect:
+        serializedVersion: 2
+        x: 383
+        y: 169
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 7.5, y: -12.5}
+        - {x: -12.5, y: -12.5}
+        - {x: -12.5, y: 12.5}
+        - {x: 12.5, y: 12.5}
+        - {x: 12.5, y: -7.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 234bb61c7d0fe984daef14e22f894c97
+      internalID: -266079114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_278
+      rect:
+        serializedVersion: 2
+        x: 409
+        y: 169
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -12.5, y: -7.5}
+        - {x: -12.5, y: 12.5}
+        - {x: 12.5, y: 12.5}
+        - {x: 12.5, y: -7.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8b532616ceb4ab47b80b5e4b20a74e8
+      internalID: -1253364779
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_279
+      rect:
+        serializedVersion: 2
+        x: 435
+        y: 169
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -7.5, y: -12.5}
+        - {x: -12.5, y: -7.5}
+        - {x: -12.5, y: 12.5}
+        - {x: 12.5, y: 12.5}
+        - {x: 12.5, y: -12.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb79efd504dadc542ba74892efeb4796
+      internalID: -1040553752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_280
+      rect:
+        serializedVersion: 2
+        x: 472
+        y: 169
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -12.5, y: -12.5}
+        - {x: -12.5, y: 12.5}
+        - {x: 12.5, y: 12.5}
+        - {x: 12.5, y: -7.5}
+        - {x: 7.5, y: -12.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3a3d5a981a64644c986cdc4babdd05a
+      internalID: 731835853
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_281
+      rect:
+        serializedVersion: 2
+        x: 498
+        y: 169
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -12.5, y: -7.5}
+        - {x: -12.5, y: 12.5}
+        - {x: 12.5, y: 12.5}
+        - {x: 12.5, y: -7.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: c764029b14ab37e48bd8ba0cc90df10b
+      internalID: -623640255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_282
+      rect:
+        serializedVersion: 2
+        x: 524
+        y: 169
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 674424604678be643ae5ff5c0bf26a23
+      internalID: 1195420557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_283
+      rect:
+        serializedVersion: 2
+        x: 1301
+        y: 172
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d03351c9540c7c348afed16f406423ec
+      internalID: -179950656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_284
+      rect:
+        serializedVersion: 2
+        x: 1410
+        y: 172
+        width: 8
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2beeaa837dafa064fa33321ca03b88f0
+      internalID: -727400428
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_285
+      rect:
+        serializedVersion: 2
+        x: 383
+        y: 143
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -12.5, y: -12.5}
+        - {x: -12.5, y: 12.5}
+        - {x: 7.5, y: 12.5}
+        - {x: 7.5, y: -12.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8e7d5410a0e47a40b9d6b8b5fc2fa13
+      internalID: 766960628
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_286
+      rect:
+        serializedVersion: 2
+        x: 409
+        y: 143
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f85ba621ca5f1ad42b9fddfc0e6c6fe1
+      internalID: 76123197
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_287
+      rect:
+        serializedVersion: 2
+        x: 435
+        y: 143
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -7.5, y: -12.5}
+        - {x: -7.5, y: 12.5}
+        - {x: 12.5, y: 12.5}
+        - {x: 12.5, y: -12.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63e226a1226ae094fa0391a8e24ccd33
+      internalID: -1417912375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_288
+      rect:
+        serializedVersion: 2
+        x: 472
+        y: 143
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -12.5, y: -12.5}
+        - {x: -12.5, y: 12.5}
+        - {x: 7.5, y: 12.5}
+        - {x: 7.5, y: -12.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6bdf92cb6aa76ab4d9356cd749371626
+      internalID: -179002379
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_289
+      rect:
+        serializedVersion: 2
+        x: 498
+        y: 143
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 880c74985f836ac47868a82694fe293a
+      internalID: -4815825
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_290
+      rect:
+        serializedVersion: 2
+        x: 524
+        y: 143
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -7.5, y: -12.5}
+        - {x: -7.5, y: 12.5}
+        - {x: 12.5, y: 12.5}
+        - {x: 12.5, y: -12.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5cb67fc73c3bbbf42ba97a0511dac69e
+      internalID: -940527655
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_292
+      rect:
+        serializedVersion: 2
+        x: 1301
+        y: 139
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b3fb622645d1eb4a98b928b1bc32cf0
+      internalID: -575907704
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_294
+      rect:
+        serializedVersion: 2
+        x: 1410
+        y: 139
+        width: 8
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca90d7a2df041ad41b2e6d6dec9910dc
+      internalID: 1805101186
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_296
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 115
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c43566900ca8d544ab69c19f968b825
+      internalID: 1186787679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_297
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 115
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f3252c0d7f648442a9a805c20fa001c
+      internalID: 1103422456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_298
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 115
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 996b82d94b31a674cb352cf9da3f799e
+      internalID: -802786272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_300
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 117
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -12.5, y: -12.5}
+        - {x: -12.5, y: -6.5}
+        - {x: 5.5, y: 12.5}
+        - {x: 12.5, y: 12.5}
+        - {x: 12.5, y: -12.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4fb12600bb1b6b7409c26947a34eaa46
+      internalID: -1120373539
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_301
+      rect:
+        serializedVersion: 2
+        x: 234
+        y: 117
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3f369a400a396d4296189c780f2f548
+      internalID: 475910089
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_302
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 117
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -12.5, y: -12.5}
+        - {x: -12.5, y: 12.5}
+        - {x: -5.5, y: 12.5}
+        - {x: 12.5, y: -6.5}
+        - {x: 12.5, y: -12.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95f9c4735ea5d4a4287dec1770404bc5
+      internalID: 1330515837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_303
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 117
+        width: 75
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bef6b093b1cdb3b4391605e3da4d1ad6
+      internalID: 1888228134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_304
+      rect:
+        serializedVersion: 2
+        x: 383
+        y: 117
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -12.5, y: -12.5}
+        - {x: -12.5, y: 12.5}
+        - {x: 7.5, y: 12.5}
+        - {x: 12.5, y: 7.5}
+        - {x: 12.5, y: -12.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 673f5fa067cc417458a0a96f1f99e911
+      internalID: 370811896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_305
+      rect:
+        serializedVersion: 2
+        x: 409
+        y: 117
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -12.5, y: -12.5}
+        - {x: -12.5, y: 7.5}
+        - {x: 12.5, y: 7.5}
+        - {x: 12.5, y: -12.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70e42af002569a642b1813ccc11a5bc0
+      internalID: 1155888309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_306
+      rect:
+        serializedVersion: 2
+        x: 435
+        y: 117
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -12.5, y: -12.5}
+        - {x: -12.5, y: 7.5}
+        - {x: -7.5, y: 12.5}
+        - {x: 12.5, y: 12.5}
+        - {x: 12.5, y: -12.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 506a364a5da5f9b47a9450bf3344f80b
+      internalID: 1505562612
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_307
+      rect:
+        serializedVersion: 2
+        x: 472
+        y: 117
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -12.5, y: -12.5}
+        - {x: -12.5, y: 12.5}
+        - {x: 7.5, y: 12.5}
+        - {x: 12.5, y: 7.5}
+        - {x: 12.5, y: -12.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3e8ae328ba780541b0cd7820b541f7d
+      internalID: 730735452
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_308
+      rect:
+        serializedVersion: 2
+        x: 498
+        y: 117
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -12.5, y: -12.5}
+        - {x: -12.5, y: 7.5}
+        - {x: 12.5, y: 7.5}
+        - {x: 12.5, y: -12.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0310584ee499533419f37e2b6c21c7e3
+      internalID: -1697193459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_309
+      rect:
+        serializedVersion: 2
+        x: 524
+        y: 117
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -12.5, y: -12.5}
+        - {x: -12.5, y: 7.5}
+        - {x: -7.5, y: 12.5}
+        - {x: 12.5, y: 12.5}
+        - {x: 12.5, y: -12.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7363d258e8b7e674da424d496ff643bd
+      internalID: 795677386
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_310
+      rect:
+        serializedVersion: 2
+        x: 1301
+        y: 113
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f3e52d95c4e9d848b3f545c55a92b2b
+      internalID: -1481281596
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_311
+      rect:
+        serializedVersion: 2
+        x: 1410
+        y: 113
+        width: 8
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ece8781723215d54289a89e7486104f8
+      internalID: 1612263674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_312
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 79
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -7.5, y: -12.5}
+        - {x: 12.5, y: 7.5}
+        - {x: 12.5, y: -12.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8136e826c48f9274196fa3f32518ddae
+      internalID: 39437091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_313
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 79
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -12.5, y: -12.5}
+        - {x: -12.5, y: 7.5}
+        - {x: 12.5, y: 7.5}
+        - {x: 12.5, y: -12.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9670f8ab866b9324ab7777452ce89432
+      internalID: -2038387451
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_314
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 79
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -12.5, y: -12.5}
+        - {x: -12.5, y: 7.5}
+        - {x: 7.5, y: -12.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: acd5274ab3ca3f848b9a7a0e87855497
+      internalID: -623383423
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_319
+      rect:
+        serializedVersion: 2
+        x: 1301
+        y: 87
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81eef66c8d5efc74f88f64bffc75c8b0
+      internalID: 104669292
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_320
+      rect:
+        serializedVersion: 2
+        x: 1410
+        y: 87
+        width: 8
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79983c932d6aedf42914a37f764208cd
+      internalID: -142545492
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_21
+      rect:
+        serializedVersion: 2
+        x: 691
+        y: 186
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 415de9fc25d35ec4991f6efc8ac55656
+      internalID: 1707219763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_31
+      rect:
+        serializedVersion: 2
+        x: 716
+        y: 186
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e2b177789b265f499c3ba91df65a1b6
+      internalID: 1130353286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_32
+      rect:
+        serializedVersion: 2
+        x: 691
+        y: 161
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 537928d60df501847830ce2cf5135f44
+      internalID: 394921021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_36
+      rect:
+        serializedVersion: 2
+        x: 716
+        y: 161
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e61d7cb510047e94a94b2bc04ffdb5ac
+      internalID: 418713737
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tiles_Cave_0
+      rect:
+        serializedVersion: 2
+        x: 1002
+        y: 27
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50e258261949da4439478a37d549fc71
+      internalID: 193545056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Tiles_Cave_56: 777936665
+      Tiles_Cave_62: -182054280
+      Tiles_Cave_90: 1212921280
+      Tiles_Cave_261: 417704970
+      Tiles_Cave_58: -2091458573
+      Tiles_Cave_155: 76432045
+      Tiles_Cave_19: -95259818
+      Tiles_Cave_46: 1119729737
+      Tiles_Cave_205: -302489558
+      Tiles_Cave_158: -1702472117
+      Tiles_Cave_11: 827162235
+      Tiles_Cave_48: -1835396551
+      Tiles_Cave_180: -121710203
+      Tiles_Cave_236: -1251341400
+      Tiles_Cave_221: -545760013
+      Tiles_Cave_195: 1401893645
+      Tiles_Cave_50: -269213469
+      Tiles_Cave_133: 402938506
+      Tiles_Cave_130: 1215224918
+      Tiles_Cave_219: -470444038
+      Tiles_Cave_198: -1046029353
+      Tiles_Cave_230: 1789248346
+      Tiles_Cave_241: -128108323
+      Tiles_Cave_43: -2138103337
+      Tiles_Cave_254: -1163782702
+      Tiles_Cave_294: 1805101186
+      Tiles_Cave_80: -273286420
+      Tiles_Cave_223: -1562502898
+      Tiles_Cave_45: 1153894152
+      Tiles_Cave_119: 238069321
+      Tiles_Cave_206: -1864285392
+      Tiles_Cave_323: -801317887
+      Tiles_Cave_240: 964915642
+      Tiles_Cave_125: -2001312332
+      Tiles_Cave_244: 1424423706
+      Tiles_Cave_331: 2125665029
+      Tiles_Cave_235: 1907107479
+      Tiles_Cave_303: 1888228134
+      Tiles_Cave_161: -1230125690
+      Tiles_Cave_79: 783593260
+      Tiles_Cave_83: -1847065789
+      Tiles_Cave_100: 881794129
+      Tiles_Cave_165: -1781478038
+      Tiles_Cave_124: 1880135965
+      Tiles_Cave_143: -54387271
+      Tiles_Cave_28: 1270508575
+      Tiles_Cave_95: 674483482
+      Tiles_Cave_39: -1734777130
+      Tiles_Cave_150: 2043094596
+      Tiles_Cave_190: -1235474025
+      Tiles_Cave_247: 655008351
+      Tiles_Cave_203: -1223789443
+      Tiles_Cave_308: -1697193459
+      Tiles_Cave_295: 842700273
+      Tiles_Cave_33: 2019983778
+      Tiles_Cave_329: -532634489
+      Tiles_Cave_160: -986600510
+      Tiles_Cave_144: -200010720
+      Tiles_Cave_179: -86145933
+      Tiles_Cave_273: 691801009
+      Tiles_Cave_187: -1507029818
+      Tiles_Cave_204: 1062887004
+      Tiles_Cave_42: 1700409917
+      Tiles_Cave_327: -739131821
+      Tiles_Cave_99: 1979378373
+      Tiles_Cave_16: -1531605272
+      Tiles_Cave_293: 1643493662
+      Tiles_Cave_292: -575907704
+      Tiles_Cave_256: -240241793
+      Tiles_Cave_260: -1980122993
+      Tiles_Cave_110: -734233241
+      Tiles_Cave_246: 253131450
+      Tiles_Cave_305: 1155888309
+      Tiles_Cave_25: -703688747
+      Tiles_Cave_168: 56733072
+      Tiles_Cave_49: -28975412
+      Tiles_Cave_174: -1861247486
+      Tiles_Cave_52: -2040873293
+      Tiles_Cave_118: 810300347
+      Tiles_Cave_253: -808662048
+      Tiles_Cave_248: -1652706689
+      Tiles_Cave_262: 1801431293
+      Tiles_Cave_279: -1040553752
+      Tiles_Cave_176: 1502446592
+      Tiles_Cave_87: -973142698
+      Tiles_Cave_319: 104669292
+      Tiles_Cave_10: -910185094
+      Tiles_Cave_146: -1006891487
+      Tiles_Cave_234: -1881118094
+      Tiles_Cave_202: 1147822977
+      Tiles_Cave_12: 1993237941
+      Tiles_Cave_322: 1524563163
+      Tiles_Cave_326: -820391253
+      Tiles_Cave_186: 1832452340
+      Tiles_Cave_92: -1468165008
+      Tiles_Cave_213: -495583412
+      Tiles_Cave_72: -1929361056
+      Tiles_Cave_299: 646336159
+      Tiles_Cave_102: -1442055198
+      Tiles_Cave_136: 1725091008
+      Tiles_Cave_38: 214315739
+      Tiles_Cave_103: 810323807
+      Tiles_Cave_3: 1652901057
+      Tiles_Cave_267: -414913158
+      Tiles_Cave_274: -1502795297
+      Tiles_Cave_231: 1561018983
+      Tiles_Cave_149: 1774614430
+      Tiles_Cave_109: -475966904
+      Tiles_Cave_105: -1275316514
+      Tiles_Cave_31: 1130353286
+      Tiles_Cave_116: 123053697
+      Tiles_Cave_139: 1619657685
+      Tiles_Cave_17: -877104119
+      Tiles_Cave_7: 532667048
+      Tiles_Cave_300: -1120373539
+      Tiles_Cave_321: -657953676
+      Tiles_Cave_44: -348044380
+      Tiles_Cave_112: 799162972
+      Tiles_Cave_113: -2004779814
+      Tiles_Cave_173: 276113406
+      Tiles_Cave_86: -1412297217
+      Tiles_Cave_224: -1929882356
+      Tiles_Cave_315: 829395816
+      Tiles_Cave_41: -2038459554
+      Tiles_Cave_232: -1043533878
+      Tiles_Cave_307: 730735452
+      Tiles_Cave_207: -905673904
+      Tiles_Cave_183: -978435087
+      Tiles_Cave_211: -1500753056
+      Tiles_Cave_77: -1703482991
+      Tiles_Cave_284: -727400428
+      Tiles_Cave_68: 573441077
+      Tiles_Cave_172: -683324533
+      Tiles_Cave_61: 592069775
+      Tiles_Cave_302: 1330515837
+      Tiles_Cave_306: 1505562612
+      Tiles_Cave_108: 1740822345
+      Tiles_Cave_129: 1099893709
+      Tiles_Cave_239: 1367171274
+      Tiles_Cave_140: -615564675
+      Tiles_Cave_138: -26420653
+      Tiles_Cave_197: -113276081
+      Tiles_Cave_96: 522813468
+      Tiles_Cave_199: -270291889
+      Tiles_Cave_220: -1502159334
+      Tiles_Cave_153: 742840266
+      Tiles_Cave_76: 337784649
+      Tiles_Cave_171: -376249631
+      Tiles_Cave_255: -481070884
+      Tiles_Cave_156: 1353340404
+      Tiles_Cave_228: 517282452
+      Tiles_Cave_251: 1867007011
+      Tiles_Cave_225: -1545134445
+      Tiles_Cave_270: -1598721732
+      Tiles_Cave_265: 1639597395
+      Tiles_Cave_53: -1577933623
+      Tiles_Cave_280: 731835853
+      Tiles_Cave_66: -1142982052
+      Tiles_Cave_131: 778661359
+      Tiles_Cave_127: -1358330342
+      Tiles_Cave_249: 428380364
+      Tiles_Cave_1: -1291516778
+      Tiles_Cave_163: -322507119
+      Tiles_Cave_298: -802786272
+      Tiles_Cave_209: 2135158837
+      Tiles_Cave_36: 418713737
+      Tiles_Cave_288: -179002379
+      Tiles_Cave_269: 1377282477
+      Tiles_Cave_301: 475910089
+      Tiles_Cave_191: -1568213005
+      Tiles_Cave_258: -2074749274
+      Tiles_Cave_286: 76123197
+      Tiles_Cave_242: 1561346997
+      Tiles_Cave_237: -1042994764
+      Tiles_Cave_82: 1384631921
+      Tiles_Cave_212: 431652084
+      Tiles_Cave_193: 898168331
+      Tiles_Cave_84: 974751811
+      Tiles_Cave_226: -768629918
+      Tiles_Cave_65: -933287308
+      Tiles_Cave_157: 1759455118
+      Tiles_Cave_57: 577172047
+      Tiles_Cave_181: 1268564759
+      Tiles_Cave_182: 402434236
+      Tiles_Cave_64: -311580665
+      Tiles_Cave_169: 1510335672
+      Tiles_Cave_55: 468453515
+      Tiles_Cave_159: -1344332423
+      Tiles_Cave_32: 394921021
+      Tiles_Cave_325: -1771744224
+      Tiles_Cave_162: -1181630903
+      Tiles_Cave_309: 795677386
+      Tiles_Cave_51: -515332777
+      Tiles_Cave_27: -1615183982
+      Tiles_Cave_89: -480407730
+      Tiles_Cave_91: 65486214
+      Tiles_Cave_152: 1360373896
+      Tiles_Cave_128: -1365449097
+      Tiles_Cave_0: 193545056
+      Tiles_Cave_200: 1026401062
+      Tiles_Cave_107: -15984098
+      Tiles_Cave_60: 889941297
+      Tiles_Cave_263: 153036474
+      Tiles_Cave_167: 624011420
+      Tiles_Cave_106: 1485242058
+      Tiles_Cave_70: 1899236918
+      Tiles_Cave_63: 2042435896
+      Tiles_Cave_132: -1126207970
+      Tiles_Cave_4: -549576206
+      Tiles_Cave_2: 494869140
+      Tiles_Cave_277: -266079114
+      Tiles_Cave_290: -940527655
+      Tiles_Cave_278: -1253364779
+      Tiles_Cave_98: -1101751660
+      Tiles_Cave_289: -4815825
+      Tiles_Cave_275: 337466115
+      Tiles_Cave_101: 49220668
+      Tiles_Cave_126: 731359919
+      Tiles_Cave_222: -790750816
+      Tiles_Cave_148: -961762351
+      Tiles_Cave_283: -179950656
+      Tiles_Cave_67: -1299976416
+      Tiles_Cave_245: -1136618147
+      Tiles_Cave_320: -142545492
+      Tiles_Cave_282: 1195420557
+      Tiles_Cave_59: -1152632877
+      Tiles_Cave_192: -677248331
+      Tiles_Cave_22: -180105059
+      Tiles_Cave_54: -1605215421
+      Tiles_Cave_243: -352415295
+      Tiles_Cave_332: 752031338
+      Tiles_Cave_268: -1739140038
+      Tiles_Cave_216: 1350482711
+      Tiles_Cave_175: -1405254550
+      Tiles_Cave_210: 280400696
+      Tiles_Cave_297: 1103422456
+      Tiles_Cave_189: -90634594
+      Tiles_Cave_201: -1037294544
+      Tiles_Cave_117: -605860406
+      Tiles_Cave_252: 1303967212
+      Tiles_Cave_291: 1651192853
+      Tiles_Cave_287: -1417912375
+      Tiles_Cave_37: -1768021785
+      Tiles_Cave_266: 775840061
+      Tiles_Cave_227: 1536873203
+      Tiles_Cave_328: 1569700992
+      Tiles_Cave_29: 1152654731
+      Tiles_Cave_215: 1756190220
+      Tiles_Cave_318: -483716822
+      Tiles_Cave_312: 39437091
+      Tiles_Cave_218: 998828532
+      Tiles_Cave_9: -275789409
+      Tiles_Cave_35: 1958328525
+      Tiles_Cave_73: -1078000255
+      Tiles_Cave_233: -741607018
+      Tiles_Cave_13: -440371272
+      Tiles_Cave_142: 1068227979
+      Tiles_Cave_314: -623383423
+      Tiles_Cave_78: -24713235
+      Tiles_Cave_122: -1788061319
+      Tiles_Cave_141: 34127622
+      Tiles_Cave_257: -1719023835
+      Tiles_Cave_69: 249449741
+      Tiles_Cave_8: -1550919932
+      Tiles_Cave_120: 185686958
+      Tiles_Cave_316: -824983205
+      Tiles_Cave_104: 1204935237
+      Tiles_Cave_135: 1163774802
+      Tiles_Cave_75: -85756702
+      Tiles_Cave_166: 950169301
+      Tiles_Cave_276: 1365163488
+      Tiles_Cave_93: 867628558
+      Tiles_Cave_208: 1270383821
+      Tiles_Cave_311: 1612263674
+      Tiles_Cave_229: 1600715038
+      Tiles_Cave_147: -858476916
+      Tiles_Cave_21: 1707219763
+      Tiles_Cave_6: 1781374657
+      Tiles_Cave_5: 1185822137
+      Tiles_Cave_185: 1586187669
+      Tiles_Cave_217: 1744884596
+      Tiles_Cave_285: 766960628
+      Tiles_Cave_114: -1123624203
+      Tiles_Cave_30: 72692714
+      Tiles_Cave_164: 413106652
+      Tiles_Cave_85: -58755493
+      Tiles_Cave_154: -536044053
+      Tiles_Cave_271: -1045065825
+      Tiles_Cave_20: 1520962512
+      Tiles_Cave_313: -2038387451
+      Tiles_Cave_281: -623640255
+      Tiles_Cave_71: 1278178568
+      Tiles_Cave_18: -105971154
+      Tiles_Cave_97: -1472748447
+      Tiles_Cave_121: 180996858
+      Tiles_Cave_238: 238982519
+      Tiles_Cave_111: 248612175
+      Tiles_Cave_145: -1196002990
+      Tiles_Cave_24: -704257362
+      Tiles_Cave_170: -1371285189
+      Tiles_Cave_264: 700301116
+      Tiles_Cave_151: -234300002
+      Tiles_Cave_184: 781467387
+      Tiles_Cave_23: 280942487
+      Tiles_Cave_26: 707403860
+      Tiles_Cave_15: 1690280317
+      Tiles_Cave_34: 530625884
+      Tiles_Cave_330: -2077000086
+      Tiles_Cave_324: 1138050562
+      Tiles_Cave_194: 227515744
+      Tiles_Cave_177: -1502732504
+      Tiles_Cave_178: 1852775019
+      Tiles_Cave_123: -641032950
+      Tiles_Cave_81: -1167294871
+      Tiles_Cave_250: 784128047
+      Tiles_Cave_310: -1481281596
+      Tiles_Cave_272: 843835914
+      Tiles_Cave_296: 1186787679
+      Tiles_Cave_214: -253384016
+      Tiles_Cave_14: -464345801
+      Tiles_Cave_88: 1624646275
+      Tiles_Cave_94: -1797616467
+      Tiles_Cave_115: 1042487772
+      Tiles_Cave_188: -507183411
+      Tiles_Cave_134: 733872142
+      Tiles_Cave_304: 370811896
+      Tiles_Cave_40: -1365173399
+      Tiles_Cave_47: 331949594
+      Tiles_Cave_137: 985846662
+      Tiles_Cave_259: -389526678
+      Tiles_Cave_317: 305357472
+      Tiles_Cave_196: -236196230
+      Tiles_Cave_74: -1113871055
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

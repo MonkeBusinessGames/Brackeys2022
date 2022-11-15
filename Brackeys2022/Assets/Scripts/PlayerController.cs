@@ -1,9 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
-using UnityEngine.Tilemaps;
-using System;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -24,6 +22,7 @@ public class PlayerController : MonoBehaviour
 
     [Header("Object Lists")]
     [SerializeField] private Transform[] checkPointList;
+    [SerializeField] private Transform[] entranceList;
     [SerializeField] private AnimalScript[] animalList;
     [SerializeField] private GameObject[] starList;
     [SerializeField] private GameObject[] orbList;
@@ -38,15 +37,20 @@ public class PlayerController : MonoBehaviour
     private bool flip = false;
     private PlayerState state;
     public bool hidden = false;
+    public bool meditating = false;
     private bool doubleJumped = false;
     private bool isLooking;
+    [SerializeField] private float coyoteTime = 0.2f;
+    [SerializeField] private float coyoteTimeCounter = 0f;
 
     [Header("Dashing Fields")]
-    [SerializeField] private float dashTime;
-    [SerializeField] private float dashSpeed;
+    [SerializeField] private float dashTime = 0.2f;
+    [SerializeField] private float dashSlowdown = 0.4f;
+    [SerializeField] private float dashSpeed = 15f;
     [SerializeField] private float dashCooldown;
-    bool isDashing = false;
+    [HideInInspector] public bool isDashing = false;
     bool canDash = true;
+    float normalGravity, initialDrag;
     DashAfterImage afterImage;  // A bit of a dependency meme
 
     [Header("Combat Fields")]
@@ -60,6 +64,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float attackPower = 10;
     [SerializeField] private float knockBackForce = 100;
     [SerializeField] private bool keepAttacking = false;
+
+    bool timerEnded = false;
+    float timer = 0;
 
     [Tooltip("Enables: Claw Abilities")]
     [SerializeField] private bool catAcquired = false;
@@ -86,6 +93,7 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
+        print("Awake" + gameObject.GetInstanceID() + gameObject.name);
         if (startFresh)
             data = new SaveData();
         else
@@ -103,10 +111,13 @@ public class PlayerController : MonoBehaviour
         flip = false;
         doubleJumped = false;
         hidden = false;
+        meditating = false;
+        normalGravity = rb.gravityScale;
+        initialDrag = rb.drag;
     }
     
     void Update()
-    {                
+    {
         //Handles Look Input
         Look();
         if (frozen)
@@ -115,11 +126,16 @@ public class PlayerController : MonoBehaviour
             return;
 
         //Get Walk Input
-        if (!isDashing)
+        movementX = data.keyManager.Horizontal();
+
+        if (groundCheck.IsTouchingLayers(ground))
         {
-            movementX = data.keyManager.Horizontal();
+            coyoteTimeCounter = coyoteTime;
         }
-        
+        else
+        {
+            coyoteTimeCounter -= Time.deltaTime;
+        }
 
         //Get Input Based on State
         switch (state)
@@ -128,9 +144,13 @@ public class PlayerController : MonoBehaviour
                 //Handle Hide Input
                 if (HideCheck())
                     break;
+                
+                //Handle Meditate input
+                if (MeditateCheck())
+                    break;
 
                 //Start Jumping
-                if (Input.GetKeyDown(data.keyManager.keys[Key.Jump]))
+                if (Input.GetKeyDown(data.keyManager.keys[Key.Jump]) && coyoteTimeCounter > 0f)
                 {
                     EndFall();
                     state = PlayerState.JumpStart;
@@ -163,13 +183,18 @@ public class PlayerController : MonoBehaviour
                 if (HideCheck())
                     break;
 
+
+                //Handle Meditate input
+                if (MeditateCheck())
+                    break;
+
                 //Start Jumping
-                if (Input.GetKeyDown(data.keyManager.keys[Key.Jump]))
+                if (Input.GetKeyDown(data.keyManager.keys[Key.Jump]) && coyoteTimeCounter > 0f)
                 {
                     state = PlayerState.JumpStart;
                     SetAnimation();
                 }
-                else if (!groundCheck.IsTouchingLayers(ground))
+                else if (!groundCheck.IsTouchingLayers(ground) && coyoteTimeCounter <= 0f)
                 {
                     state = PlayerState.Falling;
                     SetAnimation();
@@ -203,24 +228,43 @@ public class PlayerController : MonoBehaviour
                 anim.SetFloat("Jump Velocity", rb.velocity.y);
                 if (Input.GetKeyUp(data.keyManager.keys[Key.Jump]))
                 {
+                    coyoteTimeCounter = 0f;
                     rb.velocity *= new Vector2(1, .5f);
                     state = PlayerState.JumpStop;
                 }
                 else if (rb.velocity.y < 5f) 
-                { 
+                {
                     state = PlayerState.JumpStop;
                 }
                 DiveCheck();
                 break;
             case PlayerState.JumpStop:
                 anim.SetFloat("Jump Velocity", rb.velocity.y);
+                if (goatAcquired)
+                {
+                    if (Input.GetKeyDown(KeyCode.LeftShift) && canDash)
+                    {
+                        state = PlayerState.Dash;
 
+                        afterImage.ActivateAfterImages(true);
+                        StartCoroutine(Dash());
+                    }
+                }
                 DoubleJumpCheck();
                 DiveCheck();
                 break;
             case PlayerState.Falling:
                 anim.SetFloat("Jump Velocity", rb.velocity.y);
+                if (goatAcquired)
+                {
+                    if (Input.GetKeyDown(KeyCode.LeftShift) && canDash)
+                    {
+                        state = PlayerState.Dash;
 
+                        afterImage.ActivateAfterImages(true);
+                        StartCoroutine(Dash());
+                    }
+                }
                 DoubleJumpCheck();
                 DiveCheck();
 
@@ -247,6 +291,16 @@ public class PlayerController : MonoBehaviour
                 }
                 break;
             case PlayerState.DoubleJump:
+                if (goatAcquired)
+                {
+                    if (Input.GetKeyDown(KeyCode.LeftShift) && canDash)
+                    {
+                        state = PlayerState.Dash;
+
+                        afterImage.ActivateAfterImages(true);
+                        StartCoroutine(Dash());
+                    }
+                }
                 anim.SetFloat("Jump Velocity", rb.velocity.y);
                 break;
             case PlayerState.Hit:
@@ -260,6 +314,10 @@ public class PlayerController : MonoBehaviour
                 break;
             case PlayerState.AttackEnd:
                 movementX = 0;
+                break;
+            case PlayerState.Dash:
+                afterImage.ActivateAfterImages(true);
+                StartCoroutine(Dash());
                 break;
         }
 
@@ -288,29 +346,15 @@ public class PlayerController : MonoBehaviour
         if (frozen)
             return;
         if (state == (PlayerState.Hit))
-            return; 
+            return;
 
-        //Set Velocity
-        rb.velocity = new Vector2(movementX * speed, rb.velocity.y);
-
-        if (isDashing)
-        {
-            if(rb.velocity.x > 0)
-            {
-                rb.AddForce(new Vector2(dashSpeed, 0), ForceMode2D.Impulse);
-            }
-            else
-            {
-                rb.AddForce(new Vector2(-dashSpeed, 0), ForceMode2D.Impulse);
-            }
-        }
-            
-
+        CheckForDash();
+    
         //State Machine
         switch (state)
         {
             case PlayerState.Idle:
-                if (rb.velocity.x != 0)
+                if (rb.velocity.x != 0 && !isDashing)
                 {
                     EndFall();
                     state = PlayerState.Walking;
@@ -351,11 +395,30 @@ public class PlayerController : MonoBehaviour
                 else
                     rb.velocity = diveSpeed;
                 break;
-            case PlayerState.Dash:
-                afterImage.ActivateAfterImages(true);
-                StartCoroutine(Dash());
-                break;
         }
+    }
+
+    private void CheckForDash()
+    {
+        //Set Velocity
+        if (!isDashing)
+        {
+            rb.velocity = new Vector2(movementX * speed, rb.velocity.y);
+        }
+        else
+        {
+            rb.AddForce(new Vector2(movementX * dashSpeed, 0), ForceMode2D.Impulse);
+        }
+    }
+    private void PushEnemy(Collision2D enemy)
+    {
+        EnemyController enemyController = enemy.gameObject.GetComponent<EnemyController>();
+
+        rb.velocity = Vector2.zero;
+        enemy.rigidbody.AddForce((transform.position - enemy.transform.position).normalized * knockBackForce, ForceMode2D.Impulse);
+        enemy.rigidbody.drag = 0.4f;
+
+        enemyController.TakeDamage(2, transform.position);
     }
 
     #region"Collision handling"
@@ -366,7 +429,11 @@ public class PlayerController : MonoBehaviour
 
         if (collision.collider.CompareTag("Enemy"))
         {
-            if (state != PlayerState.Hit)
+            if (isDashing)
+            {
+                PushEnemy(collision); 
+            }
+            else
             {
                 state = PlayerState.Hit;
                 rb.velocity = Vector2.zero;
@@ -378,7 +445,6 @@ public class PlayerController : MonoBehaviour
                     frozen = true;
                     state = PlayerState.Die;
                     anim.updateMode = AnimatorUpdateMode.UnscaledTime;
-                    Time.timeScale = 0;
                     Time.timeScale = 0;
                 }
 
@@ -394,6 +460,18 @@ public class PlayerController : MonoBehaviour
             collider.GetComponent<DialogueTrigger>().TriggerDialogue();
         }
 
+        if (collider.CompareTag("Unstable"))
+        {
+            print("Try Start Loop");
+
+            StartCoroutine(collider.GetComponent<UnstableTile>().UnstableLoop());
+        }
+
+        if (collider.CompareTag("Exit"))
+        {
+            ExitLevel(collider.GetComponent<Path>());
+        }
+
         if (collider.CompareTag("End"))
         {
             uiManager.GameComplete();
@@ -404,13 +482,14 @@ public class PlayerController : MonoBehaviour
         if (collider.CompareTag("Checkpoint"))
         {
             SetCheckPoint(collider.GetComponent<IndexNumber>().indexNumber);
+            collider.gameObject.GetComponent<Animator>().SetBool("Checked", true);
             health = uiManager.RecoverHealth();
             mana = uiManager.RecoverMana(100);
         }
 
         if (collider.CompareTag("Star"))
         {
-            print("Star collided!");
+            //print("Star collided!");
 
             data.starsAcquired[collider.GetComponent<IndexNumber>().indexNumber] = true;
             SaveSystem.Save(data);
@@ -432,13 +511,13 @@ public class PlayerController : MonoBehaviour
             mana = uiManager.RecoverMana(1);
             AkSoundEngine.PostEvent(playManaCollectSound.Id, gameObject);
             Destroy(collider.gameObject);
-            
+
         }
 
         if (hidden)
-        return;
+            return;
 
-            if (collider.CompareTag("Enemy"))
+        if (collider.CompareTag("Enemy"))
         {
             if (state != PlayerState.Hit)
             {
@@ -468,7 +547,6 @@ public class PlayerController : MonoBehaviour
     {
         birbAcquired = true;
         data.hasBirb = true;
-        SetCheckPoint(1);
     }
 
     /// <summary>Use this method to enable long jump and claws, when animal selection event is fired</summary>
@@ -476,7 +554,6 @@ public class PlayerController : MonoBehaviour
     {
         catAcquired = true;
         data.hasCat = true;
-        SetCheckPoint(2);
     }
 
     /// <summary>Use this method to enable dig and spikes, when animal selection event is fired</summary>
@@ -484,7 +561,6 @@ public class PlayerController : MonoBehaviour
     {
         moleAcquired = true;
         data.hasMole = true;
-        SetCheckPoint(3);
     }   
     
     /// <summary>Use this method to enable dash/bash, when animal selection event is fired</summary>
@@ -492,7 +568,6 @@ public class PlayerController : MonoBehaviour
     {
         goatAcquired = true;
         data.hasGoat = true;
-        SetCheckPoint(4);
     }
 
     /// <summary>Use this method to enable climb, when animal selection event is fired</summary>
@@ -500,7 +575,6 @@ public class PlayerController : MonoBehaviour
     {
         monkeyAcquired = true;
         data.hasMonkey = true;
-        SetCheckPoint(5);
     }
     #endregion
 
@@ -551,10 +625,34 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Initializes the area around the player
+    /// </summary>
     private void InitializeArea()
     {
+        print("Initialize");
+        //Spawn
+        if (!PlayerPrefs.HasKey("Exit"))
+        {
+            //Check if level is correct
+            if(data.checkPointLevelIndex != SceneManager.GetActiveScene().buildIndex)
+            {
+                //If level is not correct, change the level
+                SceneManager.LoadScene(data.checkPointLevelIndex);
+                return;
+            }
+
+            //Set Position to Checkpoint
+            transform.position = checkPointList[data.checkPointIndex].position;
+        }
+        else
+        {
+            //Set Position to Entrance
+            transform.position = entranceList[PlayerPrefs.GetInt("Exit")].position;
+        }
+
         //Health
-        for(int i = 0; i < data.starsAcquired.Length; i++)
+        for (int i = 0; i < data.starsAcquired.Length; i++)
         {
             if (data.starsAcquired[i])
             {
@@ -564,6 +662,8 @@ public class PlayerController : MonoBehaviour
         }
 
         uiManager.AddHealthStar(health/5 - 4);
+        if(PlayerPrefs.HasKey("Health"))
+            health = PlayerPrefs.GetInt("Health");
 
         //Mana
         for (int i = 0; i < data.orbsAcquired.Length; i++)
@@ -574,6 +674,9 @@ public class PlayerController : MonoBehaviour
                 orbList[i].SetActive(false);
             }
         }
+
+        if (PlayerPrefs.HasKey("Mana"))
+            mana = PlayerPrefs.GetFloat("Mana");
         //Abilities
         if (data.hasCat)
         {
@@ -600,23 +703,33 @@ public class PlayerController : MonoBehaviour
             monkeyAcquired = true;
             animalList[4].CreateCheckPoint();
         }
-        
-        //Checkpoints
-        transform.position = checkPointList[data.checkPointIndex].position;
+
+        PlayerPrefs.DeleteAll();
     }
 
     /// <summary>Sets the checkPoint number</summary>
     /// <param name="checkPointNumber"></param>
-    private void SetCheckPoint(int checkPointNumber)
+    private void SetCheckPoint(int checkPointIndex)
     {
-        data.checkPointIndex = checkPointNumber;
+        data.checkPointIndex = checkPointIndex;
+        data.checkPointLevelIndex = SceneManager.GetActiveScene().buildIndex;
         SaveSystem.Save(data);
+    }
+
+    /// <summary>Exits to another level</summary>
+    /// <param name="index">Provides the values to determine the next level's entrance</param>
+    private void ExitLevel(Path path)
+    {
+        PlayerPrefs.SetInt("Exit", path.indexNumber);
+        PlayerPrefs.SetFloat("Mana", mana);
+        PlayerPrefs.SetInt("Health", health);
+        SceneManager.LoadScene(path.nextSceneIndex);
+
     }
 
     /// <summary>Checks if the any enemies were hit by the claw</summary>
     public void HitCheck() 
     {
-        
         List<Collider2D> hitEnemies = new List<Collider2D>();
         clawRange.OverlapCollider(enemies, hitEnemies);
         for (int i = 0; i < hitEnemies.Count; i++)
@@ -633,7 +746,22 @@ public class PlayerController : MonoBehaviour
                 }
                 catch (System.NullReferenceException)
                 {
-                    hitEnemies[i].GetComponent<SkeletonController>().TakeDamage(attackPower, transform.position);
+                    try
+                    {
+                        hitEnemies[i].GetComponent<SkeletonController>().TakeDamage(attackPower, transform.position);
+                    }
+                    catch (System.NullReferenceException)
+                    {
+                        try
+                        {
+                            hitEnemies[i].GetComponent<ArmoredController>().TakeDamage(attackPower, transform.position);
+                        }
+                        catch (System.NullReferenceException)
+                        {
+
+                            Destroy(hitEnemies[i].gameObject.GetComponentInChildren<PolygonCollider2D>().gameObject);
+                        }
+                    }
                 }
             }
         }
@@ -651,7 +779,7 @@ public class PlayerController : MonoBehaviour
             Physics2D.IgnoreLayerCollision(3, 7, false);
             OnHideEnd();
         }
-        
+
         state = PlayerState.Hit;
         anim.SetInteger("AttackCounter", 1);
         diveRange.enabled = false;
@@ -660,8 +788,8 @@ public class PlayerController : MonoBehaviour
         health -= 1;
         uiManager.RemoveHealth(health);
         if (health <= 0)
-                state = PlayerState.Die;
-            SetAnimation();
+            state = PlayerState.Die;
+        SetAnimation();
     }
 
     /// <summary>Ends the animation and resets to Idle</summary>
@@ -756,21 +884,39 @@ public class PlayerController : MonoBehaviour
 
     private IEnumerator Dash()
     {
+        Vector2 originalVelocity = rb.velocity;
+
         canDash = false;
         isDashing = true;
+        rb.gravityScale = 0;
+        rb.velocity = Vector2.zero;
         yield return new WaitForSeconds(dashTime);
 
         isDashing = false;
-        rb.velocity = Vector2.zero;
+        rb.gravityScale = normalGravity;
+        rb.velocity = originalVelocity;
         state = PlayerState.Walking;
         afterImage.ActivateAfterImages(false);
         yield return new WaitForSeconds(dashCooldown);
         canDash = true;
     }
 
+    private void StartTimer(float cooldown)
+    {
+        if (!timerEnded)
+        {
+            timer += Time.deltaTime;
+
+            if (timer >= cooldown)
+            {
+                timer = 0;
+                timerEnded = true;
+            }
+        }
+    }
+
 
     /// <summary>Use the specified amount of mana</summary>
-    /// <param name="manaUsed">The amount of mana used</param>
     public void UseMana(int manaUsed)
     {
         mana = uiManager.RemoveMana(manaUsed);
@@ -784,14 +930,13 @@ public class PlayerController : MonoBehaviour
         {
             if(mana <= 0)
             {
-
                 anim.speed = 1;
                 sRend.color = Color.white;
                 hidden = false;
                 speed *= 2;
                 Physics2D.IgnoreLayerCollision(3, 7, false);
                 AkSoundEngine.PostEvent(unhideSound.Id, this.gameObject);
-                OnHideEnd();
+                OnHideEnd?.Invoke();
                 particles.Stop();
             }
             mana = uiManager.RemoveMana(Time.deltaTime);
@@ -803,7 +948,7 @@ public class PlayerController : MonoBehaviour
                 speed *= 2;
                 Physics2D.IgnoreLayerCollision(3, 7, false);
                 AkSoundEngine.PostEvent(unhideSound.Id, this.gameObject);
-                OnHideEnd();
+                OnHideEnd?.Invoke();
                 particles.Stop();
             }
             return true;
@@ -817,6 +962,31 @@ public class PlayerController : MonoBehaviour
             speed /= 2;
             Physics2D.IgnoreLayerCollision(3, 7, true);
             particles.Play();
+        }
+        return false;
+    }
+    /// <summary>Checks whether to meditate</summary>
+    private bool MeditateCheck()
+    {
+        if (meditating)
+        {
+            mana = uiManager.RecoverMana(Time.deltaTime);
+            if (Input.GetKeyUp(data.keyManager.keys[Key.Meditate]))
+            {
+                anim.speed = 1;
+                sRend.color = Color.white;
+                rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+                meditating = false;
+                //AkSoundEngine.PostEvent(unhideSound.Id, this.gameObject);
+            }
+            return true;
+        }
+        else if (Input.GetKeyDown(data.keyManager.keys[Key.Meditate]))
+        {
+            //AkSoundEngine.PostEvent(hideSound.Id, this.gameObject);
+            rb.constraints = RigidbodyConstraints2D.FreezeAll;
+            sRend.color = Color.magenta;
+            meditating = true;
         }
         return false;
     }

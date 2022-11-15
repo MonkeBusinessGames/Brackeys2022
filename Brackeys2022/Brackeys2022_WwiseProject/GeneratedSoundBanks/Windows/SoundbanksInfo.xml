@@ -9,31 +9,39 @@
 	</RootPaths>
 	<DialogueEvents/>
 	<SoundBanks>
-		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{8C0916CD-6D31-39EC-486F-AD566B12CDF8}">
+		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{1A6AD4D5-12F0-D2C5-296D-A9BD3B540E80}">
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 			<Plugins>
-				<Sharesets>
-					<Plugin Id="3442768367" Name="Hall_Large_Dark" LibName="Wwise RoomVerb" LibId="7733251"/>
-				</Sharesets>
+				<Custom>
+					<Plugin Id="727751730" Name="RoomVerb (Custom)" LibName="Wwise RoomVerb" LibId="7733251"/>
+				</Custom>
 				<AudioDevices>
 					<Plugin Id="2317455096" Name="No_Output" LibName="No Output" LibId="11862023"/>
 					<Plugin Id="3859886410" Name="System" LibName="System" LibId="11403271"/>
 				</AudioDevices>
 			</Plugins>
 			<Busses>
-				<Bus Id="1069431850" Name="Player">
-					<PluginRefs>
-						<Sharesets>
-							<PluginRef Id="3442768367"/>
-						</Sharesets>
-					</PluginRefs>
-				</Bus>
+				<Bus Id="1069431850" Name="Player"/>
 				<Bus Id="1229948536" Name="Environment"/>
+				<Bus Id="1551306167" Name="UI"/>
 				<Bus Id="2242381963" Name="Enemies"/>
 				<Bus Id="3803692087" Name="Master Audio Bus"/>
 				<Bus Id="3991942870" Name="Music"/>
 			</Busses>
+			<AuxBusses>
+				<AuxBus Id="1697398818" Name="Cavereverb">
+					<PluginRefs>
+						<Custom>
+							<PluginRef Id="727751730"/>
+						</Custom>
+					</PluginRefs>
+				</AuxBus>
+			</AuxBusses>
+			<GameParameters>
+				<GameParameter Id="988953028" Name="SFXVolume"/>
+				<GameParameter Id="2346531308" Name="MusicVolume"/>
+			</GameParameters>
 			<StateGroups>
 				<StateGroup Id="3703386026" Name="PlayerHide">
 					<States>
@@ -44,7 +52,7 @@
 				</StateGroup>
 			</StateGroups>
 		</SoundBank>
-		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{9ED32B06-F829-B388-5304-E79DAFED4065}">
+		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{A5D47119-08CB-56FA-948E-854FB88350EA}">
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
 			<Media>
@@ -257,6 +265,9 @@
 						<MediaRef Id="621094994"/>
 						<MediaRef Id="695472629"/>
 					</MediaRefs>
+					<AuxBusRefs>
+						<AuxBusRef Id="1697398818" Name="Cavereverb"/>
+					</AuxBusRefs>
 				</Event>
 				<Event Id="4195921398" Name="MusicTest" DurationType="OneShot" DurationMin="30.857145" DurationMax="30.857145">
 					<MediaRefs>
@@ -422,5 +433,5 @@
 			</Events>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{EB86B5BA-6642-AFD5-38FA-219BCA84F247}</FileHash>
+	<FileHash>{2CB25C46-750F-4826-76EA-62BCBA98FB47}</FileHash>
 </SoundBanksInfo>

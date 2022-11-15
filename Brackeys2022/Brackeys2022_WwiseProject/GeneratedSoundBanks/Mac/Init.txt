@@ -6,15 +6,23 @@ State	ID	Name	State Group			Notes
 	748895195	None	PlayerHide			
 	3538823496	Hiding	PlayerHide			
 
+Game Parameter	ID	Name			Wwise Object Path	Notes
+	988953028	SFXVolume			\Default Work Unit\Volume\SFXVolume	
+	2346531308	MusicVolume			\Default Work Unit\Volume\MusicVolume	
+
 Audio Bus	ID	Name			Wwise Object Path	Notes
-	1069431850	Player			\Default Work Unit\Master Audio Bus\Player	
-	1229948536	Environment			\Default Work Unit\Master Audio Bus\Environment	
-	2242381963	Enemies			\Default Work Unit\Master Audio Bus\Enemies	
+	1069431850	Player			\Default Work Unit\Master Audio Bus\SFXBus\Player	
+	1229948536	Environment			\Default Work Unit\Master Audio Bus\SFXBus\Environment	
+	1551306167	UI			\Default Work Unit\Master Audio Bus\SFXBus\UI	
+	2242381963	Enemies			\Default Work Unit\Master Audio Bus\SFXBus\Enemies	
 	3803692087	Master Audio Bus			\Default Work Unit\Master Audio Bus	
 	3991942870	Music			\Default Work Unit\Master Audio Bus\Music	
 
+Auxiliary Bus	ID	Name			Wwise Object Path	Notes
+	1697398818	Cavereverb			\Default Work Unit\Master Audio Bus\Cavereverb	
+
 Effect plug-ins	ID	Name	Type				Notes
-	3442768367	Hall_Large_Dark	Wwise RoomVerb			
+	727751730	RoomVerb (Custom)	Wwise RoomVerb			
 
 Audio Devices	ID	Name	Type				Notes
 	2317455096	No_Output	No Output			
