@@ -724,7 +724,7 @@ public class PlayerController : MonoBehaviour
                 {
                     try
                     {
-                        hitEnemies[i].GetComponent<SkeletonController>().TakeDamage(attackPower, transform.position);
+                        hitEnemies[i].GetComponent<ChainedController>().TakeDamage(attackPower, transform.position);
                     }
                     catch (System.NullReferenceException)
                     {
