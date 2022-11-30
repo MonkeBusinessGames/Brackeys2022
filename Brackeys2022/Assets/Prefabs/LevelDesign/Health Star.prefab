@@ -10,9 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 2276441122017345609}
   - component: {fileID: 2276441122017345614}
-  - component: {fileID: 7217466550945782163}
+  - component: {fileID: 4213685789468415807}
+  - component: {fileID: 1566042335991146395}
+  - component: {fileID: 2506340176245875564}
   m_Layer: 0
-  m_Name: Star
+  m_Name: Health Star
   m_TagString: Star
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 2276441122017345608}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 131, y: 13.5, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -74,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 928815127
   m_SortingLayer: 2
   m_SortingOrder: 1
-  m_Sprite: {fileID: -277361666, guid: b40077495bdea044dacd9eb585536191, type: 3}
+  m_Sprite: {fileID: -1208733815, guid: 87ef0f961b141d8468ebb8b54b5626bc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -85,7 +87,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &7217466550945782163
+--- !u!95 &4213685789468415807
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2276441122017345608}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 43208bb97011eb446b0059486afa5c6e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1566042335991146395
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -94,7 +116,35 @@ MonoBehaviour:
   m_GameObject: {fileID: 2276441122017345608}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e4cdaf241b9ab14abfd30707e50f4d3, type: 3}
+  m_Script: {fileID: 11500000, guid: ee45ed1566afba84185aea1a0831ae10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   indexNumber: 0
+  player: {fileID: 0}
+  anim: {fileID: 4213685789468415807}
+--- !u!61 &2506340176245875564
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2276441122017345608}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.5, y: 0.5}
+  m_EdgeRadius: 0

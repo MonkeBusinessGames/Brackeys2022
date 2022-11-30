@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 3621245386776631807}
   - component: {fileID: 3621245386776631800}
   - component: {fileID: 1070175548670852416}
-  - component: {fileID: 6671413622196717142}
+  - component: {fileID: 1070175548670852415}
+  - component: {fileID: 692971858764026247}
   m_Layer: 0
-  m_Name: ManaStar
+  m_Name: ManaOrb
   m_TagString: ManaOrb
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -102,7 +103,27 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &6671413622196717142
+--- !u!95 &1070175548670852415
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3621245386776631806}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 53d96d83f78c319439d464a9cd328936, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &692971858764026247
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -111,7 +132,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 3621245386776631806}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e4cdaf241b9ab14abfd30707e50f4d3, type: 3}
+  m_Script: {fileID: 11500000, guid: bda0675f3980a4241a70ad55be99e204, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  indexNumber: 0
+  indexNumber: 20
+  player: {fileID: 0}
+  anim: {fileID: 1070175548670852415}

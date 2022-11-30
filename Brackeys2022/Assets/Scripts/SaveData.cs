@@ -4,40 +4,56 @@ using System.Collections.Generic;
 /// <summary>A class to store a player's save data.</summary>
 public class SaveData
 {
-    /// <summary>Shows which health stars the player has.</summary>
-    public bool[] starsAcquired;
-    
-    /// <summary>Shows how many mana orbs the player has.</summary>
-    public bool[] orbsAcquired;
+    /// <summary>Shows which health stars the player has.
+    /// </summary>
+    public List<int> starsAcquired;
 
-    /// <summary>Shows whether the player has gained cat powers.</summary>
+    /// <summary>Shows how many mana orbs the player has.
+    /// </summary>
+    public List<int> orbsAcquired;
+
+    /// <summary>Shows whether the player has gained cat powers.
+    /// </summary>
     public bool hasCat;    
     
-    /// <summary>Shows whether the player has gained birb powers.</summary>
+    /// <summary>Shows whether the player has gained birb powers.
+    /// </summary>
     public bool hasBirb;
 
-    /// <summary>Shows whether the player has gained mole powers.</summary>
+    /// <summary>Shows whether the player has gained mole powers.
+    /// </summary>
     public bool hasMole;
 
-    /// <summary>Shows whether the player has gained goat powers.</summary>
+    /// <summary>Shows whether the player has gained goat powers
+    /// .</summary>
     public bool hasGoat;
 
-    /// <summary>Shows whether the player has gained monkey powers.</summary>
+    /// <summary>Shows whether the player has gained monkey powers.
+    /// </summary>
     public bool hasMonkey;
 
-    /// <summary>The index of the last checkPoint.</summary>
+    /// <summary>Shows which checkPoints the player has unlocked.
+    /// </summary>
+    public List<int> checkPointsUnlocked;
+
+    /// <summary>The index of the last checkPoint.
+    /// </summary>
     public int checkPointIndex;
 
-    /// <summary>The index of the last checkPoint level.</summary>
+    /// <summary>The index of the last checkPoint level.
+    /// </summary>
     public int checkPointLevelIndex;
 
-    /// <summary> Music volume</summary>
+    /// <summary> Music volume
+    /// </summary>
     public float musicVolume;
 
-    /// <summary> SFX volume</summary>
+    /// <summary> SFX volume
+    /// </summary>
     public float sfxVolume;
 
-    /// <summary> Preferred language</summary>
+    /// <summary> Preferred language
+    /// </summary>
     public int languageIndex;
 
     /// <summary>
@@ -45,11 +61,13 @@ public class SaveData
     /// </summary>
     public KeyManager keyManager;
 
-    /// <summary>Creates a brand new, empty save file.</summary>
+    /// <summary>Creates a brand new, empty save file.
+    /// </summary>
     public SaveData()
     {
-        starsAcquired = new bool[3];
-        orbsAcquired = new bool[3];
+        starsAcquired = new List<int>();
+        orbsAcquired = new List<int>();
+        checkPointsUnlocked = new List<int>();
         hasCat = hasBirb = hasMole = hasGoat = hasMonkey = false;
         checkPointIndex = 0;
         checkPointLevelIndex = 1;
@@ -59,11 +77,13 @@ public class SaveData
         keyManager = new KeyManager();
     }
 
-    /// <summary>Resets the save data with default level values</summary>
+    /// <summary>Resets the save data with default level values
+    /// </summary>
     public void Reset()
     {
-        starsAcquired = new bool[3];
-        orbsAcquired = new bool[3];
+        starsAcquired = new List<int>();
+        orbsAcquired = new List<int>();
+        checkPointsUnlocked = new List<int>();
         hasCat = hasBirb = hasMole = hasGoat = hasMonkey = false; 
         checkPointIndex = 0;
         checkPointLevelIndex = 1;
@@ -82,7 +102,7 @@ public class SaveData
     /// <param name="music">Determines what volume to set the music at</param>
     /// <param name="sound">Determines what volume to set the sfx at</param>
     /// <param name="language">Determined what the language should be</param>
-    public SaveData(bool[] health, bool[] mana, bool cat, bool birb, bool mole, bool goat, bool monkey, int checkPoint, int level, int exit, bool useCheckpoint, float music, float sound, int language)
+    public SaveData(List<int> health, List<int> mana, bool cat, bool birb, bool mole, bool goat, bool monkey, List<int> checkpoints, int lastCheckPoint, int lastLevel, int exit, bool useCheckpoint, float music, float sound, int language)
     {
         starsAcquired = health;
         orbsAcquired = mana;
@@ -91,8 +111,9 @@ public class SaveData
         hasMole = mole;
         hasGoat = goat;
         hasMonkey = monkey;
-        checkPointIndex = checkPoint;
-        checkPointLevelIndex = level;
+        checkPointsUnlocked = checkpoints;
+        checkPointIndex = lastCheckPoint;
+        checkPointLevelIndex = lastLevel;
         musicVolume = music;
         sfxVolume = sound;
         languageIndex = language;

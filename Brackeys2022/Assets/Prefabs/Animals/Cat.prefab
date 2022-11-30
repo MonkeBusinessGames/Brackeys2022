@@ -73,9 +73,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a499c4ba5e75d9e48a3002d4c5885210, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  anim: {fileID: 4828213466585911853}
   catAbility: 1
   moleAbility: 0
   birbAbility: 0
+  goatAbility: 0
+  monkeyAbility: 0
   BirdSound:
     idInternal: 0
     valueGuidInternal: 
@@ -88,6 +92,10 @@ MonoBehaviour:
     idInternal: 0
     valueGuidInternal: 
     WwiseObjectReference: {fileID: 11400000, guid: 4903aae8426da974ab916bd642088ea9, type: 2}
+  animalIdleSound:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 0}
 --- !u!212 &8781100779868669444
 SpriteRenderer:
   m_ObjectHideFlags: 0

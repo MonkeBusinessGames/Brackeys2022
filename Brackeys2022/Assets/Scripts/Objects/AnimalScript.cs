@@ -5,7 +5,9 @@ using UnityEngine;
 
 public class AnimalScript : MonoBehaviour
 {
-    [SerializeField] private GameObject checkPoint;
+
+    [SerializeField] private PlayerController player;
+    [SerializeField] private Animator anim;
 
     [Header("SET ANIMAL ABILITY")]
     [Space(5)]
@@ -27,6 +29,47 @@ public class AnimalScript : MonoBehaviour
     [SerializeField] private AK.Wwise.Event MoleSound;
 
     [SerializeField] private AK.Wwise.Event animalIdleSound;
+
+    private void Start()
+    {
+        if (catAbility)
+        {
+            if (player.data.hasCat)
+            {
+                anim.SetTrigger("Disappear");
+            }
+        }
+        else if (moleAbility)
+        {
+            if (player.data.hasMole)
+            {
+                anim.SetTrigger("Disappear");
+            }
+        }
+        else if (birbAbility)
+        {
+            if (player.data.hasBirb)
+            {
+                anim.SetTrigger("Disappear");
+            }
+        }
+        else if (goatAbility)
+        {
+            if (player.data.hasGoat)
+            {
+                anim.SetTrigger("Disappear");
+            }
+        }
+        else if (monkeyAbility)
+        {
+            if (player.data.hasMonkey)
+            {
+                anim.SetTrigger("Disappear");
+            }
+        }
+
+
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -64,14 +107,8 @@ public class AnimalScript : MonoBehaviour
             }
 
             OnAnimalAcquired?.Invoke(popup);
-            GetComponent<Animator>().SetTrigger("Disappear");
+            anim.SetTrigger("Disappear");
         }
-    }
-
-    public void CreateCheckPoint()
-    {
-        checkPoint.SetActive(true);
-        Destroy(gameObject);
     }
 
     public void playAnimalIdleSound()
@@ -124,4 +161,12 @@ public class AnimalScript : MonoBehaviour
     }
 #endif
     #endregion
+
+    /// <summary>
+    /// Used to destory the animal after it's been acquired.
+    /// </summary>
+    public void Destroy()
+    {
+        Destroy(gameObject);
+    }
 }

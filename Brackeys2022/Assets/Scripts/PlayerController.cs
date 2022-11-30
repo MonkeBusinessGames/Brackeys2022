@@ -17,15 +17,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private UIManager uiManager;
     [SerializeField] private Transform cameraTarget;
     [SerializeField] private bool startFresh = false;
-    private SaveData data;
+    public SaveData data;
     [SerializeField] private ParticleSystem particles;
 
     [Header("Object Lists")]
-    [SerializeField] private Transform[] checkPointList;
     [SerializeField] private Transform[] entranceList;
     [SerializeField] private AnimalScript[] animalList;
-    [SerializeField] private GameObject[] starList;
-    [SerializeField] private GameObject[] orbList;
 
     [Header("Movement Fields")]
     public static bool frozen = false;
@@ -481,29 +478,19 @@ public class PlayerController : MonoBehaviour
 
         if (collider.CompareTag("Checkpoint"))
         {
-            SetCheckPoint(collider.GetComponent<IndexNumber>().indexNumber);
-            collider.gameObject.GetComponent<Animator>().SetBool("Checked", true);
-            health = uiManager.RecoverHealth();
-            mana = uiManager.RecoverMana(100);
+            SetCheckPoint(collider.GetComponent<Checkpoint>().Check());
         }
 
         if (collider.CompareTag("Star"))
         {
             //print("Star collided!");
 
-            data.starsAcquired[collider.GetComponent<IndexNumber>().indexNumber] = true;
-            SaveSystem.Save(data);
-            health = uiManager.AddHealthStar(health);
-            Destroy(collider.gameObject);
+            AcquireStar(collider.GetComponent<HealthStar>().Acquire());
         }
 
         if (collider.CompareTag("ManaOrb"))
         {
-            data.orbsAcquired[collider.GetComponent<IndexNumber>().indexNumber] = true;
-            SaveSystem.Save(data);
-            mana = uiManager.IncreaseManaLimit(5);
-            AkSoundEngine.PostEvent(playBigManaCollect.Id, gameObject);
-            Destroy(collider.gameObject);
+            AcquireOrb(collider.GetComponent<ManaOrb>().Acquire());
         }
 
         if (collider.CompareTag("ManaDust"))
@@ -643,7 +630,7 @@ public class PlayerController : MonoBehaviour
             }
 
             //Set Position to Checkpoint
-            transform.position = checkPointList[data.checkPointIndex].position;
+            transform.position = Checkpoint.GetCheckPointPosition(data.checkPointIndex);
         }
         else
         {
@@ -652,57 +639,21 @@ public class PlayerController : MonoBehaviour
         }
 
         //Health
-        for (int i = 0; i < data.starsAcquired.Length; i++)
-        {
-            if (data.starsAcquired[i])
-            {
-                health += 5;
-                starList[i].SetActive(false);
-            }
-        }
-
-        uiManager.AddHealthStar(health/5 - 4);
+        health = uiManager.AddHealthStar(5 + data.starsAcquired.Count);
         if(PlayerPrefs.HasKey("Health"))
             health = PlayerPrefs.GetInt("Health");
 
         //Mana
-        for (int i = 0; i < data.orbsAcquired.Length; i++)
-        {
-            if (data.orbsAcquired[i])
-            {
-                mana = uiManager.IncreaseManaLimit(5);
-                orbList[i].SetActive(false);
-            }
-        }
-
+        mana = uiManager.IncreaseManaLimit(5 * data.orbsAcquired.Count);
         if (PlayerPrefs.HasKey("Mana"))
             mana = PlayerPrefs.GetFloat("Mana");
+
         //Abilities
-        if (data.hasCat)
-        {
-            catAcquired = true;
-            animalList[0].CreateCheckPoint();
-        }
-        if (data.hasBirb)
-        {
-            birbAcquired = true;
-            animalList[1].CreateCheckPoint();
-        }
-        if (data.hasMole)
-        {
-            moleAcquired = true;
-            animalList[2].CreateCheckPoint();
-        }
-        if (data.hasGoat)
-        {
-            goatAcquired = true;
-            animalList[3].CreateCheckPoint();
-        }
-        if (data.hasMonkey)
-        {
-            monkeyAcquired = true;
-            animalList[4].CreateCheckPoint();
-        }
+        catAcquired = data.hasCat;
+        birbAcquired = data.hasBirb;
+        moleAcquired = data.hasMole;
+        goatAcquired = data.hasGoat;
+        monkeyAcquired = data.hasMonkey;
 
         PlayerPrefs.DeleteAll();
     }
@@ -711,8 +662,33 @@ public class PlayerController : MonoBehaviour
     /// <param name="checkPointNumber"></param>
     private void SetCheckPoint(int checkPointIndex)
     {
+        if (!data.checkPointsUnlocked.Contains(checkPointIndex))
+            data.checkPointsUnlocked.Add(checkPointIndex);
         data.checkPointIndex = checkPointIndex;
         data.checkPointLevelIndex = SceneManager.GetActiveScene().buildIndex;
+        health = uiManager.RecoverHealth();
+        mana = uiManager.RecoverMana(100);
+        SaveSystem.Save(data);
+    }
+
+    /// <summary>Acquires a health star</summary>
+    /// <param name="starIndex">The index number of the star</param>
+    private void AcquireStar(int starIndex)
+    {
+        if (!data.starsAcquired.Contains(starIndex))
+            data.starsAcquired.Add(starIndex);
+        health = uiManager.AddHealthStar(5 + data.starsAcquired.Count);
+        SaveSystem.Save(data);
+    }
+
+    /// <summary>Acquires a health star</summary>
+    /// <param name="starIndex">The index number of the star</param>
+    private void AcquireOrb(int orbIndex)
+    {
+        if (!data.orbsAcquired.Contains(orbIndex))
+            data.orbsAcquired.Add(orbIndex);
+        mana = uiManager.IncreaseManaLimit(5);
+        AkSoundEngine.PostEvent(playBigManaCollect.Id, gameObject);
         SaveSystem.Save(data);
     }
 

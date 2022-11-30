@@ -85,7 +85,7 @@ public class UIManager : MonoBehaviour
         int health = 0;
         for(int i = 0; i < healthStars.Length; i++)
         {
-            healthStars[i].SetBool("Broken", false);
+            healthStars[i].SetBool("Broken", false);    
             if (healthStars[i].isActiveAndEnabled)
                 health++;
         }
