@@ -142,8 +142,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f737175876840e54e95b35dcd41e2b72
-      internalID: -102015969
+      spriteID: 3b6bfb194f9953443b81633741e86cb6
+      internalID: -916309584
       vertices: []
       indices: 
       edges: []
@@ -163,8 +163,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 76dcfe9c9a13c32429daf1ca35b4429d
-      internalID: 529287243
+      spriteID: 497fc27146646c94b9aef0dee77f2742
+      internalID: 1669344065
       vertices: []
       indices: 
       edges: []
@@ -180,8 +180,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      ArmoredSkeleton_ToIdle_B_W_0: -102015969
-      ArmoredSkeleton_ToIdle_B_W_1: 529287243
+      ArmoredSkeleton_ToIdle_B_W_0: -916309584
+      ArmoredSkeleton_ToIdle_B_W_1: 1669344065
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

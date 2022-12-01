@@ -142,8 +142,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0a98b9f6edaeff445b61d85d665de725
-      internalID: 432873425
+      spriteID: ae369dff111b14f46a7e264615a1a995
+      internalID: 681973868
       vertices: []
       indices: 
       edges: []
@@ -163,8 +163,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6a4209d8d6328544898108bd0fb8d831
-      internalID: -1995065277
+      spriteID: 054836d7ba908194db7a57071cdbcad3
+      internalID: -1495322981
       vertices: []
       indices: 
       edges: []
@@ -184,8 +184,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 434d8d6ec96138348b1e820607fe3274
-      internalID: -1695441264
+      spriteID: 7d00cb961ecff384983d41aa041bd1bc
+      internalID: -1163794737
       vertices: []
       indices: 
       edges: []
@@ -205,8 +205,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 53eb70ae21315e54ca4a6b709508f4d1
-      internalID: 906983734
+      spriteID: 6ed1596b6a5f9a849861685b01c2ef3a
+      internalID: -262087939
       vertices: []
       indices: 
       edges: []
@@ -226,8 +226,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 111fb9ab9090f7848847c8d7c335eb56
-      internalID: 1670224736
+      spriteID: 2446a6f7e07fb254ea35e51193fedaac
+      internalID: 1801154011
       vertices: []
       indices: 
       edges: []
@@ -247,8 +247,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fcd445596ace6284ca97eaff9c9d45d0
-      internalID: 302187168
+      spriteID: 4ebc9eaab34146040a1f9d1473685533
+      internalID: 169385552
       vertices: []
       indices: 
       edges: []
@@ -268,8 +268,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5997e6dbe7b8a4145aa1a46da64f1aa8
-      internalID: 1950923940
+      spriteID: c10c34f000843eb469785513ecefac86
+      internalID: 1656570156
       vertices: []
       indices: 
       edges: []
@@ -289,8 +289,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8bf23f9bc7be3b644b58f45158dc99c3
-      internalID: -1612573083
+      spriteID: 36c3b8b9569653642b81fd548eb0a983
+      internalID: -1720747072
       vertices: []
       indices: 
       edges: []
@@ -310,8 +310,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 97de03b8744cc0e44b02e6a0c3d14eda
-      internalID: 137377866
+      spriteID: e9c7a70973579294f96973c2025c0b29
+      internalID: -197264934
       vertices: []
       indices: 
       edges: []
@@ -331,8 +331,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1a72ed8efae2b894ca9d0b075acceba1
-      internalID: 1608727195
+      spriteID: cddaa39ae82f2fa4da07276a6ea9321d
+      internalID: -487497779
       vertices: []
       indices: 
       edges: []
@@ -352,8 +352,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9639334f20b8825438c21261773ca934
-      internalID: -1358527041
+      spriteID: 3162a17a32ac1454e877f5e2ba156646
+      internalID: 896581865
       vertices: []
       indices: 
       edges: []
@@ -369,17 +369,17 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      ArmoredSkeleton_ShortAttack2_B_W_10: -1358527041
-      ArmoredSkeleton_ShortAttack2_B_W_4: 1670224736
-      ArmoredSkeleton_ShortAttack2_B_W_2: -1695441264
-      ArmoredSkeleton_ShortAttack2_B_W_3: 906983734
-      ArmoredSkeleton_ShortAttack2_B_W_9: 1608727195
-      ArmoredSkeleton_ShortAttack2_B_W_7: -1612573083
-      ArmoredSkeleton_ShortAttack2_B_W_8: 137377866
-      ArmoredSkeleton_ShortAttack2_B_W_1: -1995065277
-      ArmoredSkeleton_ShortAttack2_B_W_5: 302187168
-      ArmoredSkeleton_ShortAttack2_B_W_0: 432873425
-      ArmoredSkeleton_ShortAttack2_B_W_6: 1950923940
+      ArmoredSkeleton_ShortAttack2_B_W_10: 896581865
+      ArmoredSkeleton_ShortAttack2_B_W_4: 1801154011
+      ArmoredSkeleton_ShortAttack2_B_W_2: -1163794737
+      ArmoredSkeleton_ShortAttack2_B_W_3: -262087939
+      ArmoredSkeleton_ShortAttack2_B_W_9: -487497779
+      ArmoredSkeleton_ShortAttack2_B_W_7: -1720747072
+      ArmoredSkeleton_ShortAttack2_B_W_8: -197264934
+      ArmoredSkeleton_ShortAttack2_B_W_1: -1495322981
+      ArmoredSkeleton_ShortAttack2_B_W_5: 169385552
+      ArmoredSkeleton_ShortAttack2_B_W_0: 681973868
+      ArmoredSkeleton_ShortAttack2_B_W_6: 1656570156
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
