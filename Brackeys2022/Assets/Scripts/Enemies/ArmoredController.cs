@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ArmoredController : MonoBehaviour
+public class ArmoredController : EnemyController
 {
 
     [Header("General Components")]
@@ -122,10 +122,10 @@ public class ArmoredController : MonoBehaviour
     public void HitCheck()
     {
         if(Physics2D.OverlapBox(attackRange.position, attackRange.localScale, 0, 128) != null)
-            player.DamageCheck(attackRange, attackPower);
+            player.DamageCheck(attackRange);
     }
 
-    public void TakeDamage(float damageDealt, Vector2 playerPosition)
+    public override void TakeDamage(float damageDealt, Vector2 playerPosition)
     {
         state = EnemyState.Hit;
         AkSoundEngine.PostEvent(getHitSound.Id, this.gameObject);

@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WispController : MonoBehaviour
+public class WispController : EnemyController
 {
 
     [Header("General Components")]
@@ -155,7 +155,7 @@ public class WispController : MonoBehaviour
         }
     }
 
-    public void TakeDamage(float damageDealt, Vector2 playerPosition)
+    public override void TakeDamage(float damageDealt, Vector2 playerPosition)
     {
         if(state == WispState.Hit)
         {

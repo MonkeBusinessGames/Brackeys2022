@@ -22,7 +22,6 @@ public class PlayerController : MonoBehaviour
 
     [Header("Object Lists")]
     [SerializeField] private Transform[] entranceList;
-    [SerializeField] private AnimalScript[] animalList;
 
     [Header("Movement Fields")]
     public static bool frozen = false;
@@ -61,6 +60,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float attackPower = 10;
     [SerializeField] private float knockBackForce = 100;
     [SerializeField] private bool keepAttacking = false;
+    private bool invulnerable = false;
 
     bool timerEnded = false;
     float timer = 0;
@@ -432,20 +432,7 @@ public class PlayerController : MonoBehaviour
             }
             else
             {
-                state = PlayerState.Hit;
-                rb.velocity = Vector2.zero;
-                rb.AddForce((transform.position - collision.transform.position).normalized * knockBackForce, ForceMode2D.Impulse);
-                health -= 1;
-                uiManager.RemoveHealth(health);
-                if (health <= 0)
-                {
-                    frozen = true;
-                    state = PlayerState.Die;
-                    anim.updateMode = AnimatorUpdateMode.UnscaledTime;
-                    Time.timeScale = 0;
-                }
-
-                SetAnimation();
+                DamageCheck(collision.transform);
             }
         }
     }
@@ -506,24 +493,8 @@ public class PlayerController : MonoBehaviour
 
         if (collider.CompareTag("Enemy"))
         {
-            if (state != PlayerState.Hit)
-            {
-                state = PlayerState.Hit;
-                rb.velocity = Vector2.zero;
-                rb.AddForce((transform.position - collider.transform.position).normalized * knockBackForce, ForceMode2D.Impulse);
-                health -= 1;
-                uiManager.RemoveHealth(health);
-                if (health <= 0)
-                {
-                    frozen = true;
-                    state = PlayerState.Die;
-                    anim.updateMode = AnimatorUpdateMode.UnscaledTime;
-                    Time.timeScale = 0;
-                    Time.timeScale = 0;
-                }
 
-                SetAnimation();
-            }
+            DamageCheck(collider.transform);
         }
     }
     #endregion
@@ -710,46 +681,29 @@ public class PlayerController : MonoBehaviour
         clawRange.OverlapCollider(enemies, hitEnemies);
         for (int i = 0; i < hitEnemies.Count; i++)
         {
-            try
+            if(hitEnemies[i].TryGetComponent(out EnemyController enemy))
             {
-                hitEnemies[i].GetComponent<EnemyController>().TakeDamage(attackPower, transform.position);
+                print(enemy.GetType());
+                enemy.TakeDamage(attackPower, transform.position);
             }
-            catch (System.NullReferenceException)
-            {
-                try
-                {
-                    hitEnemies[i].GetComponent<WispController>().TakeDamage(attackPower, transform.position);
-                }
-                catch (System.NullReferenceException)
-                {
-                    try
-                    {
-                        hitEnemies[i].GetComponent<ChainedController>().TakeDamage(attackPower, transform.position);
-                    }
-                    catch (System.NullReferenceException)
-                    {
-                        try
-                        {
-                            hitEnemies[i].GetComponent<ArmoredController>().TakeDamage(attackPower, transform.position);
-                        }
-                        catch (System.NullReferenceException)
-                        {
-
-                            Destroy(hitEnemies[i].gameObject.GetComponentInChildren<PolygonCollider2D>().gameObject);
-                        }
-                    }
-                }
-            }
+            else if (hitEnemies[i].CompareTag("Gate"))
+                Destroy(hitEnemies[i].gameObject.GetComponentInChildren<PolygonCollider2D>().gameObject);
         }
     }
 
     /// <summary>Checks how much damage to take</summary>
-    public void DamageCheck(Transform enemyRange, float damage)
+    public void DamageCheck(Transform enemyRange)
     {
+        if (invulnerable)
+            return;
+
+        invulnerable = true;
+        sRend.color = new Color(1, 1, 1, .5f);
+        StartCoroutine(InvulnerabilityTimer());
+
         if (hidden)
         {
             anim.speed = 1;
-            sRend.color = Color.white;
             hidden = false;
             speed *= 2;
             Physics2D.IgnoreLayerCollision(3, 7, false);
@@ -766,6 +720,16 @@ public class PlayerController : MonoBehaviour
         if (health <= 0)
             state = PlayerState.Die;
         SetAnimation();
+    }
+
+    IEnumerator InvulnerabilityTimer()
+    {
+        yield return new WaitForSeconds(1);
+
+        invulnerable = false;
+        if (!hidden)
+            sRend.color = Color.white;
+
     }
 
     /// <summary>Ends the animation and resets to Idle</summary>
@@ -907,7 +871,10 @@ public class PlayerController : MonoBehaviour
             if(mana <= 0)
             {
                 anim.speed = 1;
-                sRend.color = Color.white;
+                if (invulnerable)
+                    sRend.color = new Color(1, 1, 1, .5f);
+                else
+                    sRend.color = Color.white;
                 hidden = false;
                 speed *= 2;
                 Physics2D.IgnoreLayerCollision(3, 7, false);
@@ -919,7 +886,10 @@ public class PlayerController : MonoBehaviour
             if (Input.GetKeyUp(data.keyManager.keys[Key.Hide]))
             {
                 anim.speed = 1;
-                sRend.color = Color.white;
+                if (invulnerable)
+                    sRend.color = new Color(1, 1, 1, .5f);
+                else
+                    sRend.color = Color.white;
                 hidden = false;
                 speed *= 2;
                 Physics2D.IgnoreLayerCollision(3, 7, false);

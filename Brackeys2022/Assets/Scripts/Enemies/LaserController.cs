@@ -4,15 +4,25 @@ using UnityEngine;
 
 public class LaserController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        
+        StartCoroutine(LaserLife());
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        
+        if (collision.CompareTag("Player"))
+        {
+            Destroy(gameObject);
+        }
     }
+
+    IEnumerator LaserLife()
+    {
+        yield return new WaitForSeconds(3);
+        {
+            Destroy(gameObject);
+        }
+    }
+
 }

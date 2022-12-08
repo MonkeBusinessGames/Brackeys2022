@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ChainedController : MonoBehaviour
+public class ChainedController : EnemyController
 {
 
     [Header("General Components")]
@@ -115,10 +115,10 @@ public class ChainedController : MonoBehaviour
     public void HitCheck()
     {
         if(Physics2D.OverlapBox(attackRange.position, attackRange.localScale, 0, 128) != null)
-            player.DamageCheck(attackRange, attackPower);
+            player.DamageCheck(attackRange);
     }
 
-    public void TakeDamage(float damageDealt, Vector2 playerPosition)
+    public override void TakeDamage(float damageDealt, Vector2 playerPosition)
     {
         state = SkeletonState.Hit;
         health -= damageDealt;

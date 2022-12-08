@@ -121,7 +121,7 @@ Transform:
   m_GameObject: {fileID: 3580996607143634715}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 13, y: 4, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3580996607244107360}
@@ -300,14 +300,15 @@ MonoBehaviour:
   points:
   - {x: 8, y: 0}
   - {x: 20, y: 0}
-  speed: 3
+  speed: 1
   idleTime: 1
   attackRange: {fileID: 3580996607244107360}
   firePoint: {fileID: 336510898}
   detectRange: {fileID: 3580996606151443298}
   knockBackForce: 5
   health: 10
-  attackPower: 3
+  attackPower: 1
+  laserSpeed: 7
   laserObject: {fileID: 6532796606629277575, guid: 0354e4690cc8e824ca76940e694cf865, type: 3}
   getHitSound:
     idInternal: 0
@@ -326,7 +327,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   manaPrefab: {fileID: 2877836548612758623, guid: 635c738b6253bf7499c98c5b4a5c18d6, type: 3}
-  manaCount: 2
+  manaCount: 4
 --- !u!1 &3580996607244107363
 GameObject:
   m_ObjectHideFlags: 0

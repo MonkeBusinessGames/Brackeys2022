@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SlimeController : MonoBehaviour
+public class SlimeController : EnemyController
 {
     [Header("General Components")]
     [SerializeField] private SpriteRenderer sRend;
@@ -27,6 +27,7 @@ public class SlimeController : MonoBehaviour
     [SerializeField] private float knockBackForce = 5;
     [SerializeField] private float health = 10;
     [SerializeField] private float attackPower = 3;
+    [SerializeField] private float laserSpeed = 3;
     private static PlayerController player;
     [SerializeField] private GameObject laserObject;
 
@@ -122,15 +123,18 @@ public class SlimeController : MonoBehaviour
 
     public void FireLaser()
     {
-        GameObject laser = Instantiate(laserObject, firePoint.position, Quaternion.identity);
-        laser.transform.localScale = transform.localScale;
+        Rigidbody2D laser = Instantiate(laserObject, firePoint.position, Quaternion.identity).GetComponent<Rigidbody2D>();
+        if (facingLeft)
+            laser.velocity = new Vector2(-laserSpeed, 0);
+        else
+            laser.velocity = new Vector2(laserSpeed, 0);
     }
 
-    public void TakeDamage(float damageDealt, Vector2 playerPosition)
+    public override void TakeDamage(float damageDealt, Vector2 playerPosition)
     {
         state = EnemyState.Hit;
         AkSoundEngine.PostEvent(getHitSound.Id, this.gameObject);
-        rb.velocity = Vector2.zero;
+        rb.velocity = Vector3.zero;
         rb.AddForce(((Vector2)transform.position - playerPosition).normalized * knockBackForce, ForceMode2D.Impulse);
         health -= damageDealt;
         timer = 0;
@@ -139,6 +143,9 @@ public class SlimeController : MonoBehaviour
         SetAnimation();
     }
 
+    /// <summary>
+    /// Ends the animation for the enemy
+    /// </summary>
     public void AnimationEnd()
     {
         state = EnemyState.Idle;
@@ -164,21 +171,25 @@ public class SlimeController : MonoBehaviour
                 anim.SetInteger("State", 2);
                 break;
             case EnemyState.Die:
-                anim.SetInteger("State", 4);
+                anim.SetInteger("State", 3);
                 break;
             case EnemyState.Attack:
-                anim.SetInteger("State", 5);
+                anim.SetInteger("State", 4);
                 break;
         }
     }
 
+    /// <summary>
+    /// Destroys the slime gameobject
+    /// </summary>
     public void Die()
     {
         Destroy(gameObject);
     }
 
 
-    /// <summary>Move towards the player</summary>
+    /// <summary>Move towards the player
+    /// </summary>
     private void Chasing()
     {
         if (player.hidden)
@@ -200,10 +211,10 @@ public class SlimeController : MonoBehaviour
 
     }
 
-    /// <summary>Checks whether the walk is over</summary>
+    /// <summary>Checks whether the walk is over
+    /// </summary>
     private void Walking()
     {
-        //print(transform.position.x - targetWaypoint.x);
         if (facingLeft)
         {
             if (transform.position.x <= targetWaypoint.x)
@@ -226,7 +237,8 @@ public class SlimeController : MonoBehaviour
             SetAnimation();
         }
     }
-    /// <summary>Checks whether idling is over</summary>
+    /// <summary>Checks whether idling is over
+    /// </summary>
     private void Idling()
     {
         timer += Time.deltaTime;
@@ -239,7 +251,24 @@ public class SlimeController : MonoBehaviour
         }
     }
 
-    /// <summary>Checks if it's facing right direction</summary>
+    /// <summary>
+    /// Speeds up the slime when jumping
+    /// </summary>
+    public void SpeedUp()
+    {
+        rb.velocity *= 5;
+    }
+
+    /// <summary>
+    /// Speeds down the slime on the ground
+    /// </summary>
+    public void SpeedDown()
+    {
+        rb.velocity /= 5;
+    }
+
+    /// <summary>Checks if it's facing right direction
+    /// </summary>
     private void FlipCheck()
     {
         if (player.hidden)
@@ -254,13 +283,13 @@ public class SlimeController : MonoBehaviour
             if (player.transform.position.x > transform.position.x)
             {
                 facingLeft = false;
-                transform.localScale = new Vector3(-1, 1, 1);
+                transform.localScale = new Vector3(-1.5f, 1.5f, 1);
             }
         }
         else if (player.transform.position.x < transform.position.x)
         {
             facingLeft = true;
-            transform.localScale = new Vector3(1, 1, 1);
+            transform.localScale = new Vector3(1.5f, 1.5f, 1);
         }
 
         if (facingLeft)
@@ -269,7 +298,8 @@ public class SlimeController : MonoBehaviour
             rb.velocity = new Vector2(speed, 0);
     }
 
-    /// <summary> Allows the editor to show the transform points </summary>
+    /// <summary> Allows the editor to show the transform points 
+    /// </summary>
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.green;
