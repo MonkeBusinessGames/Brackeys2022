@@ -10,6 +10,7 @@ public class Checkpoint : MonoBehaviour
     public int indexNumber;
     [SerializeField] private PlayerController player;
     [SerializeField] private Animator anim;
+    [SerializeField] private GameObject gate;
 
 
     // Start is called before the first frame update
@@ -36,5 +37,10 @@ public class Checkpoint : MonoBehaviour
         }
 
         return Vector2.zero;
+    }
+
+    public void DestroyGate()
+    {
+        Destroy(gate);
     }
 }
