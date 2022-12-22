@@ -34,7 +34,7 @@ public class DialogueManager : MonoBehaviour
     private void Update()
     {
         if(dialoging)
-            if (Input.GetButtonDown("Jump"))
+            if (Input.GetKeyDown("f")) //Input.GetButtonDown("Jump")
                 DisplayNextSentence();
     }
 

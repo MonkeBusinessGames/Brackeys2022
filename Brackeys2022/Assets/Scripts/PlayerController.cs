@@ -88,6 +88,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private AK.Wwise.Event playManaCollectSound;
     [SerializeField] private AK.Wwise.Event playBigManaCollect;
 
+    public bool inDialogue = false; // check if dialogue is already were started
+
     private void Awake()
     {
         print("Awake" + gameObject.GetInstanceID() + gameObject.name);
@@ -441,7 +443,13 @@ public class PlayerController : MonoBehaviour
     {
         if (collider.CompareTag("DialogueTrigger"))
         {
-            collider.GetComponent<DialogueTrigger>().TriggerDialogue();
+            inDialogue = false;
+            if (Input.GetKey("f") && inDialogue == false)
+            {
+                inDialogue = true;
+                collider.GetComponent<DialogueTrigger>().TriggerDialogue();
+            }
+            Debug.Log("Dialogue area entered!");
         }
 
         if (collider.CompareTag("Unstable"))
@@ -495,6 +503,33 @@ public class PlayerController : MonoBehaviour
         {
 
             DamageCheck(collider.transform);
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D collider)
+    {
+        if (collider.CompareTag("DialogueTrigger"))
+        {
+            if (Input.GetKey("f") && inDialogue == false)
+            {
+                inDialogue = true;
+                collider.GetComponent<DialogueTrigger>().TriggerDialogue();
+               // Debug.Log("Dialogue started!");
+            }
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collider)
+    {
+        if (collider.CompareTag("DialogueTrigger"))
+        {
+            inDialogue = false;
+			if (collider.CompareTag("TextAnim"))
+			{
+                collider.GetComponent<TextAnim>().OnExit();
+                // text "Look(f)" - dissapear
+            }
+            Debug.Log("Dialogue area exit!");
         }
     }
     #endregion

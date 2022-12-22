@@ -34,6 +34,10 @@ MonoBehaviour:
     m_Localized: Meep
     m_Metadata:
       m_Items: []
+  - m_Id: 32544611615834112
+    m_Localized: Oh no! <color=purple>Skeleton</color>!
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

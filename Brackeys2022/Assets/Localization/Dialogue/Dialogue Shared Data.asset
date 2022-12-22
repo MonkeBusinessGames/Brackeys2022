@@ -31,6 +31,10 @@ MonoBehaviour:
     m_Key: Opening4
     m_Metadata:
       m_Items: []
+  - m_Id: 32544611615834112
+    m_Key: Oh no! Skeleton!
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
