@@ -444,11 +444,6 @@ public class PlayerController : MonoBehaviour
         if (collider.CompareTag("DialogueTrigger"))
         {
             inDialogue = false;
-            if (Input.GetKey("f") && inDialogue == false)
-            {
-                inDialogue = true;
-                collider.GetComponent<DialogueTrigger>().TriggerDialogue();
-            }
             Debug.Log("Dialogue area entered!");
         }
 
@@ -524,11 +519,6 @@ public class PlayerController : MonoBehaviour
         if (collider.CompareTag("DialogueTrigger"))
         {
             inDialogue = false;
-			if (collider.CompareTag("TextAnim"))
-			{
-                collider.GetComponent<TextAnim>().OnExit();
-                // text "Look(f)" - dissapear
-            }
             Debug.Log("Dialogue area exit!");
         }
     }

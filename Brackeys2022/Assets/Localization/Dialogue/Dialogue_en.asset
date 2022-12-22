@@ -38,6 +38,48 @@ MonoBehaviour:
     m_Localized: Oh no! <color=purple>Skeleton</color>!
     m_Metadata:
       m_Items: []
+  - m_Id: 32871806527799296
+    m_Localized: Seems like I'm stuck here..
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32872012388433920
+    m_Localized: So THAT how it works!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32872337061117952
+    m_Localized: FIGHT ME! >:(
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32872547715842048
+    m_Localized: :3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32872770651488256
+    m_Localized: Howf did u fouwnd mwee??
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32874312980955136
+    m_Localized: Hi, take a seat.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32872649683566592
+    m_Localized: Hey, look! On this skeleton are traces of the <color=yellow>plant</color>
+      that was in the abandoned camp.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32887000851218432
+    m_Localized: ' How did I know where you are?'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32887102491787264
+    m_Localized: Well, do you know that plants - can "<color=yellow>communicate</color>"
+      with each other using chemical signals?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32887352942067712
+    m_Localized: So the answer is - local plants said me such information.
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

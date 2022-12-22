@@ -35,6 +35,46 @@ MonoBehaviour:
     m_Key: Oh no! Skeleton!
     m_Metadata:
       m_Items: []
+  - m_Id: 32871806527799296
+    m_Key: MushroomCat 3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32872012388433920
+    m_Key: MushroomCat 4
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32872337061117952
+    m_Key: MushroomBoy
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32872547715842048
+    m_Key: MushroomCat mini
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32872649683566592
+    m_Key: Floraly 1 (1)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32872770651488256
+    m_Key: MushroomCat 2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32874312980955136
+    m_Key: MushroomCat
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32887000851218432
+    m_Key: Floraly 1 (2)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32887102491787264
+    m_Key: Floraly 1 (3)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32887352942067712
+    m_Key: Floraly 1 (4)
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
