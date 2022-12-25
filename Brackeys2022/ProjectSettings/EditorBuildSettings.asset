@@ -20,6 +20,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Area 4.unity
     guid: d8a6e0a1a370e744fbc0cd5550f46e43
+  - enabled: 1
+    path: Assets/Scenes/Area 5 (Tree).unity
+    guid: d3236588621802a4c992cd08967e3b3d
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: 832cb82af1ec12c47914327ed79bc8a7, type: 2}
     com.unity.localization.settings: {fileID: 11400000, guid: 6140650bd1545054cab0f68845e7672f, type: 2}
